@@ -1,0 +1,641 @@
+[
+  [
+    "Aliceri Materiales",
+    "Corralón",
+    "Obra gruesa y ferretería",
+    "Villa Lugano, CABA / CABA y GBA",
+    "Híbrido",
+    "Precios visibles; cotización por volumen para constructoras. Flete según dirección/volumen.",
+    "https://alicerimateriales.com.ar/"
+  ],
+  [
+    "Materiales Melián",
+    "Corralón",
+    "Materiales y logística",
+    "CABA",
+    "Cotización explícita",
+    "Presupuestos y acopio; flota propia. Confirmar precio final y condiciones por obra.",
+    "https://materialesmelian.com/servicios/"
+  ],
+  [
+    "Cordani Hnos",
+    "Corralón",
+    "Obra gruesa",
+    "Escobar, PBA",
+    "Cotización / acopio",
+    "Acopio congela lista al pago. Envío gratis condicionado a radio 10 km y camión completo.",
+    "https://cordanihnos.com.ar/acopio/"
+  ],
+  [
+    "Materiales Pola",
+    "Corralón",
+    "Obra gruesa",
+    "Mataderos, CABA",
+    "Cotización / acopio",
+    "Solicita presupuesto y ofrece congelar precios mediante acopio.",
+    "https://materialespola.com.ar/"
+  ],
+  [
+    "Materiales Moreno",
+    "Corralón",
+    "Materiales",
+    "Moreno, Álvarez, Luján, José C. Paz",
+    "Acopio; lista histórica",
+    "Acopio publicado. PDF accesible de precios con fecha 08/09/2021: no tratar como lista vigente.",
+    "https://www.materialesmoreno.com.ar/"
+  ],
+  [
+    "Nuciari",
+    "Corralón",
+    "Materiales gruesos",
+    "Moreno / General Rodríguez, PBA",
+    "Cotización / acopio",
+    "Servicio de acopio y congelamiento; condiciones requieren presupuesto.",
+    "https://nuciari.com.ar/servicios/materiales-gruesos/"
+  ],
+  [
+    "Corralón El Veloz",
+    "Corralón",
+    "Materiales / electricidad / plomería",
+    "Pilar, PBA",
+    "Cotización del día",
+    "La web indica precio y disponibilidad del día; no equivale a serie diaria de cambios medida.",
+    "https://elveloz.ar/"
+  ],
+  [
+    "Construcción Vía Web",
+    "Distribuidor",
+    "Materiales / plomería",
+    "Monte Grande, PBA",
+    "Lista pública",
+    "Lista Excel/HTML de fecha 29/08/2026, sin IVA; páginas de tienda pueden tener otra fecha/base impositiva.",
+    "https://www.construccionviaweb.com.ar/"
+  ],
+  [
+    "Blaisten",
+    "Comercio / grandes obras",
+    "Sanitarios y terminaciones",
+    "CABA y GBA",
+    "Híbrido",
+    "Canal online y departamento de grandes obras/presupuestos. Precio web no prueba precio mayorista final.",
+    "https://www.blaisten.com.ar/terminos-y-condiciones"
+  ],
+  [
+    "Electrosurr",
+    "Distribuidor",
+    "Electricidad",
+    "Lanús Este, PBA",
+    "Híbrido",
+    "Precios por unidad/pack; cotización explícita por cantidades mayoristas; descuento transferencia.",
+    "https://electrosurr.com.ar/"
+  ],
+  [
+    "Electrinet SRL",
+    "Distribuidor",
+    "Electricidad",
+    "Rosario, Santa Fe; alcance nacional",
+    "Por cuenta / portal",
+    "Precios por cuenta, disponibilidad y descarga de listas. No clasificar como firma domiciliada en AMBA.",
+    "https://electrinet.com.ar/"
+  ],
+  [
+    "Armatel",
+    "Distribuidor",
+    "Electricidad",
+    "San Andrés, San Martín, PBA",
+    "No relevada",
+    "Stock, entrega propia y atención a obras. La falta de precio observado no demuestra venta exclusivamente por cotización.",
+    "https://w1.armatel.com.ar/quienes-somos/"
+  ],
+  [
+    "TECI SAC",
+    "Distribuidor",
+    "Electricidad industrial",
+    "CABA",
+    "No relevada",
+    "Mayorista eléctrico; catálogo y contacto. Condiciones comerciales pendientes.",
+    "https://www.teci.com.ar/"
+  ],
+  [
+    "Interelec",
+    "Importador / distribuidor",
+    "Electricidad e iluminación",
+    "CABA",
+    "Catálogo; precio no relevado",
+    "No confundir importador con fabricante nacional.",
+    "https://interelec.com.ar/catalogo-categoria/materiales-electricos"
+  ],
+  [
+    "Paternal SRL",
+    "Distribuidor",
+    "Electricidad",
+    "Paternal, CABA",
+    "Tienda; precio no relevado",
+    "Sitio de venta online y condiciones de flete; verificar cada SKU y stock antes de importar precios.",
+    "https://paternalsrl.com.ar/"
+  ],
+  [
+    "Cobla Point",
+    "Distribuidor",
+    "Electricidad",
+    "CABA",
+    "Acopio; precio no relevado",
+    "Ofrece acopio; congelamiento sujeto a condiciones comerciales propias.",
+    "https://coblapoint.com.ar/"
+  ],
+  [
+    "G2E",
+    "Distribuidor",
+    "Energía solar / electricidad",
+    "CABA",
+    "Por cuenta / cotización",
+    "Productos expresados en USD + IVA y conversión bancaria indicada por vendedor; verificar regla al cotizar.",
+    "https://g2e.com.ar/"
+  ],
+  [
+    "Inbaco",
+    "Distribuidor",
+    "Ferretería industrial",
+    "CABA / GBA",
+    "Cotización explícita",
+    "Solicitud de presupuesto; condiciones por pedido.",
+    "https://inbaco.com.ar/"
+  ],
+  [
+    "Ferromil",
+    "Ferretería",
+    "Ferretería y herramientas",
+    "Paternal, CABA",
+    "No relevada",
+    "Identidad y ubicación verificadas; precio no clasificado.",
+    "https://ferromil.com.ar/"
+  ],
+  [
+    "Sanitarios Bonomi",
+    "Comercio",
+    "Sanitarios / griferías",
+    "San Isidro, PBA",
+    "Precio público",
+    "Precios de tienda y condiciones de pago. No se verificó stock físico ni descuento B2B.",
+    "https://sanitariosbonomi.com.ar/"
+  ],
+  [
+    "Sanitarios Morón",
+    "Comercio",
+    "Plomería / sanitarios",
+    "Morón, PBA",
+    "Precio público",
+    "Precios visibles; algunos productos sin stock. Publicación no garantiza disponibilidad.",
+    "https://productos.sanitariosmoron.com.ar/"
+  ],
+  [
+    "Adducci Adrogué",
+    "Distribuidor",
+    "Sanitarios / calefacción",
+    "Adrogué y Tigre, PBA",
+    "No relevada para BA",
+    "La tienda online anunciada corresponde a San Luis; no trasladar ese canal automáticamente a Buenos Aires.",
+    "https://www.adducciadrogue.com.ar/nuevositio/index.html"
+  ],
+  [
+    "Sanitarios Illia",
+    "Comercio",
+    "Plomería / sanitarios",
+    "Cobertura CABA y GBA",
+    "No relevada",
+    "Reglas de flete por zona, monto y dimensiones; revisar restricciones por producto.",
+    "https://sanitariosillia.com.ar/envios/"
+  ],
+  [
+    "Sanitarios Lomas",
+    "Comercio",
+    "Sanitarios",
+    "Lomas de Zamora, PBA",
+    "No relevada",
+    "Catálogo/contacto; precio y frecuencia de actualización pendientes.",
+    "https://www.sanitarioslomas.com.ar/"
+  ],
+  [
+    "Sanitarios Ascensión",
+    "Comercio",
+    "Sanitarios",
+    "Morón y Merlo, PBA",
+    "No relevada",
+    "Red comercial; precio y stock por relevar.",
+    "https://www.sanitariosascension.com/"
+  ],
+  [
+    "Corralón Laprida",
+    "Corralón",
+    "Materiales",
+    "Quilmes, PBA",
+    "Cotización explícita",
+    "Canal de consultas y presupuestos; confirmar alcance y vigencia del precio.",
+    "https://corralonlaprida.com.ar/contacto.php"
+  ],
+  [
+    "Loma Negra",
+    "Fabricante",
+    "Cemento",
+    "Argentina; red comercial",
+    "No relevada",
+    "Integrante de AFCP. No se verificó lista pública vigente ni modalidad comercial por cliente.",
+    "https://www.afcp.org.ar/empresasasociadasafcp"
+  ],
+  [
+    "Holcim Argentina",
+    "Fabricante",
+    "Cemento",
+    "Argentina; red comercial",
+    "No relevada",
+    "Integrante de AFCP. No se verificó lista pública vigente ni modalidad comercial por cliente.",
+    "https://www.afcp.org.ar/empresasasociadasafcp"
+  ],
+  [
+    "Cementos Avellaneda",
+    "Fabricante",
+    "Cemento",
+    "Argentina; red comercial",
+    "No relevada",
+    "Integrante de AFCP. No se verificó lista pública vigente ni modalidad comercial por cliente.",
+    "https://www.afcp.org.ar/empresasasociadasafcp"
+  ],
+  [
+    "PCR",
+    "Fabricante",
+    "Cemento",
+    "Argentina; red comercial",
+    "No relevada",
+    "Integrante de AFCP. No se verificó lista pública vigente ni modalidad comercial por cliente.",
+    "https://www.afcp.org.ar/empresasasociadasafcp"
+  ],
+  [
+    "Gerdau Argentina",
+    "Fabricante",
+    "Acero para construcción",
+    "Argentina; red comercial",
+    "Cotización explícita",
+    "Formulario oficial para solicitar cotización; definir canal y mínimos por operación.",
+    "https://www.gerdau.com.ar/"
+  ],
+  [
+    "Acindar",
+    "Fabricante",
+    "Acero",
+    "Argentina; red comercial",
+    "No relevada",
+    "Aceros para construcción; condiciones comerciales no verificadas.",
+    "https://www.acindar.com.ar/"
+  ],
+  [
+    "Acerbrag",
+    "Fabricante",
+    "Acero",
+    "Argentina; red comercial",
+    "No relevada",
+    "Fabricación de aceros largos, mallas y alambres; contactar canal comercial.",
+    "https://www.acerbrag.com/"
+  ],
+  [
+    "Ternium Argentina",
+    "Fabricante",
+    "Acero",
+    "Argentina; red comercial",
+    "No relevada",
+    "Red de compra y portal; no se verificó lista pública de precios.",
+    "https://ar.ternium.com/es"
+  ],
+  [
+    "Argenplas",
+    "Fabricante",
+    "Cables y conductores",
+    "Argentina; distribuidores",
+    "Lista + cotización",
+    "Lista en pesos PDF/XLS y cotización personalizada. No vende directamente al consumidor final.",
+    "https://www.argenplas.net/"
+  ],
+  [
+    "Prysmian Argentina",
+    "Fabricante",
+    "Cables / electricidad",
+    "Argentina",
+    "No relevada",
+    "Fabricante; tienda consultada con productos no disponibles. Precio directo vigente no verificado.",
+    "https://ar.prysmian.com/es"
+  ],
+  [
+    "Marlew",
+    "Fabricante",
+    "Cables / electricidad",
+    "Ezeiza / CABA",
+    "No relevada",
+    "Cables de potencia, instrumentación y construcción.",
+    "https://www.marlew.com.ar/"
+  ],
+  [
+    "CEDAM",
+    "Fabricante",
+    "Cables / electricidad",
+    "La Plata, PBA",
+    "No relevada",
+    "Fabricación de cables y conductos.",
+    "https://cedam.com.ar/"
+  ],
+  [
+    "Grupo Erpla",
+    "Fabricante",
+    "Cables / electricidad",
+    "Argentina",
+    "No relevada",
+    "Fabricación de conductores de baja tensión.",
+    "https://grupoerpla.com/nuestra-esencia/"
+  ],
+  [
+    "Kalop / Acrópolis Cables",
+    "Fabricante",
+    "Cables / electricidad",
+    "Argentina",
+    "No relevada",
+    "Una entrada para empresa/marca; cables y material eléctrico.",
+    "https://www.kalop.com.ar/"
+  ],
+  [
+    "Grupo Dema",
+    "Fabricante / grupo",
+    "Plomería / sanitarios / bombas",
+    "San Justo, PBA",
+    "No relevada",
+    "Acqua System, Sigas, Duratop y otras líneas son sistemas/marcas del grupo, no proveedores independientes.",
+    "https://grupodema.com.ar/"
+  ],
+  [
+    "IPS / Rotoplas",
+    "Fabricante / grupo",
+    "Plomería / sanitarios / bombas",
+    "Argentina",
+    "No relevada",
+    "IPS pertenece al grupo Rotoplas; no duplicar por cada marca.",
+    "https://ips-arg.com/nosotros/"
+  ],
+  [
+    "Amanco Wavin",
+    "Fabricante / grupo",
+    "Plomería / sanitarios / bombas",
+    "Pablo Podestá, PBA",
+    "Cotización explícita",
+    "Contacto oficial ofrece cotización; confirmar distribuidor y disponibilidad.",
+    "https://wavin.com/ar/contacto"
+  ],
+  [
+    "Tigre Argentina",
+    "Fabricante / grupo",
+    "Plomería / sanitarios / bombas",
+    "Argentina",
+    "No relevada",
+    "Sistemas de tuberías; catálogo no equivale a lista de precios.",
+    "https://www.tigre.com.ar/"
+  ],
+  [
+    "Industrias Saladillo",
+    "Fabricante / grupo",
+    "Plomería / sanitarios / bombas",
+    "Acassuso, PBA",
+    "No relevada",
+    "Hidro 3 es una marca/sistema de Industrias Saladillo. Hay PDF de lista; vigencia interna no validada.",
+    "https://www.industriassaladillo.com.ar/"
+  ],
+  [
+    "FV",
+    "Fabricante / grupo",
+    "Plomería / sanitarios / bombas",
+    "Argentina",
+    "No relevada",
+    "Griferías y red comercial. Precio al cliente de obra pendiente.",
+    "https://fvsa.com/"
+  ],
+  [
+    "Hidromet",
+    "Fabricante / grupo",
+    "Plomería / sanitarios / bombas",
+    "Argentina",
+    "No relevada",
+    "Griferías; catálogo y contacto, sin lista pública verificada.",
+    "https://www.hidromet.com/"
+  ],
+  [
+    "Peirano",
+    "Fabricante / grupo",
+    "Plomería / sanitarios / bombas",
+    "Buenos Aires",
+    "No relevada",
+    "Fabricación de griferías en Buenos Aires.",
+    "https://griferiapeirano.com/"
+  ],
+  [
+    "Roca Argentina",
+    "Fabricante / grupo",
+    "Plomería / sanitarios / bombas",
+    "Argentina",
+    "No relevada",
+    "Fabricación de sanitarios; revisar condiciones por distribuidor y obra.",
+    "https://www.roca.com.ar/sobre-roca"
+  ],
+  [
+    "Johnson Acero",
+    "Fabricante / grupo",
+    "Plomería / sanitarios / bombas",
+    "Argentina",
+    "No relevada",
+    "Fabricación de piletas, mesadas y amoblamientos; alcance nacional.",
+    "https://johnsonacero.com/la-empresa/"
+  ],
+  [
+    "Motorarg",
+    "Fabricante / grupo",
+    "Plomería / sanitarios / bombas",
+    "Valentín Alsina, PBA",
+    "No relevada",
+    "Fabricación y representaciones de bombas/motores; distinguir origen por SKU.",
+    "https://www.motorarg.com.ar/"
+  ],
+  [
+    "Durlock",
+    "Fabricante",
+    "Construcción en seco",
+    "Argentina; red nacional",
+    "No relevada",
+    "Placas y yesos. El directorio de distribuidores permite ampliar el padrón; precios por comercio.",
+    "https://durlock.com/institucional/"
+  ],
+  [
+    "ABB S.A.",
+    "Asociado industrial; rol a validar",
+    "Protección / automatización",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Aparatos Eléctricos Automáticos",
+    "Asociado industrial; rol a validar",
+    "Material eléctrico",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Atomlux",
+    "Asociado industrial; rol a validar",
+    "Iluminación de emergencia",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Barbury Company / Roker",
+    "Asociado industrial; rol a validar",
+    "Tableros",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Cambre",
+    "Asociado industrial; rol a validar",
+    "Material eléctrico",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Cimet",
+    "Asociado industrial; rol a validar",
+    "Conductores",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Conductres",
+    "Asociado industrial; rol a validar",
+    "Conductores",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Conextube",
+    "Asociado industrial; rol a validar",
+    "Canalizaciones",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Conflex",
+    "Asociado industrial; rol a validar",
+    "Canalizaciones",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "DBT / Cramaco",
+    "Asociado industrial; rol a validar",
+    "Generación eléctrica",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Delga",
+    "Asociado industrial; rol a validar",
+    "Material eléctrico industrial",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Electromecánica Brenta / Miron",
+    "Asociado industrial; rol a validar",
+    "Generación eléctrica",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Ferrolux",
+    "Asociado industrial; rol a validar",
+    "Iluminación",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Industrias Juan F. Secco",
+    "Asociado industrial; rol a validar",
+    "Energía",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Industrias MH",
+    "Asociado industrial; rol a validar",
+    "Material eléctrico",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Industrias Sica",
+    "Asociado industrial; rol a validar",
+    "Protección eléctrica",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Jeluz",
+    "Asociado industrial; rol a validar",
+    "Material eléctrico",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Lumenac",
+    "Asociado industrial; rol a validar",
+    "Iluminación",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ],
+  [
+    "Motores Czerweny",
+    "Asociado industrial; rol a validar",
+    "Motores / bombas",
+    "Argentina; sede/cobertura a validar",
+    "No relevada",
+    "Nombre comprobado en directorio CADIEEL. Rubro orientativo; validar planta, oferta, canal y capacidad para obra.",
+    "https://www.cadieel.org.ar/asociado/todos-los-asociados/"
+  ]
+]

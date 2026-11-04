@@ -1,4 +1,5 @@
 "use client";
+import {SupplierDirectory} from "./supplier-directory";
 import {ProductQuotes} from "./product-quotes";
 import {ProtectionLanding} from './protection-landing';
 
@@ -188,7 +189,7 @@ function Page({ route }: { route: Route }) {
   if (route === "entregas") return <PurchasesWorkspace key="deliveries" tab="deliveries"/>;
   if (route === "entregas/oc-1042") return <PurchasesWorkspace key="deliveries" tab="deliveries"/>;
   if (route === "inventario") return <PurchasesWorkspace key="inventory" tab="inventory"/>;
-  if (route === "proveedores") return <CementSuppliers/>;
+  if (route === "proveedores") return <SupplierDirectory/>;
   if (route.startsWith("proveedores/")) return <CementSupplierProfile slug={route.split("/")[1]}/>;
   if (route === "fondos") return <BuyerOverview funds/>;
   if (route === "agente") return <Agent/>;

@@ -1,0 +1,15 @@
+import fs from 'node:fs';import vm from 'node:vm';import ts from 'typescript';import assert from 'node:assert/strict';
+const exports={};vm.runInNewContext(ts.transpileModule(fs.readFileSync('components/supplier-directory-model.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,{exports,URL,URLSearchParams,require:n=>({default:JSON.parse(fs.readFileSync('components/supplier-directory-data.json'))})});
+const m=exports,all=m.supplierDirectory,f=m.defaultDirectoryFilters;
+assert.equal(all.length,1197);assert.equal(new Set(all.map(p=>p.id)).size,1197);assert.equal(all.filter(p=>p.source==='Relevamiento comercial').length,71);assert.equal(all.filter(p=>p.source==='Banco Provincia').length,1126);
+assert.ok(all.filter(p=>p.source==='Banco Provincia').every(p=>p.priceMode==='Precio por relevar'));assert.ok(all.every(p=>m.safeDirectoryUrl(p.sourceUrl)));assert.ok(all.every(p=>p.website===''||m.safeDirectoryUrl(p.website)));
+const makers=m.filterDirectory(all,{...f,kinds:['Fabricante']});assert.ok(makers.length>15);assert.ok(makers.every(p=>p.source==='Relevamiento comercial'));
+const electric=m.filterDirectory(all,{...f,tags:['Electricidad'],province:'Buenos Aires'});assert.ok(electric.length>5);assert.ok(electric.every(p=>p.tags.includes('Electricidad')&&p.province==='Buenos Aires'));
+assert.ok(m.filterDirectory(all,{...f,query:'melian'}).some(p=>p.name==='Materiales Melián'));
+assert.ok(m.filterDirectory(all,{...f,query:'argenplas'}).some(p=>p.priceMode==='Lista de precios'));
+assert.equal(m.filterDirectory(all,{...f,query:'empresa-no-existe-1a2b3c'}).length,0);
+assert.equal(m.filterDirectory(all,{...f,favoritesOnly:true},['supplier-directory:'+all[0].id]).length,1);
+const selected={...f,query:'cable',tags:['Cables y conductores','Electricidad'],kinds:['Fabricante'],province:'Buenos Aires',websiteOnly:true,sort:'name'};
+const restored=m.readDirectoryFilters(new URL(m.directoryHref(selected),'https://obra-clara-comprador.vercel.app').searchParams);assert.equal(JSON.stringify(restored),JSON.stringify(selected));assert.equal(m.filterDirectory(all,{...f,websiteOnly:true}).every(p=>!!p.website),true);
+for(const bad of ['javascript:alert(1)','http://example.com','https://user:password@example.com','data:text/html,hello'])assert.equal(m.safeDirectoryUrl(bad),'');
+console.log('PASS 1,197 unique sourced directory entries; 71 researched profiles + 1,126 outlets/channels; no invented pricing for bank records; manufacturer/electrical/geographic/text/favorite filters; URL round-trip; external URL validation and empty results.');
