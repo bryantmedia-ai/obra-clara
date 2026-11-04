@@ -944,6 +944,62 @@
     "checkedAt": "2026-11-04",
     "products": [
       {
+        "name": "AUTÓNOMA A70 10W",
+        "sourceUrl": "https://interelec.com.ar/productos/autonoma-a70-10w",
+        "image": "https://interelec.com.ar/back/uploads/600x600%20-%20copia(1).jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/autonoma-a70-10w",
+        "kind": "product",
+        "imageVerifiedAt": "2026-11-04"
+      },
+      {
+        "name": "A60 FOTOCÉLULA 10W",
+        "sourceUrl": "https://interelec.com.ar/productos/a60-fotocelula-10w",
+        "image": "https://interelec.com.ar/back/uploads/600x600(5).jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/a60-fotocelula-10w",
+        "kind": "product",
+        "imageVerifiedAt": "2026-11-04"
+      },
+      {
+        "name": "CONECTOR IP68 CP20",
+        "sourceUrl": "https://interelec.com.ar/productos/conector-ip68-cp20",
+        "image": "https://interelec.com.ar/back/uploads/CP20.jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/conector-ip68-cp20",
+        "kind": "product",
+        "imageVerifiedAt": "2026-11-04"
+      },
+      {
+        "name": "CONECTOR IP68 CP20T",
+        "sourceUrl": "https://interelec.com.ar/productos/conector-ip68-cp20t",
+        "image": "https://interelec.com.ar/back/uploads/CP20T(2).jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/conector-ip68-cp20t",
+        "kind": "product",
+        "imageVerifiedAt": "2026-11-04"
+      },
+      {
+        "name": "CONECTOR IP68 CP20X",
+        "sourceUrl": "https://interelec.com.ar/productos/conector-ip68-cp20x",
+        "image": "https://interelec.com.ar/back/uploads/CP20X(2).jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/conector-ip68-cp20x",
+        "kind": "product",
+        "imageVerifiedAt": "2026-11-04"
+      },
+      {
+        "name": "DESOLDADOR",
+        "sourceUrl": "https://interelec.com.ar/productos/desoldador",
+        "image": "https://interelec.com.ar/back/uploads/600x600(10).jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/desoldador",
+        "kind": "family",
+        "imageVerifiedAt": "2026-11-04"
+      },
+      {
+        "name": "ALTA POTENCIA AUTÓNOMA",
+        "sourceUrl": "https://interelec.com.ar/productos/alta-potencia-autonoma-20w",
+        "image": "https://interelec.com.ar/back/uploads/600x600(7).jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/alta-potencia-autonoma-20w",
+        "kind": "family",
+        "imageVerifiedAt": "2026-11-04"
+      },
+      {
         "name": "LÁMPARA LED A60 12V | 9W",
         "sourceUrl": "https://interelec.com.ar/productos/lampara-led-a60-12v-9w",
         "image": "",
@@ -1002,13 +1058,6 @@
       {
         "name": "LUMINARIA DE EMERGENCIA CON BATERÍA REEMPLAZABLE 60LEDS",
         "sourceUrl": "https://interelec.com.ar/productos/luminaria-de-emergencia-con-bateria-reemplazable-60leds",
-        "image": "",
-        "kind": "product",
-        "imageSourceUrl": "https://interelec.com.ar/"
-      },
-      {
-        "name": "AUTÓNOMA A70 10W",
-        "sourceUrl": "https://interelec.com.ar/productos/autonoma-a70-10w",
         "image": "",
         "kind": "product",
         "imageSourceUrl": "https://interelec.com.ar/"

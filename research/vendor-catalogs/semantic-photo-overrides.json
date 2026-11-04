@@ -212,5 +212,130 @@
         "imageSourceUrl": "https://www.holcim.com.ar/productos-y-servicios/productos/cementos/cementos-en-bolsa"
       }
     ]
+  },
+  {
+    "name": "Interelec",
+    "products": [
+      {
+        "name": "LÁMPARA LED A60 12V | 9W",
+        "sourceUrl": "https://interelec.com.ar/productos/lampara-led-a60-12v-9w",
+        "image": "",
+        "kind": "product",
+        "imageSourceUrl": "https://interelec.com.ar/"
+      },
+      {
+        "name": "INTERRUPTOR TERMOMAGNÉTICO UN POLO",
+        "sourceUrl": "https://interelec.com.ar/productos/interruptores-termomagneticos-un-polo-1x6a",
+        "image": "",
+        "kind": "product",
+        "imageSourceUrl": "https://interelec.com.ar/"
+      },
+      {
+        "name": "INTERRUPTOR TERMOMAGNÉTICO DOS POLOS",
+        "sourceUrl": "https://interelec.com.ar/productos/interruptores-termomagneticos-dos-polos-2x6a",
+        "image": "",
+        "kind": "product",
+        "imageSourceUrl": "https://interelec.com.ar/"
+      },
+      {
+        "name": "INTERRUPTOR TERMOMAGNÉTICO TRES POLOS",
+        "sourceUrl": "https://interelec.com.ar/productos/interruptores-termomagneticos-tres-polos-3x6a",
+        "image": "",
+        "kind": "product",
+        "imageSourceUrl": "https://interelec.com.ar/"
+      },
+      {
+        "name": "INTERRUPTOR TERMOMAGNÉTICO CUATRO POLOS",
+        "sourceUrl": "https://interelec.com.ar/productos/interruptor-termomagnetico-cuatro-polos-4x6a",
+        "image": "",
+        "kind": "product",
+        "imageSourceUrl": "https://interelec.com.ar/"
+      },
+      {
+        "name": "INTERRUPTOR DIFERENCIAL(CLASE AC) CUATRO POLOS",
+        "sourceUrl": "https://interelec.com.ar/productos/interruptores-diferencial-4-polos-3pnx40a",
+        "image": "",
+        "kind": "product",
+        "imageSourceUrl": "https://interelec.com.ar/"
+      },
+      {
+        "name": "INTERRUPTOR DIFERENCIAL (CLASE AC) DOS POLOS 2x25A",
+        "sourceUrl": "https://interelec.com.ar/productos/interruptores-diferencial-2-polos-1pn",
+        "image": "",
+        "kind": "product",
+        "imageSourceUrl": "https://interelec.com.ar/"
+      },
+      {
+        "name": "LUMINARIA DE EMERGENCIA CON BATERÍA REEMPLAZABLE 30LEDS",
+        "sourceUrl": "https://interelec.com.ar/productos/luminaria-de-emergencia-con-bateria-reemplazable-30leds",
+        "image": "",
+        "kind": "product",
+        "imageSourceUrl": "https://interelec.com.ar/"
+      },
+      {
+        "name": "LUMINARIA DE EMERGENCIA CON BATERÍA REEMPLAZABLE 60LEDS",
+        "sourceUrl": "https://interelec.com.ar/productos/luminaria-de-emergencia-con-bateria-reemplazable-60leds",
+        "image": "",
+        "kind": "product",
+        "imageSourceUrl": "https://interelec.com.ar/"
+      },
+      {
+        "name": "AUTÓNOMA A70 10W",
+        "sourceUrl": "https://interelec.com.ar/productos/autonoma-a70-10w",
+        "image": "",
+        "kind": "product",
+        "imageSourceUrl": "https://interelec.com.ar/"
+      },
+      {
+        "name": "A60 FOTOCÉLULA 10W",
+        "sourceUrl": "https://interelec.com.ar/productos/a60-fotocelula-10w",
+        "image": "https://interelec.com.ar/back/uploads/600x600(5).jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/a60-fotocelula-10w",
+        "kind": "product"
+      },
+      {
+        "name": "ALTA POTENCIA AUTÓNOMA",
+        "sourceUrl": "https://interelec.com.ar/productos/alta-potencia-autonoma-20w",
+        "image": "https://interelec.com.ar/back/uploads/600x600(7).jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/alta-potencia-autonoma-20w",
+        "kind": "product"
+      },
+      {
+        "name": "AUTÓNOMA A70 10W",
+        "sourceUrl": "https://interelec.com.ar/productos/autonoma-a70-10w",
+        "image": "https://interelec.com.ar/back/uploads/600x600%20-%20copia(1).jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/autonoma-a70-10w",
+        "kind": "product"
+      },
+      {
+        "name": "CONECTOR IP68 CP20",
+        "sourceUrl": "https://interelec.com.ar/productos/conector-ip68-cp20",
+        "image": "https://interelec.com.ar/back/uploads/CP20.jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/conector-ip68-cp20",
+        "kind": "product"
+      },
+      {
+        "name": "CONECTOR IP68 CP20T",
+        "sourceUrl": "https://interelec.com.ar/productos/conector-ip68-cp20t",
+        "image": "https://interelec.com.ar/back/uploads/CP20T(2).jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/conector-ip68-cp20t",
+        "kind": "product"
+      },
+      {
+        "name": "CONECTOR IP68 CP20X",
+        "sourceUrl": "https://interelec.com.ar/productos/conector-ip68-cp20x",
+        "image": "https://interelec.com.ar/back/uploads/CP20X(2).jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/conector-ip68-cp20x",
+        "kind": "product"
+      },
+      {
+        "name": "DESOLDADOR",
+        "sourceUrl": "https://interelec.com.ar/productos/desoldador",
+        "image": "https://interelec.com.ar/back/uploads/600x600(10).jpg",
+        "imageSourceUrl": "https://interelec.com.ar/productos/desoldador",
+        "kind": "product"
+      }
+    ],
+    "keepAll": true
   }
 ]

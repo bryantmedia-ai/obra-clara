@@ -593,6 +593,48 @@
     "checkedAt": "2026-11-04",
     "sampleSha256": "4e21944dfe03f16b769bfdf8caf8c978e0121a794323c592dd2b7b5559639340"
   },
+  "https://interelec.com.ar/back/uploads/600x600%20-%20copia(1).jpg": {
+    "valid": true,
+    "contentType": "image/jpeg",
+    "checkedAt": "2026-11-04",
+    "sampleSha256": "aaf3d2765ae412db6e00c828553c35489e988df0ce90907493ee111cc07088e1"
+  },
+  "https://interelec.com.ar/back/uploads/600x600(5).jpg": {
+    "valid": true,
+    "contentType": "image/jpeg",
+    "checkedAt": "2026-11-04",
+    "sampleSha256": "fafecdbc9d00e0c9a3fe556e1736d015f4d35a539d73d9c4f5cb58d5e66cd9e1"
+  },
+  "https://interelec.com.ar/back/uploads/CP20.jpg": {
+    "valid": true,
+    "contentType": "image/jpeg",
+    "checkedAt": "2026-11-04",
+    "sampleSha256": "0db513195adf9757f1518bac6f17bf6f329acce25bce36039d3cbc3f468ea568"
+  },
+  "https://interelec.com.ar/back/uploads/CP20T(2).jpg": {
+    "valid": true,
+    "contentType": "image/jpeg",
+    "checkedAt": "2026-11-04",
+    "sampleSha256": "3c77b6b2afd05c283b9a72d8c45dbaccaf8fee77660aeb4fd35a8a94e05aa332"
+  },
+  "https://interelec.com.ar/back/uploads/CP20X(2).jpg": {
+    "valid": true,
+    "contentType": "image/jpeg",
+    "checkedAt": "2026-11-04",
+    "sampleSha256": "64b6e4ef7577eb3c3760f64494439e4762c38897bb6c4382ae9d87ea9eca590d"
+  },
+  "https://interelec.com.ar/back/uploads/600x600(10).jpg": {
+    "valid": true,
+    "contentType": "image/jpeg",
+    "checkedAt": "2026-11-04",
+    "sampleSha256": "0f9348da3c8df94c07b4a85c9e077c9a0834e66ab685f355bb5f43bf56081406"
+  },
+  "https://interelec.com.ar/back/uploads/600x600(7).jpg": {
+    "valid": true,
+    "contentType": "image/jpeg",
+    "checkedAt": "2026-11-04",
+    "sampleSha256": "955599c6f8d1d7bd630e0ec7b5093f382076d7e9f9b140b0312f9f4558ca9207"
+  },
   "https://www.somoslenzi.com.ar/web/image/product.brand/21/image_128/0x30": {
     "valid": false,
     "reason": "Tiny image",

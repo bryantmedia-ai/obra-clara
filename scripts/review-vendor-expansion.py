@@ -5,7 +5,7 @@ import json,re,hashlib,html,unicodedata,urllib.request,urllib.parse,concurrent.f
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];FOLDER=ROOT/'research/vendor-catalogs/expansion'
 def norm(s):return re.sub(r'[^a-z0-9]+',' ',unicodedata.normalize('NFD',html.unescape(s)).encode('ascii','ignore').decode().lower()).strip()
-reject=re.compile(r'^see more$|whatsapp image|^skip|^saltar|^ir al|^previo|^siguiente|^anterior|^agotado$|^add |lee m[aá]s|^carrusel|^detalles$|^m[aá]s info|^precio|^carrito|^favorito|ver detalle|nuevos espacios|certificaci[oó]n uniview|newsletter|instagram|^contact|^inici|^oferta[s]?$|^entrar|^cerrar|^espa[nñ]ol|^english',re.I)
+reject=re.compile(r'^caracter[ií]sticas$|^caracater[ií]sticas$|^descripci[oó]n:?$|^see more$|whatsapp image|^skip|^saltar|^ir al|^previo|^siguiente|^anterior|^agotado$|^add |lee m[aá]s|^carrusel|^detalles$|^m[aá]s info|^precio|^carrito|^favorito|ver detalle|nuevos espacios|certificaci[oó]n uniview|newsletter|instagram|^contact|^inici|^oferta[s]?$|^entrar|^cerrar|^espa[nñ]ol|^english',re.I)
 keywords=re.compile(r'cemento|hierro|acero|ca[nñ]o|cable|soldad|rotomartillo|amoladora|taladro|compresor|generador|el[eé]ctr|led|interrupt|tablero|bomba|placa|termofus|hormig|impermeab|ceresita|revoque|porcela|grifer|inodoro|sanitario|membrana|desag|perfil|malla|mortero|bloque|ladrillo|vigueta|termotan|calef[oó]n|adhesivo|revest|masilla|aislante|herramient',re.I)
 def clean(p):
  p=dict(p);n=html.unescape(p['name']);n=re.sub(r'\s+',' ',n).strip();n=re.sub(r'\s*0 de 5.*$','',n);n=re.sub(r'^\d\) ','',n)
