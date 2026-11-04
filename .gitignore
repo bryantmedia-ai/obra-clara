@@ -2,6 +2,8 @@ node_modules
 .pnpm-store
 .next
 .vercel
+.wrangler
+cloudflare/private
 .DS_Store
 *.log
 *.tsbuildinfo

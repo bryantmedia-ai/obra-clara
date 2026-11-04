@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-04",
+  "targetCloudflareAccount": "mktbyjazmin@gmail.com",
+  "targetAccountId": "aed96cd9606d309a45ffde168716a445",
+  "status": "prepared-not-deployed",
+  "paidPlanActivated": false,
+  "productionEndpointChanged": false,
+  "existingDataReset": false,
+  "sourceStore": {
+    "status": "limits-exceeded-suspended",
+    "workspaces": 31,
+    "bytes": 5176350
+  },
+  "checks": {
+    "typecheck": "pass",
+    "workerDryRun": "pass",
+    "workerGzipKiB": 284.03,
+    "sqliteHandlerRegression": "pass",
+    "localWorkerdD1ReadWrite": "pass",
+    "buyerProviderOriginSyncLocal": "pass",
+    "existingSharedOrderRegression": "pass"
+  },
+  "blockers": [
+    "Cloudflare Wrangler consent page renders blank after device code validation; OAuth not complete.",
+    "Owner selected preserving original workspace and waiting for source recovery; source export remains blocked."
+  ],
+  "productionBrowserVerification": "not run; endpoint not switched"
+}
