@@ -23,7 +23,7 @@ async function handle(req:NextRequest){
    try{await put(path,JSON.stringify(next),{access:'private',addRandomSuffix:false,contentType:'application/json',...(blob?{allowOverwrite:true,ifMatch:metadata!.etag}:{allowOverwrite:false})});return NextResponse.json(snapshot(next),{headers:h});}
    catch(error){const retry=error instanceof BlobPreconditionFailedError||error instanceof BlobServiceRateLimited||(error instanceof Error&&/already exists/i.test(error.message));if(!retry||attempt===4)throw error;await new Promise(r=>setTimeout(r,Math.max(1100,error instanceof BlobServiceRateLimited?error.retryAfter*1000:0)));}
   }
- }catch(error){console.error('Shared workspace:',error instanceof Error?{kind:error.constructor.name,message:error.message.replace(/vercel_blob_rw_[A-Za-z0-9_]+/g,'[redacted]')}: 'error');return NextResponse.json({error:error instanceof Error&& !/token|blob|storage/i.test(error.message)?error.message:'No se pudo guardar. Intentá nuevamente.'},{status:400,headers:h});}
+ }catch(error){console.error('Shared workspace:',error instanceof Error?{kind:error.constructor.name,message:error.message.replace(/vercel_blob_rw_[A-Za-z0-9_]+/g,'[redacted]')}: 'error');return NextResponse.json({error:error instanceof Error&& !/token|blob|storage/i.test(error.message)?error.message:'No se pudo acceder al almacenamiento compartido. Los datos existentes se conservan; intentá reconectar más tarde.'},{status:error instanceof Error&&/token|blob|storage/i.test(error.message)?503:400,headers:h});}
  return NextResponse.json({error:'Reintentá la operación.'},{status:409,headers:h});
 }
 export const GET=handle;export const POST=handle;

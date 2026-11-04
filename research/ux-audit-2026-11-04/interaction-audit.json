@@ -1,0 +1,235 @@
+{
+  "date": "2026-11-04",
+  "scope": "Interaction regression audit in progress; not a claim of exhaustive SaaS coverage",
+  "checks": [
+    {
+      "environment": "production-before-suspension",
+      "screen": "Fondos",
+      "action": "Context geometry",
+      "result": "pass",
+      "observed": "Two selects, status and refresh all 44px high, vertical centers y=258 at desktop"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Proyectos",
+      "action": "Custom empty range",
+      "result": "pass",
+      "observed": "1–2 January applied: 0 purchases and 0 period spend; lifetime total preserved"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Proyectos",
+      "action": "Invalid date",
+      "result": "pass",
+      "observed": "31/02/2026 disables Apply"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Proyectos",
+      "action": "Cancel date edit",
+      "result": "pass",
+      "observed": "Previously applied January range retained"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Proyectos",
+      "action": "Calendar selection",
+      "result": "pass",
+      "observed": "2 November via day buttons: 10 orders, 33.89M period spend"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Proyectos",
+      "action": "Reset period",
+      "result": "pass",
+      "observed": "Returns to current month and clears scoped filters"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Proyectos",
+      "action": "Four-step editor",
+      "result": "pass",
+      "observed": "Obra, location/budget, reception and rates preserve entered name"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Proyectos",
+      "action": "Save and reload",
+      "result": "pass",
+      "observed": "Torre San Telmo QA remains after a full reload"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Proyectos",
+      "action": "Discard edit",
+      "result": "pass",
+      "observed": "Discard restores previously saved project detail"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Proyectos",
+      "action": "Detail tabs",
+      "result": "pass",
+      "observed": "Suppliers, orders, movements and project information render corresponding content"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Proyectos",
+      "action": "Comparison table",
+      "result": "pass",
+      "observed": "Table shows period, accumulated, paid, reserved and budget columns"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Fondos",
+      "action": "Last and first page",
+      "result": "pass",
+      "observed": "Last disables next; first restores page one"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Fondos",
+      "action": "Search",
+      "result": "pass",
+      "observed": "OC-OBRA-STL narrows to exactly one manageable contract"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Fondos",
+      "action": "Pause",
+      "result": "pass",
+      "observed": "Payment capacity changes 690075 to zero; state Pausada"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Fondos",
+      "action": "Resume",
+      "result": "pass",
+      "observed": "Restores 690075 payment capacity"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Fondos",
+      "action": "Create payment instruction",
+      "result": "pass",
+      "observed": "1000 ARGt creates Pending approval instruction with entered reason"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Fondos",
+      "action": "Approve",
+      "result": "pass",
+      "observed": "0/1 becomes 1/1, state Aprobada; execution becomes separately available"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Fondos",
+      "action": "Record execution",
+      "result": "pass",
+      "observed": "State Registrada, unique OC-TX reference, capacity reduced by 1000; no network transfer"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Fondos",
+      "action": "Movement",
+      "result": "pass",
+      "observed": "Recorded payment appears as 1000 ARGt with same reference"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Fondos",
+      "action": "Role restrictions",
+      "result": "pass",
+      "observed": "Administration cannot edit rules; Finance director can; Auditor cannot"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Fondos",
+      "action": "Save policy",
+      "result": "pass",
+      "observed": "Unchanged amounts with new reason recorded in audit under Finance director"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Fondos",
+      "action": "Reconcile",
+      "result": "pass",
+      "observed": "ING-241: pending statement lines reduce two to one, audit adds 1250000 to wallet"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Compras",
+      "action": "Project scope",
+      "result": "pass",
+      "observed": "San Telmo filter leaves one matching order"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Compras",
+      "action": "Payment propagation",
+      "result": "pass",
+      "observed": "Order shows 1000 recorded payment and reserve reduced by 1000"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Compras",
+      "action": "Partial receipt",
+      "result": "pass",
+      "observed": "Conformity increases 10/20 to 11/20; payment remains separate"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Inventario",
+      "action": "Receipt propagation",
+      "result": "pass",
+      "observed": "Reflector stock becomes 6 with original order and project references"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Inventario",
+      "action": "Reserve stock",
+      "result": "pass",
+      "observed": "Physical6, reserved2, available4 after reservation"
+    },
+    {
+      "environment": "isolated-api",
+      "screen": "Compras",
+      "action": "Navigation",
+      "result": "pass",
+      "observed": "Entregas and Cotizaciones tabs lead to their respective screens"
+    }
+  ],
+  "corrections": [
+    "Native select vertical geometry and Fondos contextual toolbar alignment",
+    "Explicit project custom range editor with Apply/Cancel and applied range summary",
+    "Accessible calendar and DD/MM/YYYY input; rejects impossible dates",
+    "Shared refresh coalesces concurrent requests and returns success/failure",
+    "Failed refresh preserves previous data and does not claim updated balances",
+    "Automatic refresh reduced to 60 seconds and stops on connection errors",
+    "Storage access errors return service unavailable and an explanatory message"
+  ],
+  "productionBlocker": {
+    "store": "obra-clara-demo-compartida",
+    "status": "limits-exceeded-suspended",
+    "cause": "team Blob Simple Operations: 10147 / 10000",
+    "observedBreakdown": {
+      "obra-clara-demo-compartida": 8469,
+      "tino-jury-state": 1678
+    },
+    "implication": "Cannot verify production persistence or complete cross-role end-to-end checks until storage access restored"
+  },
+  "remaining": [
+    "Finish unique controls across Marketplace, cart and transport flows",
+    "Complete supplier and provider form audit and cross-role quotations/order transitions",
+    "Brick history, attachments and archive/restore interactions",
+    "Dashboard and settings complete interaction pass",
+    "Production replay of successful isolated mutations after service restoration"
+  ],
+  "automation": [
+    "check-shared-refresh.mjs: concurrent requests, success/failure, data preservation, reconnection",
+    "check-project-accounts.mjs",
+    "check-finance.mjs",
+    "check-procurement.mjs"
+  ],
+  "earlierFailedAttempt": "Native date input could not reliably commit through the browser automation. Replaced by explicit text + in-app calendar and retested successfully."
+}
