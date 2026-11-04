@@ -1,0 +1,62 @@
+"use client";
+import {useEffect,useState} from "react";
+import {useRouter} from "next/navigation";
+import Link from "next/link";
+import {transportServices,transportGroups,TransportService} from "./transport-data";
+import {addCartTransport,useCart,cargoWeightLabel} from "./cart-store";
+import {FavoriteButton} from "./favorite-button";
+import {useFavorites} from "./favorites-store";
+import {filterTransportServices} from "./transport-filters";
+import {CatalogGrid} from "./catalog-grid";
+import {TransportProviderList} from "./transport-provider-list";
+
+export function TransportCard({service,productId=""}:{service:TransportService;productId?:string}){
+ const router=useRouter();
+ return <article className="product-card transport-card"><FavoriteButton itemId={`transport:${service.id}`} name={service.name}/><div className="transport-photo"><img src={`/transport/${service.image}.jpg`} alt={service.name} loading="lazy"/></div><div className="product-sale-format"><span className="sale-weight">{service.kind}</span><span className="sale-units">Por servicio</span></div><div className="product-body"><h3>{service.name}</h3><p>{service.cargo}</p><span className="badge">{service.group}</span><TransportProviderList serviceId={service.id} onChoose={providerId=>{addCartTransport(service.id,productId,providerId);router.push("/carrito");}}/></div></article>;
+}
+
+export function TransportCatalog({embedded=false,favoritesOnly=false}:{embedded?:boolean;favoritesOnly?:boolean}){
+ const favorites=useFavorites();
+ const [localFavoritesOnly,setLocalFavoritesOnly]=useState(false);
+ const [query,setQuery]=useState("");
+ const [selectedIds,setSelectedIds]=useState<string[]>([]);
+ const [productId,setProductId]=useState("");
+ const cart=useCart();
+ const onlyFavorites=favoritesOnly||localFavoritesOnly;
+ useEffect(()=>{setProductId(new URLSearchParams(window.location.search).get("producto")??"");},[]);
+ const product=cart.products.find(p=>p.id===productId);
+ const filtered=filterTransportServices({query,selectedIds,favoritesOnly:onlyFavorites,favoriteKeys:favorites});
+ const favoriteCount=transportServices.filter(service=>favorites.includes(`transport:${service.id}`)).length;
+ function toggleType(id:string){setSelectedIds(selected=>selected.includes(id)?selected.filter(value=>value!==id):[...selected,id]);}
+ function toggleGroup(ids:string[]){setSelectedIds(selected=>ids.every(id=>selected.includes(id))?selected.filter(id=>!ids.includes(id)):[...new Set([...selected,...ids])]);}
+ function clearFilters(){setSelectedIds([]);setQuery("");setLocalFavoritesOnly(false);}
+ const filters=<aside className="market-filters panel transport-filters" aria-label="Filtros de transporte">
+  <div><label className="favorites-filter"><input type="checkbox" aria-label="Mostrar transportes favoritos" checked={onlyFavorites} disabled={favoritesOnly} onChange={e=>setLocalFavoritesOnly(e.target.checked)}/><span aria-hidden="true">♥</span>Favoritos<span className="filter-count">{favoriteCount}</span></label></div>
+  <div><h3>Tipos de transporte</h3><label><input type="checkbox" checked={!selectedIds.length} onChange={()=>setSelectedIds([])}/>Todos los transportes<span className="filter-count">{transportServices.length}</span></label></div>
+  {transportGroups.map(group=>{
+   const services=transportServices.filter(service=>service.group===group);
+   const ids=services.map(service=>service.id);
+   const checked=ids.every(id=>selectedIds.includes(id));
+   const partial=!checked&&ids.some(id=>selectedIds.includes(id));
+   return <div className="transport-filter-group" key={group}>
+    <label className="transport-group-label"><input type="checkbox" aria-label={`Seleccionar todos: ${group}`} checked={checked} ref={node=>{if(node)node.indeterminate=partial;}} onChange={()=>toggleGroup(ids)}/>{group}<span className="filter-count">{services.length}</span></label>
+    <details><summary>Ver tipos de {group.toLocaleLowerCase("es")}</summary><div className="transport-type-options">{services.map(service=><label key={service.id}><input type="checkbox" checked={selectedIds.includes(service.id)} onChange={()=>toggleType(service.id)}/>{service.name}</label>)}</div></details>
+   </div>;
+  })}
+  <div><button className="button secondary full" onClick={clearFilters}>Limpiar filtros</button></div>
+ </aside>;
+ return <div className="transport-catalog">
+  {!embedded&&<section className="market-introduction"><h2>La entrega también <span className="title-orange">es parte de la compra.</span></h2><p>Desde un flete urbano hasta una carga especial. Elegí el transporte, la descarga y el destino de tu obra.</p></section>}
+  {product&&<div className="transport-linked"><div><strong>Transporte para {product.name}</strong><p>{product.quantity} {product.quantity===1?"presentación":"presentaciones"} · {cargoWeightLabel(product)} · Retiro: {product.pickup}</p></div><Link href="/carrito">Ver compra →</Link></div>}
+  <div className={`transport-layout${embedded?" transport-embedded":""}`}>
+   {!embedded&&filters}
+   <div className="transport-results">
+    {embedded&&<details className="transport-inline-filters"><summary>Filtrar por tipo de transporte</summary>{filters}</details>}
+    <div className="transport-toolbar"><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Buscar vehículo, equipo o tipo de carga…" aria-label="Buscar transporte"/></div>
+    <div className="section-head"><h2>{filtered.length} {filtered.length===1?"servicio":"servicios"} de transporte y entrega</h2><Link href="/carrito" className="button secondary">Ver carrito</Link></div>
+    <CatalogGrid noun="servicios" resetKey={JSON.stringify([query,selectedIds,onlyFavorites])} items={filtered.map(service=><TransportCard key={service.id} service={service} productId={productId}/>)}/>
+    {!filtered.length&&<div className="panel"><h3>No encontramos transportes con estos filtros.</h3><p className="muted">Probá otros tipos de transporte o cambiá la búsqueda.</p><button className="button secondary" onClick={clearFilters}>Limpiar filtros</button></div>}
+   </div>
+  </div>
+ </div>;
+}

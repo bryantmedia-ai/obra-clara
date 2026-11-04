@@ -1,0 +1,1329 @@
+[
+  {
+    "id": "moto",
+    "name": "MotoMensajería",
+    "url": "https://motomensajeria.net.ar/",
+    "zone": "CABA y GBA",
+    "services": "Mensajería y envíos urbanos en moto.",
+    "confirmed": [
+      "moto"
+    ],
+    "inquiry": [
+      "utilitario"
+    ],
+    "hours": "Lun a sáb 7–20 h",
+    "rates": {
+      "moto": {
+        "amount": 10000,
+        "currency": "ARS",
+        "unit": "viaje mínimo",
+        "conditions": "Mínimo CABA con IVA; confirmar recorrido. Lluvia: recargo publicado del 50%.",
+        "source": "https://motomensajeria.net.ar/"
+      }
+    },
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "moto-dn",
+    "name": "Motomensajería DN",
+    "url": "https://mensajeriaenmotodn.com.ar/",
+    "zone": "CABA y GBA",
+    "services": "Cadetería y entregas en moto.",
+    "confirmed": [
+      "moto"
+    ],
+    "inquiry": [],
+    "hours": "Lun a vie 9–18 h",
+    "rates": {
+      "moto": {
+        "amount": 15000,
+        "currency": "ARS",
+        "unit": "viaje mínimo",
+        "conditions": "Referencia CABA sin IVA. Provincia: mínimo ARS 25.000; recorrido y esperas aparte.",
+        "source": "https://mensajeriaenmotodn.com.ar/"
+      }
+    },
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "lenz",
+    "name": "Lenz Envíos",
+    "url": "https://jnenvios.com/motomensajeria/",
+    "zone": "Buenos Aires",
+    "services": "Mensajería urgente para empresas y particulares.",
+    "confirmed": [
+      "moto"
+    ],
+    "inquiry": [],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "retro",
+    "name": "Retroflet",
+    "url": "https://retroflet.com.ar/",
+    "zone": "CABA, Vicente López, San Isidro, San Martín y Tres de Febrero",
+    "services": "Furgones, pickups, camiones y ayudantes.",
+    "confirmed": [
+      "manual"
+    ],
+    "inquiry": [
+      "utilitario",
+      "pickup",
+      "pickup-cupula",
+      "furgon-corto",
+      "furgon-largo",
+      "liviano",
+      "furgon",
+      "lona",
+      "pallets",
+      "entre-obras",
+      "sensibles"
+    ],
+    "hours": "Turno a coordinar",
+    "rates": {
+      "furgon-corto": {
+        "amount": 35200,
+        "currency": "ARS",
+        "unit": "hora",
+        "conditions": "Furgón publicado, mínimo 2 h. Confirmar medidas; fuera de zona suma kilómetros.",
+        "source": "https://retroflet.com.ar/"
+      },
+      "utilitario": {
+        "amount": 35200,
+        "currency": "ARS",
+        "unit": "hora",
+        "conditions": "Referencia del furgón publicado, mínimo 2 h; confirmar unidad pequeña.",
+        "source": "https://retroflet.com.ar/"
+      },
+      "pickup": {
+        "amount": 42000,
+        "currency": "ARS",
+        "unit": "hora",
+        "conditions": "Pickup 100 publicada, mínimo 2 h; confirmar carrocería y carga.",
+        "source": "https://retroflet.com.ar/"
+      },
+      "liviano": {
+        "amount": 62800,
+        "currency": "ARS",
+        "unit": "hora",
+        "conditions": "Camión publicado, mínimo 4 h; confirmar tamaño. Kilómetros fuera de zona aparte.",
+        "source": "https://retroflet.com.ar/"
+      },
+      "furgon": {
+        "amount": 62800,
+        "currency": "ARS",
+        "unit": "hora",
+        "conditions": "Referencia camión, mínimo 4 h; confirmar caja cerrada y capacidad.",
+        "source": "https://retroflet.com.ar/"
+      },
+      "manual": {
+        "amount": 10600,
+        "currency": "ARS",
+        "unit": "ayudante/hora",
+        "conditions": "Adicional al flete. Se aplica el mínimo de horas del vehículo; no es un servicio independiente.",
+        "source": "https://retroflet.com.ar/"
+      }
+    },
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "mini-ba",
+    "name": "Miniflete BA",
+    "url": "https://minifletesba.com.ar/condiciones/",
+    "zone": "CABA y GBA",
+    "services": "Camioneta con chofer para cargas pequeñas.",
+    "confirmed": [
+      "utilitario"
+    ],
+    "inquiry": [
+      "pickup-cupula",
+      "furgon-corto"
+    ],
+    "hours": "Lun a vie 9–18 h; sábados con reserva",
+    "rates": {
+      "utilitario": {
+        "amount": 72600,
+        "currency": "ARS",
+        "unit": "servicio mínimo",
+        "conditions": "CABA, IVA incluido y mínimo 2 h. Hasta 400 kg; caja 189 × 128 × 134 cm. Adicionales aparte.",
+        "source": "https://minifletesba.com.ar/condiciones/"
+      }
+    },
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "minifletes",
+    "name": "Minifletes.ar",
+    "url": "https://minifletes.ar/terminos-y-condiciones.php",
+    "zone": "CABA y GBA",
+    "services": "Camioneta de caja abierta y ayudantes como adicional.",
+    "confirmed": [
+      "pickup",
+      "manual"
+    ],
+    "inquiry": [
+      "pallets",
+      "entre-obras"
+    ],
+    "hours": "Lun a sáb 8–20 h",
+    "rates": {
+      "pickup": {
+        "amount": 35000,
+        "currency": "ARS",
+        "unit": "hora",
+        "conditions": "Mínimo 2 h; se cobra el mayor entre horas y mínimo por km, más adicionales. Confirmar tratamiento del IVA.",
+        "source": "https://minifletes.ar/terminos-y-condiciones.php"
+      },
+      "manual": {
+        "amount": 20000,
+        "currency": "ARS",
+        "unit": "ayudante/hora",
+        "conditions": "Ayudante adicional al flete, hasta 3 h. No incluye vehículo ni contratación independiente.",
+        "source": "https://minifletes.ar/terminos-y-condiciones.php"
+      }
+    },
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "argentrans",
+    "name": "Argentrans",
+    "url": "https://www.argentrans.com/servicios.html",
+    "zone": "AMBA/GBA y viajes interprovinciales",
+    "services": "Semirremolques playos y sider para distribución.",
+    "confirmed": [
+      "semi-corto",
+      "semi-sider"
+    ],
+    "inquiry": [
+      "playo",
+      "semi-largo",
+      "barandas-bajas",
+      "sider",
+      "pallets",
+      "entre-obras",
+      "perfiles"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "trasmar",
+    "name": "Trasmar",
+    "url": "https://trasmar.com.ar/",
+    "zone": "Buenos Aires; transporte nacional e internacional",
+    "services": "Furgones, sider, barandas, playos extensibles, portacontenedores y carretones.",
+    "confirmed": [
+      "semi-furgon",
+      "semi-sider",
+      "extensible",
+      "contenedor",
+      "modular",
+      "carreton-extensible"
+    ],
+    "inquiry": [
+      "barandas-altas",
+      "barandas-bajas",
+      "lona",
+      "furgon",
+      "sider",
+      "acoplado",
+      "semi-corto",
+      "semi-largo",
+      "techo-corredizo",
+      "cama-baja",
+      "cama-rebajada",
+      "multieje",
+      "reforzado",
+      "premoldeados",
+      "perfiles",
+      "modulos",
+      "devolucion",
+      "entre-obras",
+      "sensibles"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "ibarra",
+    "name": "Transporte Ibarra Hnos.",
+    "url": "https://www.transporteibarra.com.ar/flota/",
+    "zone": "Argentina; recorrido a confirmar",
+    "services": "Flota con bitrenes y transporte de cargas.",
+    "confirmed": [
+      "bitren"
+    ],
+    "inquiry": [
+      "acoplado",
+      "semi-sider",
+      "semi-largo"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "robol",
+    "name": "Transporte Robol",
+    "url": "https://transporterobol.com.ar/servicios",
+    "zone": "Entre Ríos y corredores nacionales e internacionales",
+    "services": "Semirremolques abiertos, sider, tolvas cerealeras, bateas, chasis y acoplados.",
+    "confirmed": [
+      "bitren",
+      "acoplado",
+      "semi-sider",
+      "semi-largo",
+      "batea"
+    ],
+    "inquiry": [
+      "barandas-altas",
+      "barandas-bajas",
+      "lona",
+      "tolva-inferior",
+      "volcador-acoplado",
+      "retiro-aridos",
+      "perfiles"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "aconcagua",
+    "name": "Aconcagua Transportes",
+    "url": "https://www.aconcagua-trans.com.ar/units/",
+    "zone": "Argentina; cobertura por recorrido",
+    "services": "Tolvas neumáticas, cisternas, semis, sider y bateas de vuelco trasero y lateral.",
+    "confirmed": [
+      "cementera",
+      "batea",
+      "lateral",
+      "semi-sider",
+      "semi-largo",
+      "liquidos"
+    ],
+    "inquiry": [
+      "tolva-inferior",
+      "volcador",
+      "volcador-acoplado",
+      "barandas-altas",
+      "reforzado",
+      "retiro-aridos",
+      "pallets",
+      "techo-corredizo"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "bonsur",
+    "name": "Bonsur",
+    "url": "https://bonsur.com.ar/unidades_de_servicios",
+    "zone": "Benavídez, Buenos Aires; recorrido a coordinar",
+    "services": "Bateas, bi-vuelco lateral y tolvas neumáticas.",
+    "confirmed": [
+      "batea",
+      "lateral",
+      "cementera"
+    ],
+    "inquiry": [
+      "tolva-inferior",
+      "volcador",
+      "volcador-acoplado",
+      "retiro-aridos"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "beraldi",
+    "name": "Grupo Beraldi",
+    "url": "https://grupoberaldi.com.ar/",
+    "zone": "Argentina; operación a coordinar",
+    "services": "Combustibles, gases, áridos, agua y residuos.",
+    "confirmed": [
+      "combustible",
+      "agua",
+      "batea",
+      "cementera",
+      "peligrosos"
+    ],
+    "inquiry": [
+      "volcador",
+      "volcador-acoplado",
+      "liquidos",
+      "retiro-aridos",
+      "residuos"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "petromae",
+    "name": "Petromae",
+    "url": "https://petromae.com.ar/",
+    "zone": "Neuquén y Vaca Muerta",
+    "services": "Volcadores, bateas, cisternas e hidrogrúa.",
+    "confirmed": [
+      "volcador",
+      "batea",
+      "agua",
+      "hidrogrua"
+    ],
+    "inquiry": [
+      "volcador-acoplado",
+      "combustible",
+      "liquidos",
+      "retiro-aridos",
+      "reforzado",
+      "devolucion"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "vernazza",
+    "name": "Vernazza",
+    "url": "https://vernazza.com.ar/la-empresa/",
+    "zone": "Buenos Aires; proyectos a coordinar",
+    "services": "Carretones modulares, hidráulicos y extensibles; grúas y transporte especial.",
+    "confirmed": [
+      "modular",
+      "carreton-extensible",
+      "extensible",
+      "grua-movil"
+    ],
+    "inquiry": [
+      "reforzado",
+      "rampas",
+      "cama-baja",
+      "cama-rebajada",
+      "multieje",
+      "portamaquinaria",
+      "premoldeados",
+      "perfiles",
+      "modulos",
+      "devolucion"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "csm",
+    "name": "CSM",
+    "url": "https://csmsa.com.ar/",
+    "zone": "Argentina; proyectos especiales",
+    "services": "Transporte pesado, carretones modulares y movimiento de grandes piezas.",
+    "confirmed": [
+      "modular"
+    ],
+    "inquiry": [
+      "cama-baja",
+      "cama-rebajada",
+      "multieje",
+      "carreton-extensible",
+      "reforzado",
+      "premoldeados",
+      "perfiles",
+      "modulos",
+      "grua-movil"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "tenaz",
+    "name": "Transportes Especiales El Tenaz",
+    "url": "https://transporteseltenaz.com.ar/1-2/",
+    "zone": "Argentina; cobertura por proyecto",
+    "services": "Carretones de baja altura y plataformas modulares.",
+    "confirmed": [
+      "cama-baja",
+      "modular"
+    ],
+    "inquiry": [
+      "cama-rebajada",
+      "multieje",
+      "carreton-extensible",
+      "rampas",
+      "reforzado",
+      "portamaquinaria",
+      "remolque-equipo",
+      "modulos",
+      "devolucion"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "tlh",
+    "name": "Transporte y Logística Horten",
+    "url": "https://tlh.com.ar/transporte-con-carretones/",
+    "zone": "Base Córdoba; todo el país",
+    "services": "Transporte con carretones para maquinaria y módulos prefabricados.",
+    "confirmed": [
+      "cama-baja",
+      "modulos"
+    ],
+    "inquiry": [
+      "cama-rebajada",
+      "rampas",
+      "carreton-extensible",
+      "multieje",
+      "reforzado",
+      "portamaquinaria",
+      "remolque-equipo",
+      "devolucion",
+      "premoldeados"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "meff",
+    "name": "MEFF Servicios Logísticos",
+    "url": "https://www.meffsl.com/",
+    "zone": "Base Buenos Aires; nacional",
+    "services": "Transporte de cargas, unidades cerradas, carretones y operaciones interplantas.",
+    "confirmed": [
+      "semi-furgon",
+      "sensibles",
+      "entre-obras"
+    ],
+    "inquiry": [
+      "furgon",
+      "liviano",
+      "cama-baja",
+      "modular",
+      "portamaquinaria",
+      "peligrosos",
+      "pallets",
+      "devolucion"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "rgm",
+    "name": "Hidrogrúas RGM",
+    "url": "https://hidrogruasrgm.com.ar/",
+    "zone": "Buenos Aires; todo el país",
+    "services": "Hidrogrúas, grúas, semis, bateas y movimientos de equipos.",
+    "confirmed": [
+      "hidrogrua",
+      "grua-movil",
+      "contenedor",
+      "batea"
+    ],
+    "inquiry": [
+      "reforzado",
+      "portamaquinaria",
+      "remolque-equipo",
+      "premoldeados",
+      "perfiles",
+      "modulos",
+      "devolucion"
+    ],
+    "hours": "Por hora, día, semana o mes; turno a confirmar",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "asfletes",
+    "name": "A.S Fletes",
+    "url": "https://asfletes.com/",
+    "zone": "Mendoza y alrededores; otras provincias a consultar",
+    "services": "Fletes, pallets, vidrio, mármol y carga con personal.",
+    "confirmed": [
+      "vidrio",
+      "piedra-placas",
+      "manual"
+    ],
+    "inquiry": [
+      "liviano",
+      "playo",
+      "barandas-bajas",
+      "pallets",
+      "entre-obras",
+      "flete-proveedor"
+    ],
+    "hours": "Lun a sáb; domingos y feriados a coordinar",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "gyt",
+    "name": "G&T Logística",
+    "url": "https://gytlogistica.com.ar/servicios.html",
+    "zone": "Argentina; recorrido a confirmar",
+    "services": "Bobinas de acero, isotanques y cargas peligrosas.",
+    "confirmed": [
+      "bobinas-metal",
+      "peligrosos"
+    ],
+    "inquiry": [
+      "bobinas-cable",
+      "contenedor",
+      "liquidos",
+      "portabobinas",
+      "pallets"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "muyu",
+    "name": "Muyu SRL",
+    "url": "https://muyu.ar/",
+    "zone": "Nacional e internacional",
+    "services": "Transporte de bobinas de acero y cargas industriales.",
+    "confirmed": [
+      "bobinas-metal"
+    ],
+    "inquiry": [
+      "semi-largo",
+      "perfiles",
+      "reforzado",
+      "pallets"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "hcg",
+    "name": "AG Distribuciones · Grupo HCG",
+    "url": "https://grupologisticohcg.com/",
+    "zone": "CABA, Buenos Aires, Córdoba y Rosario",
+    "services": "Carga general, pallets, bobinas y cargas peligrosas.",
+    "confirmed": [
+      "bobinas-cable",
+      "peligrosos",
+      "pallets"
+    ],
+    "inquiry": [
+      "portabobinas",
+      "entre-obras",
+      "liviano",
+      "semi-largo",
+      "semi-furgon",
+      "sensibles"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "alamedas",
+    "name": "Alamedas Logística",
+    "url": "https://www.logisticalamedas.com/novedades.php",
+    "zone": "Argentina; recorrido por proyecto",
+    "services": "Traslados industriales y bobinas para proyectos energéticos.",
+    "confirmed": [
+      "bobinas-cable"
+    ],
+    "inquiry": [
+      "portabobinas",
+      "reforzado",
+      "perfiles",
+      "modulos",
+      "bobinas-metal"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "rumana",
+    "name": "Servicios La Rumana",
+    "url": "https://www.larumana.com.ar/servicios.html",
+    "zone": "Merlo, Buenos Aires; cobertura a coordinar",
+    "services": "Portavolquetes, roll-off, bateas, residuos especiales y atmosféricos.",
+    "confirmed": [
+      "volquetes",
+      "rolloff",
+      "residuos",
+      "atmosferico",
+      "retiro-aridos"
+    ],
+    "inquiry": [
+      "chatarra"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "royal",
+    "name": "Royal Eco",
+    "url": "https://royaleco.com.ar/",
+    "zone": "CABA y provincia de Buenos Aires",
+    "services": "Roll-off, residuos especiales y servicios atmosféricos.",
+    "confirmed": [
+      "rolloff",
+      "residuos",
+      "atmosferico"
+    ],
+    "inquiry": [
+      "volquetes",
+      "retiro-aridos",
+      "chatarra"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "conte",
+    "name": "Grupo Conte Mas",
+    "url": "https://conte-mas.com.ar/",
+    "zone": "Córdoba",
+    "services": "Contenedores, roll-off, desagotes, hidrogrúa y recuperables.",
+    "confirmed": [
+      "volquetes",
+      "rolloff",
+      "atmosferico",
+      "chatarra",
+      "hidrogrua"
+    ],
+    "inquiry": [
+      "retiro-aridos",
+      "pallets"
+    ],
+    "hours": "Lun a vie 8–18 h; sáb 8–13 h",
+    "rates": {
+      "volquetes": {
+        "amount": 72600,
+        "currency": "ARS",
+        "unit": "contenedor 5 m³",
+        "conditions": "Precio publicado del contenedor de 5 m³. Confirmar días, zona, colocación y retiro.",
+        "source": "https://conte-mas.com.ar/"
+      },
+      "atmosferico": {
+        "amount": 290400,
+        "currency": "ARS",
+        "unit": "desagote de pozo",
+        "conditions": "Publicación para pozo negro; volumen, accesos y traslado a confirmar.",
+        "source": "https://conte-mas.com.ar/"
+      }
+    },
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "tygia",
+    "name": "Tygia",
+    "url": "https://www.tygia.com.ar/servicios",
+    "zone": "Buenos Aires; zona a coordinar",
+    "services": "Bateas, cisternas y logística de residuos; plataforma hidráulica trasera.",
+    "confirmed": [
+      "batea",
+      "residuos",
+      "atmosferico",
+      "plataforma"
+    ],
+    "inquiry": [
+      "rolloff",
+      "volquetes",
+      "liquidos",
+      "retiro-aridos"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "ashira",
+    "name": "Ashira",
+    "url": "https://ashira.com.ar/index.html",
+    "zone": "CABA, Buenos Aires, Córdoba y Patagonia según base",
+    "services": "Roll-off, agua, extracción de líquidos y residuos inertes.",
+    "confirmed": [
+      "rolloff",
+      "agua",
+      "atmosferico",
+      "retiro-aridos"
+    ],
+    "inquiry": [
+      "volquetes"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "leiten",
+    "name": "Leiten Rental",
+    "url": "https://www.leiten.com.ar/productos/elevacion-de-materiales",
+    "zone": "Caseros, Buenos Aires; sucursal y entrega a coordinar",
+    "services": "Alquiler de equipos de elevación, montacargas y grúas torre.",
+    "confirmed": [
+      "montacargas",
+      "ascensor",
+      "grua-torre"
+    ],
+    "inquiry": [
+      "fachada",
+      "pluma"
+    ],
+    "hours": "Turno e instalación a confirmar",
+    "rates": {
+      "ascensor": {
+        "amount": 1387,
+        "currency": "USD",
+        "unit": "28 días",
+        "conditions": "MT01-1250 de 12 m y 1.250 kg, + IVA. Confirmar instalación y altura requerida.",
+        "source": "https://www.leiten.com.ar/productos/elevacion-de-materiales/montacargas-uso-pesado-hueco-ascensor/montacargas-hueco-ascensor-sinis-mt01-1250-12-mts/presupuesto"
+      },
+      "montacargas": {
+        "amount": 1387,
+        "currency": "USD",
+        "unit": "28 días",
+        "conditions": "Referencia MT01-1250 hueco ascensor, 12 m/1.250 kg, + IVA; confirmar configuración.",
+        "source": "https://www.leiten.com.ar/productos/elevacion-de-materiales/montacargas-uso-pesado-hueco-ascensor/montacargas-hueco-ascensor-sinis-mt01-1250-12-mts/presupuesto"
+      }
+    },
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "tecmaco",
+    "name": "Tecmaco",
+    "url": "https://tecmaco.com.ar/producto/l125-8f/?from=alquiler",
+    "zone": "Todo el país",
+    "services": "Alquiler de grúa torre Zoomlion L125-8F de 8 t.",
+    "confirmed": [
+      "grua-torre"
+    ],
+    "inquiry": [],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "vma",
+    "name": "VMA Rental",
+    "url": "https://vmarental.com.ar/",
+    "zone": "Berazategui, Buenos Aires; cobertura a consultar",
+    "services": "Manipuladores telescópicos y equipos de elevación.",
+    "confirmed": [
+      "telescopico"
+    ],
+    "inquiry": [
+      "autoelevador-obra",
+      "devolucion"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "sermicat",
+    "name": "Sermicat",
+    "url": "https://sermicat.com/equipos",
+    "zone": "Catamarca y Tucumán",
+    "services": "Camionetas, camiones, autoelevadores, hidrogrúas, grúas y manipuladores.",
+    "confirmed": [
+      "autoelevador-obra",
+      "hidrogrua",
+      "telescopico",
+      "grua-movil"
+    ],
+    "inquiry": [
+      "pickup",
+      "pickup-cupula",
+      "liviano",
+      "reforzado",
+      "devolucion"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "gsa",
+    "name": "GSA Rental",
+    "url": "https://gsarental.com.ar/",
+    "zone": "Paso del Rey, Buenos Aires; traslado a todo el país",
+    "services": "Autoelevadores, manipuladores, operarios y traslado de equipos.",
+    "confirmed": [
+      "autoelevador-obra",
+      "telescopico"
+    ],
+    "inquiry": [
+      "autoelevador-transportado",
+      "devolucion",
+      "remolque-equipo",
+      "rampas"
+    ],
+    "hours": "Operación y traslado a coordinar",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "lujan",
+    "name": "Corralón Luján",
+    "url": "https://corralonlujan.com.ar/servicios/",
+    "zone": "Luján de Cuyo, Mendoza",
+    "services": "Entrega de materiales con hidrogrúa y tráiler con autoelevador. Entregas de sus materiales; mercadería de terceros a consultar.",
+    "confirmed": [
+      "autoelevador-transportado",
+      "hidrogrua",
+      "flete-proveedor",
+      "volquetes"
+    ],
+    "inquiry": [
+      "playo",
+      "barandas-bajas"
+    ],
+    "hours": "Entrega programada; consultar fecha",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "avc",
+    "name": "AVC Mudanzas",
+    "url": "https://www.mudanzas-avc.com.ar/vehiculos.php",
+    "zone": "Capital Federal; cobertura a coordinar",
+    "services": "Transporte de cargas especiales y grúa montamuebles por fachada.",
+    "confirmed": [
+      "fachada",
+      "sensibles"
+    ],
+    "inquiry": [
+      "manual",
+      "furgon",
+      "furgon-largo",
+      "plataforma"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "mapu",
+    "name": "Subilo por el Balcón · MAPU",
+    "url": "https://www.subiloporelbalcon.com.ar/",
+    "zone": "CABA y GBA",
+    "services": "Elevación mecanizada de bienes y materiales por fachada.",
+    "confirmed": [
+      "fachada"
+    ],
+    "inquiry": [],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "todoobra",
+    "name": "TODOOBRA",
+    "url": "https://www.todoobra.com.ar/",
+    "zone": "CABA y GBA",
+    "services": "Alquiler de montacargas y estructuras para obra.",
+    "confirmed": [
+      "montacargas"
+    ],
+    "inquiry": [
+      "ascensor",
+      "fachada"
+    ],
+    "hours": "Lun a vie 8–18 h; sáb 8–12:30 h",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "tecnobomba",
+    "name": "Tecnobomba",
+    "url": "https://tecnobomba.com.ar/",
+    "zone": "Buenos Aires; cobertura a confirmar",
+    "services": "Bombas para hormigón elaborado y bombas con pluma.",
+    "confirmed": [
+      "bomba-pluma"
+    ],
+    "inquiry": [
+      "bomba-estacionaria",
+      "pluma",
+      "mixer"
+    ],
+    "hours": "Servicio diario anunciado; fecha a confirmar",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "papomix",
+    "name": "Papomix",
+    "url": "https://www.papomix.com.ar/",
+    "zone": "Mercado Central, Buenos Aires",
+    "services": "Hormigón elaborado y alquiler de bombas de arrastre y pluma.",
+    "confirmed": [
+      "mixer",
+      "bomba-pluma",
+      "bomba-estacionaria"
+    ],
+    "inquiry": [
+      "pluma"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "hormisur",
+    "name": "Hormisur",
+    "url": "https://hormisur.com.ar/servicios/",
+    "zone": "Buenos Aires",
+    "services": "Hormigón elaborado, bomba de arrastre y bomba con pluma.",
+    "confirmed": [
+      "mixer",
+      "bomba-pluma",
+      "bomba-estacionaria"
+    ],
+    "inquiry": [
+      "pluma"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "concreto",
+    "name": "Concreto Servicios",
+    "url": "https://concretoservicios.com.ar/",
+    "zone": "Argentina; cobertura a confirmar",
+    "services": "Bombas estacionarias, bombas pluma y hormigón elaborado.",
+    "confirmed": [
+      "mixer",
+      "bomba-pluma",
+      "bomba-estacionaria"
+    ],
+    "inquiry": [
+      "pluma"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "moreno",
+    "name": "Materiales Moreno",
+    "url": "https://materialesmoreno.com.ar/tienda/categorias/hormigon-elaborado/",
+    "zone": "Buenos Aires; zona a confirmar",
+    "services": "Alquiler publicado de bomba pluma y arrastre.",
+    "confirmed": [
+      "bomba-pluma",
+      "bomba-estacionaria"
+    ],
+    "inquiry": [],
+    "hours": "Fecha a coordinar",
+    "rates": {
+      "bomba-pluma": {
+        "amount": 767137.36,
+        "currency": "ARS",
+        "unit": "alquiler publicado",
+        "conditions": "Publicación de alquiler de bomba pluma. Confirmar alcance, m³, traslado e impuestos.",
+        "source": "https://materialesmoreno.com.ar/tienda/producto/hormigon-alquiler-de-bomba-pluma/"
+      },
+      "bomba-estacionaria": {
+        "amount": 599145.93,
+        "currency": "ARS",
+        "unit": "alquiler publicado",
+        "conditions": "Referencia bomba de arrastre publicada; confirmar tendido vertical, alcance, traslado e impuestos.",
+        "source": "https://materialesmoreno.com.ar/tienda/producto/hormigon-alquiler-de-bomba-arrastre/"
+      }
+    },
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "gay",
+    "name": "Ferretería Gay",
+    "url": "https://ferreteriagay.com.ar/producto/alquiler-zorra-hidraulica/",
+    "zone": "Sucursal y entrega a consultar",
+    "services": "Alquiler diario de zorra hidráulica de 2 t.",
+    "confirmed": [
+      "zorra"
+    ],
+    "inquiry": [],
+    "hours": "Disponibilidad a consultar",
+    "rates": {
+      "zorra": {
+        "amount": 24200,
+        "currency": "ARS",
+        "unit": "día",
+        "conditions": "Zorra de 2 t. Confirmar disponibilidad, depósito, entrega e impuestos.",
+        "source": "https://ferreteriagay.com.ar/producto/alquiler-zorra-hidraulica/"
+      }
+    },
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "game",
+    "name": "Game Rental",
+    "url": "https://gamerental.com.ar/alquiler/zorras-hidraulicas/",
+    "zone": "Buenos Aires; entrega y retiro a coordinar",
+    "services": "Zorras hidráulicas de 2, 2,5 y 3 t, con alquiler diario, semanal o mensual.",
+    "confirmed": [
+      "zorra"
+    ],
+    "inquiry": [],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "universal",
+    "name": "Universal Cranes",
+    "url": "https://universalcranes.com.ar/alquiler-y-venta-de-equipos-de-elevacion/zorras-hidraulicas/",
+    "zone": "Argentina; cobertura a consultar",
+    "services": "Alquiler de zorras hidráulicas de 1,5 a 3 t.",
+    "confirmed": [
+      "zorra"
+    ],
+    "inquiry": [],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "veloz",
+    "name": "Corralón El Veloz",
+    "url": "https://elveloz.ar/corralon-lujan/",
+    "zone": "Pilar, Zona Norte, CABA y alrededores según recorrido",
+    "services": "Materiales con entrega coordinada e hidrogrúa propia. Entregas de sus materiales; mercadería de terceros a consultar.",
+    "confirmed": [
+      "flete-proveedor",
+      "hidrogrua"
+    ],
+    "inquiry": [
+      "volcador",
+      "playo",
+      "barandas-bajas"
+    ],
+    "hours": "Coordinar fecha con la empresa",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "dm",
+    "name": "Transporte DM",
+    "url": "https://www.transportedm.com.ar/",
+    "zone": "Ezpeleta, Buenos Aires; CABA y GBA",
+    "services": "Vidrios y perfiles con bastidores, topes y sujeción específica.",
+    "confirmed": [
+      "vidrio"
+    ],
+    "inquiry": [
+      "piedra-placas",
+      "perfiles"
+    ],
+    "hours": "Fecha y recorrido a coordinar",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "ramos",
+    "name": "Cargas Ramos",
+    "url": "https://cargasramos.com.ar/",
+    "zone": "Buenos Aires; transporte a todo el país",
+    "services": "Cargas frágiles, embalajes para vidrios y mármoles, personal y camiones propios.",
+    "confirmed": [
+      "vidrio",
+      "sensibles",
+      "manual"
+    ],
+    "inquiry": [
+      "piedra-placas",
+      "pallets",
+      "entre-obras",
+      "furgon"
+    ],
+    "hours": "Fecha y recorrido a coordinar",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "silver",
+    "name": "Silvertrans",
+    "url": "https://silvertrans.com.ar/unidades/",
+    "zone": "Villa Madero, Buenos Aires; recorrido a coordinar",
+    "services": "Miniflete de 500 kg, furgón mediano de 1,2 t, furgón largo de 3,5 t y chasis.",
+    "confirmed": [
+      "utilitario",
+      "furgon-corto",
+      "furgon-largo",
+      "liviano"
+    ],
+    "inquiry": [
+      "furgon",
+      "pallets",
+      "entre-obras"
+    ],
+    "hours": "Fecha y unidad a coordinar",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "gtcargas",
+    "name": "GT Cargas",
+    "url": "https://gtcargas.com.ar/",
+    "zone": "CABA y GBA",
+    "services": "Mini furgón de 500 kg, furgón corto de 900 kg, largo de 1.700 kg y camiones de 4 a 12 pallets.",
+    "confirmed": [
+      "utilitario",
+      "furgon-corto",
+      "furgon-largo",
+      "liviano"
+    ],
+    "inquiry": [
+      "furgon",
+      "pallets",
+      "entre-obras"
+    ],
+    "hours": "Fecha y unidad a coordinar",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "nunez",
+    "name": "Transportes y Movimientos Núñez",
+    "url": "https://tmntransportes.com.ar/flota/",
+    "zone": "Argentina; cobertura a confirmar",
+    "services": "Camión playo con barandas, sider rígido de 3,5 t, semi sider, pala hidráulica y autoelevadores.",
+    "confirmed": [
+      "playo",
+      "barandas-bajas",
+      "sider",
+      "semi-sider",
+      "liviano",
+      "plataforma",
+      "autoelevador-obra"
+    ],
+    "inquiry": [
+      "barandas-altas",
+      "pallets",
+      "entre-obras"
+    ],
+    "hours": "Fecha y unidad a coordinar",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "carchedi",
+    "name": "Transporte Carchedi",
+    "url": "https://transportecarchedi.com.ar/servicio-de-camiones/",
+    "zone": "Tapiales, Buenos Aires; recorrido a coordinar",
+    "services": "Furgón cerrado, Fiorino, playo, camiones con pala hidráulica, semirremolques e hidrogrúa.",
+    "confirmed": [
+      "furgon",
+      "utilitario",
+      "playo",
+      "plataforma",
+      "hidrogrua"
+    ],
+    "inquiry": [
+      "liviano",
+      "furgon-corto",
+      "furgon-largo",
+      "barandas-bajas",
+      "reforzado",
+      "sensibles",
+      "pallets"
+    ],
+    "hours": "Fecha y unidad a coordinar",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  },
+  {
+    "id": "acople",
+    "name": "Acople Transporte",
+    "url": "https://acopletransporte.com/servicios",
+    "zone": "Buenos Aires; transporte nacional",
+    "services": "Furgón con arco y lona, sider, playo, plataforma hidráulica y zorra.",
+    "confirmed": [
+      "lona",
+      "furgon",
+      "semi-sider",
+      "playo",
+      "plataforma",
+      "zorra",
+      "perfiles",
+      "bobinas-metal"
+    ],
+    "inquiry": [
+      "liviano",
+      "barandas-bajas",
+      "reforzado",
+      "entre-obras",
+      "pallets"
+    ],
+    "hours": "Fecha y unidad a coordinar",
+    "rates": {},
+    "registration": "unverified",
+    "researchedAt": "2026-11-03"
+  }
+]

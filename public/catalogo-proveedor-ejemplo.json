@@ -1,0 +1,20 @@
+[
+  {
+    "sku": "MI-SKU-001",
+    "name": "Nombre exacto del producto",
+    "brand": "Marca",
+    "category": "Corralón",
+    "productType": "Cementos",
+    "model": "Modelo / especificación",
+    "image": "https://tu-dominio.com/foto-del-producto.jpg",
+    "unit": "25 kg · 1 bolsa",
+    "format": "25 kg",
+    "saleLabel": "1 bolsa",
+    "price": 10000,
+    "stock": 150,
+    "stockUnit": "bolsas",
+    "shippingIncluded": false,
+    "kg": 25,
+    "use": "Uso del producto"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-03",
+  "scope": "Fondos: mockup operativo y registro persistente interno de cuenta, reservas por orden y liquidaciones. Sin ejecución financiera externa.",
+  "sources": [
+    {"url":"https://www.belo.app/en-us/apis","owner":"Belo","finding":"Capacidades públicas: cuentas, depósitos, saldos, pagos, conversiones, retiros y seguimiento. No implican un escrow por entrega de Obra Clara."},
+    {"url":"https://b2b.stgbelo.app/docs","owner":"Belo","finding":"Enlace de documentación desde APIs oficiales; acceso automático devolvió 403. No se inventaron endpoints ni permisos. No hay herramienta Belo expuesta en esta sesión."},
+    {"url":"https://docs.twin.finance/","owner":"Twin","finding":"ARGt y redes documentadas; soporte de cuenta, red y activo debe validarse en la integración. El token no constituye el contrato de reserva de OC."},
+    {"url":"https://www.twin.finance/faqs","owner":"Twin","finding":"Referencia de funcionamiento y activo; no equivale a una billetera conectada en esta aplicación."},
+    {"url":"https://docs.openzeppelin.com/contracts/5.x/access-control","owner":"OpenZeppelin","finding":"Referencia para diseño de permisos y separación de administración. Implementación onchain pendiente."},
+    {"url":"https://docs.openzeppelin.com/contracts/5.x/api/utils#Pausable","owner":"OpenZeppelin","finding":"Referencia para pausas de emergencia. La pausa de esta interfaz es una regla del registro interno."},
+    {"url":"https://github.com/circlefin/skills/blob/master/plugins/circle/skills/use-developer-controlled-wallets/SKILL.md","owner":"Circle","finding":"Separar intención, aprobación, envío y confirmación; idempotencia y recuperación de fallos. No interpretar aprobación como transacción confirmada."}
+  ],
+  "implemented": [
+    "Visión general: disponible, reservas, elegible para pago, cola de aprobación, devolución habilitada y diferencias de conciliación; gráficos de capital y flujo de cuenta.",
+    "Reservas: principal/fondeo/pagado/devuelto, proyecto, proveedor, recepción informada y validada, vencimiento/tolerancia y retención de garantía.",
+    "Instrucciones separadas de pagos, anticipos, devoluciones y garantías; límites recalculados al crear, aprobar y ejecutar; prevención de doble compromiso del saldo.",
+    "Umbral configurable: una o dos revisiones por personas distintas; límite diario; selección de responsable para recorrer el flujo de la interfaz.",
+    "Cancelación y rechazo de pendientes; revisión de fallidas; una registrada no se revierte por cancelar. Anticipo liquidado se trata como exposición/reclamo.",
+    "Pausa y disputa con motivo documentado; devolución solamente sobre saldo no recibido y no cubierto por anticipos liquidados, luego de plazo+tolerancia o cancelación comercial.",
+    "Conciliación de extractos CSV: referencia única, importes con signo en centavos, vinculación sin segundo impacto en saldo o ajuste explícito con auditoría.",
+    "Beneficiarios: destino de registro, revisión administrativa, responsable y fecha; revisión OC separada de validación de cuenta externa.",
+    "Historial de movimientos, referencias por instrucción, comprobantes CSV y auditoría de saldo antes/después. Registros persistidos en el workspace privado existente.",
+    "Integración visual: estado externo sin vincular, saldo externo sin lectura, dirección de despliegue pendiente y sin emisiones a red; no direcciones/CVU/hashes inventados."
+  ],
+  "production_requirements": [
+    "Autenticación empresarial y roles por usuario en servidor; el selector de responsable del mockup no sustituye RBAC ni doble autorización real.",
+    "Confirmar capacidades y permisos de Belo MCP/API, titularidad, monedas/redes habilitadas, destinos, cotizaciones con vencimiento, comisiones, límites y tiempos.",
+    "Contrato de reserva OC auditado: cláusulas comerciales, hitos, recepción parcial, tolerancias, anticipo, garantía, vencimientos, disputas y árbitro; control de cambios de condiciones aceptadas.",
+    "Firmas y secretos exclusivamente servidor; allowlist de contratos/redes/beneficiarios; montos decimales exactos; separación operador/aprobador/ejecutor según política.",
+    "Máquina de estados externa: creada, aprobada, enviada, pendiente de confirmación, confirmada, fallida y estado incierto. Nunca reemitir automáticamente una salida con estado incierto.",
+    "Idempotencia durable por instrucción y referencia del proveedor; webhooks con firma, replay protection, deduplicación, timestamps y reconciliación periódica.",
+    "Hash verificable/explorador sólo de transacción real; profundidad de confirmación y reorganizaciones según red; monitoreo de gas y tratamiento de fallos.",
+    "Separar libro mayor de efectivo en cuenta, fondos en custodia/reserva, pagos registrados, pagos externos confirmados y devoluciones; conciliación bancaria/onchain con evidencia.",
+    "KYC/KYB y controles legales/tributarios según operador y jurisdicción; documentación de titularidad y reclamos; políticas de retención, exportación y auditoría inmutable en infraestructura productiva.",
+    "Resolución documentada y autorización para disputas: lo ya pagado no se recupera mediante cancelación del escrow. Garantías y devolución sujetas a condiciones contractuales verificables."
+  ],
+  "validation": ["Build Next.js y TypeScript", "check-finance.mjs", "check-shared-demo.mjs", "check-overview.mjs", "check-brick.mjs", "API desplegada con workspace aislado: doble aprobación, ejecución persistida e idempotencia", "Google Chrome: overview, instrucción y reserva"]
+}

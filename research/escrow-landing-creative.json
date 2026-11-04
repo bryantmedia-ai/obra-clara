@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-03",
+  "page": "/como-funciona",
+  "positioning": "Smart contracts que retienen fondos y condicionan su liberación a entregas conformadas. Seguridad, reglas de garantía y devolución del saldo ante incumplimiento; marketplace y operaciones como soporte de la propuesta.",
+  "problems": [
+    "Anticipos pagados sin respaldo de cumplimiento",
+    "Pago total frente a recepción parcial",
+    "Faltantes, daños o diferencias de especificación",
+    "Materiales demorados que detienen cuadrillas y comprometen liquidez",
+    "Dificultad para recuperar dinero ya transferido",
+    "Pruebas y autorizaciones dispersas"
+  ],
+  "sections": [
+    "Hero con ilustración de la reserva",
+    "Problemas y costo operativo",
+    "Diagrama empresa → smart contract → conformidad y pago / devolución",
+    "Ejemplo interactivo: completa, parcial, incumplimiento; anticipo y vencimiento",
+    "Seguridad, garantías y resolución",
+    "Beneficio para empresa y proveedor",
+    "Cuenta Belo, activo ARGt de Twin, contrato de reserva como capas distintas",
+    "Pasos operativos secundarios y Brick",
+    "Preguntas frecuentes",
+    "Cierre y CTA a Fondos"
+  ],
+  "image": {
+    "mode": "built-in image_gen.imagegen",
+    "original": "public/illustrations/escrow-construction-original.png",
+    "web": "public/illustrations/escrow-construction.webp",
+    "prompt": "Create a premium editorial illustration for Obra Clara, an Argentine construction payments product. Wide landscape composition 3:2. Sophisticated warm off-white background #f3f1e9, deep charcoal outlines #192522, vivid construction orange #ff641b, restrained sage green #267d58 and blue #37759a. A precise hand-drawn architectural cutaway / isometric ink-and-gouache drawing: at center a transparent glass escrow vault containing neat abstract money tokens and a bold orange padlock; at right a 10-story unfinished concrete building, tower crane, a delivery truck carrying cement bags and an engineer with orange safety helmet confirming a delivery on a tablet; at left a contractor places payment tokens into the vault. Thin elegant illustrated route lines connect the three elements; a small portion of tokens follows a green path toward the supplier only after the engineer confirmation, remaining tokens visibly stay locked in the vault. Emphasize held funds as the visual focal point (45% of composition), trust and construction materials delivery. High-end financial editorial storytelling, clean spacious composition, detailed yet calm, slight natural paper texture, no glossy 3D clipart, no stock-photo look, no robots, no storefronts, no shopping cart. No text, no numbers, no letters, no logos or typography anywhere. All visual elements fully within frame. Must look like a bespoke product landing illustration, consistent single illustration not a collage."
+  },
+  "drawings": "Custom inline SVG: escrow flow and return path; three problem sketches; lock; security shield. Existing logo untouched.",
+  "sources": [
+    {
+      "url": "https://www.belo.app/en-us/apis",
+      "verified": "2026-11-03",
+      "supports": "Accounts, balances, conversion, transfers, signed webhooks and reconciliation. Not a native construction escrow claim."
+    },
+    {
+      "url": "https://docs.twin.finance/",
+      "verified": "2026-11-03",
+      "supports": "ARGt issued by Twin as an ERC-20 token representing the Argentine peso. Separate from the OC escrow contract."
+    }
+  ],
+  "claimBoundaries": [
+    "No claim of unconditional or risk-free recovery.",
+    "Paid advances are not canceled through return of an unspent escrow balance.",
+    "Refunds depend on deadline, grace, accepted deliveries and agreed dispute conditions.",
+    "The QR opens the order and does not release funds.",
+    "The page explains the product design; no new real financial integration or onchain deployment was executed."
+  ],
+  "validation": [
+    "Next.js production build and TypeScript",
+    "404 example combinations: conservation and conditional refunds",
+    "Google Chrome: deployed hero image, settlement anchor, partial delivery, no delivery, 20% advance / 80% refund"
+  ]
+}

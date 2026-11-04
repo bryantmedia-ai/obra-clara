@@ -1,0 +1,33 @@
+{
+  "scope": "Construction marketplace prototype: independent manufacturer, producer, wholesaler, distributor and small seller stores",
+  "date": "2026-11-03",
+  "catalog": {
+    "distinctReferences": 187,
+    "supplierOffers": 213,
+    "supplierProfiles": 3,
+    "additionalOffers": "18 seeded prototype offers share existing product references; stock and price are illustrative, not verified supplier enrollment or live inventory"
+  },
+  "flows": [
+    "Create supplier store with business type, company size, depot and contact details",
+    "Publish own product or offer an existing shared catalog product",
+    "Own price, stock, minimum order, preparation days, shipping and requested deposit",
+    "Product listing grouped by reference, eligible cheapest offer and seller-count badge",
+    "Offer selection compares independent sellers before adding the selected supplier offer",
+    "Cart separates material orders by vendor and destination project",
+    "Project completeness and seller minimum order gate purchase preparation"
+  ],
+  "verification": [
+    "All five regression scripts passed",
+    "Next production build passed",
+    "Chrome production: marketplace shows 187 products, 213 seller offers and seller-count links",
+    "Chrome production: one cement product displays three independent sellers with sizes and delivery terms",
+    "Chrome production: selecting Materiales del Sur switches seller and initializes its minimum quantity of 5",
+    "Chrome production: supplier registration includes manufacturer, producer and company-size controls",
+    "Chrome production: own-product publication includes SKU, brand, model, photo, minimum order and deposit; canceled without creating test data"
+  ],
+  "limits": [
+    "Browser-local store and offer persistence",
+    "No live authentication, money movement, escrow deployment or actual vendor registration on a backend",
+    "Complete Sodimac/Easy catalog remains a separate pending data import"
+  ]
+}

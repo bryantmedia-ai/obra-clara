@@ -1,0 +1,21 @@
+import fs from 'node:fs';import vm from 'node:vm';import ts from 'typescript';import assert from 'node:assert/strict';
+function load(file,deps={},context={}){const exports={};vm.runInNewContext(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,{exports,require:n=>n==="./shared-demo"?{queueShared(){}}:deps[n]??{},URL,...context});return exports;}
+const departments=load('components/catalog-departments.ts');
+const data=load('components/marketplace-data.ts',{'./catalog-departments':departments,'./marketplace-products.json':{default:JSON.parse(fs.readFileSync('components/marketplace-products.json'))},'./catalog-product-details.json':{default:JSON.parse(fs.readFileSync('components/catalog-product-details.json'))}});
+const links=load('components/catalog-links.ts',{}, {URLSearchParams});const filters={...links.defaultMarketFilters,department:'iluminacion',minPrice:'1000',maxPrice:'9999999'};
+assert.equal(departments.catalogDepartments.length,18);assert.equal(new Set(departments.catalogDepartments.map(d=>d.id)).size,18);
+assert.ok(data.completeMarketplaceCatalog.every(p=>departments.productDepartment(p)), 'Every existing offer maps to a department');
+const selected=data.filterMarketplaceProducts(filters,data.completeMarketplaceCatalog);assert.equal(selected.length,5);assert.ok(selected.every(p=>departments.departmentMatches(p,'iluminacion')));
+const restored=links.readMarketFilters(new URL(links.marketplaceHref(filters),'https://obra-clara-gray.vercel.app').searchParams);assert.equal(restored.department,'iluminacion');assert.equal(restored.minPrice,'1000');assert.equal(restored.maxPrice,'9999999');
+assert.equal(data.filterMarketplaceProducts({...filters,minPrice:'999999999'},data.completeMarketplaceCatalog).length,0);
+const parse=load('components/supplier-catalog-import.ts',{'./catalog-departments':departments}).parseSupplierCatalog;
+const row={sku:'SKU-ABC',name:'Cemento CPC40 25 kg',brand:'Marca',category:'Corralón',image:'https://example.com/cemento.jpg',price:5000,stock:100,unit:'Bolsa de 25 kg',format:'25 kg',saleLabel:'1 bolsa',kg:25,shippingIncluded:false};
+const supplier=data.cementSuppliers[1];const parsed=parse(JSON.stringify([row]),supplier);assert.equal(parsed[0].supplier.slug,supplier.slug);assert.equal(parsed[0].stock,100);assert.equal(parsed[0].referenceCode,'SKU-ABC');assert.equal(parsed[0].pack,1);
+for(const patch of [{price:-1},{stock:1.5},{image:'javascript:alert(1)'},{image:'https://user:password@example.com/image.jpg'},{shippingIncluded:'false'},{kg:-10},{sku:''},{unit:''},{pack:0}])assert.throws(()=>parse(JSON.stringify([{...row,...patch}]),supplier));
+assert.throws(()=>parse(JSON.stringify([row,row]),supplier));assert.throws(()=>parse(JSON.stringify([null]),supplier));assert.throws(()=>parse('{}',supplier));assert.throws(()=>parse('not json',supplier));
+const images=load('components/product-images.ts');assert.equal(images.productImage('catalog/file.jpg'),'/products/catalog/file.jpg');assert.equal(images.productImage('https://example.com/photo.jpg'),'https://example.com/photo.jpg');
+let raw=null;const store=load('components/supplier-offers.ts',{'./marketplace-data':data},{window:{dispatchEvent(){}},localStorage:{getItem:()=>raw,setItem:(_,v)=>raw=v},Event:class{}});
+store.publishSupplierOffers(parsed);assert.equal(store.readSupplierOffers().length,1);store.publishSupplierOffers([{...parsed[0],price:7000}]);assert.equal(store.readSupplierOffers().length,1);assert.equal(store.readSupplierOffers()[0].price,7000);
+const merged=store.applySupplierOffers(data.completeMarketplaceCatalog,store.readSupplierOffers());assert.equal(merged.length,214);assert.equal(merged.find(p=>p.id===parsed[0].id).supplier.slug,supplier.slug);
+const override={...data.completeMarketplaceCatalog[0],price:9999};const replaced=store.applySupplierOffers(data.completeMarketplaceCatalog,[override]);assert.equal(replaced.length,213);assert.equal(replaced[0].price,9999);
+console.log('PASS: 18 departments, classification, price and URL filters, supplier identity, validated bulk import, remote/local images and persistent offer updates.');

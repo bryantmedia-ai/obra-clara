@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-03",
+  "sources": [
+    {
+      "url": "https://ventaenlinea.cruzdelsur.com/plataforma-online.html",
+      "supports": [
+        "Destino: localidad y código postal",
+        "Peso, dimensiones, bultos, volumen y valor declarado",
+        "Servicios, tiempo estimado, tarifa y datos del destinatario"
+      ]
+    },
+    {
+      "url": "https://www.provinciart.com.ar/descargables-web/provincia_art_guia_cargaavisoobra.pdf",
+      "supports": [
+        "Domicilio preciso, localidad y provincia",
+        "Descripción detallada del tipo de obra",
+        "Fechas de obra",
+        "Contactos responsables y teléfonos"
+      ]
+    }
+  ],
+  "productDecisions": [
+    "Separar ficha de proyecto de datos variables de carga por envío",
+    "Guardar nombre, centro de costo, empresa, tipo, alcance, etapa y estado",
+    "Guardar calendario estimado, pisos, subsuelos, superficie y presupuesto opcionales",
+    "Guardar responsable de recepción, teléfono, email y horario",
+    "Guardar acceso, altura/largo máximo, descarga, sector/piso y observaciones",
+    "Cada producto tiene su projectId y cada transporte vinculado hereda el mismo proyecto",
+    "Proyecto inexistente, incompleto o inactivo bloquea preparación de compra",
+    "Tarifas ingresadas se vinculan a proyecto, origen, producto, cantidad máxima, peso máximo, servicio, proveedor y vigencia",
+    "Cambios de destino, carga, acceso o descarga invalidan tarifas incompatibles",
+    "Sin tarifa aplicable no se inventa importe de envío; queda a cotizar"
+  ],
+  "persistence": "Mockup: browser localStorage, shared between app pages and tabs. No backend company account persistence or live carrier API connected."
+}

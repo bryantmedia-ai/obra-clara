@@ -1,0 +1,2 @@
+import type {SharedOrder} from "./demo-model";
+export function finances(o:SharedOrder){const total=o.lines.reduce((n,l)=>n+l.quantity*l.unitPrice,0);const delivered=o.lines.reduce((n,l)=>n+l.received*l.unitPrice,0);const advance=o.advanceApproved?o.lines.reduce((n,l)=>n+l.quantity*l.unitPrice*l.depositPercent/100,0):0;const released=Math.max(advance,delivered);return {total,delivered,advance,released,held:o.status==='Cancelada'?0:total-released,refunded:o.status==='Cancelada'?total-released:0,receivable:Math.max(0,released-o.paid)};}

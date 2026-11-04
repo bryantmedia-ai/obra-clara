@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://obra-clara-comprador.vercel.app/",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-comprador.vercel.app/marketplace",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-comprador.vercel.app/dashboard",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-comprador.vercel.app/proyectos",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-comprador.vercel.app/carrito",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-comprador.vercel.app/compras",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-comprador.vercel.app/entregas",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-comprador.vercel.app/fondos",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-comprador.vercel.app/proveedores",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-proveedor.vercel.app/",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-proveedor.vercel.app/productos",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-proveedor.vercel.app/stock",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-proveedor.vercel.app/ordenes",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-proveedor.vercel.app/despachos",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-proveedor.vercel.app/cuentas",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-proveedor.vercel.app/comprobantes",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-proveedor.vercel.app/empresa",
+    "status": 200,
+    "roleSelector": true
+  },
+  {
+    "url": "https://obra-clara-gray.vercel.app/marketplace",
+    "status": 200,
+    "roleSelector": true
+  }
+]

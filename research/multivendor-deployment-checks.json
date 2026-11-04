@@ -1,0 +1,44 @@
+[
+  {
+    "path": "/marketplace",
+    "status": 200,
+    "checks": {
+      "El marketplace": true,
+      "3 vendedores": true,
+      "187": true,
+      "213": true,
+      "Vender en Obra Clara": true,
+      "Quién vende": true,
+      "Tamaño de empresa": true
+    }
+  },
+  {
+    "path": "/productos/corralon-01",
+    "status": 200,
+    "checks": {
+      "Elegí quién te vende este producto": true,
+      "Corralón Norte": true,
+      "Corralón Centro": true,
+      "Materiales del Sur": true,
+      "Mínimo:": true,
+      "Anticipo": true
+    }
+  },
+  {
+    "path": "/mi-tienda",
+    "status": 200,
+    "checks": {
+      "Crear mi tienda proveedora": true,
+      "Publicar un producto propio": true,
+      "Importar mi catálogo": true
+    }
+  },
+  {
+    "path": "/carrito",
+    "status": 200,
+    "checks": {
+      "Órdenes por vendedor": true,
+      "Gestionar proyectos": true
+    }
+  }
+]

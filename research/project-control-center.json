@@ -1,0 +1,23 @@
+{
+  "url": "https://obra-clara-comprador.vercel.app/proyectos",
+  "editor": "Modal with four steps, internal scroll, focus return, dirty confirmation and retained drafts on failed save",
+  "reporting": [
+    "date/project/provider filters",
+    "period purchases versus lifetime project budget",
+    "paid and retained balances",
+    "supplier breakdown",
+    "orders and fund movements",
+    "CSV and comparison table",
+    "editable red/green/blue project colors"
+  ],
+  "checks": [
+    "production build and TypeScript",
+    "check-project-accounts.mjs",
+    "check-projects.mjs",
+    "check-mixed-projects.mjs",
+    "check-finance.mjs",
+    "isolated deployed API: budgets, custom values, color and reception persist",
+    "Google Chrome: project center, edit modal, section focus, dirty warning, discard, focus return, project expense detail, order tab, provider filter recalculates totals"
+  ],
+  "deploymentState": "All three production deployments READY"
+}

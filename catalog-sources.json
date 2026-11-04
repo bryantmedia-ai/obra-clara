@@ -1,0 +1,25 @@
+{
+  "researchedAt": "2026-11-03",
+  "note": "Fictional MVP supplier profiles. Real product brands and original product photography. Prices, stock, delivery times and ratings are demo data. Pack images show a single bag; packs are explicitly labelled.",
+  "references": [
+    "https://listado.mercadolibre.com.ar/cemento-loma-negra-25-kg",
+    "https://listado.mercadolibre.com.ar/bolsa-cemento-avellaneda-x-50-kg",
+    "https://listado.mercadolibre.com.ar/plasticor-precio",
+    "https://corralonelporvenir.com.ar/tienda/product-category/cementos-cales/",
+    "https://construyaalcosto.com/images/catalogo_2021.pdf"
+  ],
+  "photos": {
+    "avellaneda-25.jpg": "https://corralonelporvenir.com.ar/tienda/wp-content/uploads/2025/02/100049-600x600.jpg",
+    "holcim-25.jpg": "https://corralonelporvenir.com.ar/tienda/wp-content/uploads/2025/02/102031-600x600.jpg",
+    "loma-negra-25.jpg": "https://corralonelporvenir.com.ar/tienda/wp-content/uploads/2025/02/100050-600x600.jpg",
+    "hidralit-20.jpg": "https://corralonelporvenir.com.ar/tienda/wp-content/uploads/2025/02/100458-600x600.jpg"
+  },
+  "expandedCatalog": {
+    "researchedAt": "2026-11-03",
+    "products": 180,
+    "categories": 9,
+    "productsPerCategory": 20,
+    "provenance": "research/catalog/selected-products.json",
+    "note": "Curated walkthrough catalog. Product names and images follow public manufacturer/retailer listings. OC supplier assignment, availability, delivery times and generator prices are seeded presentation data, not live partner offers. Some manufacturers supply one image for a product line."
+  }
+}

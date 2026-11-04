@@ -1,0 +1,91 @@
+{
+  "reviewedAt": "2026-11-03",
+  "problem": "Compras y Entregas reutilizaban el mismo listado de órdenes reales; Inventario era una lista fija con acciones inertes. Resumen y Fondos tenían otro conjunto operativo. Existían pantallas antiguas de OC-1042 sin conexión con los registros compartidos.",
+  "navigation": {
+    "buyer": [
+      "Compras/Ventas",
+      "Resumen",
+      "Fondos",
+      "Compras: Órdenes, Entregas, Inventario",
+      "Proyectos",
+      "Proveedores",
+      "Marketplace",
+      "Brick"
+    ],
+    "supplier": [
+      "Compras/Ventas",
+      "Resumen",
+      "Fondos / Cuentas a cobrar",
+      "Ventas / Órdenes y Despachos",
+      "Productos",
+      "Stock",
+      "Comprobantes",
+      "Mi empresa",
+      "Marketplace",
+      "Brick"
+    ]
+  },
+  "responsibilities": [
+    {
+      "page": "Resumen",
+      "content": "Situación general, presupuestos, compras por proyecto, entregas, alertas y accesos a la acción. No reemplaza los registros operativos."
+    },
+    {
+      "page": "Fondos",
+      "content": "Cuenta, reservas, anticipos, aprobaciones, pagos, devoluciones, garantías, conciliación y auditoría. Recepción de material habilita revisión, no ejecución automática de pago."
+    },
+    {
+      "page": "Compras / Órdenes",
+      "content": "Registro de órdenes por empresa/proyecto/proveedor; importes y saldo de reserva; materiales y conformidad; documentos imprimibles con QR y link; acceso al detalle y a Fondos."
+    },
+    {
+      "page": "Compras / Entregas",
+      "content": "Agenda y tabla logística; fecha, horario, transportista, vehículo, seguimiento y responsable; remito; recepción acumulada parcial/completa; incidencias y resolución."
+    },
+    {
+      "page": "Compras / Inventario",
+      "content": "Lotes por material y proyecto; recibido, consumido, físico, reservado, disponible y mínimo; valor a costo; consumo, reserva, liberación, ajustes y traslados; kardex y orden de origen."
+    },
+    {
+      "page": "Proyectos",
+      "content": "Datos maestros de obra, dirección, alcance, tipo, fechas, responsables, acceso, descarga y tarifas por destino. Permanece independiente de Compras."
+    },
+    {
+      "page": "Proveedores",
+      "content": "Empresas, condiciones, catálogo, tipos de productos y acceso al marketplace filtrado."
+    },
+    {
+      "page": "Marketplace / Transporte / Carrito",
+      "content": "Descubrimiento y comparación; productos de múltiples vendedores y transporte vinculado; cantidades, proyecto obligatorio y consolidación por proveedor/destino."
+    },
+    {
+      "page": "Brick",
+      "content": "Conversaciones, archivos y contexto operativo, historial y acceso al flujo correspondiente. No autoriza ni ejecuta pagos por sí solo."
+    },
+    {
+      "page": "Ventas / Productos / Stock / Comprobantes",
+      "content": "Lado proveedor: publicar y mantener ofertas, disponibilidad, aceptación/preparación/despacho de órdenes reales compartidas y registro documental."
+    }
+  ],
+  "implementedConnections": [
+    "Órdenes y agenda utilizan el mismo conjunto que Resumen y Fondos, junto con las órdenes reales del workspace.",
+    "Las órdenes reales conservan el flujo compartido con la app de proveedores y su control de stock.",
+    "Conformidad parcial actualiza inventario, Resumen y capacidad de pago en Fondos.",
+    "Los movimientos nuevos se validan y persisten en el backend privado existente con idempotencia.",
+    "Traslados conservan cantidad entre proyectos; reservas no quitan stock físico; consumo no puede superar disponible.",
+    "Documentos de orden contienen datos actuales y QR generado localmente; impresión a PDF, link con acceso al workspace de empresa.",
+    "Se retiraron los componentes estáticos obsoletos de compras, entrega, recibo e inventario del router comprador."
+  ],
+  "boundaries": [
+    "La programación de una entrega registra el acuerdo en OC y no envía mensajes ni contrata transportistas externos.",
+    "La documentación de orden se puede imprimir/guardar como PDF desde el navegador; el acceso al QR requiere pertenecer al workspace.",
+    "Los registros de muestra históricos permiten navegar y probar la interfaz; las órdenes creadas por el usuario siguen conectadas al proveedor real de su workspace.",
+    "La vinculación de Belo y contratos onchain continúa pendiente. No hay movimientos externos de dinero."
+  ],
+  "verification": {
+    "model": "scripts/check-procurement.mjs",
+    "deployedAPI": "isolated workspace; receipt, finance, inventory, transfer, incident, refresh and idempotency passed",
+    "chrome": "Orders, delivery agenda, partial receipt, inventory, lot-to-order, document QR and one-page print preview verified",
+    "financialBoundary": "No external money movement"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-03",
+  "method": "Native Google Chrome tabs opened by user; inspect visible navigation, listings and product pages",
+  "easy": {
+    "home": "https://www.easy.com.ar/",
+    "department": "https://www.easy.com.ar/construccion-y-maderas",
+    "listing": "https://www.easy.com.ar/construccion-y-maderas/obra-gruesa",
+    "product": "https://www.easy.com.ar/cemento-loma-negra-25kg-1306950/p",
+    "observations": [
+      "Department landing is distinct from product listing",
+      "Construction splits into obra gruesa, techos, seco, escaleras, revestimientos/impermeabilizacion, tableros and carpinteria",
+      "Obra gruesa showed 611 products in browser at research time",
+      "Filter controls: subcategory, brand, type, color, content, dimensions, price",
+      "Separate list and grid layouts; result count, sort and page navigation",
+      "PDP shows brand, title, manufacturer SKU, total price per presentation, seller and quantity",
+      "Delivery and stock depend on selected location; no location permission was granted",
+      "Manufacturer/brand remains distinct from Vendido por Easy",
+      "PDP also compares similar products by type, color, format, weight and origin",
+      "Newsletter invite was declined; no purchase or cart addition performed"
+    ]
+  },
+  "sodimac": {
+    "home": "https://www.sodimac.com.ar/sodimac-ar/",
+    "search": "https://www.sodimac.com.ar/sodimac-ar/search?Ntt=porcelanato",
+    "product": "https://www.sodimac.com.ar/sodimac-ar/product/3439631/porcelanato-tajibo-20-x-120-cm/3439631/",
+    "observations": [
+      "User-opened Chrome tab inspected, including home, search and product page",
+      "Photo category shortcuts and technical facets in listing",
+      "Manufacturer SKU 3439631 and model Tajibo shown independently of brand SPL",
+      "Product dimensions 20 x 120 cm and coverage 2.88 m² per box shown in technical data",
+      "Price shown per m² and per sellable box; surface-to-box calculator provided",
+      "Shipping, pickup and store availability are separate choices",
+      "Survey invite declined; no response submitted, no location permission granted, no product added to cart"
+    ]
+  },
+  "translationToObraClara": [
+    "Business project replaces residential delivery location",
+    "Seller is the registered manufacturer, producer or distributor",
+    "Technical product and sellable presentation must be separate from seller offer",
+    "Keep independent vendors prices, shipping, lead times and payment terms"
+  ],
+  "implementedAfterReview": [
+    "Content and dimension facets based on real existing presentation/measurement data; optional explicit vendor fields",
+    "Optional color/finish in vendor product form and color filter when data is available",
+    "Comparison table for other distinct references of the same type/category",
+    "Visible subtotal for selected quantity and sale presentation, preserving bag B and package P labels",
+    "No catalog-completeness claim and no copying of retailer promotional terms into independent vendor offers"
+  ],
+  "checks": [
+    "next build passed",
+    "all six regression scripts passed"
+  ],
+  "browserVerification": [
+    "Chrome: content 25 kg returns six distinct references",
+    "Chrome: choosing 3 bags updates total to 23.670 ARGt; restored 1 without cart changes"
+  ],
+  "contentSemantics": "Sale content has priority over transport weight; 20 L paint stays 20 L even if gross weight differs"
+}

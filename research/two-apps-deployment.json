@@ -1,0 +1,241 @@
+{
+  "deployments": {
+    "obra-clara": {
+      "id": "dpl_7iQb6myvTafCR37Ne3uYcffP8E68",
+      "url": "https://obra-clara-gray.vercel.app",
+      "projectId": "prj_Kfl8D1mAdhXDqE9P2UfeGWj9Mmxm"
+    },
+    "obra-clara-comprador": {
+      "id": "dpl_CcFfaUqKFC8Qc3jJtLddbfqeZTRF",
+      "url": "https://obra-clara-comprador.vercel.app",
+      "projectId": "prj_5ZQi6qTahEvaTTiyDSr86paSHcSc"
+    },
+    "obra-clara-proveedor": {
+      "id": "dpl_5PJe8bhHNm8TqStm73WrGSUweKmM",
+      "url": "https://obra-clara-proveedor.vercel.app",
+      "projectId": "prj_FpCXNNi7qjLC2U4NvEtG7yIvNtdG"
+    }
+  },
+  "sharedApi": "https://obra-clara-gray.vercel.app/api/demo",
+  "brandUpdate": {
+    "sidebar": "#444a47",
+    "logo": "Official OC black/orange, white wordmark, transparent background",
+    "verified": "Chrome screenshot and live asset checks",
+    "wordmark": "Exact official brand sample: Obra bold and Clara regular; original isotype preserved"
+  },
+  "storage": {
+    "type": "private Vercel Blob",
+    "storeId": "store_eTGePYFJynmxKwAv",
+    "ownerProject": "obra-clara"
+  },
+  "checks": [
+    "production builds passed",
+    "seven regression scripts passed",
+    "18 published routes returned 200 with role selector",
+    "live shared order creation/idempotency/dispatch/partial receipt/ledger passed",
+    "live concurrent orders: one accepted and one rejected against limited stock",
+    "provider product visible from buyer API",
+    "invalid bearer/origin rejected and workspaces isolated",
+    "Chrome buyer-to-provider and provider-to-buyer navigation verified",
+    "Chrome provider order detail and receipts verified"
+  ],
+  "limitations": [
+    "Role switch shares a private demo workspace; no production account authentication",
+    "Funds/receipts are ledger records, not live bank, Belo or smart-contract transactions",
+    "Freight remains separate from material amounts and requires a valid quote"
+  ],
+  "selectorLabels": [
+    "Compras",
+    "Ventas"
+  ],
+  "navigation": {
+    "buyer": [
+      "Compras/Ventas",
+      "Resumen",
+      "Fondos",
+      "Compras",
+      "Proyectos",
+      "Proveedores",
+      "Marketplace",
+      "Brick"
+    ],
+    "purchaseTabs": [
+      "Órdenes",
+      "Entregas",
+      "Inventario"
+    ],
+    "marketplaceSellerLink": "preserved",
+    "sidebarSellerLink": "removed",
+    "footer": "contained in scrollable full-height sidebar"
+  },
+  "categoryPhotos": {
+    "count": 9,
+    "source": "Dedicated category images; real Easy photos for floors, bathroom and windows",
+    "verified": [
+      "/products/catalog/corralon-01.jpg",
+      "/departments/pisos.jpg",
+      "/products/catalog/herramientas-01.jpg",
+      "/products/catalog/electricidad-01.jpg",
+      "/products/catalog/ferreteria-01.jpg",
+      "/products/catalog/pinturas-01.jpg",
+      "/departments/bano.jpg",
+      "/departments/aberturas.jpg",
+      "/products/catalog/electricidad-16.jpg"
+    ]
+  },
+  "brickChat": {
+    "page": "/agente",
+    "history": "workspace-scoped persistent private shared storage",
+    "minimize": "preserves active chat, draft and attachment references",
+    "close": "next open starts fresh while sent conversation stays in history",
+    "actions": [
+      "new",
+      "search",
+      "archive",
+      "restore",
+      "delete"
+    ],
+    "attachments": "binary files persist in IndexedDB on originating browser/app; history shares metadata",
+    "checks": [
+      "production build",
+      "chat lifecycle reducer tests",
+      "shared order regression tests",
+      "live API history/merge/idempotency/archive/restore/delete",
+      "Chrome minimize and restore exact draft",
+      "Chrome close and reopen fresh",
+      "Chrome reopen previous chat from recent list"
+    ],
+    "generation": "Existing guided reply behavior; no new LLM, payment or wallet integration"
+  },
+  "operationsOverview": {
+    "route": "/dashboard",
+    "role": "buyer",
+    "data": "User-authorized illustrative operational records combined with connected workspace orders; no writes to wallet, order or inventory stores",
+    "periods": [
+      "week",
+      "30d",
+      "month"
+    ],
+    "sections": [
+      "Tu operación",
+      "Compras y recepción de materiales",
+      "Estado de las entregas",
+      "Qué proyectos están comprando",
+      "Lo que necesita tu atención",
+      "Agenda de entregas",
+      "Fondos y condiciones de pago",
+      "Materiales para reponer antes de que falten",
+      "Pulso de proveedores",
+      "Filtrar resumen por proyecto",
+      "Período del resumen"
+    ],
+    "interactions": [
+      "project/date filters",
+      "chart units and weekly inspection",
+      "delivery-status drilldown",
+      "order/project/funds dialogs",
+      "provider message read/reply/review stored per workspace in browser",
+      "critical stock links into marketplace",
+      "CSV export",
+      "draft context handoff to Brick"
+    ],
+    "checks": [
+      "next build",
+      "pure metric/budget/delivery/finance/empty-state regression",
+      "Argentine timezone and monthly boundaries",
+      "cent-level balances",
+      "shared orders and Brick regression",
+      "Chrome screenshots of KPI/cards and graphs",
+      "Chrome Torre Nunez filter: 3 orders, 19.736M",
+      "Chrome funds to order drawer drilldown",
+      "Chrome monthly filter recalculates budget"
+    ],
+    "colors": {
+      "green": "#237c57",
+      "blue": "#37759a",
+      "red": "#b94339"
+    }
+  },
+  "funds": {
+    "url": "https://obra-clara-comprador.vercel.app/fondos",
+    "research": "research/funds-research.json",
+    "financialExecution": "internal OC records only; no external wallet transactions",
+    "tested": [
+      "build/typecheck",
+      "finance model invariants",
+      "shared orders regression",
+      "overview regression",
+      "Brick regression",
+      "isolated deployed API persistence/idempotency",
+      "Chrome visuals: overview, instruction, reserve, reconciliation"
+    ]
+  },
+  "purchases": {
+    "architecture": "research/purchase-architecture.json",
+    "pages": [
+      "/compras",
+      "/compras/entregas",
+      "/compras/inventario"
+    ],
+    "tests": [
+      "Next build and TypeScript",
+      "check-procurement.mjs",
+      "check-shared-demo.mjs",
+      "check-finance.mjs",
+      "check-overview.mjs",
+      "isolated deployed API: partial receipt, finance value, stock reservation and transfer, incident, idempotency and refresh",
+      "Google Chrome: órdenes, agenda, recepción, inventario, lote → orden → documento, QR y vista de impresión"
+    ]
+  },
+  "protectionLanding": {
+    "url": "https://obra-clara-comprador.vercel.app/como-funciona",
+    "creative": "research/escrow-landing-creative.json",
+    "validation": [
+      "production build and TypeScript",
+      "404 settlement combinations",
+      "Chrome: headline and generated illustration, anchor CTA, partial delivery, no delivery, advance/refund split"
+    ]
+  },
+  "mixedProjectCart": {
+    "sampleOrders": 10,
+    "projects": 10,
+    "productsPerOrder": 3,
+    "seed": "sample-purchases-v1; persisted and idempotent",
+    "funding": "Debited from existing internal account balance; no external transfers",
+    "cart": "Separate line IDs from offer IDs; same SKU may be bought for distinct projects; mandatory destination at checkout",
+    "popup": "Project code only with full name tooltip and editable selector",
+    "tests": [
+      "production build / typecheck",
+      "check-mixed-projects.mjs",
+      "check-projects.mjs",
+      "check-shared-demo.mjs",
+      "check-finance.mjs",
+      "check-overview.mjs",
+      "deployed isolated API: seed, money conservation, persistence, retry and mixed checkout",
+      "Google Chrome: 23 visible orders including new three-product project purchases; popup shows TNU code; full cart shows destination and blocks checkout for incomplete project; existing cart unchanged"
+    ]
+  },
+  "projectControlCenter": {
+    "url": "https://obra-clara-comprador.vercel.app/proyectos",
+    "editor": "Modal with four steps, internal scroll, focus return, dirty confirmation and retained drafts on failed save",
+    "reporting": [
+      "date/project/provider filters",
+      "period purchases versus lifetime project budget",
+      "paid and retained balances",
+      "supplier breakdown",
+      "orders and fund movements",
+      "CSV and comparison table",
+      "editable red/green/blue project colors"
+    ],
+    "checks": [
+      "production build and TypeScript",
+      "check-project-accounts.mjs",
+      "check-projects.mjs",
+      "check-mixed-projects.mjs",
+      "check-finance.mjs",
+      "isolated deployed API: budgets, custom values, color and reception persist",
+      "Google Chrome: project center, edit modal, section focus, dirty warning, discard, focus return, project expense detail, order tab, provider filter recalculates totals"
+    ],
+    "deploymentState": "All three production deployments READY"
+  }
+}

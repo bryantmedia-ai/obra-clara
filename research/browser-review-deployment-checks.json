@@ -1,0 +1,35 @@
+[
+  {
+    "path": "/marketplace",
+    "status": 200,
+    "checks": {
+      "Filtrar contenido": true,
+      "Filtrar dimensiones": true,
+      "Total por": true
+    }
+  },
+  {
+    "path": "/marketplace?contenido=25+kg",
+    "status": 200,
+    "checks": {
+      "25 kg": true,
+      "Contenido / medida de venta": true
+    }
+  },
+  {
+    "path": "/productos/corralon-01",
+    "status": 200,
+    "checks": {
+      "Compará especificaciones antes de elegir": true,
+      "Presentación que comprás": true,
+      "Contenido / medida de venta": true
+    }
+  },
+  {
+    "path": "/mi-tienda",
+    "status": 200,
+    "checks": {
+      "Publicar un producto propio": true
+    }
+  }
+]

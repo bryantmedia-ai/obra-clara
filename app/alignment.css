@@ -1,0 +1,45 @@
+/* Consistent SVG boxes prevent intrinsic SVG dimensions and text baselines
+   from shifting icons inside compact controls. Keep editorial content aligned. */
+.app-shell .svg-inline--fa{flex-shrink:0}
+.icon-button,
+.top-actions .agent-shortcut,
+.prompt button,
+.composer button,
+.ag-send,
+.popup-send,
+.popup-avatar,
+.popup-attach,
+.oc-chat-popup>header>button,
+.agent-orb,
+.activity-icon,
+.stat-icon,
+.stock-icon,
+.message.agent>span{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;line-height:1}
+.icon-button,
+.top-actions .agent-shortcut{width:40px;height:40px;padding:0}
+.icon-button>.svg-inline--fa{display:block;width:18px;height:18px;margin:0;vertical-align:0}
+.top-actions .agent-shortcut>.svg-inline--fa{width:20px;height:20px}
+.popup-avatar>.svg-inline--fa{display:block;width:20px;height:20px;margin:0;vertical-align:0}
+.popup-send>.svg-inline--fa,
+.popup-attach>.svg-inline--fa,
+.oc-chat-popup>header>button>.svg-inline--fa{display:block;width:16px;height:16px;margin:0;vertical-align:0}
+.oc-chat-popup>header>button{width:32px;height:32px;padding:0}
+.prompt button>.svg-inline--fa,
+.composer button>.svg-inline--fa{display:block;width:15px;height:15px;margin:0;vertical-align:0}
+.sidebar nav a>.svg-inline--fa,
+.sidebar .about-nav-link>.svg-inline--fa{display:block;width:17px;height:17px;flex:0 0 17px;vertical-align:0}
+.profile>.svg-inline--fa{display:block;width:16px;height:16px;margin:0;vertical-align:0}
+.page-heading-icon>.svg-inline--fa{display:block;margin:0;vertical-align:0}
+.button>.svg-inline--fa{display:block;width:15px;height:15px;margin:0;vertical-align:0}
+.stat-icon>.svg-inline--fa{display:block;width:17px;height:17px;vertical-align:0}
+.activity-icon>.svg-inline--fa,
+.stock-icon>.svg-inline--fa{display:block;width:15px;height:15px;vertical-align:0}
+.agent-orb>.svg-inline--fa{display:block;width:20px;height:20px;vertical-align:0}
+.message.agent>span>.svg-inline--fa{display:block;width:14px;height:14px;vertical-align:0}
+.steps button>span{display:flex;align-items:center;justify-content:center;line-height:1}
+.steps button>span>.svg-inline--fa{display:block;width:11px;height:11px;vertical-align:0}
+.input>.svg-inline--fa,
+.search>.svg-inline--fa{display:block;width:15px;height:15px;vertical-align:0}
+.rule>.svg-inline--fa{display:block;width:15px;height:15px}
+.top-actions,.topbar .page-heading{align-items:center}
+@media(max-width:760px){.topbar{height:auto;min-height:76px;padding-block:14px;gap:12px}.top-actions{flex-shrink:0}.page-heading-icon>.svg-inline--fa{width:36px;height:40px}}

@@ -1,0 +1,1082 @@
+{
+  "corralon-01": {
+    "productType": "Cementos",
+    "model": "CEMENTO HOLCIM 25KG CPC",
+    "referenceId": "corralon-01",
+    "referenceCode": "1487127"
+  },
+  "corralon-02": {
+    "productType": "Cementos",
+    "model": "Cemento Pórtland Compuesto Con Filler Calcáreo Y Puzolana",
+    "referenceId": "corralon-02",
+    "referenceCode": "1483139"
+  },
+  "corralon-03": {
+    "productType": "Cementos",
+    "model": "Cemento 25 Kg Loma Negra",
+    "referenceId": "corralon-03",
+    "referenceCode": "1487452"
+  },
+  "corralon-04": {
+    "productType": "Cementos",
+    "model": "Cemento Albañileria",
+    "referenceId": "corralon-04",
+    "referenceCode": "1487461"
+  },
+  "corralon-05": {
+    "productType": "Acero para armaduras",
+    "model": "Hierro nervado Ø12 mm x 12 m Acindar",
+    "referenceId": "corralon-05",
+    "referenceCode": "13"
+  },
+  "corralon-06": {
+    "productType": "Acero para armaduras",
+    "model": "Hierro nervado soldable Ø16 mm x 12 m Acindar",
+    "referenceId": "corralon-06",
+    "referenceCode": "223"
+  },
+  "corralon-07": {
+    "productType": "Acero para armaduras",
+    "model": "Hierro nervado soldable Ø20 mm x 12 m Acindar",
+    "referenceId": "corralon-07",
+    "referenceCode": "224"
+  },
+  "corralon-08": {
+    "productType": "Acero para armaduras",
+    "model": "Hierro nervado soldable Ø25 mm x 12 m Acindar",
+    "referenceId": "corralon-08",
+    "referenceCode": "225"
+  },
+  "corralon-09": {
+    "productType": "Mallas",
+    "model": "Q188",
+    "referenceId": "corralon-09",
+    "referenceCode": "1174807"
+  },
+  "corralon-10": {
+    "productType": "Mallas",
+    "model": "Malla Electrosoldada 15X15 2X5 Mts Q84 3.8 Mm Serin",
+    "referenceId": "corralon-10",
+    "referenceCode": "1385790"
+  },
+  "corralon-11": {
+    "productType": "Ladrillos y bloques",
+    "model": "Ladrillo Hueco 12X18X33 Cm Palmar",
+    "referenceId": "corralon-11",
+    "referenceCode": "1068800"
+  },
+  "corralon-12": {
+    "productType": "Ladrillos y bloques",
+    "model": "Ladrillo Hueco 18X18X33 Cm Palmar",
+    "referenceId": "corralon-12",
+    "referenceCode": "1066515"
+  },
+  "corralon-13": {
+    "productType": "Cementos",
+    "model": "Bloque Cemento 20 Cm Corblock",
+    "referenceId": "corralon-13",
+    "referenceCode": "1997823"
+  },
+  "corralon-14": {
+    "productType": "Ladrillos y bloques",
+    "model": "Ladrillo Hcca 50X25X15 Cm Retak",
+    "referenceId": "corralon-14",
+    "referenceCode": "1317672"
+  },
+  "corralon-15": {
+    "productType": "Áridos",
+    "model": "Bolsón De Arena",
+    "referenceId": "corralon-15",
+    "referenceCode": "1474999"
+  },
+  "corralon-16": {
+    "productType": "Cementos",
+    "model": "Adhesivo Cementicio para Porcellanato 25 Kg Gris Klaukol",
+    "referenceId": "corralon-16",
+    "referenceCode": "1455564"
+  },
+  "corralon-17": {
+    "productType": "Cementos",
+    "model": "Adhesivo Cementicio Flex Para Interior y Exterior 25 Kg Gris Klaukol",
+    "referenceId": "corralon-17",
+    "referenceCode": "1455563"
+  },
+  "corralon-18": {
+    "productType": "Hidrófugos",
+    "model": "Hidrófugo en Pasta 20 Kg Sika",
+    "referenceId": "corralon-18",
+    "referenceCode": "1445543"
+  },
+  "corralon-19": {
+    "productType": "Cementos",
+    "model": "MARTEL BASECOAT CEMENTICIO MONO COMPONENTE GRIS 25K",
+    "referenceId": "corralon-19",
+    "referenceCode": "114248"
+  },
+  "corralon-20": {
+    "productType": "Placas de yeso",
+    "model": "PLACA DE YESO KNAUF DIAMANTE 2.4 X 1.2 – 12.5 MM",
+    "referenceId": "corralon-20",
+    "referenceCode": "18550"
+  },
+  "ferreteria-01": {
+    "productType": "Pernos de anclaje",
+    "model": "Perno Fwa 12X100 Mm Blister X 4 Un Fischer",
+    "referenceId": "ferreteria-01",
+    "referenceCode": "1288451"
+  },
+  "ferreteria-02": {
+    "productType": "Tarugos y tacos",
+    "model": "Tarugo Con Tornillo Para Hormigón 8 Mm 200 Un Fischer",
+    "referenceId": "ferreteria-02",
+    "referenceCode": "1358672"
+  },
+  "ferreteria-03": {
+    "productType": "Tarugos y tacos",
+    "model": "Tarugo Nylon SX 10 Mm Con Tornillo X 100 Un Fischer",
+    "referenceId": "ferreteria-03",
+    "referenceCode": "1358675"
+  },
+  "ferreteria-04": {
+    "productType": "Tarugos y tacos",
+    "model": "Taco Metal 1/4 X 100 Un Fischer",
+    "referenceId": "ferreteria-04",
+    "referenceCode": "1288448"
+  },
+  "ferreteria-05": {
+    "productType": "Tarugos y tacos",
+    "model": "Duopower",
+    "referenceId": "ferreteria-05",
+    "referenceCode": "1409098"
+  },
+  "ferreteria-06": {
+    "productType": "Tarugos y tacos",
+    "model": "Duopower",
+    "referenceId": "ferreteria-06",
+    "referenceCode": "1409099"
+  },
+  "ferreteria-07": {
+    "productType": "Tarugos y tacos",
+    "model": "Duopower",
+    "referenceId": "ferreteria-07",
+    "referenceCode": "1409300"
+  },
+  "ferreteria-08": {
+    "productType": "Tarugos y tacos",
+    "model": "Pha66116-Pdq-R",
+    "referenceId": "ferreteria-08",
+    "referenceCode": "1358667"
+  },
+  "ferreteria-09": {
+    "productType": "Tornillos",
+    "model": "T2",
+    "referenceId": "ferreteria-09",
+    "referenceCode": "1171979"
+  },
+  "ferreteria-10": {
+    "productType": "Tornillos",
+    "model": "Tornillo Hexagonal Autoperforante Madera 14x3 X 50 Un Tel",
+    "referenceId": "ferreteria-10",
+    "referenceCode": "1171998"
+  },
+  "ferreteria-11": {
+    "productType": "Tornillos",
+    "model": "Tornillo T2 Autoperforante 6X1.1/8\" N 100 Un Tel",
+    "referenceId": "ferreteria-11",
+    "referenceCode": "1209779"
+  },
+  "ferreteria-12": {
+    "productType": "Discos de corte",
+    "model": "Estándar",
+    "referenceId": "ferreteria-12",
+    "referenceCode": "1331562"
+  },
+  "ferreteria-13": {
+    "productType": "Discos de corte",
+    "model": "Disco de Corte Basic para Acero Inoxidable 115x1 Mm Tyrolit",
+    "referenceId": "ferreteria-13",
+    "referenceCode": "1169645"
+  },
+  "ferreteria-14": {
+    "productType": "Discos de corte",
+    "model": "Disco de Corte Metal 355 x 2.7 x 25.4 Mm A24T DeWalt",
+    "referenceId": "ferreteria-14",
+    "referenceCode": "151432"
+  },
+  "ferreteria-15": {
+    "productType": "Discos de corte",
+    "model": "Disco Diamantado Segmentado para Cemento y Ladrillo 230 Mm 9\" High Performance DeWalt",
+    "referenceId": "ferreteria-15",
+    "referenceCode": "1141639"
+  },
+  "ferreteria-16": {
+    "productType": "Discos de corte",
+    "model": "SET LATA 100 DISCOS CORTE METAL INOX",
+    "referenceId": "ferreteria-16",
+    "referenceCode": "1471694"
+  },
+  "ferreteria-17": {
+    "productType": "Selladores",
+    "model": "Sellador para Juntas FASTIX",
+    "referenceId": "ferreteria-17",
+    "referenceCode": "14436"
+  },
+  "ferreteria-18": {
+    "productType": "Espumas de montaje",
+    "model": "Espuma de Poliuretano SILOC",
+    "referenceId": "ferreteria-18",
+    "referenceCode": "14368"
+  },
+  "ferreteria-19": {
+    "productType": "Selladores",
+    "model": "Sellador Multiuso SILOC Pintable Apto Piscinas",
+    "referenceId": "ferreteria-19",
+    "referenceCode": "14435"
+  },
+  "ferreteria-20": {
+    "productType": "Adhesivos epoxi",
+    "model": "Soldadura Plastica 2 componentes POXIPOL",
+    "referenceId": "ferreteria-20",
+    "referenceCode": "14438"
+  },
+  "electricidad-01": {
+    "productType": "Interruptores diferenciales",
+    "model": "Interruptor Diferencial 4x40A 30MA SICA",
+    "referenceId": "electricidad-01",
+    "referenceCode": "1736325"
+  },
+  "electricidad-02": {
+    "productType": "Interruptores diferenciales",
+    "model": "Interruptor Diferencial 4x63A 30MA SICA",
+    "referenceId": "electricidad-02",
+    "referenceCode": "1736326"
+  },
+  "electricidad-03": {
+    "productType": "Interruptores termomagnéticos",
+    "model": "Interruptor Termomagnético Tetrapolar 4x40A Super Limit SICA",
+    "referenceId": "electricidad-03",
+    "referenceCode": "1738440"
+  },
+  "electricidad-04": {
+    "productType": "Interruptores termomagnéticos",
+    "model": "Interruptor Termomagnético Tetrapolar 4x50A 3KA SICA",
+    "referenceId": "electricidad-04",
+    "referenceCode": "1738441"
+  },
+  "electricidad-05": {
+    "productType": "Interruptores diferenciales",
+    "model": "Easy 9",
+    "referenceId": "electricidad-05",
+    "referenceCode": "420981"
+  },
+  "electricidad-06": {
+    "productType": "Interruptores diferenciales",
+    "model": "Easy 9",
+    "referenceId": "electricidad-06",
+    "referenceCode": "1272315"
+  },
+  "electricidad-07": {
+    "productType": "Interruptores termomagnéticos",
+    "model": "Easy 9",
+    "referenceId": "electricidad-07",
+    "referenceCode": "1272419"
+  },
+  "electricidad-08": {
+    "productType": "Interruptores termomagnéticos",
+    "model": "Easy 9",
+    "referenceId": "electricidad-08",
+    "referenceCode": "1272422"
+  },
+  "electricidad-09": {
+    "productType": "Gabinetes y tableros",
+    "model": "Gabinete Modular Para Embutir 24 Polos Blanco Genrod",
+    "referenceId": "electricidad-09",
+    "referenceCode": "1128042"
+  },
+  "electricidad-10": {
+    "productType": "Gabinetes y tableros",
+    "model": "17323224",
+    "referenceId": "electricidad-10",
+    "referenceCode": "1357684"
+  },
+  "electricidad-11": {
+    "productType": "Gabinetes y tableros",
+    "model": "161200G",
+    "referenceId": "electricidad-11",
+    "referenceCode": "1357682"
+  },
+  "electricidad-12": {
+    "productType": "Gabinetes y tableros",
+    "model": "22213111G",
+    "referenceId": "electricidad-12",
+    "referenceCode": "1357659"
+  },
+  "electricidad-13": {
+    "productType": "Gabinetes y tableros",
+    "model": "22212111G",
+    "referenceId": "electricidad-13",
+    "referenceCode": "1357658"
+  },
+  "electricidad-14": {
+    "productType": "Gabinetes y tableros",
+    "model": "4512",
+    "referenceId": "electricidad-14",
+    "referenceCode": "1357687"
+  },
+  "electricidad-15": {
+    "productType": "Gabinetes y tableros",
+    "model": "4524",
+    "referenceId": "electricidad-15",
+    "referenceCode": "1357689"
+  },
+  "electricidad-16": {
+    "productType": "Reflectores",
+    "model": "Reflector Led Macroled Pro 200W Ac100-240V Frio 6500K Ik08",
+    "referenceId": "electricidad-16",
+    "referenceCode": "1527299"
+  },
+  "electricidad-17": {
+    "productType": "Reflectores",
+    "model": "Led Proyector",
+    "referenceId": "electricidad-17",
+    "referenceCode": "1358136"
+  },
+  "electricidad-18": {
+    "productType": "Luces de emergencia",
+    "model": "Luz Emergencia 60 Led 12 Hs Atomlux",
+    "referenceId": "electricidad-18",
+    "referenceCode": "1159921"
+  },
+  "electricidad-19": {
+    "productType": "Reflectores",
+    "model": "Reflector Led Macroled Pro 100W Ac100-240V Frio 6500K Ik08",
+    "referenceId": "electricidad-19",
+    "referenceCode": "1527298"
+  },
+  "electricidad-20": {
+    "productType": "Reflectores",
+    "model": "Proyector Led 100 W Luz Fría IP66 Candela",
+    "referenceId": "electricidad-20",
+    "referenceCode": "1358134"
+  },
+  "cables-01": {
+    "productType": "Cables unipolares",
+    "model": "Cable Unipolar 1.5 Mm 100 Mts Celeste Pirastic Prysmian",
+    "referenceId": "cables-01",
+    "referenceCode": "1325411"
+  },
+  "cables-02": {
+    "productType": "Cables unipolares",
+    "model": "Cable Unipolar 2.5 Mm 100 Mts Celeste Pirastic Prysmian",
+    "referenceId": "cables-02",
+    "referenceCode": "1325429"
+  },
+  "cables-03": {
+    "productType": "Cables unipolares",
+    "model": "Cable Unipolar 2.5 Mm 100 Mts Verde/Amarillo Pirastic Prysmian",
+    "referenceId": "cables-03",
+    "referenceCode": "1325434"
+  },
+  "cables-04": {
+    "productType": "Cables unipolares",
+    "model": "Cable Unipolar 2.5 Mm Negro Plastix\"Cf\" X100 Mts Imsa",
+    "referenceId": "cables-04",
+    "referenceCode": "1132367"
+  },
+  "cables-05": {
+    "productType": "Cables unipolares",
+    "model": "Cable Unipolar4 Mm Negro Plastix\"Cf\" X100 Mts Imsa",
+    "referenceId": "cables-05",
+    "referenceCode": "1132373"
+  },
+  "cables-06": {
+    "productType": "Cables unipolares",
+    "model": "Cable Unipolar Trefilcon 1x6mm Verde Amarillo x 100mts",
+    "referenceId": "cables-06",
+    "referenceCode": "39522"
+  },
+  "cables-07": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 5x6mm x Metro",
+    "referenceId": "cables-07",
+    "referenceCode": "20658"
+  },
+  "cables-08": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 3×50+25mm x Metro",
+    "referenceId": "cables-08",
+    "referenceCode": "20654"
+  },
+  "cables-09": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 3×35+16mm x Metro",
+    "referenceId": "cables-09",
+    "referenceCode": "20653"
+  },
+  "cables-10": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 3×25+16mm x Metro",
+    "referenceId": "cables-10",
+    "referenceCode": "20652"
+  },
+  "cables-11": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 4x16mm x Metro",
+    "referenceId": "cables-11",
+    "referenceCode": "20651"
+  },
+  "cables-12": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 4x10mm x Metro",
+    "referenceId": "cables-12",
+    "referenceCode": "20650"
+  },
+  "cables-13": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 4x6mm x Metro",
+    "referenceId": "cables-13",
+    "referenceCode": "20649"
+  },
+  "cables-14": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 1x70mm x Metro",
+    "referenceId": "cables-14",
+    "referenceCode": "20634"
+  },
+  "cables-15": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 1x50mm x Metro",
+    "referenceId": "cables-15",
+    "referenceCode": "20633"
+  },
+  "cables-16": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 1x25mm x Metro",
+    "referenceId": "cables-16",
+    "referenceCode": "20631"
+  },
+  "cables-17": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 3x10mm x Metro",
+    "referenceId": "cables-17",
+    "referenceCode": "20645"
+  },
+  "cables-18": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 2x16mm x Metro",
+    "referenceId": "cables-18",
+    "referenceCode": "20640"
+  },
+  "cables-19": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 3x6mm x Metro",
+    "referenceId": "cables-19",
+    "referenceCode": "20644"
+  },
+  "cables-20": {
+    "productType": "Cables de potencia",
+    "model": "Cable Subterraneo LSOH 3x4mm x Metro",
+    "referenceId": "cables-20",
+    "referenceCode": "20643"
+  },
+  "generadores-01": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno Taurus 30 kVA insonorizado",
+    "referenceId": "generadores-01",
+    "referenceCode": "4891"
+  },
+  "generadores-02": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno Taurus 37.5 kVA insonorizado",
+    "referenceId": "generadores-02",
+    "referenceCode": "4893"
+  },
+  "generadores-03": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno Taurus 50 kVA insonorizado",
+    "referenceId": "generadores-03",
+    "referenceCode": "4895"
+  },
+  "generadores-04": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno Taurus 62.5 kVA insonorizado",
+    "referenceId": "generadores-04",
+    "referenceCode": "4897"
+  },
+  "generadores-05": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno Taurus 80 kVA insonorizado",
+    "referenceId": "generadores-05",
+    "referenceCode": "4899"
+  },
+  "generadores-06": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno Taurus 100 kVA insonorizado",
+    "referenceId": "generadores-06",
+    "referenceCode": "4901"
+  },
+  "generadores-07": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno Taurus 125 kVA insonorizado",
+    "referenceId": "generadores-07",
+    "referenceCode": "4903"
+  },
+  "generadores-08": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno Taurus 250 kVA insonorizado",
+    "referenceId": "generadores-08",
+    "referenceCode": "4905"
+  },
+  "generadores-09": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno Taurus 312 kVA insonorizado",
+    "referenceId": "generadores-09",
+    "referenceCode": "4907"
+  },
+  "generadores-10": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno Taurus 375 kVA insonorizado",
+    "referenceId": "generadores-10",
+    "referenceCode": "4909"
+  },
+  "generadores-11": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno Taurus 500 kVA insonorizado",
+    "referenceId": "generadores-11",
+    "referenceCode": "4911"
+  },
+  "generadores-12": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno Taurus 1500 kVA insonorizado",
+    "referenceId": "generadores-12",
+    "referenceCode": "4784"
+  },
+  "generadores-13": {
+    "productType": "Generadores a gas natural",
+    "model": "Grupo electrógeno Taurus GN 25 kVA",
+    "referenceId": "generadores-13",
+    "referenceCode": "4820"
+  },
+  "generadores-14": {
+    "productType": "Generadores a gas natural",
+    "model": "Grupo electrógeno Taurus GN 62.5 kVA",
+    "referenceId": "generadores-14",
+    "referenceCode": "4818"
+  },
+  "generadores-15": {
+    "productType": "Generadores a gas natural",
+    "model": "Grupo electrógeno Taurus GN 125 kVA",
+    "referenceId": "generadores-15",
+    "referenceCode": "4812"
+  },
+  "generadores-16": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno ZMG SNA16GFS · 20 kVA",
+    "referenceId": "generadores-16",
+    "referenceCode": "SNA16GFS"
+  },
+  "generadores-17": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno ZMG SNA24GFS · 30 kVA",
+    "referenceId": "generadores-17",
+    "referenceCode": "SNA24GFS"
+  },
+  "generadores-18": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno ZMG SNA32GFS · 40 kVA",
+    "referenceId": "generadores-18",
+    "referenceCode": "SNA32GFS"
+  },
+  "generadores-19": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno ZMG SNA40GFS · 50 kVA",
+    "referenceId": "generadores-19",
+    "referenceCode": "SNA40GFS"
+  },
+  "generadores-20": {
+    "productType": "Generadores diésel",
+    "model": "Grupo electrógeno ZMG SNA48GFS · 60 kVA",
+    "referenceId": "generadores-20",
+    "referenceCode": "SNA48GFS"
+  },
+  "herramientas-01": {
+    "productType": "Rotomartillos",
+    "model": "GBH 8-45 D",
+    "referenceId": "herramientas-01",
+    "referenceCode": "112762"
+  },
+  "herramientas-02": {
+    "productType": "Vibradores de hormigón",
+    "model": "GVC 22 EX",
+    "referenceId": "herramientas-02",
+    "referenceCode": "114707"
+  },
+  "herramientas-03": {
+    "productType": "Rotomartillos",
+    "model": "GBH 185-LI",
+    "referenceId": "herramientas-03",
+    "referenceCode": "114676"
+  },
+  "herramientas-04": {
+    "productType": "Amoladoras",
+    "model": "GWS 25-230",
+    "referenceId": "herramientas-04",
+    "referenceCode": "112815"
+  },
+  "herramientas-05": {
+    "productType": "Amoladoras",
+    "model": "GWS 12-125 S",
+    "referenceId": "herramientas-05",
+    "referenceCode": "113562"
+  },
+  "herramientas-06": {
+    "productType": "Llaves de impacto",
+    "model": "GDS 18V-1000 H",
+    "referenceId": "herramientas-06",
+    "referenceCode": "114715"
+  },
+  "herramientas-07": {
+    "productType": "Llaves de impacto",
+    "model": "GDR 18V-215",
+    "referenceId": "herramientas-07",
+    "referenceCode": "114710"
+  },
+  "herramientas-08": {
+    "productType": "Sierras circulares",
+    "model": "GKS 130",
+    "referenceId": "herramientas-08",
+    "referenceCode": "115143"
+  },
+  "herramientas-09": {
+    "productType": "Sierras sensitivas",
+    "model": "GCO 230",
+    "referenceId": "herramientas-09",
+    "referenceCode": "115121"
+  },
+  "herramientas-10": {
+    "productType": "Sierras ingletadoras",
+    "model": "GCM 254",
+    "referenceId": "herramientas-10",
+    "referenceCode": "115113"
+  },
+  "herramientas-11": {
+    "productType": "Medidores láser",
+    "model": "GLM 50-27 CG",
+    "referenceId": "herramientas-11",
+    "referenceCode": "113527"
+  },
+  "herramientas-12": {
+    "productType": "Detectores de materiales",
+    "model": "GMS 120-27",
+    "referenceId": "herramientas-12",
+    "referenceCode": "113897"
+  },
+  "herramientas-13": {
+    "productType": "Taladros",
+    "model": "GSB 183-LI",
+    "referenceId": "herramientas-13",
+    "referenceCode": "115141"
+  },
+  "herramientas-14": {
+    "productType": "Lijadoras",
+    "model": "GEX 125",
+    "referenceId": "herramientas-14",
+    "referenceCode": "113892"
+  },
+  "herramientas-15": {
+    "productType": "Mezcladores",
+    "model": "TC-MX 1400-2 E",
+    "referenceId": "herramientas-15",
+    "referenceCode": "114341"
+  },
+  "herramientas-16": {
+    "productType": "Lijadoras",
+    "model": "GBS 750",
+    "referenceId": "herramientas-16",
+    "referenceCode": "115145"
+  },
+  "herramientas-17": {
+    "productType": "Cepillos eléctricos",
+    "model": "GHO 18V-LI",
+    "referenceId": "herramientas-17",
+    "referenceCode": "89349"
+  },
+  "herramientas-18": {
+    "productType": "Niveles láser",
+    "model": "GLL 3X G",
+    "referenceId": "herramientas-18",
+    "referenceCode": "115432"
+  },
+  "herramientas-19": {
+    "productType": "Martillos demoledores",
+    "model": "Martillo Demoledor 1500 W + Maletín Einhell",
+    "referenceId": "herramientas-19",
+    "referenceCode": "1142097"
+  },
+  "herramientas-20": {
+    "productType": "Aspiradoras",
+    "model": "NT 15/1 Black Edition",
+    "referenceId": "herramientas-20",
+    "referenceCode": "1301897"
+  },
+  "sanitarios-01": {
+    "productType": "Caños de agua",
+    "model": "Caño Termofusión Tubofusión Pn20 25 mm X 4M",
+    "referenceId": "sanitarios-01",
+    "referenceCode": "1216156"
+  },
+  "sanitarios-02": {
+    "productType": "Caños de agua",
+    "model": "Caño Termofusión Tubofusión Pn20 32 mm X 4M",
+    "referenceId": "sanitarios-02",
+    "referenceCode": "1216157"
+  },
+  "sanitarios-03": {
+    "productType": "Caños de agua",
+    "model": "Termofusión",
+    "referenceId": "sanitarios-03",
+    "referenceCode": "1216153"
+  },
+  "sanitarios-04": {
+    "productType": "Llaves de paso",
+    "model": "Termofusión",
+    "referenceId": "sanitarios-04",
+    "referenceCode": "1216150"
+  },
+  "sanitarios-05": {
+    "productType": "Válvulas de agua",
+    "model": "Termofusión",
+    "referenceId": "sanitarios-05",
+    "referenceCode": "1216152"
+  },
+  "sanitarios-06": {
+    "productType": "Uniones de agua",
+    "model": "Termofusión",
+    "referenceId": "sanitarios-06",
+    "referenceCode": "1216191"
+  },
+  "sanitarios-07": {
+    "productType": "Conexiones de agua",
+    "model": "Termofusión",
+    "referenceId": "sanitarios-07",
+    "referenceCode": "1216183"
+  },
+  "sanitarios-08": {
+    "productType": "Conexiones de agua",
+    "model": "Termofusión",
+    "referenceId": "sanitarios-08",
+    "referenceCode": "1216160"
+  },
+  "sanitarios-09": {
+    "productType": "Tubos de desagüe",
+    "model": "Tubo Duratop X M.H. 110X4.00 M",
+    "referenceId": "sanitarios-09",
+    "referenceCode": "1202420"
+  },
+  "sanitarios-10": {
+    "productType": "Tubos de desagüe",
+    "model": "Tubo Pvc 110mmx4Mts Standart Amanco",
+    "referenceId": "sanitarios-10",
+    "referenceCode": "1029624"
+  },
+  "sanitarios-11": {
+    "productType": "Ramales de desagüe",
+    "model": "Ramal",
+    "referenceId": "sanitarios-11",
+    "referenceCode": "1455609"
+  },
+  "sanitarios-12": {
+    "productType": "Conexiones de desagüe",
+    "model": "Codo",
+    "referenceId": "sanitarios-12",
+    "referenceCode": "1202436"
+  },
+  "sanitarios-13": {
+    "productType": "Válvulas antirretorno",
+    "model": "Valvula",
+    "referenceId": "sanitarios-13",
+    "referenceCode": "1479829"
+  },
+  "sanitarios-14": {
+    "productType": "Piletas de patio",
+    "model": "Pileta De Patio M110",
+    "referenceId": "sanitarios-14",
+    "referenceCode": "1202383"
+  },
+  "sanitarios-15": {
+    "productType": "Ventilaciones sanitarias",
+    "model": "Sombrerete",
+    "referenceId": "sanitarios-15",
+    "referenceCode": "1967800"
+  },
+  "sanitarios-16": {
+    "productType": "Bocas de acceso",
+    "model": "Boca De Acceso",
+    "referenceId": "sanitarios-16",
+    "referenceCode": "1202390"
+  },
+  "sanitarios-17": {
+    "productType": "Ramales de desagüe",
+    "model": "Ramal Con Ventilación",
+    "referenceId": "sanitarios-17",
+    "referenceCode": "1454977"
+  },
+  "sanitarios-18": {
+    "productType": "Manguitos de reparación",
+    "model": "Manguito De Reparación",
+    "referenceId": "sanitarios-18",
+    "referenceCode": "1454966"
+  },
+  "sanitarios-19": {
+    "productType": "Bombas de prueba",
+    "model": "BM-800",
+    "referenceId": "sanitarios-19",
+    "referenceCode": "1406800"
+  },
+  "sanitarios-20": {
+    "productType": "Bombas sumergibles",
+    "model": "Sum Pp 2 Hp",
+    "referenceId": "sanitarios-20",
+    "referenceCode": "1475802"
+  },
+  "pinturas-01": {
+    "productType": "Pinturas látex",
+    "model": "Pintura Látex Interior Blanco Mate 20 Lts Sinteplast",
+    "referenceId": "pinturas-01",
+    "referenceCode": "1571274"
+  },
+  "pinturas-02": {
+    "productType": "Pinturas látex",
+    "model": "Latex Int Proclassic Xr",
+    "referenceId": "pinturas-02",
+    "referenceCode": "1502606"
+  },
+  "pinturas-03": {
+    "productType": "Pinturas látex",
+    "model": "Látex Interior Albalatex 20Lts",
+    "referenceId": "pinturas-03",
+    "referenceCode": "1166962"
+  },
+  "pinturas-04": {
+    "productType": "Pinturas látex",
+    "model": "Látex Interior Albalatex Satinado 20Lts",
+    "referenceId": "pinturas-04",
+    "referenceCode": "1121193"
+  },
+  "pinturas-05": {
+    "productType": "Pinturas látex",
+    "model": "Látex Exterior Casablanca 20Lts",
+    "referenceId": "pinturas-05",
+    "referenceCode": "1239394"
+  },
+  "pinturas-06": {
+    "productType": "Pinturas látex",
+    "model": "Latex Exterior Acrílico Sherwin Williams Blanco 20 Lts",
+    "referenceId": "pinturas-06",
+    "referenceCode": "1674453"
+  },
+  "pinturas-07": {
+    "productType": "Pinturas látex",
+    "model": "Látex Para Placa De Yeso",
+    "referenceId": "pinturas-07",
+    "referenceCode": "1455536"
+  },
+  "pinturas-08": {
+    "productType": "Pinturas para cielorraso",
+    "model": "Pintura Cielorraso Blanco Mate 20 Lts Casablanca",
+    "referenceId": "pinturas-08",
+    "referenceCode": "1141678"
+  },
+  "pinturas-09": {
+    "productType": "Membranas líquidas",
+    "model": "Poliuretano Sinteplast Blanco 20 Kg.",
+    "referenceId": "pinturas-09",
+    "referenceCode": "1956067"
+  },
+  "pinturas-10": {
+    "productType": "Membranas líquidas",
+    "model": "Membrana Líquida Proclassic Sherwin Williams Blanca 20Kg",
+    "referenceId": "pinturas-10",
+    "referenceCode": "1279861"
+  },
+  "pinturas-11": {
+    "productType": "Impermeabilizantes",
+    "model": "Impermeabilizante Duralba P/Muros 20Lt.",
+    "referenceId": "pinturas-11",
+    "referenceCode": "1392092"
+  },
+  "pinturas-12": {
+    "productType": "Membranas líquidas",
+    "model": "Tersitech Techos Y Muros",
+    "referenceId": "pinturas-12",
+    "referenceCode": "1483099"
+  },
+  "pinturas-13": {
+    "productType": "Impermeabilizantes",
+    "model": "Impermeabilizante De Muros Rap 820 20L Blanco",
+    "referenceId": "pinturas-13",
+    "referenceCode": "1465947"
+  },
+  "pinturas-14": {
+    "productType": "Membranas líquidas",
+    "model": "Membrana Líquida Verde 20 Kg 12 M2 Megaflex",
+    "referenceId": "pinturas-14",
+    "referenceCode": "1051065"
+  },
+  "pinturas-15": {
+    "productType": "Revestimientos epoxi",
+    "model": "SINTEPLAST SINTECOAT EP 120 PARTE A + B GRIS 8 L",
+    "referenceId": "pinturas-15",
+    "referenceCode": "74359"
+  },
+  "pinturas-16": {
+    "productType": "Revestimientos epoxi",
+    "model": "HEMPADUR 17634 QUATTRO EPOXI BEIGE 20L",
+    "referenceId": "pinturas-16",
+    "referenceCode": "43221"
+  },
+  "pinturas-17": {
+    "productType": "Revestimientos epoxi",
+    "model": "HEMPEL 35860 EPOXI SIN SOLVENTE PARA PISOS – GRIS BRILLANTE 5L",
+    "referenceId": "pinturas-17",
+    "referenceCode": "60356"
+  },
+  "pinturas-18": {
+    "productType": "Esmaltes industriales",
+    "model": "ESMALTE INDUSTRIAL DTM ANTICORROSIVO BLANCO 4 Lt",
+    "referenceId": "pinturas-18",
+    "referenceCode": "47473"
+  },
+  "pinturas-19": {
+    "productType": "Masillas",
+    "model": "ALBA MASILLA LISTA PLACA DE YESO 20L",
+    "referenceId": "pinturas-19",
+    "referenceCode": "120002"
+  },
+  "pinturas-20": {
+    "productType": "Impermeabilizantes",
+    "model": "RECUPLAST TECHO IMPERMEABILIZANTE VERDE INGLES 20 Kg",
+    "referenceId": "pinturas-20",
+    "referenceCode": "114916"
+  },
+  "seguridad-01": {
+    "productType": "Arneses",
+    "model": "Arnes sky 3 argollas con cola y amortiguador con soporte lumbar 10404/65",
+    "referenceId": "seguridad-01",
+    "referenceCode": "4956"
+  },
+  "seguridad-02": {
+    "productType": "Arneses",
+    "model": "Arnes sky 10412 ( 3 ) argollas con cola de amarre elastizado de 1.5 m de longitud con amortiguador y mosqueton estampado",
+    "referenceId": "seguridad-02",
+    "referenceCode": "4952"
+  },
+  "seguridad-03": {
+    "productType": "Cabos y elementos de amarre",
+    "model": "Cola de amarre sky con amortiguador 1,5 mts regulable con mosqueton de 18 mm 10465e",
+    "referenceId": "seguridad-03",
+    "referenceCode": "4960"
+  },
+  "seguridad-04": {
+    "productType": "Conectores de anclaje",
+    "model": "Conector de anclaje Sky 10435 clase B tipo E lazo de Cinta 50 mm x 1 m",
+    "referenceId": "seguridad-04",
+    "referenceCode": "5205"
+  },
+  "seguridad-05": {
+    "productType": "Arneses",
+    "model": "Casco h700 con reflectivo. colores varios 3m con arnes a cremallera",
+    "referenceId": "seguridad-05",
+    "referenceCode": "5013"
+  },
+  "seguridad-06": {
+    "productType": "Cascos",
+    "model": "Casco de seguridad spc 221 blanco steelpro",
+    "referenceId": "seguridad-06",
+    "referenceCode": "4800"
+  },
+  "seguridad-07": {
+    "productType": "Protectores auditivos",
+    "model": "Protector auditivo copa libus l-360 nrr 29 db c/accesorio p/cinturon",
+    "referenceId": "seguridad-07",
+    "referenceCode": "5054"
+  },
+  "seguridad-08": {
+    "productType": "Protectores auditivos",
+    "model": "Protector auditivo 3M 1270 de silicona endoaural con cordel NRR 25 dB",
+    "referenceId": "seguridad-08",
+    "referenceCode": "4470"
+  },
+  "seguridad-09": {
+    "productType": "Guantes",
+    "model": "Guante anticorte de nitrilo anti impacto Work Safe",
+    "referenceId": "seguridad-09",
+    "referenceCode": "5414"
+  },
+  "seguridad-10": {
+    "productType": "Guantes",
+    "model": "Guantes de nitrilo azul con puño tejido N1615 Work Safe",
+    "referenceId": "seguridad-10",
+    "referenceCode": "6460"
+  },
+  "seguridad-11": {
+    "productType": "Protección ocular",
+    "model": "Anteojo 3M transparente",
+    "referenceId": "seguridad-11",
+    "referenceCode": "5225"
+  },
+  "seguridad-12": {
+    "productType": "Respiradores",
+    "model": "Semimáscara Air Safety s900",
+    "referenceId": "seguridad-12",
+    "referenceCode": "5461"
+  },
+  "seguridad-13": {
+    "productType": "Filtros respiratorios",
+    "model": "Filtro Air Safety F700P3 partículas P3 R",
+    "referenceId": "seguridad-13",
+    "referenceCode": "6350"
+  },
+  "seguridad-14": {
+    "productType": "Calzado de seguridad",
+    "model": "Botín francés de cuero punta de acero dieléctrico Infinit Viper Funcional",
+    "referenceId": "seguridad-14",
+    "referenceCode": "5434"
+  },
+  "seguridad-15": {
+    "productType": "Chalecos",
+    "model": "Chaleco reflectivo Work Safe",
+    "referenceId": "seguridad-15",
+    "referenceCode": "6400"
+  },
+  "seguridad-16": {
+    "productType": "Camisas de trabajo",
+    "model": "Camisa de trabajo con reflectivo OMBU",
+    "referenceId": "seguridad-16",
+    "referenceCode": "5370"
+  },
+  "seguridad-17": {
+    "productType": "Pantalones de trabajo",
+    "model": "Pantalón de trabajo azul – azulino o beige con reflectivo OMBU",
+    "referenceId": "seguridad-17",
+    "referenceCode": "5358"
+  },
+  "seguridad-18": {
+    "productType": "Pantalones de trabajo",
+    "model": "Traje de lluvia con pantalón amarillo o azul Work Safe",
+    "referenceId": "seguridad-18",
+    "referenceCode": "6466"
+  },
+  "seguridad-19": {
+    "productType": "Botiquines",
+    "model": "Botiquín 10 elementos económico Laborit",
+    "referenceId": "seguridad-19",
+    "referenceCode": "5456"
+  },
+  "seguridad-20": {
+    "productType": "Mamelucos",
+    "model": "Mameluco tychem qc 127s amarillo",
+    "referenceId": "seguridad-20",
+    "referenceCode": "5440"
+  }
+}
