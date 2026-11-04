@@ -21,3 +21,6 @@
 
 .workspace-list-search{display:grid;gap:7px;font-size:13px;margin:0 0 18px;max-width:480px}.workspace-list-search input{width:100%}.supplier-offers-table table{table-layout:fixed;min-width:650px}.supplier-offers-table th:first-child{width:44%}.supplier-offers-table th:nth-child(2){width:17%}.supplier-offers-table th:nth-child(3){width:10%}.supplier-offers-table th:nth-child(4){width:17%}.supplier-offers-table th:nth-child(5){width:12%}.supplier-offers-table td{overflow-wrap:anywhere;white-space:normal}.supplier-offers-table .supplier-product-link{white-space:normal}
 .page-content>*{min-width:0}.supplier-account>*{min-width:0}.supplier-offers-table{width:100%;overflow-x:auto;min-width:0}.supplier-account .section-head{flex-wrap:wrap}.pc-pagination{flex-wrap:wrap;gap:12px}.provider-app .panel{min-width:0}.supplier-product-dialog .project-fields label{min-width:0}.workspace-details>section{min-width:0}
+
+.pricing-intro h2{font-size:26px;line-height:1.3;letter-spacing:-.65px;color:var(--ui-text)}.pricing-intro p{font-size:14px;line-height:1.65;color:var(--ui-muted)}
+.pl-landing{grid-template-columns:minmax(0,1fr)}.pl-landing>*{min-width:0}.pl-hero-copy{min-width:0}.pl-landing img{max-width:100%}@media(max-width:650px){.pl-hero{grid-template-columns:minmax(0,1fr)}.pl-hero h2{overflow-wrap:anywhere}.pl-landing .pl-brick{min-width:0;flex-wrap:wrap}}
