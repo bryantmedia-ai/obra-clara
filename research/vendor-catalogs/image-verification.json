@@ -802,75 +802,83 @@
   },
   "https://nuciari.com.ar/wp-content/uploads/2026/04/D_NQ_NP_2X_919786-MLA97789023424_112025-F.webp": {
     "valid": true,
-    "contentType": "image/webp",
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
     "checkedAt": "2026-11-04",
-    "sampleSha256": "21d3e49da651a868cc033e91e4bbd08a4b4a357751db95a6ac16a309da513a96"
+    "source": "official-product-catalog"
   },
   "https://nuciari.com.ar/wp-content/uploads/2025/12/cemento-x25kg-loma-e531aad0640936174d17573567858845-640-0.webp": {
     "valid": true,
-    "contentType": "image/webp",
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 22002,
     "checkedAt": "2026-11-04",
-    "sampleSha256": "86c0a6a463a20672f92bd95cda702860dc69f23f8ce87f85fcd6ba172d31456d"
+    "source": "official-product-catalog"
   },
   "https://nuciari.com.ar/wp-content/uploads/2025/12/D_NQ_NP_679646-MLA79352294995_092024-O.webp": {
     "valid": true,
-    "contentType": "image/webp",
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 15664,
     "checkedAt": "2026-11-04",
-    "sampleSha256": "2dc041779228982fe2612bd6cae5d4eefe0e180ca1da8cf4747c735ff5642705"
+    "source": "official-product-catalog"
   },
   "https://nuciari.com.ar/wp-content/uploads/2025/12/D_NQ_NP_862557-MLA70620404474_072023-O.webp": {
     "valid": true,
-    "contentType": "image/webp",
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
     "checkedAt": "2026-11-04",
-    "sampleSha256": "302f5ace3b63590e8fdca2d9f00f4967593675c7d387ea3ebdebe6036a1a01a0"
+    "source": "official-product-catalog"
   },
   "https://nuciari.com.ar/wp-content/uploads/2026/07/000575w-1600X1600-768x768.jpg": {
     "valid": true,
-    "contentType": "image/jpeg",
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 12305,
     "checkedAt": "2026-11-04",
-    "sampleSha256": "ddc2b78d84c99ab9bf63b8a61b7f5e6d8f6af5945a6b4c7fd6df5fa1feacb581"
+    "source": "official-product-catalog"
   },
   "https://nuciari.com.ar/wp-content/uploads/2026/07/000576w-1600x1600-1-768x768.jpg": {
     "valid": true,
-    "contentType": "image/jpeg",
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 12270,
     "checkedAt": "2026-11-04",
-    "sampleSha256": "bbf8fb0694552919fedc1bfecf1c91f489182df5a43f742f0538f55f12bc5e3b"
+    "source": "official-product-catalog"
   },
   "https://nuciari.com.ar/wp-content/uploads/2025/12/325544-800-800-768x768.webp": {
     "valid": true,
-    "contentType": "image/webp",
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
     "checkedAt": "2026-11-04",
-    "sampleSha256": "ef43af7a8bbf7a40fa82239792fe25da5b232ef7320eb38e0eb955a7073b27fc"
+    "source": "official-product-catalog"
   },
   "https://nuciari.com.ar/wp-content/uploads/2026/07/ChatGPT-Image-30-jul-2026-16_44_24-1-768x990.png": {
     "valid": true,
-    "contentType": "image/png",
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
     "checkedAt": "2026-11-04",
-    "sampleSha256": "a2bb3d2dcde6d50fd95c3a6694a83c35f560b160e25f8b19d3ce8818da63eec9",
-    "dimensions": [
-      768,
-      990
-    ]
+    "source": "official-product-catalog"
   },
   "https://nuciari.com.ar/wp-content/uploads/2026/07/ChatGPT-Image-30-jul-2026-16_41_08-768x925.png": {
     "valid": true,
-    "contentType": "image/png",
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
     "checkedAt": "2026-11-04",
-    "sampleSha256": "6ae566e929bd2efe8b1d8637bc01b76b5bf30758cff15a16e382705c637c5e97",
-    "dimensions": [
-      768,
-      925
-    ]
+    "source": "official-product-catalog"
   },
   "https://nuciari.com.ar/wp-content/uploads/2026/07/ChatGPT-Image-23-jul-2026-08_58_16-768x768.png": {
     "valid": true,
-    "contentType": "image/png",
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
     "checkedAt": "2026-11-04",
-    "sampleSha256": "21678ac4e4c386a78bb1672f4e1f45910e6141da9f89ec53d5b57ee89b176a25",
-    "dimensions": [
-      768,
-      768
-    ]
+    "source": "official-product-catalog"
   },
   "https://dcdn-us.mitiendanube.com/stores/007/276/171/products/whatsapp-image-2026-05-27-at-2-00-30-am-9a12685a1af76cf01b17805130559518-480-0.webp": {
     "valid": true,
@@ -2666,15 +2674,19 @@
   },
   "https://nuciari.com.ar/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-21-at-15.09.27-768x707.jpeg": {
     "valid": true,
-    "contentType": "image/jpeg",
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
     "checkedAt": "2026-11-04",
-    "sampleSha256": "8c51632ccd01c814c187efa109a2165ab58a15074ad3e374f5c3c34513cd77b9"
+    "source": "official-product-catalog"
   },
   "https://nuciari.com.ar/wp-content/uploads/2025/12/D_NQ_NP_857326-MLA94789232260_102025-O.webp": {
     "valid": true,
-    "contentType": "image/webp",
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 18234,
     "checkedAt": "2026-11-04",
-    "sampleSha256": "4a344a8eb7134fafa9d5db04822624510a45f01a8592678707cb0fd062a1a30a"
+    "source": "official-product-catalog"
   },
   "https://elveloz.ar/img/fotos/dep-gruesa.webp?v=1": {
     "valid": true,
@@ -3103,5 +3115,3869 @@
     "contentType": "image/jpeg",
     "checkedAt": "2026-11-04",
     "sampleSha256": "56128a55a1e51ce05d95d323bfc56e6a08a5e7cba1148f3055523b04f2203ffc"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/demolicao-hard3-web-3c4bfbd7dfbca9876e17926756840328-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/gales-decor-sbe1-web-ce72d08dcb7952bf8217907860436582-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/gales-decor-sgr1-web-f000881d95e5b2de5c17907859726684-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/gales-gr-nat1-web-4c9a89924d207bbaae17907857011767-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/gales-sbe-nat1-web-7f3a241b5d781ea55a17907855574884-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/gales-sgr-nat1-web-a5f9534fad87bb528f17907854263750-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/giardino-be-act-white-d9c1588beee858126517858613341187-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/integra-web-16df38a104343b2aaa17867253432611-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/kalks-amb-web-b4a7538cafbf031bc517899941238465-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/line-3d-silver-web-f97732a2eb6771c50f17926769970232-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/liscio-ivory-fit-grip1-web-b9350b31da4872c36e17908591467443-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/portinari-travertino-veincut-be-hard-web-91649de4ed23a596cb17908590510460-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/portinari-travertino-veincut-be-nat-web-d2519e408b8143f4e317908589327948-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/001/224/890/products/vena-roma-crema1-570a6645905adc03de17918963521401-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 21110,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/1000432737-6574bc8af9b99385e817875273266088-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 20536,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_606429-mla100049852613_122025-f-88f70168766fb655ad17833674239686-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 5016,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_613231-mla93079258560_092025-f-8eeca13f4373cb0fd317833675199031-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 12906,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_613384-mla92467834508_092025-f-73bc73f55255e96f9717900774345844-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 3202,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_622551-mla88167015356_072025-f-0df59aa6f2a97391e117894732747403-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 6870,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_637103-mla99416700642_112025-f-2ff58b731ae6cb8c3917833671055775-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 9110,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_643698-mla95599518379_102025-f-cd85b995c17bae56d417900725409110-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 3004,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_654035-mla116029916310_092026-f-927d3259101836ae8d17936446367356-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 6766,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_675567-mla85245809700_062025-f-adb7ce12aed443b83b17933862702051-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 10604,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_696246-mla89134594947_082025-f-77748628715d911e8d17894729398007-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 6376,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_704253-mla95140094984_102025-f-16d2423246aa2bfd3817897606725135-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 3424,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_713022-mla94074112181_102025-f-489ec729481e14788717894712107623-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 1248,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_721342-mla99982143269_112025-f-04651d50817489afa617897612456345-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 12974,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_724098-mla99914844699_112025-f-d63c5b54baaa7cdd5417833669391073-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 10202,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_733908-mla115072185943_072026-f-3fd22a271a752b9ba017900778073974-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 2800,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_769534-mla50206623977_062022-f-c33c06c8c2ca37346c17933793694274-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 8252,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_778653-mla95695525400_102025-f-1adfbdaf3df6218c9017900775655771-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 4164,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_800358-mla98569286821_112025-f-39eafec26c2c6f08de17894736939326-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 5770,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_800835-mla97352114097_112025-f-48934f7b64eee4f55e17906194265047-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 18632,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_812595-mla95709039828_102025-f-e5003250dd03b14a1017846585157221-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 8184,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_823125-mla91537647308_092025-f-6b30f55b0f18a7783717897609223425-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 16868,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_836682-mla115354089414_082026-f-5c6b13b31d578afcec17894713608041-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 2770,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_839702-mla95679019890_102025-f-53bd3458bfdc7aa53117833673341692-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 7468,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_840412-mla109111187467_032026-f-b0939f0f9a10ab62ff17897507105357-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 2276,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_846541-mla99510883246_112025-f-8c7270fe7efcae2ed617900091959607-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 7850,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_850692-mla93600132396_102025-f-f9fb041fdd78b025da17847241152628-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 5648,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_854107-mla111165464227_052026-f-b152a81557b66deb6f17900779027848-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 2502,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_855361-mla72804435024_112023-f-9fbd2a49471d8091b017894730930341-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 4652,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_862104-mla89224331915_082025-f-579d4c04d290aa3da917894728315577-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 11714,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_864884-mla95842807059_102025-f-cde16876a1aeff619317900772728159-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 4248,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_874553-mla92386485330_092025-f-790e3efff2e8512ef017846513088806-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 7170,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_876999-mla94147397505_102025-f-fc08a246adb9acecc417894709596106-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 3472,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_891309-mla110349623009_042026-f-3aff5a4bf71b1146ec17900728024087-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 3082,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_910527-mla96078312525_102025-f-a49cd55047c712b1e717833666845685-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 6162,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_937450-mla53284664652_012023-f-1e208fdc4a782f787817900776828508-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 3346,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_950254-mla96077579337_102025-f-086aee9745a3101a7017900769734730-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 3252,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_956787-mla99422631516_112025-f-561da147795581525f17846587346485-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 6886,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_956787-mla99422631516_112025-f-cb490c078b29c0776c17846510166121-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 6886,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_972802-mla95647617852_102025-f-0e17e62ea00f708cba17900768462304-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 3134,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_976920-mla99955105521_112025-f-eed7e379f0c6c84d8417897610787273-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 11814,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_979240-mlu77338916891_062024-f-2fc98ccd5ae1feab9017906799442394-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 12344,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_980875-mla100054724757_122025-f-26d56dd8045706d99817833676324466-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 4472,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_985372-mla96059522915_102025-f-c0abfa20c54a15fe9c17894710945552-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 5456,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_991850-mla92780296184_092025-f-a49d673bcfbe1ea2bf17933792014667-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 20360,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/d_nq_np_2x_992279-mla96666452694_112025-f-362ac72ab4680ec23917894707611432-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 2162,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/whatsapp-image-2026-07-17-at-7-53-23-am-22e7622fd74814e08d17842856208810-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/whatsapp-image-2026-09-29-at-11-41-23-am-49cf58c55abc52f71b17906992306254-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/whatsapp-image-2026-10-30-at-1-10-30-pm-8ebf31d47e91ffbb8f17933820696681-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/whatsapp-image-2026-10-30-at-1-10-31-pm-1-7601bf3a212d8668f817933771560296-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://dcdn-us.mitiendanube.com/stores/006/692/534/products/whatsapp-image-2026-10-30-at-1-10-31-pm-91d1493041dca6434b17933768876072-480-0.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2025/12/LD52-7_baja_01-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5749,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/01/D_NQ_NP_2X_657903-MLA99981563423_112025-F-300x300.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 7670,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/01/Desmalezadora-ECHO-SRM-4510-300x300.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 8512,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/01/Desmalezadora-Sensei-BRS-630-1-1-300x300.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 4190,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/01/Motoguadana-Sensei-Mu-52-52cc-4-300x300.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 9100,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/01/motoguadana-SRM-4605U-300x300.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 8246,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/05/BR-420-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 6012,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/05/RE-90-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 7725,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/0000-881-2009-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5437,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/117.021-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 8824,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/117.023-1-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 11097,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/117.025-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 10851,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/117.029-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 10193,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/117.033-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15245,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/117.035-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 16201,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/77.027-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 13622,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/77.036-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15557,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/82.00612-1-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 11212,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/82.00662-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 11803,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/BPB-650-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 13517,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/Grasa-para-Engranajes-Superlub-FS-300x300.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 3636,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/Kit-de-afilado-325-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 9396,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/MD-630-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 14119,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/Motoguadana-Stihl-FS-230-1-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5198,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/PS-260-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 11578,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/Protector-facial-y-Auditivo-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 12723,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/Pulverizador-profesional-sg-11-Stihl-300x300.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 3302,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/08/TC-430-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 9910,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/Atomizador-SR-420-de-Mochila-a-Explosion-1-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 6934,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/Atomizador-SR-450-de-Mochila-a-Explosion-1-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 8825,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/Cortacerco-HS-45-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5116,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/LPA40-13Z-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 9049,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/Motoguadana-STIHL-FS-161-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4067,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/Motoguadana-STIHL-FS-221-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4142,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/Motoguadana-STIHL-FS-235-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4713,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/Motoguadana-STIHL-FS-460-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5323,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/Podador-de-Altura-HT-105-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 3474,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/Podador-de-Altura-HT-56-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 3137,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/RLD52STR46-300x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 18240,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/TRP2931992-1-300x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/TRP293980-5-300x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/09/fs291-300x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 16703,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/10/01-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 8996,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/10/Bordeadora-FSA-30-1-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4139,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/10/Cortacesped-a-Explosion-RM-248-1-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 10184,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/10/Cortacesped-a-Explosion-RM-353-2-300x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/10/Motoguadana-STIHL-FS-120-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4688,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/10/Motoguadana-STIHL-FS-85-300x300.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 2908,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://elcobertizo.com.ar/wp-content/uploads/2026/10/Soplador-Electrico-Lusqtoff-2000-W-SPL2000-7-%E2%80%93-660-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5546,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/C-1000B-T.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 7005,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/C-1002B-T.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 9716,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/C-1002N-T.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 13008,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/C-117COB.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 9319,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/C-148BLA.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5580,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/C-149BLA.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5576,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/C-151BLA.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4785,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/C-152NEG.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 8293,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/C-155NEG.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 6794,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/C-157NEG.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 7371,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/C-158NEG.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 7522,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1001-40-bt.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1001-40-nt.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1019-40-bt.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1032bla_3554057.jpeg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15436,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1032neg_3088547.jpeg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 16172,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c115b-t_1246.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c115bla.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c115cob.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c115n-t.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c119alu_1182.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 16589,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c120grt-b_5485501.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c120n-t_3899546.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c122bla.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c122neg.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c122ver.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1300b-t.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 20023,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1300n-t.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1301b-t.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1301n-t.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1307-30-bt_9979160.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1307-30-cru_8166125.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1307-30-nt_996186.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1307-40-bt_7703879.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1307-40-cru_8504948.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1307-40-nt_987766.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1309-30-bt_1599590.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1309-30-nt_215915.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1309-40-bt_3817720.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1309-40-nt_3486026.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c130bla_8036916.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 13217,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c130n-t_6133239.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 10434,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c130nt-cob.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1313b-t_4349684.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1313n-t_2839031.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1314b-t_9835798.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1314n-t_9648033.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1326-30-bt_566605.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1326-30-nt_3593816.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1326-40-bt_5508796.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1326-40-nt_9097689.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1327-30-bt_9607467.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1327-30-nt_9771478.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1328-50-bt_5330456.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1328-50-nt_3544278.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1329b-t_5949744.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 9840,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1329n-t_3670106.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 11253,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c134b-t.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c134gri-b_9134888.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c134n-t.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c136bla.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c136cob.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c136n-t.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c138-10-bt_1459839.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c138-10-nt_6600115.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c138-20-bt_3817862.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c138-20-nt_2033221.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c138-30-bt_5106603.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c138-30-nt_2254989.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c138-40-bt_6515543.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15652,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c138-40-nt_9147753.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c146-40-bt_5156064.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c160-30-bt_4905504.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c160-30-nt_6573420.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c160-40-bt_4364243.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c160-40-nt_5169102.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c160-50-bt_3291337.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c160-50-nt_4960720.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c161-30-bt_2724182.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c161-30-nt_8089816.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c161-40-bt_9785829.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c161-40-nt_1985714.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c172-25-pla.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c172-32-bla.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c175-25-pla.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c175-30-neg.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1900b-t_7235631.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c1900n-t_6023358.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c190mar-b.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c190roj-b.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c190ver-b.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c194bla-n.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 21535,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c210mad-c.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c212b-t_8493932.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c212n-t_500009.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c410acri-cb.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/c410mad-c.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/cc42bla.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 9145,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/cc42neg-pla.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 17044,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ferrolux.com.ar/public/img/productos/cc42neg.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 12292,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28183/image_512/%5B14995%5D%20Descarga%20para%20Lavatorio%20FV%20Cromo%2032mm%200239?unique=154bb64": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15654,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28184/image_512/%5B15197%5D%20Canilla%20Autom%C3%A1tica%20de%20Pared%20FV%20Ecomatic%20Soft%20Cromo%200360.03?unique=154bb64": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28186/image_512/%5B21582%5D%20Dosificador%20de%20Detergente%20Mi%20Pileta%20Cromo%201000?unique=45216fa": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 4766,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28187/image_512/%5B28544%5D%20Pileta%20de%20Cocina%20Simple%20Mi%20Pileta%20L%C3%ADnea%20Eco%2037x27x15cm%20101EC?unique=e484c42": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 9124,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28188/image_512/%5B28545%5D%20Pileta%20de%20Cocina%20Simple%20Mi%20Pileta%20L%C3%ADnea%20Eco%2034x37x15cm%20102EC?unique=e484c42": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 17475,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28189/image_512/%5B16100%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20Allegro%20Cromo%200103-15?unique=83d720d": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28190/image_512/%5B16130%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20Malena%20Cromo%200103-16?unique=83d720d": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28191/image_512/%5B15191%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20California%20Cromo%20103-17?unique=154bb64": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28194/image_512/%5B17529%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20Libby%20Cromo%20103-39?unique=0c34719": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 20120,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28195/image_512/%5B16322%5D%20%20Ducha%20con%20Transferencia%20FV%20Cromo%20103-44N?unique=0c34719": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 7564,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28197/image_512/%5B17571%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20Temple%20Cromo%20103-87?unique=b8d8698": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 22606,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28198/image_512/%5B15590%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20Arizona%20Plus%20Cromo%20103-B1P?unique=154bb64": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 18949,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28199/image_512/%5B15356%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20Newport%20Plus%20Cromo%200103-B2P?unique=154bb64": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28201/image_512/%5B2349%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20Pampa%20Cromo%20103-B6?unique=1184dc7": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 5180,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28203/image_512/%5B22295%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20Triades%20Cromo%20103-C3?unique=45216fa": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 21699,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28204/image_512/%5B18642%5D%20Grifer%C3%ADa%20de%20Ducha%20%28Lluvia%29%20con%20Transferencia%20FV%20L%C3%ADnea%20Radal%20Cromo%20103-C7?unique=b8d8698": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 17968,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28206/image_512/%5B37452%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20Chalt%C3%A9n%20Cromo%20103-H4?unique=f9b4aff": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 13129,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28207/image_512/%5B17361%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20Array%C3%A1n%20Cromo%20103-H6?unique=0c34719": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28208/image_512/%5B18040%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20Epuy%C3%A9n%20Cromo%20103-L2?unique=b8d8698": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 16761,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28212/image_512/%5B17790%5D%20Grifer%C3%ADa%20de%20Ducha%20con%20Transferencia%20FV%20L%C3%ADnea%20Cipr%C3%A9s%20Cromo%20103-N2?unique=b8d8698": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28598/image_512/%5B11254%5D%20Lana%20de%20Vidrio%20Isover%20Acustiver%20R%2050mm%20%28Rollo%2021.84m%C2%B2%29?unique=e343e16": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 8042,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28693/image_512/%5B20685%5D%20Perfil%20Tapajunta%20Aluminio%20Bronce%20Mate%2036mm%20%28Tira%202.5m%29%202381-2.5?unique=8c92cc0": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 3702,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28703/image_512/%5B11467%5D%20Anclaje%20Escuadra%20HTT-14?unique=acd17ca": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 2586,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28709/image_512/%5B10137%5D%20Dep%C3%B3sito%20de%20Apoyo%20Ferrum%20L%C3%ADnea%20Andina%20Blanco%204.5L%20DAS4A?unique=5b53f6d": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 10058,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28712/image_512/%5B30614%5D%20Inodoro%20Largo%20Ferrum%20L%C3%ADnea%20Andina%20Blanco%204.5L%20IALQ-B?unique=80682e5": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 19708,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28716/image_512/%5B1315%5D%20%C3%81ngulo%20de%20Ajuste%202.6m?unique=17a6051": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 16047,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28741/image_512/%5B11466%5D%20Arandela%20%28Anclaje%29?unique=acd17ca": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 4338,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28788/image_512/%5B6083%5D%20Malla%20de%20Hierro%20Acindar%20Armalogic%2010x10x3%20%288mm-5mm%29?unique=5b53f6d": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28789/image_512/%5B6088%5D%20Malla%20de%20Hierro%20Acindar%20Armalogic%2010x15x3%20%288mm-5mm%29?unique=5b53f6d": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28790/image_512/%5B6084%5D%20Malla%20de%20Hierro%20Acindar%20Armalogic%2012x12x3%20%288mm-5mm%29?unique=5b53f6d": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28791/image_512/%5B6093%5D%20Malla%20de%20Hierro%20Acindar%20Armalogic%2015x15x3%20%288mm-5mm%29?unique=5b53f6d": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/28792/image_512/%5B6094%5D%20Malla%20de%20Hierro%20Acindar%20Armalogic%2020x20x3%20%288mm-5mm%29?unique=5b53f6d": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/29093/image_512/%5B12098%5D%20Bloque%20de%20Hormig%C3%B3n%20Standard%2013x19x39%20181P13?unique=d5d24b4": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 11362,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/29169/image_512/%5B1316%5D%20Perfil%20Bu%C3%B1a%20Z%20para%20Yeso%20Blanco%20%28Tira%202.6m%29?unique=17a6051": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15746,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/29271/image_512/%5B1314%5D%20Perfil%20Cantonera%20L%20%28Tira%202.6m%29%2027710?unique=17a6051": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 17428,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/29427/image_512/%5B1945%5D%20Pintura%20Asf%C3%A1ltica%20Clipperflex%20%28Balde%2018L%29%20Negro?unique=1184dc7": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 17340,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/29428/image_512/%5B1946%5D%20Pintura%20Asf%C3%A1ltica%20Clipperflex%20%28Balde%204L%29%20Negro?unique=1184dc7": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 8090,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/29814/image_512/%5B1419%5D%20Emulsi%C3%B3n%20Asf%C3%A1ltica%20al%20Agua%20%28Balde%2018kg%29?unique=17a6051": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/29815/image_512/%5B1417%5D%20Emulsi%C3%B3n%20Asf%C3%A1ltica%20al%20Agua%20%28Balde%204kg%29%20EB04?unique=17a6051": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/30002/image_512/%5B67193%5D%20Aislante%20Fieltro%20Liviano%20Isover%2050mm%20%28Rollo%2021.60m%C2%B2%29?unique=044b55d": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 21531,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/30149/image_512/%5B20510%5D%20Barra%20de%20Hierro%20de%20Construcci%C3%B3n%20Acindar%206mm%20%28Tira%206m%29%20292590?unique=df9b512": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/31282/image_512/%5B1392%5D%20Pintura%20Geotrans%20Verde%20Megaflex%20%28Balde%2020kg%29?unique=17a6051": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 16870,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/31286/image_512/%5B1934%5D%20Pintura%20No%20Crack%20Roja%20Megaflex%20%28Lata%201kg%29?unique=1184dc7": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 10626,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/31307/image_512/%5B3307%5D%20Cemento%20de%20Alba%C3%B1iler%C3%ADa%20Plasticor%20%28Bolsa%2025kg%29?unique=5b53f6d": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/31409/image_512/%5B70873%5D%20Aislante%20Fieltro%20Liviano%20Isover%20Rolac%20Plata%20Muro%2050mm%20%28Rollo%2014.40m%C2%B2%29?unique=699120d": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 20946,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/31579/image_512/%5B1942%5D%20Perfil%20Solera%20100mm%20%28Tira%202.6m%29%2027718?unique=1184dc7": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 12044,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/31580/image_512/%5B1312%5D%20Perfil%20Solera%2035mm%20%28Tira%202.6m%29?unique=17a6051": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 17456,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/31581/image_512/%5B1310%5D%20Perfil%20Solera%2070mm%20%28Tira%202.6m%29?unique=17a6051": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 16969,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://imepho.com.ar/web/image/product.template/32152/image_512/%5B1085%5D%20Impermeabilizante%20para%20Techos%20Weber%20Techos%20PU%20Blanco%20%28Balde%2020kg%29?unique=3a555ea": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 21720,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/14633-home_default/chint-nch8-25m-40-ac24v-50-60hz-modular-contactor-din-24v-4-x-25a-2-na-formato-tm.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4994,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/14714-home_default/siemens-3rh1921-1ca10-auxiliar-p-cont-1-na-s0-a-s12.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5233,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/14734-home_default/siemens-3rt2023-1ab00-contactor-din-s0-3-x-9a-bob-24v-1na-3rt1023-1ac20.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 10484,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/14740-home_default/siemens-3rt2024-1ab00-contactor-din-s0-3-x-12a-bob-24v-1na-3rt1024-1ac20.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 13726,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/14750-home_default/-siemens-3rt2016-1ap01-mini-contactor-din-s00-4-x-9a-bob-220v-1na.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 10484,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/15649-home_default/abb-ca4-10-auxiliar-1-na-para-cont-af9-a-af96.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 7660,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/15650-home_default/abb-ca4-01-auxiliar-1-nc-para-cont-af9-a-af96.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 8334,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/15652-home_default/abb-af09-30-10-13-contactor-din-3-x-9a-bob-100-250v-40kw-ac-dc-220v.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 14758,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/15653-home_default/abb-ax18-30-10-80-contactor-3-x-18a-bob-220-230vv-7-5kw-1na.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 14758,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/16129-home_default/steck-shx318b7-bobina-p-cont-24v-9a-12a-18a.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 10380,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/16285-home_default/steck-shx318m7-bobina-p-cont-220v-9a-12a-18a.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 9786,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/18636-home_default/steck-sk140a11b-contactor-din-3-x-40a-bob-24v.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 13559,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/19384-home_default/-chint-ax-3c-11-cont-auxiliar-lateral-1-na-1-nc.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 7608,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/20211-home_default/-baw-mc4a0900m7-mini-contactor-din-4-x-9a-na-bob-220v.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 13488,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/21534-home_default/-baw-mc3a0910m7-mini-contactor-din-3-x-9a-na-bob-220v-mc3a0900m7.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 7215,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/22534-home_default/baw-cb3a1811b7-contactor-din-3-x-18a-bob-24v-1na.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 10677,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/22540-home_default/baw-bca2m7-bobina-p-cont-220v-25a-a-32a-sica-704220.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5803,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/22542-home_default/-baw-bca2q7-bobina-p-cont-380v-25a-a-32a-sica-704380.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5803,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/22543-home_default/-baw-bca2b7-bobina-p-cont-24v-25a-a-32a.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5803,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/24494-home_default/abb-cal4-11-contacto-auxiliar-1na-1nc-para-contactor-af9-hasta-af96-montaje-lateral.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4325,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/24496-home_default/abb-cal18-11-contacto-auxiliar-1na-1nc-para-contactor-af400-hasta-af2850-montaje-lateral.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4360,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/24498-home_default/abb-cal19-11-contacto-auxiliar-1na-1nc-para-contactor-af116-hasta-af370-montaje-lateral.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4614,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/24643-home_default/abb-ca4-40e-contacto-auxiliar-4na-para-contactor-af9-hasta-af96-montaje-frontal.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 6713,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/24644-home_default/abb-ca4-31e-contacto-auxiliar-3na-1na-para-contactor-af9-hasta-af96-montaje-frontal.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 6713,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/25019-home_default/abb-ax12-30-10-80-contactor-3-x-12a-bob-220-230v-5-5kw-na.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 10389,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/57818-home_default/steck-shx365b7-bobina-p-cont-24v-40a-65a.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 10374,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/58060-home_default/abb-af140-30-11-13-contactor-din-3-x-140a-bob-100-250v-75kw-220v.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 6928,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/58344-home_default/-abb-ua16-30-10-ra-contactor-p-capacitor-ua16-30-10-ra-220-230-vca-15kvar-1sbl181024r8010.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 19487,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/58604-home_default/abb-1sbl921074r8110-contactor-3-x-18a-bob-24v-7-5kw-1na-ax18-30-10-81.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 9017,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/58623-home_default/abb-s2c-h6-20r-contactor-auxiliar-2na-p-s200-derecho-compatible-s2c-h6.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4786,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/58818-home_default/abb-hk1-11-contacto-auxiliar-1na1nc-lateral-1sam201902r1001.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5464,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/58837-home_default/-baw-bcan2f7-bobina-p-cont-110v-25a-32a.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 10369,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/58899-home_default/-baw-cb3a1211b7-contactor-din-3-x-12a-bob-24v-1na-1nc.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 11183,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/60327-home_default/-abb-esb20-20n-06-contactor-modular-220-230-vca-20a-2na-1sbe121111r0620.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/60697-home_default/chint-nxc-25-220v-50-60hz-contactor-din-3-x-25a-bob-220v-aux-1na-1nc.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 14211,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/60698-home_default/chint-nxc-18-220v-50-60hz-contactor-din-3-x-18a-bob-220v-aux-1na-1nc.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15235,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/60699-home_default/-chint-nxc-12-220v-50-60-hz-contactor-din-3-x-12a-bob-220v-aux-1na-1nc.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15235,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/60700-home_default/chint-nxc-12-24v-50-60hz-contactor-din-3-x-12a-bob-24v-aux-1na-1nc.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15235,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/60701-home_default/chint-nxc-09-24v-50hz-contactor-din-3-x-9a-bob-24v-1na-1nc.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15235,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/60702-home_default/chint-nxc-12m-4-220v-mini-contactor-din-4-x-9a-na-bob-220v.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 6848,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/60798-home_default/-abb-s2c-a1-bobina-de-apertura-12-a-60vca-cc-p-s200-compatible-s2c.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4036,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/60877-home_default/-chint-nxc-09-220v-50hz-contactor-din-3-x-9a-bob-220v-1na-1nc.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15235,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/60927-home_default/-chint-ax-3m-11-cont-auxiliar-superior-1-na-1-nc.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/60928-home_default/-chint-ns2-ae11-cont-auxiliar-frontal-1-na-1-nc.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/61261-home_default/abb-1sbl137501r1300-contactor-af09-22-00-13-4p-2na2nc-25a.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5037,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/61673-home_default/siemens-3rv2901-1a-contactor-auxiliares-p-3rv2-1na1nc-lateral.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 11591,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/61700-home_default/argenplas-l350nf-ls0h-mts-cable-3-x-50-25-naranja.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 16692,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/61701-home_default/-imsa-payton-x004007000zb-mts-cable-3-x-70-35-subte-hf-1-kv-libre-de-halogenos-lsoh.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/61702-home_default/-imsa-payton-x004012000zb-mts-cable-3-x-120-70-subte-hf-1-kv-libre-de-halogenos-lsoh.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://media.cwei.com.ar/61705-home_default/cambre-4771-tapa-serie-arte-4-mod-magnesio-dist-gris.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/08/Vigas-JO-IST-LP-ro-500x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/1-500x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/10-500x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/11-500x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/12-500x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/13-500x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/3-500x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/4-500x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/5-500x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/6-479x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/7-500x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/8-500x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/9-500x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/KNAUF-AQUAPANEL-OUTDOOR.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/KNAUF-AQUAPANEL-UNIVERSAL-1.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/KNAUF-SP-GLASS.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/MULTIPLACA-428x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/SIDING-CEDRAL-FAJA-DE-TERMINACION-414x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/SIDING-CEDRAL-LISO-NATURAL-434x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/SIDING-CEDRAL-TEXTURADO-NATURAL-433x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/SUPERBOARD-BORDE-REBAJADO-422x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/SUPERBOARD-ST-421x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2020/09/SUPERBOARD-TEXTURADO-420x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2022/06/osb-no-estructural-1-500x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2022/06/osb-no-estructural-500x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://ruraloestesrl.com.ar/wp-content/uploads/2022/06/revestimiento-lp-500x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.g2e.com.ar/fotos/carport-2.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.g2e.com.ar/fotos/deye-hv.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.g2e.com.ar/fotos/estructura-coplanar.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.g2e.com.ar/fotos/growatt-offgrid.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.g2e.com.ar/fotos/huawei.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.g2e.com.ar/fotos/livoltek-2026-10-27d.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1060.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1061.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1062.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1077.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 14289,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1148.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1348.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1628.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 9154,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1638.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1753.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1819.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 12623,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1900.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1901.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1902.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1903.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/1904.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/2040.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/2262.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/2482.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/3016.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/3177.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/327.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 12038,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/3633.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/3773.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/3941.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/3942.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/3953.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/3958.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4089.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4090.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4147.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4249.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 18510,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4503.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15040,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4578.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 7172,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/462.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4692.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4722.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4723.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4756.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4757.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4758.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4759.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4762.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/4764.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/481.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 12228,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/482.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/510.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 17426,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/511.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/600.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 6424,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/601.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/604.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 19227,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/605.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/606.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/607.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/608.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/628.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://www.materialesmoreno.com.ar/tienda/wp-content/uploads/productos/678.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/20250318_Ficha-de-producto_Caldera-Prima-Tec.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/CALDERA-DIVA-C-SOLO-CALFEACCION-.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/CALDERA-SUMMA-CONDENS.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/CALEFON-14-TBF.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/CALEFON-DIVA-ACQUA.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/RADIADORES-TROPICAL-350-300x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/bomba-de-calor_ficha-2-255x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 5805,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/caldera-prima-tec-smart_f-255x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 9637,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/prodbigl500b-255x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 6872,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/10/2.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/10/Carrier-AG-R32_02-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 3736,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/10/SPLIT-ON-OFF-R32-01.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 7298,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/10/WhatsApp-Image-2025-09-26-at-9.41.10-AM-240x300.jpeg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 6227,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/10/WhatsApp-Image-2025-09-26-at-9.43.22-AM-1-300x300.jpeg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 9128,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/10/cb1-b_1-300x300.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 1710,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/10/cb1-b_1.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2026/07/Inverter-Interior.jpeg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 12543,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2026/07/calefon-35-tbf.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 14919,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2026/07/calefont-26tbf.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2026/07/eco24.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15561,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2026/07/top-s-y-top-x-misma-foto.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/0700510.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/0700512.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 18346,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1200013.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1200014.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1200015.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1200016.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1200017.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1257690.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1257693.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1705013.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1830703.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 13146,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1830713.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1830723.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 15787,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1840501.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4974,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1840502.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4787,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1866332.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1866375.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 23684,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1866405.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1892030.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1892320.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1892324.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1892325.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/1917050.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/2700112.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/4600401.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/1.1.1.%20Accesorios%20Botoneras/producto_163_1.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 21652,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/1.1.1.%20Accesorios%20Botoneras/producto_185_1.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/1.7.1.%20Selectores%20a%20Cerradura/2000060.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/1.7.1.%20Selectores%20a%20Cerradura/2000110.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/1.7.3.%20Selectores%20a%20Palanca%20Larga/5430310.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 18480,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/1.7.3.%20Selectores%20a%20Palanca%20Larga/5430320.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 23400,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/1.7.3.%20Selectores%20a%20Palanca%20Larga/5430330.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 23575,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/1.7.3.%20Selectores%20a%20Palanca%20Larga/5430340.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 18480,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/2.4.2.Limites%20de%20carrera/producto_2103_1.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/2.4.2.Limites%20de%20carrera/producto_2104_1.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/2.4.2.Limites%20de%20carrera/producto_2105_1.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 23734,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/2.6.3.Infrarrojos/1880110.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 20214,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/2.6.3.Infrarrojos/1880112.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 20214,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/2.6.3.Infrarrojos/1880113.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 20449,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/3.8.2.Timers%20y%20reles%20temporizados/4600080.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/3.8.2.Timers%20y%20reles%20temporizados/4600110.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/3.8.2.Timers%20y%20reles%20temporizados/4600170.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/3.8.2.Timers%20y%20reles%20temporizados/4600220.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/3.8.2.Timers%20y%20reles%20temporizados/4600280.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/3.8.2.Timers%20y%20reles%20temporizados/4600400.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/4.3.3.Micro%20PLC/producto_2644_1.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 16190,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/4.4.5.OPLC%20Serie%20Jazz/producto_1245_1.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/4.4.8.OPLC%20SERIE%20VISION/4304402.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/5.2.1.Arranques%20Suaves/6060433.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://catalogo.aea.com.ar/wp-content/uploads/Productos/Contactores/1703300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/20250318_Ficha-de-producto_Caldera-Prima-Tec-300x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 14148,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/CALDERA-DIVA-C-SOLO-CALFEACCION--300x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/CALDERA-SUMMA-CONDENS-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 11379,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/CALEFON-14-TBF-300x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/09/CALEFON-DIVA-ACQUA-300x300.png": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/png",
+    "bytesInspected": 24000,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/10/2-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4784,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2025/10/SPLIT-ON-OFF-R32-01-300x300.webp": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/webp",
+    "bytesInspected": 2118,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2026/07/Inverter-Interior-300x196.jpeg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 3400,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2026/07/calefon-35-tbf-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4483,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2026/07/calefont-26tbf-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 8500,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2026/07/eco24-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 4960,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
+  },
+  "https://yrigoyenconstrucciones.com.ar/wp-content/uploads/2026/07/top-s-y-top-x-misma-foto-300x300.jpg": {
+    "valid": true,
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytesInspected": 6508,
+    "checkedAt": "2026-11-04",
+    "source": "official-product-catalog"
   }
 }

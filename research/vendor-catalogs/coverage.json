@@ -1,12 +1,12 @@
 {
   "reviewedAt": "2026-11-04",
   "directoryRecords": 1197,
-  "websitesIdentified": 123,
-  "profilesWithFeaturedProducts": 114,
-  "featuredReferences": 1137,
-  "profilesWithVerifiedPhotos": 75,
-  "referencesWithVerifiedPhotos": 684,
-  "withDocuments": 17,
-  "recordsWithoutIdentifiedWebsite": 1074,
-  "scope": "Public primary-source catalogs and product images. Branch associations use explicit reviewed mappings and identity sources; general company catalogs do not imply branch stock. Unresolved entries receive no invented products."
+  "websitesIdentified": 146,
+  "profilesWithFeaturedProducts": 135,
+  "featuredReferences": 1857,
+  "profilesWithVerifiedPhotos": 93,
+  "referencesWithVerifiedPhotos": 1408,
+  "withDocuments": 20,
+  "recordsWithoutIdentifiedWebsite": 1051,
+  "scope": "Public primary-source catalogs and images. Directory records include branches and online channels, not unique legal suppliers. Explicit reviewed branch mappings; discrepancies remain visible. General company catalogs do not imply branch stock. Unresolved records receive no invented products."
 }

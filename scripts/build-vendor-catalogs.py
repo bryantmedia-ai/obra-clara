@@ -95,3 +95,7 @@ summary={'reviewedAt':'2026-11-04','directoryRecords':len(rows),'websitesIdentif
 # Apply the second research pass after generating the original stable reference IDs.
 if (root/'research/vendor-catalogs/expansion-reviewed.json').exists():
  subprocess.run(['python3',str(root/'scripts/apply-vendor-expansion.py')],check=True)
+
+# Add subsequent reviewed research after the original and second-pass references.
+if (root/'research/vendor-catalogs/continuation-2026-11-04/reviewed.json').exists():
+ subprocess.run(['python3',str(root/'scripts/apply-vendor-continuation.py')],check=True)

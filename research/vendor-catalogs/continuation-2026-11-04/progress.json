@@ -1,0 +1,210 @@
+{
+  "checkedAt": "2026-11-04",
+  "baseline": {
+    "reviewedAt": "2026-11-04",
+    "directoryRecords": 1197,
+    "websitesIdentified": 123,
+    "profilesWithFeaturedProducts": 114,
+    "featuredReferences": 1137,
+    "profilesWithVerifiedPhotos": 75,
+    "referencesWithVerifiedPhotos": 684,
+    "withDocuments": 17,
+    "recordsWithoutIdentifiedWebsite": 1074,
+    "scope": "Public primary-source catalogs and product images. Branch associations use explicit reviewed mappings and identity sources; general company catalogs do not imply branch stock. Unresolved entries receive no invented products."
+  },
+  "current": {
+    "reviewedAt": "2026-11-04",
+    "directoryRecords": 1197,
+    "websitesIdentified": 146,
+    "profilesWithFeaturedProducts": 135,
+    "featuredReferences": 1857,
+    "profilesWithVerifiedPhotos": 93,
+    "referencesWithVerifiedPhotos": 1408,
+    "withDocuments": 20,
+    "recordsWithoutIdentifiedWebsite": 1051,
+    "scope": "Public primary-source catalogs and images. Directory records include branches and online channels, not unique legal suppliers. Explicit reviewed branch mappings; discrepancies remain visible. General company catalogs do not imply branch stock. Unresolved records receive no invented products."
+  },
+  "change": {
+    "websitesIdentified": 23,
+    "profilesWithFeaturedProducts": 21,
+    "featuredReferences": 720,
+    "profilesWithVerifiedPhotos": 18,
+    "referencesWithVerifiedPhotos": 724,
+    "withDocuments": 3
+  },
+  "documentChecks": [
+    {
+      "url": "https://ruraloestesrl.com.ar/wp-content/uploads/2020/07/20200529221217_catalogo-tableros-rauvisio.pdf",
+      "status": 200,
+      "mime": "application/pdf",
+      "pdfHeader": true
+    },
+    {
+      "url": "https://ruraloestesrl.com.ar/wp-content/uploads/2022/05/Catalogo-Digital-2022.pdf",
+      "status": 200,
+      "mime": "application/pdf",
+      "pdfHeader": true
+    },
+    {
+      "url": "https://codimat.com.ar/wp-content/uploads/2022/08/Catalogo-ProductosCodimat.pdf",
+      "status": 200,
+      "mime": "application/pdf",
+      "pdfHeader": true
+    }
+  ],
+  "reviewedSources": [
+    {
+      "key": "imepho",
+      "supplierIds": [
+        "outlet-7f0ec69918b8",
+        "outlet-a2fb2f567e11",
+        "outlet-3e8dd6ed4efb"
+      ],
+      "identitySource": "https://imepho.com.ar/empresa",
+      "identityEvidence": "Independencia 3692 y Juan B. Justo 4812 (Mar del Plata); Falucho 1337 (Tandil)."
+    },
+    {
+      "key": "sanige",
+      "supplierIds": [
+        "outlet-fb59b7fc1dca",
+        "outlet-8058ee4f9a1e"
+      ],
+      "identitySource": "https://www.sanige.com.ar/",
+      "identityEvidence": "Libertador San Martín 121 (Río Luján) y 447 (Los Cardales)."
+    },
+    {
+      "key": "altea",
+      "supplierIds": [
+        "outlet-90f29d6c42b6",
+        "outlet-437fdc034144"
+      ],
+      "identitySource": "https://www.alteashop.com.ar/contacto/",
+      "identityEvidence": "Alberdi 3777 (Floresta) y Guatemala 5541 (Palermo)."
+    },
+    {
+      "key": "cobertizo",
+      "supplierIds": [
+        "outlet-53d8c0da232d",
+        "outlet-e87cded7fc70"
+      ],
+      "identitySource": "https://elcobertizo.com.ar/contacto/",
+      "identityEvidence": "Sucursal Garay 356 confirmada. La web actual informa casa central Hipólito Yrigoyen 799; el directorio anterior indica acceso Yrigoyen y Vidal: confirmar el retiro."
+    },
+    {
+      "key": "cycla",
+      "supplierIds": [
+        "outlet-bcafc50b4a7b",
+        "outlet-801df5d73dba",
+        "outlet-2919bce2fdee"
+      ],
+      "identitySource": "https://cycla.com.ar/",
+      "identityEvidence": "Remedios de Escalada 843 y 890; Hipólito Yrigoyen 5677, zona Lanús / Remedios de Escalada."
+    },
+    {
+      "key": "rural",
+      "supplierIds": [
+        "outlet-78affec2e40e",
+        "outlet-d99d286f44c8"
+      ],
+      "identitySource": "https://ruraloestesrl.com.ar/empresa/",
+      "identityEvidence": "La empresa confirma Navarro (Av. 16 esq. 117) y Luján (Ruta 5 km 64). Los domicilios publicados difieren del directorio anterior; confirmar la sucursal y el retiro."
+    },
+    {
+      "key": "fevesa",
+      "supplierIds": [
+        "outlet-693f67d30b76"
+      ],
+      "identitySource": "https://fevesa.cwei.com.ar/",
+      "identityEvidence": "La tienda oficial informa Rivadavia 813, Cañuelas. El directorio anterior indica 801: confirmar domicilio de retiro."
+    },
+    {
+      "key": "jlf",
+      "supplierIds": [
+        "outlet-31b8ee6dfe3e",
+        "outlet-f50a8fb59b88"
+      ],
+      "identitySource": "https://electrojlf.com.ar/",
+      "identityEvidence": "Calchaquí 4230 (Ezpeleta) y Mitre 769 (Berazategui)."
+    },
+    {
+      "key": "bercomat",
+      "supplierIds": [
+        "outlet-dc1c569d4430",
+        "outlet-4bd6d0e63c19"
+      ],
+      "identitySource": "https://www.familiabercomat.com/sucursales",
+      "identityEvidence": "Alberdi 3765 (Floresta) y Panamericana km 25,4 (Don Torcuato)."
+    },
+    {
+      "key": "stavin",
+      "supplierIds": [
+        "outlet-1745fb8b0928"
+      ],
+      "identitySource": "https://www.stavin.com.ar/",
+      "identityEvidence": "Las Heras 939, Brandsen. El sitio aún muestra textos de plantilla: no se le asignan productos sin respaldo."
+    },
+    {
+      "key": "yrigoyen",
+      "supplierIds": [
+        "outlet-c8afba51c565"
+      ],
+      "identitySource": "https://yrigoyenconstrucciones.com.ar/contacto/",
+      "identityEvidence": "Hipólito Yrigoyen 2113, Avellaneda."
+    },
+    {
+      "key": "codimat",
+      "supplierIds": [
+        "outlet-5ba15cd53e30"
+      ],
+      "identitySource": "https://codimat.com.ar/",
+      "identityEvidence": "La web actual informa Don Bosco 1505, Bahía Blanca; el directorio anterior indica 1495. Confirmar acceso de retiro."
+    },
+    {
+      "key": "moreno",
+      "supplierIds": [
+        "research-a0155eb8c310"
+      ],
+      "identitySource": "https://www.materialesmoreno.com.ar/",
+      "identityEvidence": "Fotos tomadas de las fichas de su tienda oficial."
+    },
+    {
+      "key": "ferrolux",
+      "supplierIds": [
+        "research-ee50fa8ea78b"
+      ],
+      "identitySource": "https://ferrolux.com.ar/productos/linea/colgantes",
+      "identityEvidence": "Modelos contrastados con sus fichas originales de iluminación."
+    },
+    {
+      "key": "aea",
+      "supplierIds": [
+        "research-d82bae0ad94b"
+      ],
+      "identitySource": "https://catalogo.aea.com.ar/",
+      "identityEvidence": "Modelos e imágenes del catálogo oficial AEA."
+    },
+    {
+      "key": "nuciari-branch",
+      "supplierIds": [
+        "outlet-b736dd6ad0db"
+      ],
+      "identitySource": "https://durlock.com/donde-comprar",
+      "identityEvidence": "Materiales Nuciari SRL, Mitre 918, Paso del Rey; official Durlock dealer listing."
+    },
+    {
+      "key": "g2e-photos",
+      "supplierIds": [
+        "research-75792d35f272"
+      ],
+      "identitySource": "https://www.g2e.com.ar/",
+      "identityEvidence": "Installation photos carry explicit equipment captions on the official website."
+    }
+  ],
+  "verification": [
+    "All 1137 previous reference IDs retained",
+    "Idempotent additive import checked in isolated copy",
+    "Full catalog rebuild retains 1857 reference IDs",
+    "TypeScript and Next.js production build passed"
+  ],
+  "remaining": "1051 directory records still have no identified website; these include branches and online channels, not necessarily distinct businesses. No claim of exhaustive coverage."
+}
