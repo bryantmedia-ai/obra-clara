@@ -113,7 +113,7 @@ function Header({ route, onOpenAgent }: { route: Route; onOpenAgent:()=>void }) 
   const supplier = providers.find(s => route === `proveedores/${s.slug}`);
   const title = supplier?.name ?? routeTitles[route]?.[0] ?? (route.startsWith("productos/")?"Producto":"Obra Clara");
   const section = route.startsWith("productos/")||route==="transporte"?"marketplace":["entregas","inventario"].includes(route)?"compras":route.split("/")[0];
-  const icon = nav.find(([href]) => href === section)?.[2] ?? (section === "agente" ? faRobot : section === "transporte" ? faTruckFast : section === "mi-tienda" ? faStore : section === "carrito" ? faCartShopping : section === "quienes-somos" ? faUsers : section === "como-funciona" ? faCircleQuestion : section === "configuracion" ? faGear : faHouse);
+  const icon = route==="transporte"?faTruckFast:nav.find(([href]) => href === section)?.[2] ?? (section === "agente" ? faRobot : section === "transporte" ? faTruckFast : section === "mi-tienda" ? faStore : section === "carrito" ? faCartShopping : section === "quienes-somos" ? faUsers : section === "como-funciona" ? faCircleQuestion : section === "configuracion" ? faGear : faHouse);
   return (
     <header className="topbar">
       <div className="page-heading">

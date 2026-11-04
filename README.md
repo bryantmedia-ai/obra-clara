@@ -54,3 +54,9 @@ Los dominios de producción se mantienen:
 - https://obra-clara-gray.vercel.app
 
 Las variables de rol y el almacenamiento privado se administran en cada proyecto de Vercel; no se copian secretos al repositorio.
+
+## Transporte y entrega
+
+El marketplace ofrece transportes como servicios independientes o vinculados a un producto o compra anterior. En el carrito se elige envío incluido del proveedor, transporte contratado en OC o retiro con transportista propio. Reemplazar un envío incluido requiere coordinar el retiro y no modifica automáticamente el precio del producto.
+
+Las solicitudes persisten en el workspace y se gestionan en Transporte → Mis solicitudes, Compras → Entregas y Ventas → Transportes. El transportista cotiza, el comprador confirma y se registra salida y llegada. El flete se contabiliza por separado de los materiales: confirmar una tarifa no ejecuta pagos, no libera reservas y no conforma inventario. Los datos del transportista propio quedan asociados a la compra.

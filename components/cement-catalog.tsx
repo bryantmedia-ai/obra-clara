@@ -12,7 +12,7 @@ import {productImage} from "./product-images";
 import {MarketStorefront} from "./market-storefront";
 import {catalogDepartments,departmentMatches} from "./catalog-departments";
 import {ProductComparison} from "./product-comparison";
-import {addCartProduct} from "./cart-store";
+import {addCartProduct,cartProductLineId} from "./cart-store";
 import {marketplaceHref,readMarketFilters,defaultMarketFilters,type MarketLocation} from "./catalog-links";
 import {SupplierProductIndex} from "./supplier-product-index";
 import {TransportCatalog} from "./transport-catalog";
@@ -48,7 +48,7 @@ export function ProductCard({product,offerCount=1,compared,compareDisabled,onCom
   if(!selection.valid)return;
   setQuantity(String(selectedQuantity));
   const count=addCartProduct({id:product.id,name:product.name,supplier:product.supplier.name,supplierSlug:product.supplier.slug,minimumOrder,depositPercent:product.depositPercent??0,pickup:`Depósito ${product.supplier.name} · ${product.supplier.address}`,quantity:selectedQuantity,unitPrice:product.price,kg:product.kg,shippingIncluded:product.shippingIncluded,image:product.image,unit:product.unit,saleLabel:sale},{ensure:transport,maxQuantity});
-  if(transport)router.push(`/transporte?producto=${product.id}`);
+  if(transport)router.push(`/transporte?producto=${encodeURIComponent(cartProductLineId(product.id))}`);
   else setAdded(count);
  }
  return <article className="product-card cement-card">
@@ -67,7 +67,7 @@ export function ProductCard({product,offerCount=1,compared,compareDisabled,onCom
     <div className="quantity-stepper"><button type="button" aria-label={`Restar cantidad de ${product.name}`} disabled={selectedQuantity<=minimumOrder} onClick={()=>changeQuantity(String(selectedQuantity-1))}>−</button><input id={quantityId} type="text" inputMode="numeric" pattern="[0-9]*" maxLength={4} aria-invalid={!selection.valid} aria-describedby={`${quantityId}-feedback`} aria-label={`Cantidad de ${product.name}`} value={quantity} onChange={e=>changeQuantity(e.target.value)} onFocus={e=>e.currentTarget.select()} onBlur={()=>{if(!quantity)setQuantity("1");}}/><button type="button" aria-label={`Sumar cantidad de ${product.name}`} disabled={selectedQuantity>=maxQuantity} onClick={()=>changeQuantity(String(selectedQuantity+1))}>+</button></div>
     <button type="button" className="product-add-cart" disabled={!selection.valid} aria-label={`Agregar ${selectedQuantity} al carrito: ${product.name}`} title="Agregar al carrito" onClick={()=>addToCart()}><FontAwesomeIcon icon={faCartPlus} aria-hidden="true"/></button>
    </div><div id={`${quantityId}-feedback`} className={`product-add-feedback${!selection.valid?" quantity-error":""}`} role="status">{!selection.valid?selection.message:added!==null?<>{added>0?`${added} ${added===1?"presentación agregada":"presentaciones agregadas"}`:"Alcanzaste el stock disponible"} · <Link href="/carrito">Ver carrito</Link></>:<>Total por {cartSaleUnits(selectedQuantity,sale,product.unit)}: <strong>{money(selectedQuantity*product.price)}</strong></>}</div></div>
-   {!product.shippingIncluded?<button disabled={!selection.valid} className="button secondary full product-transport-action" onClick={()=>addToCart(true)}>Agregar transporte</button>:<div className="product-transport-placeholder" aria-hidden="true"/>}
+   {<button disabled={!selection.valid} className="button secondary full product-transport-action" onClick={()=>addToCart(true)}>{product.shippingIncluded?"Elegir otro transporte":"Agregar transporte"}</button>}
   </div></article>;
 }
 

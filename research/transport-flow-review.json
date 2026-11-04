@@ -1,0 +1,42 @@
+{
+  "scope": [
+    "standalone transport",
+    "product without shipping",
+    "replace included supplier shipping",
+    "own carrier",
+    "existing purchase transport"
+  ],
+  "sourceOfTruth": "SharedState.transportRequests; private workspace persistence and idempotent commands",
+  "states": [
+    "Solicitada",
+    "Cotizada",
+    "Confirmada",
+    "En camino",
+    "Entregada",
+    "Cancelada"
+  ],
+  "routes": {
+    "catalog": "/transporte",
+    "buyerRequests": "/transporte?vista=solicitudes",
+    "buyerDeliveries": "/compras/entregas",
+    "provider": "/transportes"
+  },
+  "invariants": [
+    "saved active project required",
+    "pickup/dropoff validated against linked product or order",
+    "one contracted service per cart product",
+    "own carrier replaces contracted trip",
+    "no automatic deduction for included shipping replacement",
+    "provider quote validated on server",
+    "buyer confirms before trip",
+    "transport arrival does not confirm material receipt",
+    "no transport wallet debit or escrow release",
+    "standalone requests do not create material stock or orders"
+  ],
+  "verification": [
+    "production build",
+    "check-transport.mjs",
+    "check-transport-flow.mjs",
+    "projects/mixed-projects/shared-demo/finance/procurement/overview regression"
+  ]
+}

@@ -3,9 +3,10 @@ import {useEffect,useState} from "react";
 import {readProjects} from "./project-store";
 import {projectAddress} from "./project-data";
 import {getTransportProviders} from "./transport-providers";
-export type CartProduct={offerId?:string;supplierSlug?:string;minimumOrder?:number;depositPercent?:number;projectId?:string;id:string;name:string;supplier:string;pickup:string;quantity:number;unitPrice:number;kg:number|null;shippingIncluded:boolean;image:string;unit?:string;saleLabel?:string};
+export type OwnDelivery={company:string;contact:string;phone:string;vehicle:string;date:string;time:string;notes:string};
+export type CartProduct={deliveryChoice?:"supplier"|"marketplace"|"own";ownDelivery?:OwnDelivery;offerId?:string;supplierSlug?:string;minimumOrder?:number;depositPercent?:number;projectId?:string;id:string;name:string;supplier:string;pickup:string;quantity:number;unitPrice:number;kg:number|null;shippingIncluded:boolean;image:string;unit?:string;saleLabel?:string};
 export function cargoWeightLabel(p:{kg:number|null;quantity:number}){return p.kg!==null&&Number.isFinite(p.kg)&&p.kg>0?`${(p.kg*p.quantity).toLocaleString("es-AR",{maximumFractionDigits:2})} kg`:"Peso a confirmar";}
-export type CartTransport={quoteId?:string;key:string;serviceId:string;providerId?:string;productId:string;orderId:string;pickup:string;dropoff:string;projectId:string;mode:string;date:string;time:string;floor:string;notes:string};
+export type CartTransport={replaceIncluded?:boolean;quoteId?:string;key:string;serviceId:string;providerId?:string;productId:string;orderId:string;pickup:string;dropoff:string;projectId:string;mode:string;date:string;time:string;floor:string;notes:string};
 export type CartState={products:CartProduct[];transports:CartTransport[];projectId:string};
 const empty:CartState={products:[],transports:[],projectId:""};
 const key="obra-clara-cart-v1";
@@ -26,6 +27,9 @@ export function addCartProduct(p:CartProduct,{ensure=false,maxQuantity=9999}:{en
 }
 export function addCartTransport(serviceId:string,productId="",providerId=""){
  if(providerId&&!getTransportProviders(serviceId).some(p=>p.id===providerId))return;
- updateCart(s=>{const product=s.products.find(p=>p.id===productId);const projectId=product?.projectId??s.projectId;const project=readProjects().find(p=>p.id===projectId);return {...s,transports:[...s.transports,{key:crypto.randomUUID(),serviceId,providerId,productId,orderId:"",pickup:product?.pickup??"",dropoff:project?projectAddress(project):"",projectId,mode:"Entrega programada",date:"",time:"",floor:project?.floor??"Planta baja",notes:""}]};});
+ updateCart(s=>{const product=s.products.find(p=>p.id===productId);const projectId=product?.projectId??s.projectId;const project=readProjects().find(p=>p.id===projectId);return {...s,products:s.products.map(p=>p.id===productId?{...p,deliveryChoice:"marketplace"}:p),transports:[...s.transports.filter(t=>!productId||t.productId!==productId),{key:crypto.randomUUID(),serviceId,providerId,productId,orderId:"",pickup:product?.pickup??"",dropoff:project?projectAddress(project):"",projectId,mode:"Entrega programada",date:"",time:"",floor:project?.floor??"Planta baja",notes:""}]};});
 }
 export function useCart(){const[state,setState]=useState<CartState>(empty);useEffect(()=>{const load=()=>setState(readCart());load();window.addEventListener("oc-cart-updated",load);window.addEventListener("storage",load);return()=>{window.removeEventListener("oc-cart-updated",load);window.removeEventListener("storage",load);};},[]);return state;}
+
+export function setDeliveryChoice(id:string,choice:NonNullable<CartProduct["deliveryChoice"]>){updateCart(s=>({...s,products:s.products.map(p=>p.id===id?{...p,deliveryChoice:choice}:p),transports:s.transports.filter(t=>t.productId!==id||choice==="marketplace")}));}
+export function cartProductLineId(offerId:string){const s=readCart();return s.products.find(p=>(p.offerId??p.id)===offerId&&p.projectId===s.projectId)?.id??offerId;}
