@@ -4,7 +4,7 @@ import {readProjects} from "./project-store";
 import {projectAddress} from "./project-data";
 import {getTransportProviders} from "./transport-providers";
 export type OwnDelivery={company:string;contact:string;phone:string;vehicle:string;date:string;time:string;notes:string};
-export type CartProduct={deliveryChoice?:"supplier"|"marketplace"|"own";ownDelivery?:OwnDelivery;offerId?:string;supplierSlug?:string;minimumOrder?:number;depositPercent?:number;projectId?:string;id:string;name:string;supplier:string;pickup:string;quantity:number;unitPrice:number;kg:number|null;shippingIncluded:boolean;image:string;unit?:string;saleLabel?:string};
+export type CartProduct={priceRevision?:number;deliveryChoice?:"supplier"|"marketplace"|"own";ownDelivery?:OwnDelivery;offerId?:string;supplierSlug?:string;minimumOrder?:number;depositPercent?:number;projectId?:string;id:string;name:string;supplier:string;pickup:string;quantity:number;unitPrice:number;kg:number|null;shippingIncluded:boolean;image:string;unit?:string;saleLabel?:string};
 export function cargoWeightLabel(p:{kg:number|null;quantity:number}){return p.kg!==null&&Number.isFinite(p.kg)&&p.kg>0?`${(p.kg*p.quantity).toLocaleString("es-AR",{maximumFractionDigits:2})} kg`:"Peso a confirmar";}
 export type CartTransport={replaceIncluded?:boolean;quoteId?:string;key:string;serviceId:string;providerId?:string;productId:string;orderId:string;pickup:string;dropoff:string;projectId:string;mode:string;date:string;time:string;floor:string;notes:string};
 export type CartState={products:CartProduct[];transports:CartTransport[];projectId:string};
@@ -21,7 +21,7 @@ export function addCartProduct(p:CartProduct,{ensure=false,maxQuantity=9999}:{en
   if(requested<(p.minimumOrder??1))return s;
   const quantity=current?Math.max(current.quantity,Math.min(maxQuantity,ensure?Math.max(current.quantity,requested):current.quantity+requested)):requested;
   added=quantity-(current?.quantity??0);
-  return {...s,products:current?s.products.map(x=>x.id===current.id?{...x,quantity}:x):[...s.products,{...p,id:lineId,offerId,quantity,projectId}]};
+  return {...s,products:current?s.products.map(x=>x.id===current.id?{...x,unitPrice:p.unitPrice,priceRevision:p.priceRevision,quantity}:x):[...s.products,{...p,id:lineId,offerId,quantity,projectId}]};
  });
  return added;
 }

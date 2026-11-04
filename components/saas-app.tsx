@@ -1,4 +1,5 @@
 "use client";
+import {ProductQuotes} from "./product-quotes";
 import {ProtectionLanding} from './protection-landing';
 
 import Link from "next/link";
@@ -83,6 +84,7 @@ const routeTitles: Record<string, [string, string]> = {
   "mi-tienda": ["Mi tienda", "Cuenta proveedor"],
   dashboard: ["Resumen", "Operación de Constructora Madero SA"],
   compras: ["Compras", "Órdenes planificadas y urgentes"],
+  "compras/cotizaciones": ["Compras", "Cotizaciones"],
   "compras/entregas": ["Compras", "Entregas"],
   "compras/inventario": ["Compras", "Inventario"],
   "compras/proyectos": ["Compras", "Proyectos"],
@@ -177,6 +179,7 @@ function Page({ route }: { route: Route }) {
   if (route === "quienes-somos") return <AboutUs/>;
   if (route === "marketplace") return <CementMarketplace/>;
   if (route === "dashboard") return <BuyerOverview/>;
+  if (route === "compras/cotizaciones") return <ProductQuotes/>;
   if (route === "compras") return <PurchasesWorkspace key="orders"/>;
   if (route === "compras/entregas") return <PurchasesWorkspace key="deliveries" tab="deliveries"/>;
   if (route === "compras/inventario") return <PurchasesWorkspace key="inventory" tab="inventory"/>;

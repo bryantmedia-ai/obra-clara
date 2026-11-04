@@ -16,6 +16,7 @@ import "./brick.css";
 import "./overview.css";
 import "./funds.css";
 import "./purchases.css";
+import "./pricing.css";
 
 export const metadata: Metadata = {
   title: "Obra Clara",
