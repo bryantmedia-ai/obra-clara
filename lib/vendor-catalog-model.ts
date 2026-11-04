@@ -1,7 +1,7 @@
 import catalog from '../components/vendor-catalog-data.json';
 import {projectReady,type Project} from '../components/project-data';
-export type VendorReference={id:string;name:string;sourceUrl:string;image:string;kind:string};
-export type VendorCatalog={channelNote?:string;channelSource?:string;supplierId:string;supplierName:string;website:string;checkedAt:string;status:string;pages:string[];products:VendorReference[];catalogs:{name:string;url:string}[]};
+export type VendorReference={id:string;name:string;sourceUrl:string;image:string;imageSourceUrl?:string;imageVerifiedAt?:string;kind:string};
+export type VendorCatalog={identityNote?:string;identitySource?:string;channelNote?:string;channelSource?:string;supplierId:string;supplierName:string;website:string;checkedAt:string;status:string;pages:string[];products:VendorReference[];catalogs:{name:string;url:string}[]};
 export const vendorCatalogs=catalog as VendorCatalog[];
 export function vendorCatalog(id:string){return vendorCatalogs.find(v=>v.supplierId===id);}
 export type CatalogRequest={id:string;supplierId:string;supplier:string;productId:string;product:string;sourceUrl:string;project:Project;quantity:number;unit:string;mode:'supply'|'manufacture';specifications:string;requiredDate:string;status:'Preparada'|'Cotizada'|'Archivada';createdAt:string;updatedAt:string;offer?:{unitPrice:number;validUntil:string;leadDays:number;depositPercent:number;conditions:string};history:{at:string;action:string}[]};

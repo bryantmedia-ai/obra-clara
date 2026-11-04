@@ -1,0 +1,216 @@
+[
+  {
+    "name": "PCR",
+    "products": [
+      {
+        "name": "Cemento Portland Normal",
+        "sourceUrl": "https://cemento.pcr.energy/producto/cemento-portland-normal/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2024/12/CPN_40-600x581.jpg",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/cemento-portland-normal/"
+      },
+      {
+        "name": "Cemento Portland Puzolánico",
+        "sourceUrl": "https://cemento.pcr.energy/producto/cemento-portland-puzolanico/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2024/12/CPP_40_ARS-600x581.jpg",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/cemento-portland-puzolanico/"
+      },
+      {
+        "name": "Cemento Portland Compuesto",
+        "sourceUrl": "https://cemento.pcr.energy/producto/cemento-portland-compuesto/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2024/12/CPC_40-600x581.jpg",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/cemento-portland-compuesto/"
+      },
+      {
+        "name": "Cemento de Albañilería",
+        "sourceUrl": "https://cemento.pcr.energy/producto/cemento-de-albanileria/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2024/12/271-600x581.jpg",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/cemento-de-albanileria/"
+      },
+      {
+        "name": "Adoquín Uni Stone PS8Q",
+        "sourceUrl": "https://cemento.pcr.energy/producto/adoquin-uni-stone-ps8q/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2025/01/AD.PS8Q_1-600x600.png",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/adoquin-uni-stone-ps8q/"
+      },
+      {
+        "name": "Adoquín Uni Stone PS6Q",
+        "sourceUrl": "https://cemento.pcr.energy/producto/adoquin-uni-stone-ps6q/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2025/01/AD.PS6Q_1-600x600.png",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/adoquin-uni-stone-ps6q/"
+      },
+      {
+        "name": "Adoquín rectangular PR8Q",
+        "sourceUrl": "https://cemento.pcr.energy/producto/adoquin-rectangular-pr8q/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2025/01/2.-PR8Q-Final-600x600.png",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/adoquin-rectangular-pr8q/"
+      },
+      {
+        "name": "Adoquín rectangular PR6Q",
+        "sourceUrl": "https://cemento.pcr.energy/producto/adoquin-rectangular-pr6q/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2024/12/1.-PR6Q-Final-600x600.png",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/adoquin-rectangular-pr6q/"
+      },
+      {
+        "name": "Tuerca HR80",
+        "sourceUrl": "https://cemento.pcr.energy/producto/tuerca-hr80/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2026/05/Tuerca-final-600x600.png",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/tuerca-hr80/"
+      },
+      {
+        "name": "Muroblock MB20Q",
+        "sourceUrl": "https://cemento.pcr.energy/producto/muroblock-mb20q/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2025/01/MB20Q_1-600x600.png",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/muroblock-mb20q/"
+      },
+      {
+        "name": "Placa símil piedra RSQ",
+        "sourceUrl": "https://cemento.pcr.energy/producto/placa-simil-piedra-rsq/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2025/01/RSQ_1-600x600.png",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/placa-simil-piedra-rsq/"
+      },
+      {
+        "name": "Bloque símil piedra media altura ASMHQ",
+        "sourceUrl": "https://cemento.pcr.energy/producto/bloque-simil-piedra-media-altura-asmhq/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2025/01/ASMHQ_1-600x600.png",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/bloque-simil-piedra-media-altura-asmhq/"
+      },
+      {
+        "name": "Bloque símil piedra esquinero medio ESMQ",
+        "sourceUrl": "https://cemento.pcr.energy/producto/bloque-simil-piedra-esquinero-medio-esmq/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2025/01/ESMQ_1-600x600.png",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/bloque-simil-piedra-esquinero-medio-esmq/"
+      },
+      {
+        "name": "Bloque símil piedra esquinero ESQ",
+        "sourceUrl": "https://cemento.pcr.energy/producto/bloque-simil-piedra-esquinero-esq/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2025/01/ESQ_1-600x600.png",
+        "kind": "product",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/bloque-simil-piedra-esquinero-esq/"
+      },
+      {
+        "name": "Bloque Liso B20Q",
+        "sourceUrl": "https://cemento.pcr.energy/producto/bloque-liso-b20q/",
+        "image": "https://cemento.pcr.energy/wp-content/uploads/2024/12/B20Q.jpg",
+        "imageSourceUrl": "https://cemento.pcr.energy/producto/bloque-liso-b20q/",
+        "kind": "product"
+      }
+    ],
+    "keepAll": true
+  },
+  {
+    "name": "Conductres",
+    "website": "https://trefi.com.ar/",
+    "identitySource": "https://trefi.com.ar/wp-content/uploads/2025/05/SUBTE-LS0H-CERTIFICADO-VIGILANCIA-21-marz-2026.pdf",
+    "products": [
+      {
+        "name": "Cable Trefi unipolar categoría 5",
+        "sourceUrl": "https://trefi.com.ar/conductores/",
+        "image": "https://trefi.com.ar/wp-content/uploads/2025/03/Unipolar-Categoria-5.png",
+        "kind": "family",
+        "imageSourceUrl": "https://trefi.com.ar/conductores/"
+      },
+      {
+        "name": "Cable Trefi unipolar",
+        "sourceUrl": "https://trefi.com.ar/conductores/",
+        "image": "https://trefi.com.ar/wp-content/uploads/2025/03/Unipolar.png",
+        "kind": "family",
+        "imageSourceUrl": "https://trefi.com.ar/conductores/"
+      },
+      {
+        "name": "Cable Trefi unipolar ls0h",
+        "sourceUrl": "https://trefi.com.ar/conductores/",
+        "image": "https://trefi.com.ar/wp-content/uploads/2025/05/Unipolar-LS0H.png",
+        "kind": "family",
+        "imageSourceUrl": "https://trefi.com.ar/conductores/"
+      },
+      {
+        "name": "Cable Trefi unipolar siliconado",
+        "sourceUrl": "https://trefi.com.ar/conductores/",
+        "image": "https://trefi.com.ar/wp-content/uploads/2025/05/Unipolar-Siliconado.png",
+        "kind": "family",
+        "imageSourceUrl": "https://trefi.com.ar/conductores/"
+      },
+      {
+        "name": "Cable Trefi paralelo",
+        "sourceUrl": "https://trefi.com.ar/conductores/",
+        "image": "https://trefi.com.ar/wp-content/uploads/2025/05/Paralelo.png",
+        "kind": "family",
+        "imageSourceUrl": "https://trefi.com.ar/conductores/"
+      },
+      {
+        "name": "Cable Trefi paralelo parlante",
+        "sourceUrl": "https://trefi.com.ar/conductores/",
+        "image": "https://trefi.com.ar/wp-content/uploads/2025/05/Paralelo-Parlante.png",
+        "kind": "family",
+        "imageSourceUrl": "https://trefi.com.ar/conductores/"
+      },
+      {
+        "name": "Cable Trefi paralelo cristal",
+        "sourceUrl": "https://trefi.com.ar/conductores/",
+        "image": "https://trefi.com.ar/wp-content/uploads/2025/05/Paralelo-Cristal.png",
+        "kind": "family",
+        "imageSourceUrl": "https://trefi.com.ar/conductores/"
+      },
+      {
+        "name": "Cable Trefi vaina plana",
+        "sourceUrl": "https://trefi.com.ar/conductores/",
+        "image": "https://trefi.com.ar/wp-content/uploads/2025/05/Vaina-Plana.png",
+        "kind": "family",
+        "imageSourceUrl": "https://trefi.com.ar/conductores/"
+      }
+    ]
+  },
+  {
+    "name": "Holcim Argentina",
+    "products": [
+      {
+        "name": "Cemento Holcim Fuerte ECOPlanet",
+        "sourceUrl": "https://www.holcim.com.ar/productos-y-servicios/productos/cementos/cementos-en-bolsa",
+        "image": "https://www.holcim.com.ar/sites/argentina/files/styles/overlap_teaser_no_overlapping_extra/public/img/ot-holcim-fuerte-eco.png.webp?h=1883e6cd&itok=j0VcFGku",
+        "kind": "family",
+        "imageSourceUrl": "https://www.holcim.com.ar/productos-y-servicios/productos/cementos/cementos-en-bolsa"
+      },
+      {
+        "name": "Cemento Holcim Fuerte Max",
+        "sourceUrl": "https://www.holcim.com.ar/productos-y-servicios/productos/cementos/cementos-en-bolsa",
+        "image": "https://www.holcim.com.ar/sites/argentina/files/styles/overlap_teaser_no_overlapping_extra/public/img/ot-holcim-fuerte-max.png.webp?h=1883e6cd&itok=2tnMczBG",
+        "kind": "family",
+        "imageSourceUrl": "https://www.holcim.com.ar/productos-y-servicios/productos/cementos/cementos-en-bolsa"
+      },
+      {
+        "name": "Cemento de albañilería Holcim Maestro ECOPlanet",
+        "sourceUrl": "https://www.holcim.com.ar/productos-y-servicios/productos/cementos/cementos-en-bolsa",
+        "image": "https://www.holcim.com.ar/sites/argentina/files/styles/overlap_teaser_no_overlapping_extra/public/img/ot-holcim-maestro-eco.png.webp?h=1883e6cd&itok=l7sJZkfX",
+        "kind": "family",
+        "imageSourceUrl": "https://www.holcim.com.ar/productos-y-servicios/productos/cementos/cementos-en-bolsa"
+      },
+      {
+        "name": "Cemento Holcim Rápido",
+        "sourceUrl": "https://www.holcim.com.ar/productos-y-servicios/productos/cementos/cementos-en-bolsa",
+        "image": "https://www.holcim.com.ar/sites/argentina/files/styles/overlap_teaser_no_overlapping_extra/public/img/ot-holcim-rapido.png.webp?h=1883e6cd&itok=12nyHac1",
+        "kind": "family",
+        "imageSourceUrl": "https://www.holcim.com.ar/productos-y-servicios/productos/cementos/cementos-en-bolsa"
+      },
+      {
+        "name": "Cemento Holcim Ultra Durable",
+        "sourceUrl": "https://www.holcim.com.ar/productos-y-servicios/productos/cementos/cementos-en-bolsa",
+        "image": "https://www.holcim.com.ar/sites/argentina/files/styles/overlap_teaser_no_overlapping_extra/public/img/ot-holcim-ultra-durable.png.webp?h=1883e6cd&itok=EEUgmwUb",
+        "kind": "family",
+        "imageSourceUrl": "https://www.holcim.com.ar/productos-y-servicios/productos/cementos/cementos-en-bolsa"
+      }
+    ]
+  }
+]

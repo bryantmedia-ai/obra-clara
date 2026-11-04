@@ -1,0 +1,860 @@
+[
+  {
+    "key": "mafferetti",
+    "name": "MAFFERETTI",
+    "website": "https://www.mafferetti.com/",
+    "seeds": [
+      "https://mafferetti.com/contacto",
+      "https://www.mafferetti.com/busqueda?cat=26",
+      "https://www.mafferetti.com/busqueda?cat=21",
+      "https://www.mafferetti.com/busqueda?cat=38"
+    ],
+    "refresh": true
+  },
+  {
+    "key": "construnort",
+    "name": "CONSTRUNORT",
+    "website": "https://www.construnort.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "centro-hierro",
+    "name": "CENTRO HIERRO",
+    "website": "https://centrohierro.com.ar/",
+    "seeds": [
+      "https://centrohierro.com.ar/sucursal-online/"
+    ]
+  },
+  {
+    "key": "hgs",
+    "name": "HGS ABERTURAS",
+    "website": "https://hgsweb.com.ar/",
+    "seeds": [
+      "https://hgsweb.com.ar/productos/",
+      "https://portoneshgs.com.ar/contacto/"
+    ]
+  },
+  {
+    "key": "casa-blanco",
+    "name": "CASA BLANCO",
+    "website": "https://www.casablanco.com/",
+    "seeds": [
+      "https://www.casablanco.com/HISTORIA/historia/casablanco-electricidad.aspx"
+    ],
+    "refresh": true
+  },
+  {
+    "key": "mas-ferreterias",
+    "name": "MAS FERRETERIAS SA",
+    "website": "https://www.masferreterias.com/",
+    "seeds": [
+      "https://www.masferreterias.com/store/"
+    ]
+  },
+  {
+    "key": "marchal",
+    "name": "MARCHAL",
+    "website": "https://www.marchal.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "caliendo",
+    "name": "CASA CALIENDO",
+    "website": "https://casacaliendo.com.ar/",
+    "seeds": [
+      "https://casacaliendo.com.ar/productos.php",
+      "https://casacaliendo.com.ar/empresa.php"
+    ]
+  },
+  {
+    "key": "ventamat",
+    "name": "VENTA MAT",
+    "website": "https://ventamatshop.com.ar/",
+    "seeds": [
+      "https://ventamatshop.com.ar/informacion/"
+    ]
+  },
+  {
+    "key": "imperio",
+    "name": "IMPERIO DEL CERAMICO",
+    "website": "https://www.imperiodelceramico.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "distabile",
+    "name": "DI STABILE",
+    "website": "https://www.distabile.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "tubocenter",
+    "name": "TUBO CENTER SA",
+    "website": "https://www.tubocenter.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "acon",
+    "name": "ACON MATERIALES",
+    "website": "https://www.aconmateriales.com.ar/",
+    "seeds": [
+      "https://www.aconmateriales.com.ar/productos/",
+      "https://www.aconmateriales.com.ar/contacto/"
+    ]
+  },
+  {
+    "key": "emporio",
+    "name": "EL EMPORIO DEL TERCIADO",
+    "website": "https://emporiodelterciado.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "melian",
+    "name": "Materiales Melián",
+    "website": "https://materialesmelian.com/",
+    "seeds": []
+  },
+  {
+    "key": "armatel",
+    "name": "Armatel",
+    "website": "https://w1.armatel.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "interelec",
+    "name": "Interelec",
+    "website": "https://interelec.com.ar/",
+    "seeds": [
+      "https://interelec.com.ar/catalogo-categoria/materiales-electricos"
+    ]
+  },
+  {
+    "key": "inbaco",
+    "name": "Inbaco",
+    "website": "https://inbaco.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "sanitarios-lomas",
+    "name": "Sanitarios Lomas",
+    "website": "https://www.sanitarioslomas.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "imepho",
+    "name": "IMEPHO",
+    "website": "https://imepho.com.ar/",
+    "seeds": [
+      "https://imepho.com.ar/empresa",
+      "https://imepho.com.ar/shop"
+    ]
+  },
+  {
+    "key": "urbania",
+    "name": "URBANIA",
+    "website": "https://www.urbaniasa.com/",
+    "seeds": []
+  },
+  {
+    "key": "lenzi",
+    "name": "MOSAICOS LENZI",
+    "website": "https://www.somoslenzi.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "menica",
+    "name": "FERRETERIA CASA MEÑICA",
+    "website": "https://www.casamenica.com/",
+    "seeds": [
+      "https://www.casamenica.com/contacto/"
+    ]
+  },
+  {
+    "key": "ferremat",
+    "name": "FERREMAT BULONERA DEL SUR SA",
+    "website": "https://buloneradelsursa.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "existing-research-45a6590d44ec",
+    "name": "Aliceri Materiales",
+    "supplierId": "research-45a6590d44ec",
+    "website": "https://alicerimateriales.com.ar/",
+    "seeds": [
+      "https://alicerimateriales.com.ar/productos"
+    ]
+  },
+  {
+    "key": "existing-research-0fdd96679491",
+    "name": "Cordani Hnos",
+    "supplierId": "research-0fdd96679491",
+    "website": "https://cordanihnos.com.ar/acopio/",
+    "seeds": [
+      "https://cordanihnos.com.ar/categoria-producto/productos/adhesivos-y-revoques/",
+      "https://cordanihnos.com.ar/categoria-producto/productos/aceros/",
+      "https://cordanihnos.com.ar/categoria-producto/productos/aridos/",
+      "https://cordanihnos.com.ar/categoria-producto/productos/bolsas/"
+    ]
+  },
+  {
+    "key": "existing-research-7dd3520fe170",
+    "name": "Materiales Pola",
+    "supplierId": "research-7dd3520fe170",
+    "website": "https://materialespola.com.ar/",
+    "seeds": [
+      "https://materialespola.com.ar/"
+    ]
+  },
+  {
+    "key": "existing-research-a0155eb8c310",
+    "name": "Materiales Moreno",
+    "supplierId": "research-a0155eb8c310",
+    "website": "https://www.materialesmoreno.com.ar/",
+    "seeds": [
+      "https://www.materialesmoreno.com.ar/"
+    ]
+  },
+  {
+    "key": "existing-research-7637e05b3d63",
+    "name": "Nuciari",
+    "supplierId": "research-7637e05b3d63",
+    "website": "https://nuciari.com.ar/servicios/materiales-gruesos/",
+    "seeds": [
+      "https://nuciari.com.ar/producto/cascote-en-bolson-x-900kg/",
+      "https://nuciari.com.ar/producto/varilla-de-hierro-para-construccion-10-mm/",
+      "https://nuciari.com.ar/producto/cemento-holcim-gris-cpc-40-x-25kg/",
+      "https://nuciari.com.ar/producto/piedra-en-bolson-x-900kg-zona-oeste-capital/"
+    ]
+  },
+  {
+    "key": "existing-research-81c7d750dd53",
+    "name": "Corralón El Veloz",
+    "supplierId": "research-81c7d750dd53",
+    "website": "https://elveloz.ar/",
+    "seeds": [
+      "https://elveloz.ar/hormigon-elaborado-pilar/"
+    ]
+  },
+  {
+    "key": "existing-research-60f09d8351f4",
+    "name": "Construcción Vía Web",
+    "supplierId": "research-60f09d8351f4",
+    "website": "https://www.construccionviaweb.com.ar/",
+    "seeds": [
+      "https://www.construccionviaweb.com.ar/prod/tienda/agua/fusion/",
+      "https://www.construccionviaweb.com.ar/prod/tienda/agua/roscado/canos-pp/",
+      "https://www.construccionviaweb.com.ar/prod/tienda/agua/desagues/ramat/",
+      "https://www.construccionviaweb.com.ar/prod/tienda/agua/bombas/"
+    ]
+  },
+  {
+    "key": "existing-research-f4f7369c8e86",
+    "name": "Blaisten",
+    "supplierId": "research-f4f7369c8e86",
+    "website": "https://www.blaisten.com.ar/terminos-y-condiciones",
+    "seeds": [
+      "https://www.blaisten.com.ar/griferias/griferias-para-bano",
+      "https://www.blaisten.com.ar/griferias/griferias-para-cocina",
+      "https://www.blaisten.com.ar/sanitarios/accesorios-sanitarios",
+      "https://www.blaisten.com.ar/pisos-y-revestimientos/ceramicas-y-porcelanatos/ceramicas-para-paredes-y-muros"
+    ]
+  },
+  {
+    "key": "existing-research-74094ce052be",
+    "name": "Electrosurr",
+    "supplierId": "research-74094ce052be",
+    "website": "https://electrosurr.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "existing-research-fe19fdc75c65",
+    "name": "Electrinet SRL",
+    "supplierId": "research-fe19fdc75c65",
+    "website": "https://electrinet.com.ar/",
+    "seeds": [
+      "https://electrinet.com.ar/productos/"
+    ]
+  },
+  {
+    "key": "existing-research-7630e446063f",
+    "name": "TECI SAC",
+    "supplierId": "research-7630e446063f",
+    "website": "https://www.teci.com.ar/",
+    "seeds": [
+      "https://www.teci.com.ar/"
+    ]
+  },
+  {
+    "key": "existing-research-e2e35381af55",
+    "name": "Paternal SRL",
+    "supplierId": "research-e2e35381af55",
+    "website": "https://paternalsrl.com.ar/",
+    "seeds": [
+      "https://paternalsrl.com.ar/"
+    ]
+  },
+  {
+    "key": "existing-research-d71d3ea332ba",
+    "name": "Cobla Point",
+    "supplierId": "research-d71d3ea332ba",
+    "website": "https://coblapoint.com.ar/",
+    "seeds": [
+      "https://tienda.coblapoint.com.ar/"
+    ]
+  },
+  {
+    "key": "existing-research-75792d35f272",
+    "name": "G2E",
+    "supplierId": "research-75792d35f272",
+    "website": "https://g2e.com.ar/",
+    "seeds": [
+      "https://g2e.com.ar/"
+    ]
+  },
+  {
+    "key": "existing-research-450e29125a42",
+    "name": "Ferromil",
+    "supplierId": "research-450e29125a42",
+    "website": "https://www.ferromil.com.ar/",
+    "seeds": [
+      "https://www.ferromil.com.ar/"
+    ]
+  },
+  {
+    "key": "existing-research-b9c0daaf9088",
+    "name": "Sanitarios Bonomi",
+    "supplierId": "research-b9c0daaf9088",
+    "website": "https://sanitariosbonomi.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "existing-research-b02b095cd18c",
+    "name": "Sanitarios Morón",
+    "supplierId": "research-b02b095cd18c",
+    "website": "https://productos.sanitariosmoron.com.ar/",
+    "seeds": [
+      "https://productos.sanitariosmoron.com.ar/productos/valvula-esferica-25-manija-corta-termofusion-verde-agua-ips/",
+      "https://productos.sanitariosmoron.com.ar/productos/griferia-de-cocina-monocomando-pico-alto-flexible-negro-tg-plast/",
+      "https://productos.sanitariosmoron.com.ar/productos/tanque-de-agua-1-000-l-plastico-tricapa-affinity/",
+      "https://productos.sanitariosmoron.com.ar/productos/codo-20-sigas-a-45-termofusion-gas-dema/"
+    ]
+  },
+  {
+    "key": "existing-research-37278428b4e1",
+    "name": "Adducci Adrogué",
+    "supplierId": "research-37278428b4e1",
+    "website": "https://www.adducciadrogue.com.ar/nuevositio/index.html",
+    "seeds": [
+      "https://www.adducciadrogue.com.ar/nuevositio/prod_porcelanaygriferias.html"
+    ]
+  },
+  {
+    "key": "existing-research-ffaf4e0eed31",
+    "name": "Sanitarios Illia",
+    "supplierId": "research-ffaf4e0eed31",
+    "website": "https://sanitariosillia.com.ar/envios/",
+    "seeds": []
+  },
+  {
+    "key": "existing-research-92d34b313e7c",
+    "name": "Sanitarios Ascensión",
+    "supplierId": "research-92d34b313e7c",
+    "website": "https://www.sanitariosascension.com/",
+    "seeds": [
+      "https://www.sanitariosascension.com/product-page/bomba-presurizadora-btm-bat3",
+      "https://www.sanitariosascension.com/product-page/bomba-presurizador-btm-cst3-para-tanque-cisterna"
+    ]
+  },
+  {
+    "key": "existing-research-753ac765618c",
+    "name": "Corralón Laprida",
+    "supplierId": "research-753ac765618c",
+    "website": "https://corralonlaprida.com.ar/contacto.php",
+    "seeds": [
+      "https://corralonlaprida.com.ar/productos.php?id_cat=8"
+    ]
+  },
+  {
+    "key": "existing-research-4eedd748dac8",
+    "name": "Loma Negra",
+    "supplierId": "research-4eedd748dac8",
+    "website": "https://www.lomanegra.com/productos/",
+    "seeds": [
+      "https://www.lomanegra.com/tipo_de_productos/cemento",
+      "https://www.lomanegra.com/productos-servicios/albanileria/",
+      "https://www.lomanegra.com/productos-servicios/hormigon/"
+    ]
+  },
+  {
+    "key": "existing-research-321fb62ab2bb",
+    "name": "Holcim Argentina",
+    "supplierId": "research-321fb62ab2bb",
+    "website": "https://www.holcim.com.ar/productos-y-servicios/productos/cementos/cementos-en-bolsa",
+    "seeds": [
+      "https://holcimsoluciones.com/argentina/centro-fichas-tecnicas"
+    ]
+  },
+  {
+    "key": "existing-research-e894f09b02cc",
+    "name": "Cementos Avellaneda",
+    "supplierId": "research-e894f09b02cc",
+    "website": "https://www.cementosavellaneda.com.ar/productos/",
+    "seeds": [
+      "https://www.cementosavellaneda.com.ar/productos/cementos",
+      "https://www.cementosavellaneda.com.ar/productos/cementos-de-albanileria",
+      "https://www.cementosavellaneda.com.ar/productos/cales",
+      "https://www.cementosavellaneda.com.ar/productos/pegamentos"
+    ]
+  },
+  {
+    "key": "existing-research-2cead8915cde",
+    "name": "PCR",
+    "supplierId": "research-2cead8915cde",
+    "website": "https://cemento.pcr.energy/",
+    "seeds": [
+      "https://cemento.pcr.energy/categoria/cemento-portland/",
+      "https://cemento.pcr.energy/categoria/cemento-para-petrolero/",
+      "https://cemento.pcr.energy/categoria/cemento-de-albanileria/"
+    ]
+  },
+  {
+    "key": "existing-research-29b1dd44baf1",
+    "name": "Gerdau Argentina",
+    "supplierId": "research-29b1dd44baf1",
+    "website": "https://www.gerdau.com.ar/",
+    "seeds": [
+      "https://www.gerdau.com.ar/productos-y-servicios/construccion-civil"
+    ]
+  },
+  {
+    "key": "existing-research-07c10407d89f",
+    "name": "Acindar",
+    "supplierId": "research-07c10407d89f",
+    "website": "https://www.acindar.com.ar/",
+    "seeds": [
+      "https://www.acindar.com.ar/productos/"
+    ]
+  },
+  {
+    "key": "existing-research-154d22c82bd8",
+    "name": "Acerbrag",
+    "supplierId": "research-154d22c82bd8",
+    "website": "https://www.acerbrag.com/",
+    "seeds": [
+      "https://www.acerbrag.com/"
+    ]
+  },
+  {
+    "key": "existing-research-815916624b55",
+    "name": "Ternium Argentina",
+    "supplierId": "research-815916624b55",
+    "website": "https://ar.ternium.com/es",
+    "seeds": [
+      "https://ar.ternium.com/es/productos/aceros-planos/laminados-en-caliente",
+      "https://ar.ternium.com/es/productos/aceros-planos/laminados-en-frio",
+      "https://ar.ternium.com/es/productos/aceros-revestidos/galvanizado",
+      "https://ar.ternium.com/es/productos/aceros-revestidos/prepintados"
+    ]
+  },
+  {
+    "key": "existing-research-248b07ca2180",
+    "name": "Argenplas",
+    "supplierId": "research-248b07ca2180",
+    "website": "https://www.argenplas.net/",
+    "seeds": [
+      "https://www.argenplas.net/productos/"
+    ]
+  },
+  {
+    "key": "existing-research-0a781595fdc9",
+    "name": "Prysmian Argentina",
+    "supplierId": "research-0a781595fdc9",
+    "website": "https://ar.prysmian.com/es",
+    "seeds": [
+      "https://ar.prysmian.com/en/toolsdownloads"
+    ]
+  },
+  {
+    "key": "existing-research-c0304f5ca8cb",
+    "name": "Marlew",
+    "supplierId": "research-c0304f5ca8cb",
+    "website": "https://www.marlew.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "existing-research-df878888eeff",
+    "name": "CEDAM",
+    "supplierId": "research-df878888eeff",
+    "website": "https://cedam.com.ar/",
+    "seeds": [
+      "https://cedam.com.ar/"
+    ]
+  },
+  {
+    "key": "existing-research-4b7592c1146b",
+    "name": "Grupo Erpla",
+    "supplierId": "research-4b7592c1146b",
+    "website": "https://grupoerpla.com/nuestra-esencia/",
+    "seeds": [
+      "https://grupoerpla.com/"
+    ]
+  },
+  {
+    "key": "existing-research-60d74220ea52",
+    "name": "Kalop / Acrópolis Cables",
+    "supplierId": "research-60d74220ea52",
+    "website": "https://www.kalop.com.ar/",
+    "seeds": [
+      "https://www.kalop.com.ar/sistema-modular/",
+      "https://www.kalop.com.ar/conductores-electricos/"
+    ]
+  },
+  {
+    "key": "existing-research-8989ebd4c480",
+    "name": "Grupo Dema",
+    "supplierId": "research-8989ebd4c480",
+    "website": "https://grupodema.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "existing-research-1514a1bd01cb",
+    "name": "IPS / Rotoplas",
+    "supplierId": "research-1514a1bd01cb",
+    "website": "https://ips-arg.com/nosotros/",
+    "seeds": [
+      "https://ips-arg.com/productos/rosca/",
+      "https://ips-arg.com/productos/fusion-2/",
+      "https://ips-arg.com/productos/desague/",
+      "https://ips-arg.com/productos/herramientas/"
+    ]
+  },
+  {
+    "key": "existing-research-4d307d22f5a1",
+    "name": "Amanco Wavin",
+    "supplierId": "research-4d307d22f5a1",
+    "website": "https://wavin.com/ar/contacto",
+    "seeds": [
+      "https://wavin.com/ar/descargas"
+    ]
+  },
+  {
+    "key": "existing-research-36e296d48778",
+    "name": "Tigre Argentina",
+    "supplierId": "research-36e296d48778",
+    "website": "https://www.tigre.com.ar/",
+    "seeds": [
+      "https://www.tigre.com.ar/productos/obras-y-reformas/desague",
+      "https://www.tigre.com.ar/productos/obras-y-reformas/canaletas",
+      "https://www.tigre.com.ar/productos/obras-y-reformas/accesorios",
+      "https://www.tigre.com.ar/productos/agro/sistemas-fijos"
+    ]
+  },
+  {
+    "key": "existing-research-1ecf32d651e6",
+    "name": "Industrias Saladillo",
+    "supplierId": "research-1ecf32d651e6",
+    "website": "https://www.industriassaladillo.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "existing-research-388bf34b26b1",
+    "name": "FV",
+    "supplierId": "research-388bf34b26b1",
+    "website": "https://fvsa.com/",
+    "seeds": [
+      "https://fvsa.com/product-category/cocina/",
+      "https://fvsa.com/product-category/lavadero/",
+      "https://fvsa.com/product-category/jardin/",
+      "https://fvsa.com/productos/0103-17p-california-plus-juego-para-banera-y-ducha/"
+    ]
+  },
+  {
+    "key": "existing-research-985819ef12ca",
+    "name": "Hidromet",
+    "supplierId": "research-985819ef12ca",
+    "website": "https://www.hidromet.com/",
+    "seeds": [
+      "https://www.hidromet.com/productos/monocomando",
+      "https://www.hidromet.com/productos/bicomando",
+      "https://www.hidromet.com/productos/cocinas",
+      "https://www.hidromet.com/productos/confort"
+    ]
+  },
+  {
+    "key": "existing-research-469443ff0763",
+    "name": "Peirano",
+    "supplierId": "research-469443ff0763",
+    "website": "https://griferiapeirano.com/",
+    "seeds": [
+      "https://griferiapeirano.com/categoria-producto/griferia-de-bano/",
+      "https://griferiapeirano.com/categoria-producto/griferia-de-bano/bicomando/",
+      "https://griferiapeirano.com/categoria-producto/griferia-de-bano/bicomando/lavatorio/",
+      "https://griferiapeirano.com/categoria-producto/griferia-de-bano/bicomando/ducha/"
+    ]
+  },
+  {
+    "key": "existing-research-87853de75a88",
+    "name": "Roca Argentina",
+    "supplierId": "research-87853de75a88",
+    "website": "https://www.roca.com.ar/sobre-roca",
+    "seeds": []
+  },
+  {
+    "key": "existing-research-2ec2adaddd19",
+    "name": "Johnson Acero",
+    "supplierId": "research-2ec2adaddd19",
+    "website": "https://johnsonacero.com/la-empresa/",
+    "seeds": [
+      "https://piletas.johnsonacero.com/catalogo/"
+    ]
+  },
+  {
+    "key": "existing-research-57b7c6585050",
+    "name": "Motorarg",
+    "supplierId": "research-57b7c6585050",
+    "website": "https://www.motorarg.com.ar/",
+    "seeds": [
+      "https://www.motorarg.com.ar/bombas-sumergibles-de-pozo/",
+      "https://www.motorarg.com.ar/bombas-presurizadoras/",
+      "https://www.motorarg.com.ar/bombas-centrifugas/",
+      "https://www.motorarg.com.ar/bombas-desagote/"
+    ]
+  },
+  {
+    "key": "existing-research-00f16e3e7872",
+    "name": "Durlock",
+    "supplierId": "research-00f16e3e7872",
+    "website": "https://durlock.com/institucional/",
+    "seeds": [
+      "https://durlock.com/productos/aplicaciones/pared/",
+      "https://durlock.com/productos/aplicaciones/revestimiento/",
+      "https://durlock.com/productos/aplicaciones/cielorraso/",
+      "https://durlock.com/productos/aplicaciones/entrepiso/"
+    ]
+  },
+  {
+    "key": "existing-research-03fbb19e0570",
+    "name": "ABB S.A.",
+    "supplierId": "research-03fbb19e0570",
+    "website": "https://new.abb.com/south-america/argentina/catalogo-comercial-abb-en-argentina",
+    "seeds": [
+      "https://new.abb.com/south-america/argentina/abb-en-argentina"
+    ]
+  },
+  {
+    "key": "existing-research-d82bae0ad94b",
+    "name": "Aparatos Eléctricos Automáticos",
+    "supplierId": "research-d82bae0ad94b",
+    "website": "https://catalogo.aea.com.ar/",
+    "seeds": [
+      "https://catalogo.aea.com.ar/producto/botonera-rp-010-indicador-az/",
+      "https://catalogo.aea.com.ar/producto/arranque-suave-esr407t5-a-3p3-5hp/",
+      "https://catalogo.aea.com.ar/producto/botonera-rm-010-marcha-v/",
+      "https://catalogo.aea.com.ar/producto/encoder-jib-100-g8-30-f/"
+    ]
+  },
+  {
+    "key": "existing-research-2e35bd76da37",
+    "name": "Atomlux",
+    "supplierId": "research-2e35bd76da37",
+    "website": "https://www.atomlux.com.ar/web/Luz-de-Emergencia.php",
+    "seeds": [
+      "https://www.atomlux.com.ar/web/R1000@c-R2100@c.php",
+      "https://www.atomlux.com.ar/web/Linea-UPS-Atomlux.php"
+    ]
+  },
+  {
+    "key": "existing-research-fdde73126c80",
+    "name": "Barbury Company / Roker",
+    "supplierId": "research-fdde73126c80",
+    "website": "https://www.roker.com.ar/productos-para-interior/",
+    "seeds": [
+      "https://www.roker.com.ar/productos-para-interior/"
+    ]
+  },
+  {
+    "key": "existing-research-43a59edda55c",
+    "name": "Cambre",
+    "supplierId": "research-43a59edda55c",
+    "website": "https://www.cambre.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "existing-research-3310c36f29d3",
+    "name": "Cimet",
+    "supplierId": "research-3310c36f29d3",
+    "website": "https://cimet.com/empresa/",
+    "seeds": [
+      "https://cimet.com/product-category/cables-energia/",
+      "https://cimet.com/product-category/cables-energia/cables-baja-tension-aislados/",
+      "https://cimet.com/product-category/cables-energia/cables-baja-tension-aislados/acometida-preensamblada/",
+      "https://cimet.com/product-category/cables-energia/cables-baja-tension-aislados/acometida-unipolar/"
+    ]
+  },
+  {
+    "key": "existing-research-1a38aa516ab0",
+    "name": "Conextube",
+    "supplierId": "research-1a38aa516ab0",
+    "website": "https://conextube.com/index.php",
+    "seeds": [
+      "https://conextube.com/producto/caja-multiple-tipo-x-conexflex-tramontina",
+      "https://conextube.com/producto/caja-multiple-tipo-l-conexflex-tramontina",
+      "https://conextube.com/producto/caja-multiple-redonda-conexflex-tramontina",
+      "https://conextube.com/producto/caja-de-paso-derivacion-y-piso-conexflex-tramontina"
+    ]
+  },
+  {
+    "key": "existing-research-fbab88f06893",
+    "name": "DBT / Cramaco",
+    "supplierId": "research-fbab88f06893",
+    "website": "https://dbtsa.com/empresa/",
+    "seeds": [
+      "https://dbtsa.com/producto/4-polos-sincronicos-380y-220d-50hz-1500rpm/",
+      "https://dbtsa.com/producto/tractousinas-cramaco/",
+      "https://dbtsa.com/producto/4-polos-sincronicos-440y-220yy-60hz-1800rpm/",
+      "https://dbtsa.com/producto/4-polos-sincronicos-380y-220d-60hz-1800rpm/"
+    ]
+  },
+  {
+    "key": "existing-research-3daa08a25d6a",
+    "name": "Delga",
+    "supplierId": "research-3daa08a25d6a",
+    "website": "https://www.delga.com/productos",
+    "seeds": [
+      "https://www.delga.com/productos/1/iluminacion",
+      "https://www.delga.com/productos/2/cajas-conexionado-y-comando",
+      "https://www.delga.com/productos/3/accesorios",
+      "https://www.delga.com/productos/4/senalizacion-y-comunicacion"
+    ]
+  },
+  {
+    "key": "existing-research-88ad0a282ba5",
+    "name": "Electromecánica Brenta / Miron",
+    "supplierId": "research-88ad0a282ba5",
+    "website": "https://miron.com.ar/",
+    "seeds": [
+      "https://miron.com.ar/"
+    ]
+  },
+  {
+    "key": "existing-research-ee50fa8ea78b",
+    "name": "Ferrolux",
+    "supplierId": "research-ee50fa8ea78b",
+    "website": "https://ferrolux.com.ar/productos",
+    "seeds": [
+      "https://ferrolux.com.ar/productos/linea/colgantes",
+      "https://ferrolux.com.ar/productos/linea/colonial",
+      "https://ferrolux.com.ar/productos/linea/jaula",
+      "https://ferrolux.com.ar/productos/linea/monaco"
+    ]
+  },
+  {
+    "key": "existing-research-cb3f83d8e19a",
+    "name": "Industrias MH",
+    "supplierId": "research-cb3f83d8e19a",
+    "website": "https://www.industriasmh.com.ar/",
+    "seeds": [
+      "https://www.industriasmh.com.ar/conductores-aluminio.php",
+      "https://www.industriasmh.com.ar/conductores-cobre.php"
+    ]
+  },
+  {
+    "key": "existing-research-e2b4c6864b51",
+    "name": "Industrias Sica",
+    "supplierId": "research-e2b4c6864b51",
+    "website": "https://tienda.sicaelec.com/sica",
+    "seeds": [
+      "https://tienda.sicaelec.com/int-dif-4x63a/p"
+    ]
+  },
+  {
+    "key": "existing-research-232893a05759",
+    "name": "Jeluz",
+    "supplierId": "research-232893a05759",
+    "website": "https://jeluz.net/",
+    "seeds": []
+  },
+  {
+    "key": "existing-research-90b7fb246ee7",
+    "name": "Lumenac",
+    "supplierId": "research-90b7fb246ee7",
+    "website": "https://lumenac.com.ar/inicio",
+    "seeds": [
+      "https://lumenac.com.ar/catalogo/lib/inflate"
+    ]
+  },
+  {
+    "key": "existing-research-13759704e8af",
+    "name": "Motores Czerweny",
+    "supplierId": "research-13759704e8af",
+    "website": "https://www.czerweny.ar/",
+    "seeds": [
+      "https://www.czerweny.ar/"
+    ]
+  },
+  {
+    "key": "existing-outlet-f80e03058406",
+    "name": "BULONFER",
+    "supplierId": "outlet-f80e03058406",
+    "website": "https://www.bulonfer.com",
+    "seeds": []
+  },
+  {
+    "key": "existing-outlet-1420b6959447",
+    "name": "FEDAN",
+    "supplierId": "outlet-1420b6959447",
+    "website": "https://www.fedanstore.com.ar",
+    "seeds": []
+  },
+  {
+    "key": "existing-outlet-b88f50a88b8b",
+    "name": "MADERAS MEYER",
+    "supplierId": "outlet-b88f50a88b8b",
+    "website": "https://maderasmeyer.com.ar/",
+    "seeds": [
+      "https://maderasmeyer.com.ar/categoria-producto/pisosdemadera/",
+      "https://maderasmeyer.com.ar/categoria-producto/pisos-vinilicos/",
+      "https://maderasmeyer.com.ar/categoria-producto/spc-click/",
+      "https://maderasmeyer.com.ar/categoria-producto/pisos-vinilicos/para-pegar/"
+    ]
+  },
+  {
+    "key": "existing-outlet-e9dcc06db78d",
+    "name": "MAGAZZINO",
+    "supplierId": "outlet-e9dcc06db78d",
+    "website": "https://www.magazzino.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "existing-outlet-09c171a093da",
+    "name": "RONIX TIENDA ONLINE",
+    "supplierId": "outlet-09c171a093da",
+    "website": "https://www.ronix.ar/",
+    "seeds": []
+  },
+  {
+    "key": "conductres",
+    "name": "Conductres",
+    "website": "https://trefi.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "secco",
+    "name": "Industrias Juan F. Secco",
+    "website": "https://www.secco.com.ar/",
+    "seeds": []
+  },
+  {
+    "key": "ospital",
+    "name": "RICARDO OSPITAL",
+    "website": "https://ricardoospital.com.ar/",
+    "seeds": [
+      "https://ricardoospital.com.ar/productos/"
+    ]
+  },
+  {
+    "key": "aiter",
+    "name": "AITER",
+    "website": "https://aiter.com.ar/",
+    "seeds": []
+  }
+]

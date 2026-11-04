@@ -91,3 +91,7 @@ for d in directory:
 (root/'components/supplier-directory-data.json').write_text(json.dumps(directory,ensure_ascii=False,separators=(',',':')))
 summary={'reviewedAt':'2026-11-04','directoryRecords':len(rows),'websitesIdentified':sum(bool(r['website']) for r in rows),'profilesWithFeaturedProducts':sum(bool(r['products']) for r in rows),'featuredReferences':sum(len(r['products']) for r in rows),'withDocuments':sum(bool(r['catalogs']) for r in rows),'recordsWithoutIdentifiedWebsite':sum(not r['website'] for r in rows),'scope':'Known official sites and indexed sources checked. No claim of exhaustive web search for 1,197 records; branches are separate entries. Unresolved entities receive no invented catalog.'}
 (root/'research/vendor-catalogs/coverage.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2));print(json.dumps(summary))
+
+# Apply the second research pass after generating the original stable reference IDs.
+if (root/'research/vendor-catalogs/expansion-reviewed.json').exists():
+ subprocess.run(['python3',str(root/'scripts/apply-vendor-expansion.py')],check=True)
