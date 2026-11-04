@@ -1,0 +1,242 @@
+{
+  "Aliceri Materiales": {
+    "url": "https://alicerimateriales.com.ar/productos",
+    "kind": "product",
+    "names": [
+      "Cemento Loma Negra × 25 kg",
+      "Hierro 8 mm",
+      "Hierro 12 mm",
+      "Malla 15 × 15 de 6 mm (5 × 2 m)",
+      "Vigueta 5,40 m",
+      "Sellador SikaFlex 1A Plus gris × 300 ml"
+    ]
+  },
+  "Materiales Pola": {
+    "url": "https://materialespola.com.ar/",
+    "kind": "family",
+    "names": [
+      "Cementos y cales",
+      "Ladrillos huecos, comunes y portantes",
+      "Arena, piedra partida y cascote",
+      "Hierros y mallas para construcción",
+      "Sanitarios y desagües"
+    ]
+  },
+  "Electrinet SRL": {
+    "url": "https://electrinet.com.ar/productos/",
+    "kind": "family",
+    "names": [
+      "Cable subterráneo",
+      "Cable preensamblado",
+      "Cable tipo taller",
+      "Cable unipolar",
+      "Kit trifásico",
+      "Gabinete industrial",
+      "Cable de media tensión",
+      "Variador de velocidad"
+    ]
+  },
+  "Gerdau Argentina": {
+    "url": "https://www.gerdau.com.ar/productos-y-servicios/construccion-civil",
+    "kind": "family",
+    "names": [
+      "ADN S — acero de dureza natural soldable",
+      "AL 220 — acero liso de construcción",
+      "Alambre recocido",
+      "ATR — alambre redondo para hormigón",
+      "Mallas electrosoldadas",
+      "Corte y doblado",
+      "Perfiles estructurales"
+    ]
+  },
+  "Argenplas": {
+    "url": "https://www.argenplas.net/productos/",
+    "kind": "family",
+    "names": [
+      "Cable unipolar flexible",
+      "Cable unipolar flexible LS0H",
+      "Cable extraflexible tipo taller",
+      "Cable extraflexible para soldadura",
+      "Cable de potencia subterráneo 1,1 kV Cat. II",
+      "Cable vaina plana para bomba sumergible"
+    ]
+  },
+  "Prysmian Argentina": {
+    "url": "https://ar.prysmian.com/en/toolsdownloads",
+    "kind": "family",
+    "names": [
+      "PRYSUN — cable fotovoltaico",
+      "AFUMEX 1000+",
+      "RETENAX ENLACE",
+      "SUPERASTIC JET",
+      "ECO-AR — media tensión"
+    ]
+  },
+  "Johnson Acero": {
+    "url": "https://piletas.johnsonacero.com/catalogo/",
+    "kind": "product",
+    "names": [
+      "Grifería Johnson Glow Black",
+      "Grifería Johnson Glow Steel",
+      "Aura 38 Rose Gold Nano PVD",
+      "Axis 55 Black Nano PVD",
+      "Signature Enkel 75",
+      "Signature Enkel 55 Rose Gold Nano PVD"
+    ]
+  },
+  "Grupo Erpla": {
+    "url": "https://grupoerpla.com/",
+    "kind": "family",
+    "names": [
+      "SOLARFLEX — cables para paneles solares",
+      "SUFLEX — cable de energía flexible",
+      "CUPERFLEX — cable unipolar de cobre",
+      "Cables industriales",
+      "Cables preensamblados",
+      "Cables libres de halógenos"
+    ]
+  },
+  "Amanco Wavin": {
+    "url": "https://wavin.com/ar/descargas",
+    "kind": "family",
+    "names": [
+      "Wavin Hep2O",
+      "Wavin AS+",
+      "Fusión",
+      "Silentium",
+      "Novafort",
+      "Wavin Quickstream",
+      "Wavin Aquacell 400",
+      "Canaletas Amazonas Raingo"
+    ]
+  },
+  "CEDAM": {
+    "url": "https://cedam.com.ar/",
+    "kind": "family",
+    "names": [
+      "Cables y conductores eléctricos",
+      "Tubos de PVC",
+      "Accesorios para instalaciones eléctricas"
+    ]
+  },
+  "Cobla Point": {
+    "url": "https://tienda.coblapoint.com.ar/",
+    "kind": "product",
+    "names": [
+      "Reflector Smart LED 20 W Macroled IP65 RGB",
+      "Panel LED cuadrado embutir 18 W neutro Macroled",
+      "Panel LED cuadrado embutir 24 W cálido Macroled",
+      "Cabezal spot cilindro 5 × 8 cm blanco"
+    ]
+  },
+  "G2E": {
+    "url": "https://g2e.com.ar/",
+    "kind": "family",
+    "names": [
+      "Paneles solares monocristalinos y bifaciales tipo N",
+      "Inversores on-grid",
+      "Inversores híbridos",
+      "Inversores off-grid",
+      "Baterías de litio",
+      "Accesorios fotovoltaicos"
+    ]
+  },
+  "Ferromil": {
+    "url": "https://www.ferromil.com.ar/",
+    "kind": "family",
+    "names": [
+      "Cemento portland y de albañilería",
+      "Cal en bolsa",
+      "Arena fina y gruesa",
+      "Piedra partida y canto rodado",
+      "Ladrillos comunes y huecos",
+      "Bloques de hormigón"
+    ]
+  },
+  "Paternal SRL": {
+    "url": "https://paternalsrl.com.ar/",
+    "kind": "product",
+    "names": [
+      "Cable unipolar Kalop 1 × 2,5 mm² celeste por metro",
+      "Caño PVC Kalop 20 mm semipesado",
+      "Conector empalme WAGO 2 vías 4 mm²",
+      "Bastidor Cambre Siglo XXI–XXII 5 × 10",
+      "Tira LED COB 10 W 220 V neutra × 10 m"
+    ]
+  },
+  "Corralón Laprida": {
+    "url": "https://corralonlaprida.com.ar/productos.php?id_cat=8",
+    "kind": "product",
+    "names": [
+      "Teja Portuguesa Losa Olavarría"
+    ]
+  },
+  "Industrias Saladillo": {
+    "url": "https://industriassaladillo.com.ar/downloads/lista_de_precios.pdf",
+    "kind": "family",
+    "names": [
+      "AWADUCT — sistema de desagües"
+    ]
+  },
+  "Barbury Company / Roker": {
+    "url": "https://www.roker.com.ar/productos-para-interior/",
+    "kind": "family",
+    "names": [
+      "Cajas para térmicas DIN IP40 de 4 a 96 módulos"
+    ]
+  },
+  "Electromecánica Brenta / Miron": {
+    "url": "https://miron.com.ar/",
+    "kind": "family",
+    "names": [
+      "Transformadores en baño de aceite",
+      "Transformadores de aislación seca"
+    ]
+  },
+  "Motores Czerweny": {
+    "url": "https://www.czerweny.ar/",
+    "kind": "family",
+    "names": [
+      "Bombas BQx",
+      "Bombas BPA",
+      "Motores antiexplosivos",
+      "Motores para hormigoneras",
+      "Motor de ventilador de techo VT-17A",
+      "Motores monofásicos NEMA"
+    ]
+  },
+  "Acerbrag": {
+    "url": "https://www.acerbrag.com/",
+    "kind": "family",
+    "names": [
+      "Barras de acero liso, nervurado y conformado",
+      "Mallas soldadas",
+      "Alambres negros recocidos",
+      "Clavos"
+    ]
+  },
+  "Industrias Sica": {
+    "url": "https://tienda.sicaelec.com/int-dif-4x63a/p",
+    "kind": "product",
+    "names": [
+      "Interruptor diferencial SICA 4 × 63 A"
+    ]
+  },
+  "TECI SAC": {
+    "url": "https://www.teci.com.ar/",
+    "kind": "product",
+    "names": [
+      "Organizador para cables PF-TECI",
+      "Relé de control de falta de fases U3S FANOX",
+      "Kit de empalme a resina BT serie 3M"
+    ]
+  },
+  "Acindar": {
+    "url": "https://www.acindar.com.ar/productos/",
+    "kind": "family",
+    "names": [
+      "Productos para construcción civil",
+      "Productos para la industria"
+    ]
+  }
+}

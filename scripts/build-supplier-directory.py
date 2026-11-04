@@ -23,9 +23,9 @@ def price_mode(mode):
  if 'acopio' in m:return 'Acopio; precio por confirmar'
  return 'Precio por relevar'
 def website(value):
- v=value.strip()
- if not re.match(r'^(https?://|www\.|[a-zA-Z0-9-]+\.(com|ar|net)\b)',v):return ''
- return v if v.startswith('https://') else 'https://'+v.removeprefix('http://')
+ v=re.sub(r'^https?://','',value.strip(),flags=re.I)
+ if '@' in v or not re.match(r'^(www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}',v):return ''
+ return 'https://'+v.split('?')[0].lower()
 rows=[]
 for name,role,sector,location,mode,note,url in json.loads((source/'empresas-relevadas.json').read_text()):
  n=norm(location)
