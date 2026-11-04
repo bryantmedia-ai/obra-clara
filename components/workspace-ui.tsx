@@ -1,0 +1,6 @@
+"use client";
+import Link from 'next/link';
+export function WorkspaceTabs({items,label}:{items:{href:string;label:string;active:boolean}[];label:string}){return <nav className="workspace-tabs" aria-label={label}>{items.map(item=><Link key={item.href} href={item.href} className={item.active?'active':''} aria-current={item.active?'page':undefined}>{item.label}</Link>)}</nav>;}
+export function PurchaseTabs({active}:{active:string}){return <WorkspaceTabs label="Secciones de Compras" items={[["orders","/compras","Órdenes"],["quotes","/compras/cotizaciones","Cotizaciones"],["deliveries","/compras/entregas","Entregas"],["inventory","/compras/inventario","Inventario"]].map(([id,href,label])=>({href,label,active:active===id}))}/>;}
+export function WorkspaceHeading({title,description,actions}:{title:string;description?:string;actions?:React.ReactNode}){return <section className="workspace-heading"><div><h2>{title}</h2>{description&&<p>{description}</p>}</div>{actions&&<div className="workspace-actions">{actions}</div>}</section>;}
+export function EmptyState({title,description,action}:{title:string;description?:string;action?:React.ReactNode}){return <div className="workspace-empty"><div className="workspace-empty-symbol" aria-hidden="true">↗</div><h3>{title}</h3>{description&&<p>{description}</p>}{action}</div>;}

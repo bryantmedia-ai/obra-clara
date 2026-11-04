@@ -18,6 +18,7 @@ import "./funds.css";
 import "./purchases.css";
 import "./pricing.css";
 import "./supplier-directory.css";
+import "./workspace-ui.css";
 
 export const metadata: Metadata = {
   title: "Obra Clara",

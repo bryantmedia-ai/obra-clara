@@ -1,5 +1,8 @@
 "use client";
 import {SupplierDirectory} from "./supplier-directory";
+import {PurchaseTabs} from "./workspace-ui";
+import {NotificationCenter} from "./notification-center";
+import {CompanySettings} from "./company-settings";
 import {ProductQuotes} from "./product-quotes";
 import {ProtectionLanding} from './protection-landing';
 
@@ -89,7 +92,7 @@ const routeTitles: Record<string, [string, string]> = {
   "compras/entregas": ["Compras", "Entregas"],
   "compras/inventario": ["Compras", "Inventario"],
   "compras/proyectos": ["Compras", "Proyectos"],
-  "compras/nueva": ["Nueva compra", "Creá una necesidad y compará soluciones"],
+  "compras/nueva": ["Marketplace", "Creá una necesidad y compará soluciones"],
   "compras/oc-1042": ["Orden OC-1042", "Cemento para Torre Núñez"],
   entregas: ["Entregas", "Agenda y estado de recepciones"],
   "entregas/oc-1042": ["Confirmar entrega", "Orden OC-1042 · Torre Núñez"],
@@ -127,7 +130,7 @@ function Header({ route, onOpenAgent }: { route: Route; onOpenAgent:()=>void }) 
       </div>
       <div className="top-actions">
         <CartPopup key={route}/>
-        <button className="icon-button" aria-label="Notificaciones"><Icon icon={faBell} /></button>
+        <NotificationCenter/>
         <button className="icon-button agent-shortcut" type="button" onClick={onOpenAgent} aria-label="Abrir Brick" title="Brick"><Icon icon={faRobot} /></button>
       </div>
     </header>
@@ -161,7 +164,7 @@ function Sidebar({ route }: { route: Route }) {
 
 function Agent(){return <BrickPage/>;}
 
-function Settings() { return <section className="settings-grid"><aside className="panel"><button className="active">Empresa</button><button>Usuarios y roles</button><button>Aprobaciones</button><button>Integraciones</button><button>Notificaciones</button></aside><article className="panel settings-form"><p className="eyebrow">Perfil empresarial</p><h2>Constructora Madero SA</h2><div className="form-grid"><label>Razón social<div className="input">Constructora Madero SA</div></label><label>CUIT<div className="input">30-71234567-9</div></label><label>Industria<div className="input">Construcción</div></label><label>Moneda principal<div className="input">ARGt · Peso argentino digital</div></label></div><h3>Integraciones de cuenta</h3><div className="integration"><div className="belo-status"><i/><span><strong>Belo</strong><small>Cuenta empresa sin vincular</small></span></div><Badge tone="neutral">Pendiente</Badge></div><button className="button primary">Guardar cambios</button></article></section> }
+function Settings(){return <CompanySettings/>;}
 
 function AboutUs() {
   return <div className="about-page"><section className="about-intro"><div><h2>Construimos claridad.<br/><span>Para que vos construyas más.</span></h2><p>Obra Clara nace para proteger el dinero de las obras: reservarlo en un smart contract, liberarlo contra la entrega conformada y devolver el saldo que corresponde cuando no se cumple. Conectamos a constructoras y proveedores alrededor de reglas claras para cobrar y pagar.</p><Link className="button primary" href="/marketplace">Explorar el marketplace <Icon icon={faArrowRight}/></Link></div><aside className="about-promise"><Icon icon={faBuilding}/><strong>Una obra conectada,<br/>de principio a fin.</strong><p>Compras · Logística · Inventario · Pagos</p></aside></section><section className="about-story panel"><h2>Nacemos de un problema de obra real</h2><p>Materiales que faltan a último momento, pedidos repartidos entre mensajes, entregas parciales y administración sin visibilidad de lo que llegó. Cuando esa información está desconectada, la obra pierde tiempo.</p><p>Queremos reunir a quienes compran, proveen y reciben los materiales en un flujo compartido: desde la necesidad inicial hasta la recepción y la conciliación del pago.</p></section><section className="three-col about-pillars"><article className="panel"><Icon icon={faListCheck}/><h3>Todo lo que necesitás</h3><p>Un marketplace para abastecer cada etapa de la obra: corralón, ferretería, electricidad, herramientas y equipamiento.</p></article><article className="panel"><Icon icon={faTruck}/><h3>Cada entrega, visible</h3><p>Pedidos, responsables, cantidades recibidas y documentación reunidos para que todos trabajen con la misma información.</p></article><article className="panel"><Icon icon={faShieldHalved}/><h3>Reglas claras para pagar</h3><p>Diseñamos pagos en ARGt con reservas de fondos, liberaciones por entrega y devolución del saldo según las condiciones pactadas.</p></article></section><section className="about-technology panel"><div><Icon icon={faRobot}/><h2>Tecnología al servicio de la obra</h2><p>El agente OC está pensado para ayudarte a encontrar productos, preparar compras y seguir entregas. Belo y ARGt forman parte de la integración financiera prevista para conectar las operaciones con sus pagos.</p></div></section><section className="about-closing"><h2>Menos incertidumbre. <span>Más obra.</span></h2><p>Ese es el futuro que estamos construyendo con Obra Clara.</p><Link href="/marketplace" className="button primary">Conocer los productos <Icon icon={faArrowRight}/></Link></section></div>;
@@ -180,7 +183,7 @@ function Page({ route }: { route: Route }) {
   if (route === "quienes-somos") return <AboutUs/>;
   if (route === "marketplace") return <CementMarketplace/>;
   if (route === "dashboard") return <BuyerOverview/>;
-  if (route === "compras/cotizaciones") return <ProductQuotes/>;
+  if (route === "compras/cotizaciones") return <div className="purchases-workspace"><PurchaseTabs active="quotes"/><ProductQuotes/></div>;
   if (route === "compras") return <PurchasesWorkspace key="orders"/>;
   if (route === "compras/entregas") return <PurchasesWorkspace key="deliveries" tab="deliveries"/>;
   if (route === "compras/inventario") return <PurchasesWorkspace key="inventory" tab="inventory"/>;

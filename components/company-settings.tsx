@@ -1,0 +1,10 @@
+"use client";
+import {useEffect,useState} from 'react';
+import Link from 'next/link';
+import {WorkspaceHeading} from './workspace-ui';
+const defaults={name:'Constructora Madero SA',taxId:'30-71234567-9',industry:'Construcción',contact:'Jazmín M.',currency:'ARGt'};
+export function CompanySettings(){
+ const [profile,setProfile]=useState(defaults),[saved,setSaved]=useState('');
+ useEffect(()=>{try{const p=JSON.parse(localStorage.getItem('oc-company-profile-v1')||'null');if(p&&typeof p.name==='string')setProfile({...defaults,...p});}catch{}},[]);
+ return <div className="settings-workspace"><WorkspaceHeading title="Perfil de empresa" description="Datos de administración y accesos de tu cuenta."/><div className="settings-columns"><form className="panel settings-form" onSubmit={e=>{e.preventDefault();localStorage.setItem('oc-company-profile-v1',JSON.stringify(profile));setSaved('Datos guardados en este navegador.');}}><h3>Datos de la empresa</h3><div className="form-grid">{[['name','Razón social'],['taxId','CUIT'],['industry','Actividad'],['contact','Responsable de administración']].map(([id,label])=><label key={id}>{label}<input required maxLength={160} value={profile[id as keyof typeof profile]} onChange={e=>{setProfile({...profile,[id]:e.target.value});setSaved('');}}/></label>)}<label>Moneda de cuenta<input value="ARGt" readOnly/></label></div><footer className="workspace-actions"><button className="button primary" type="submit">Guardar datos</button>{saved&&<span role="status">{saved}</span>}</footer></form><div className="settings-aside"><section className="panel"><h3>Cuenta y pagos</h3><p>Consultá tu billetera, las reservas y las instrucciones de pago.</p><Link className="button secondary" href="/fondos">Abrir Fondos →</Link></section><section className="panel"><h3>Obras y responsables</h3><p>Administrá los destinos y contactos de recepción de cada proyecto.</p><Link className="button secondary" href="/proyectos">Administrar proyectos →</Link></section></div></div></div>;
+}
