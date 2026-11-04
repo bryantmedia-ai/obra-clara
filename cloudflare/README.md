@@ -13,6 +13,15 @@ workspace JSON has been recovered, imported and verified. Do not seed a
 replacement workspace. The Worker returns `MIGRATION_REQUIRED` for missing
 workspaces unless a caller explicitly identifies a genuinely new workspace.
 
+## Deployed backend
+
+The Worker is live at `https://obra-clara-api.obra-clara.workers.dev`.
+Version: `70fbc534-5ffc-45da-923d-f773eef9ebcb`.
+Thirteen live API checks passed using an isolated QA workspace; see
+`research/cloudflare-migration/live-backend-checks.json`.
+Production app API variables have not been changed because source recovery
+remains blocked.
+
 ## Prepare and deploy
 
 Use the official Wrangler CLI with the Cloudflare account
@@ -54,3 +63,6 @@ Verify the account remains on Workers Free before creating resources.
 `wrangler deploy --config cloudflare/wrangler.jsonc --dry-run` verifies bundling.
 Use `wrangler dev` with a locally initialized D1 database for runtime checks.
 These checks do not substitute for production/browser verification.
+
+`node scripts/check-cloudflare-live.mjs` exercises the deployed Worker with
+a separate QA token saved only under the ignored private directory.

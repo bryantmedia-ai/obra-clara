@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-04",
+  "base": "https://obra-clara-api.obra-clara.workers.dev",
+  "passed": true,
+  "checks": [
+    {
+      "name": "D1 health",
+      "passed": true
+    },
+    {
+      "name": "Missing session rejected",
+      "passed": true
+    },
+    {
+      "name": "Untrusted origin rejected",
+      "passed": true
+    },
+    {
+      "name": "Existing workspace not silently replaced",
+      "passed": true
+    },
+    {
+      "name": "Isolated QA workspace creation",
+      "passed": true
+    },
+    {
+      "name": "prices.initialize",
+      "passed": true
+    },
+    {
+      "name": "demo.seedPurchases",
+      "passed": true
+    },
+    {
+      "name": "project.budgets.initialize",
+      "passed": true
+    },
+    {
+      "name": "Buyer write",
+      "passed": true
+    },
+    {
+      "name": "Seller sees buyer write and CORS",
+      "passed": true
+    },
+    {
+      "name": "Duplicate command idempotency",
+      "passed": true
+    },
+    {
+      "name": "Parallel updates preserved",
+      "passed": true
+    },
+    {
+      "name": "Workspace isolation",
+      "passed": true
+    }
+  ],
+  "scope": "Live Worker+D1 API tests with isolated QA token. Production app endpoints remain unchanged pending source recovery."
+}

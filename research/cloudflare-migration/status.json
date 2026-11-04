@@ -2,7 +2,7 @@
   "date": "2026-11-04",
   "targetCloudflareAccount": "mktbyjazmin@gmail.com",
   "targetAccountId": "aed96cd9606d309a45ffde168716a445",
-  "status": "d1-created-worker-authorization-pending",
+  "status": "backend-live-tested-awaiting-original-data-recovery",
   "paidPlanActivated": false,
   "productionEndpointChanged": false,
   "existingDataReset": false,
@@ -18,10 +18,10 @@
     "sqliteHandlerRegression": "pass",
     "localWorkerdD1ReadWrite": "pass",
     "buyerProviderOriginSyncLocal": "pass",
-    "existingSharedOrderRegression": "pass"
+    "existingSharedOrderRegression": "pass",
+    "liveWorkerD1": "pass: 13 checks"
   },
   "blockers": [
-    "Worker publication requires workers_scripts:write scope; renewal opened in Chrome.",
     "Original workspace contents remain blocked by Vercel Blob suspension; owner requested waiting without replacement."
   ],
   "productionBrowserVerification": {
@@ -30,12 +30,20 @@
     "endpointSwitched": false
   },
   "d1DatabaseId": "400c95a3-1507-4697-97ca-220449dfe125",
-  "cloudflareOAuth": "connected; D1 works; Workers Scripts Write scope renewal pending",
+  "cloudflareOAuth": "connected with workers_scripts:write and d1:write",
   "sourceExport": {
     "listedObjects": 31,
     "completeListing": true,
     "downloadedObjects": 0,
     "readResult": "403 Forbidden, both fresh and cached SDK reads",
     "largestObjectBytes": 387547
-  }
+  },
+  "worker": {
+    "url": "https://obra-clara-api.obra-clara.workers.dev",
+    "version": "70fbc534-5ffc-45da-923d-f773eef9ebcb",
+    "startupMs": 4,
+    "gzipKiB": 284.03,
+    "publicCheck": "HTTPS healthy; 13 live backend checks passed"
+  },
+  "qaData": "Separate random-token QA workspace; original source workspaces untouched."
 }
