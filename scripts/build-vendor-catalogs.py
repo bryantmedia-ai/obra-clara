@@ -99,3 +99,7 @@ if (root/'research/vendor-catalogs/expansion-reviewed.json').exists():
 # Add subsequent reviewed research after the original and second-pass references.
 if (root/'research/vendor-catalogs/continuation-2026-11-04/reviewed.json').exists():
  subprocess.run(['python3',str(root/'scripts/apply-vendor-continuation.py')],check=True)
+
+# Continue with the next explicitly reviewed supplier batch.
+if (root/'research/vendor-catalogs/round-3-2026-11-04/reviewed.json').exists():
+ subprocess.run(['python3',str(root/'scripts/apply-vendor-round-three.py')],check=True)

@@ -1,0 +1,287 @@
+{
+  "checkedAt": "2026-11-04",
+  "baseline": {
+    "reviewedAt": "2026-11-04",
+    "directoryRecords": 1197,
+    "websitesIdentified": 146,
+    "profilesWithFeaturedProducts": 135,
+    "featuredReferences": 1857,
+    "profilesWithVerifiedPhotos": 93,
+    "referencesWithVerifiedPhotos": 1408,
+    "withDocuments": 20,
+    "recordsWithoutIdentifiedWebsite": 1051,
+    "scope": "Public primary-source catalogs and images. Directory records include branches and online channels, not unique legal suppliers. Explicit reviewed branch mappings; discrepancies remain visible. General company catalogs do not imply branch stock. Unresolved records receive no invented products."
+  },
+  "current": {
+    "reviewedAt": "2026-11-04",
+    "directoryRecords": 1197,
+    "websitesIdentified": 191,
+    "profilesWithFeaturedProducts": 181,
+    "featuredReferences": 3941,
+    "profilesWithVerifiedPhotos": 136,
+    "referencesWithVerifiedPhotos": 3421,
+    "withDocuments": 31,
+    "recordsWithoutIdentifiedWebsite": 1006,
+    "scope": "Public primary-source catalogs and images. Directory records include branches and online channels, not unique legal suppliers. Explicit reviewed branch mappings; discrepancies remain visible. General company catalogs do not imply branch stock. Unresolved records receive no invented products."
+  },
+  "change": {
+    "websitesIdentified": 45,
+    "profilesWithFeaturedProducts": 46,
+    "featuredReferences": 2084,
+    "profilesWithVerifiedPhotos": 43,
+    "referencesWithVerifiedPhotos": 2013,
+    "withDocuments": 11
+  },
+  "reviewedCommercialCatalogs": 19,
+  "updatedDirectoryRecords": 49,
+  "distinctPhotoUrlsInBatch": 678,
+  "documentsChecked": 19,
+  "sources": [
+    {
+      "key": "ciardi",
+      "website": "https://ciardi.com.ar/",
+      "identitySource": "https://ciardi.com.ar/sucursales",
+      "identityEvidence": "La empresa confirma Luro 7146, Belgrano 3547 y Edison 701 (Mar del Plata), Favaloro 850 (Balcarce) y su tienda online.",
+      "supplierIds": [
+        "outlet-983bd00418aa",
+        "outlet-4c0ac4ba0d7e",
+        "outlet-5a142bd856fa",
+        "outlet-7f7cdc207eb1",
+        "outlet-e377d1234180"
+      ],
+      "references": 60,
+      "referencesWithPhotos": 60
+    },
+    {
+      "key": "plastigas",
+      "website": "https://www.plastigas.com.ar/",
+      "identitySource": "https://www.plastigas.com.ar/quienes-somos",
+      "identityEvidence": "Grupo Plastigas identifica a Plastigas, Servisteel y Trialum como sus empresas. Publica Champagnat 3245 (Mar del Plata), Av. 59 4498 (Necochea), Urquiza 1720 (Olavarría) y Ruta 11 km 396 (Pinamar).",
+      "supplierIds": [
+        "outlet-6415eb6d14a0",
+        "outlet-b041a3e4bae9",
+        "outlet-ebda9e0562ca",
+        "outlet-51a48ada9f62",
+        "outlet-f97113da3df8",
+        "outlet-b44ca1c85062",
+        "outlet-5aa3ac0bea33",
+        "outlet-4bfb5a9f1c51",
+        "outlet-6f271b87d1f9"
+      ],
+      "references": 60,
+      "referencesWithPhotos": 60
+    },
+    {
+      "key": "hgs",
+      "website": "https://hgsweb.com.ar/",
+      "identitySource": "https://hgsweb.com.ar/contacto/",
+      "identityEvidence": "HGS Aberturas publica J. M. de Rosas 13952, González Catán. El directorio anterior indica 13942: confirmar el domicilio de retiro. No se asocian otras localidades sin evidencia.",
+      "supplierIds": [
+        "outlet-5d50b87ed58a"
+      ],
+      "references": 60,
+      "referencesWithPhotos": 54
+    },
+    {
+      "key": "drf",
+      "website": "https://www.drfiluminacion.com.ar/",
+      "identitySource": "https://www.drfiluminacion.com.ar/",
+      "identityEvidence": "La tienda DRF Iluminación publica San Martín 1124 y un correo de electrodrf.com.ar. Se vincula únicamente este punto y el canal online del directorio.",
+      "supplierIds": [
+        "outlet-97a457646647",
+        "outlet-91d4bb358336"
+      ],
+      "references": 12,
+      "referencesWithPhotos": 12
+    },
+    {
+      "key": "emporio",
+      "website": "https://emporiodelterciado.com.ar/",
+      "identitySource": "https://emporiodelterciado.com.ar/contacto/",
+      "identityEvidence": "Casa central: 39 nº 823; Egger Haus: 72 nº 978, La Plata. Centenario: Camino Centenario esquina 461, City Bell. La publicación comercial anterior abrevia este último domicilio.",
+      "supplierIds": [
+        "outlet-261b63c5bfcd",
+        "outlet-61409bb18caa",
+        "outlet-9841055f3dc4"
+      ],
+      "references": 18,
+      "referencesWithPhotos": 18
+    },
+    {
+      "key": "anacleto",
+      "website": "https://grupoanacleto.com.ar/",
+      "identitySource": "https://grupoanacleto.com.ar/",
+      "identityEvidence": "El sitio oficial de Grupo Anacleto confirma Av. 44 nº 1031, La Plata, y enlaza la tienda tienda.grupoanacleto.com.ar. Ambas fichas del directorio corresponden al mismo domicilio publicado.",
+      "supplierIds": [
+        "outlet-f489da2837ed",
+        "outlet-a65f7c0f8698"
+      ],
+      "references": 60,
+      "referencesWithPhotos": 58
+    },
+    {
+      "key": "hierrometal",
+      "website": "https://hierrometal.com.ar/",
+      "identitySource": "https://hierrometal.com.ar/",
+      "identityEvidence": "Casa central Solís 4555 y sucursal Juan B. Justo 5820, Mar del Plata, publicadas por Hierrometal SRL.",
+      "supplierIds": [
+        "outlet-1fd1f530235d",
+        "outlet-b8ba48b48713"
+      ],
+      "references": 17,
+      "referencesWithPhotos": 17
+    },
+    {
+      "key": "ferromar",
+      "website": "https://ferromar.com.ar/",
+      "identitySource": "https://ferromar.com.ar/contacto/",
+      "identityEvidence": "La empresa confirma sucursales Edison 2118 y Carlos Tejedor 555 en Mar del Plata.",
+      "supplierIds": [
+        "outlet-155910d80519",
+        "outlet-31f6cdb9915a"
+      ],
+      "references": 60,
+      "referencesWithPhotos": 60
+    },
+    {
+      "key": "martinez",
+      "website": "https://www.martinezescalada.com.ar/",
+      "identitySource": "https://www.martinezescalada.com.ar/contenido/67-sucursales",
+      "identityEvidence": "Martínez Escalada publica Yrigoyen 1493/99 y fábrica Pasteur y Ruta 226 (Tandil), Pringles 3502 (Olavarría) y tienda online. Las ofertas de ferretería y los productos de fábrica requieren confirmar el punto de despacho.",
+      "supplierIds": [
+        "outlet-dbbdf854f83c",
+        "outlet-63297c17064e",
+        "outlet-340e65fd2520",
+        "outlet-affec762f8cf"
+      ],
+      "references": 49,
+      "referencesWithPhotos": 49
+    },
+    {
+      "key": "lobos",
+      "website": "https://tiendadigital.madereralobos.com.ar/",
+      "identitySource": "https://www.isover.com.ar/distribuidores/maderera-lobos-srl/juan-d-peron-y-rp41/7240/lobos",
+      "identityEvidence": "Isover identifica a Maderera Lobos SRL en Juan D. Perón y RP 41. La tienda actual informa Acceso Sur 270, Lobos: confirmar el acceso de retiro. Se enlaza su documentación técnica de construcción en seco.",
+      "supplierIds": [
+        "outlet-b8efb67dc0fd"
+      ],
+      "references": 21,
+      "referencesWithPhotos": 21
+    },
+    {
+      "key": "farina",
+      "website": "https://casafarina.com.ar/",
+      "identitySource": "https://casafarina.com.ar/quienes-somos/",
+      "identityEvidence": "Casa Farina confirma Córdoba 3201 y Edison 1708, Mar del Plata, en su propia tienda.",
+      "supplierIds": [
+        "outlet-8b5cac22126d",
+        "outlet-4fc565f02378"
+      ],
+      "references": 46,
+      "referencesWithPhotos": 46
+    },
+    {
+      "key": "dymas",
+      "website": "https://alambradosberisso.com.ar/",
+      "identitySource": "https://alambradosberisso.com.ar/contacto.html",
+      "identityEvidence": "DYMAS Alambrados Berisso SRL publica Calle 42 entre 169 y 170, Berisso. La altura 4475 del directorio requiere confirmación porque la web sólo publica la entrecalle.",
+      "supplierIds": [
+        "outlet-24ac4b9aab24"
+      ],
+      "references": 6,
+      "referencesWithPhotos": 6
+    },
+    {
+      "key": "lakonich",
+      "website": "https://www.lakonich.com.ar/",
+      "identitySource": "https://www.lakonich.com.ar/contacto/",
+      "identityEvidence": "Lakonich confirma Libertador 1689, Mar de Ajó, y Tucumán 2491, San Bernardo.",
+      "supplierIds": [
+        "outlet-cc1261817710",
+        "outlet-54d7163030b6"
+      ],
+      "references": 60,
+      "referencesWithPhotos": 58
+    },
+    {
+      "key": "aguila",
+      "website": "https://elaguilasanitarios.com.ar/",
+      "identitySource": "https://elaguilasanitarios.com.ar/contacto/",
+      "identityEvidence": "El Águila Sanitarios publica Juan H. Jara 866 y Juan B. Justo 2000, Mar del Plata. La documentación de calderas corresponde a los modelos enlazados en la tienda.",
+      "supplierIds": [
+        "outlet-ee76f1b310f0",
+        "outlet-24c30993821a"
+      ],
+      "references": 60,
+      "referencesWithPhotos": 60
+    },
+    {
+      "key": "ferro",
+      "website": "https://www.sanitariosferro.com.ar/",
+      "identitySource": "https://www.sanitariosferro.com.ar/",
+      "identityEvidence": "Sanitarios Ferro informa Acceso Oeste, Colectora Sur 1196 esquina Río Negro, General Rodríguez. Una ficha anterior sólo indica Acceso Oeste; confirmar punto de retiro.",
+      "supplierIds": [
+        "outlet-dc8f557fa36b",
+        "outlet-90a6c8a6543b"
+      ],
+      "references": 12,
+      "referencesWithPhotos": 12
+    },
+    {
+      "key": "urbania",
+      "website": "https://urbaniasa.com/",
+      "identitySource": "https://urbaniasa.com/sucursales",
+      "identityEvidence": "Urbania publica Independencia 3798, Mar del Plata, y del Olimpo 657 local 88, Pinamar Norte. No se vincula la dirección anterior de Champagnat sin confirmación.",
+      "supplierIds": [
+        "outlet-2e8a7457f979",
+        "outlet-0a0391afa9ad"
+      ],
+      "references": 60,
+      "referencesWithPhotos": 60
+    },
+    {
+      "key": "hj",
+      "website": "https://distribuidorahj.mitiendanube.com/",
+      "identitySource": "https://www.distribuidorahj.com.ar/index.php?route=information%2Fcontact",
+      "identityEvidence": "Distribuidora HJ confirma Hipólito Yrigoyen 57, Lobos. La tienda actual mantiene ese domicilio y la identidad comercial; una ficha bancaria carece de dirección detallada.",
+      "supplierIds": [
+        "outlet-449e65e40f57",
+        "outlet-456a27378ac8"
+      ],
+      "references": 40,
+      "referencesWithPhotos": 40
+    },
+    {
+      "key": "curto",
+      "website": "https://www.curtomartinsmateriales.com/",
+      "identitySource": "https://www.curtomartinsmateriales.com/contacto.html",
+      "identityEvidence": "Curto Martins confirma Del Carmen 2825 y sucursal Ruta 205 km 65,5, Cañuelas. Publica entregas sólo en el partido de Cañuelas. Las dos fichas de Del Carmen repiten el mismo domicilio.",
+      "supplierIds": [
+        "outlet-32e6866eb793",
+        "outlet-652a4578d398",
+        "outlet-af05ad30886b"
+      ],
+      "references": 13,
+      "referencesWithPhotos": 0
+    },
+    {
+      "key": "eyc",
+      "website": "https://grupoeyc.com.ar/",
+      "identitySource": "https://grupoeyc.com.ar/",
+      "identityEvidence": "La web pública renderizada de EyC confirma Benito de Miguel 820, Junín, y D. Muscariello esquina R. Riva (Parque Industrial Junín). El catálogo muestra los modelos de las referencias enlazadas.",
+      "supplierIds": [
+        "outlet-e41914a6519b",
+        "outlet-c8e29ad09607"
+      ],
+      "references": 9,
+      "referencesWithPhotos": 0
+    }
+  ],
+  "verification": [
+    "1857 existing RFQ reference IDs retained",
+    "Idempotent additive import verified in isolated copy",
+    "Full rebuild retains all 3941 reference IDs",
+    "Supplier filters and quote workflow regression checks passed"
+  ],
+  "scope": "Counts are per-profile catalog references, including branches and channels; not distinct SKUs or unique legal suppliers. General company catalogs do not guarantee branch inventory. Research remains incomplete."
+}

@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-11-04",
+  "records": [
+    {
+      "supplierIds": [
+        "outlet-eb1ae45bbd53",
+        "outlet-ec8f0e597467",
+        "outlet-15dc65c0a35d",
+        "outlet-a0beb3746de4"
+      ],
+      "source": "https://www.marchal.com.ar/",
+      "reason": "Public site is under construction; no catalog fabricated."
+    },
+    {
+      "supplierIds": [
+        "outlet-77ba518f5781",
+        "outlet-e83c9d118d37"
+      ],
+      "source": "https://baukla.com.ar/",
+      "reason": "Expired TLS certificate. Certificate verification was not bypassed."
+    },
+    {
+      "supplierIds": [
+        "outlet-c375358eb3cb",
+        "outlet-69f855cfd826"
+      ],
+      "source": "https://barucortinas.com.ar/",
+      "reason": "Website hostname could not be resolved."
+    },
+    {
+      "supplierIds": [
+        "outlet-27ab11321d1d"
+      ],
+      "source": "https://ciardi.com.ar/sucursales",
+      "reason": "The Madariaga address was not confirmed in the current official branch list."
+    },
+    {
+      "supplierIds": [
+        "outlet-b072308ba2b6",
+        "outlet-b4accb1ac5ec",
+        "outlet-e7a86a9b5383"
+      ],
+      "source": "https://hgsweb.com.ar/contacto/",
+      "reason": "Other HGS branches were not confirmed in the current official contact page."
+    },
+    {
+      "supplierIds": [
+        "outlet-636dd9ceaf29"
+      ],
+      "source": "https://urbaniasa.com/sucursales",
+      "reason": "The old Champagnat location was not confirmed in the current public branch list."
+    },
+    {
+      "supplierIds": [
+        "outlet-5daa87848042"
+      ],
+      "source": "https://www.drfiluminacion.com.ar/",
+      "reason": "Monte Grande location not confirmed on current official store."
+    }
+  ]
+}

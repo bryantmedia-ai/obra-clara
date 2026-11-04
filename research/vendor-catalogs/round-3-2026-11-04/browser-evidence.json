@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-11-04",
+  "renderedBrowserSources": [
+    {
+      "url": "https://grupoeyc.com.ar/",
+      "identity": "EyC Distribuidora. Local Comercial: Av. Dr. Benito de Miguel 820, Junín. Parque Industrial: D. Muscariello Esq. R. Riva (Parque Industrial Junín).",
+      "method": "Public rendered page read in browser; no login, no forms submitted."
+    },
+    {
+      "url": "https://grupoeyc.com.ar/productos",
+      "products": [
+        {
+          "name": "Hidrófugo Ceresita x 1 kg",
+          "sourceUrl": "https://grupoeyc.com.ar/productos/hidrofugo-ceresita-x-1-kg-5000007",
+          "image": "",
+          "kind": "product"
+        },
+        {
+          "name": "Hidrófugo Ceresita x 4 kg",
+          "sourceUrl": "https://grupoeyc.com.ar/productos/hidrofugo-ceresita-x-4-kg-5000008",
+          "image": "",
+          "kind": "product"
+        },
+        {
+          "name": "Hidrófugo Ceresita x 10 kg",
+          "sourceUrl": "https://grupoeyc.com.ar/productos/hidrofugo-ceresita-x-10-kg-5000009",
+          "image": "",
+          "kind": "product"
+        },
+        {
+          "name": "Hidrófugo Ceresita x 20 kg",
+          "sourceUrl": "https://grupoeyc.com.ar/productos/hidrofugo-ceresita-x-20-kg-5000010",
+          "image": "",
+          "kind": "product"
+        },
+        {
+          "name": "Hidrófugo Ceresita x 200 kg",
+          "sourceUrl": "https://grupoeyc.com.ar/productos/hidrofugo-ceresita-x-200-kg-5000011",
+          "image": "",
+          "kind": "product"
+        },
+        {
+          "name": "Dun Dun - Para Ladrillos y Bloques x 3 kg (Rojo)",
+          "sourceUrl": "https://grupoeyc.com.ar/productos/dun-dun---para-ladrillos-y-bloques-x-3-kg-rojo-3000042",
+          "image": "",
+          "kind": "product"
+        },
+        {
+          "name": "Espuma de montaje rápido Premium PU · código 9000068",
+          "sourceUrl": "https://grupoeyc.com.ar/productos/espuma-de-montaje-rapido-premium-pu-9000068",
+          "image": "",
+          "kind": "product"
+        },
+        {
+          "name": "Espuma de montaje rápido Premium PU · código 9000071",
+          "sourceUrl": "https://grupoeyc.com.ar/productos/espuma-de-montaje-rapido-premium-pu-9000071",
+          "image": "",
+          "kind": "product"
+        },
+        {
+          "name": "Bidet Piazza Amalfi 3 Agujeros - Piazza",
+          "sourceUrl": "https://grupoeyc.com.ar/productos/bidet-piazza-amalfi-3-agujeros---piazza-25000071",
+          "image": "",
+          "kind": "product"
+        }
+      ],
+      "imageLimitation": "The visible cards use session-scoped blob URLs; these are not stored as permanent product image URLs."
+    },
+    {
+      "url": "https://www.marchal.com.ar/",
+      "observed": "Sitio en construcción. Estamos trabajando para ofrecerte una mejor experiencia. ¡Volvé pronto!",
+      "decision": "No products assigned from the unavailable public catalog."
+    }
+  ],
+  "visualImageCheck": {
+    "url": "https://alambradosberisso.com.ar/img/bases.jpg",
+    "result": "Actual chain-link mesh photo; the source filename differs from the section name, but the reviewed image matches Tejidos romboidales."
+  }
+}
