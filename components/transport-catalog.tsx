@@ -1,4 +1,5 @@
 "use client";
+import {MobileFilters} from "./mobile-filters";
 import {useEffect,useState} from "react";
 import {useRouter} from "next/navigation";
 import Link from "next/link";
@@ -56,7 +57,7 @@ export function TransportCatalog({embedded=false,favoritesOnly=false}:{embedded?
   {!embedded&&<section className="market-introduction"><h2>La entrega también <span className="title-orange">es parte de la compra.</span></h2><p>Desde un flete urbano hasta una carga especial. Elegí el transporte, la descarga y el destino de tu obra.</p></section>}
   {linkedOrder&&<div className="transport-linked"><div><strong>Transporte para la compra {linkedOrder.id}</strong><p>{linkedOrder.project.name} · Retiro: {linkedOrder.lines[0]?.pickup}</p></div><Link href="/carrito">Ver carrito →</Link></div>}{productId&&!product&&<p className="project-required">El producto ya no está en el carrito. Podés contratar un viaje independiente o volver a agregarlo. <Link href="/marketplace">Ver productos →</Link></p>}{product&&<div className="transport-linked"><div><strong>Transporte para {product.name}</strong><p>{product.quantity} {product.quantity===1?"presentación":"presentaciones"} · {cargoWeightLabel(product)} · Retiro: {product.pickup}</p></div><Link href="/carrito">Ver compra →</Link></div>}
   <div className={`transport-layout${embedded?" transport-embedded":""}`}>
-   {!embedded&&filters}
+   {!embedded&&<MobileFilters id="mobile-transport-filters" label="Filtrar transportes">{filters}</MobileFilters>}
    <div className="transport-results">
     {embedded&&<details className="transport-inline-filters"><summary>Filtrar por tipo de transporte</summary>{filters}</details>}
     <div className="transport-toolbar"><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Buscar vehículo, equipo o tipo de carga…" aria-label="Buscar transporte"/></div>

@@ -1,4 +1,5 @@
 "use client";
+import {MobileNavigationProvider,MobileMenuButton,MobileMenuClose} from "./mobile-navigation";
 import {SupplierDirectory} from "./supplier-directory";
 import {PurchaseTabs} from "./workspace-ui";
 import {NotificationCenter} from "./notification-center";
@@ -121,7 +122,7 @@ function Header({ route, onOpenAgent }: { route: Route; onOpenAgent:()=>void }) 
   const section = route.startsWith("productos/")||route==="transporte"?"marketplace":["entregas","inventario"].includes(route)?"compras":route.split("/")[0];
   const icon = route==="transporte"?faTruckFast:nav.find(([href]) => href === section)?.[2] ?? (section === "agente" ? faRobot : section === "transporte" ? faTruckFast : section === "mi-tienda" ? faStore : section === "carrito" ? faCartShopping : section === "quienes-somos" ? faUsers : section === "como-funciona" ? faCircleQuestion : section === "configuracion" ? faGear : faHouse);
   return (
-    <header className="topbar">
+    <header className="topbar"><MobileMenuButton/>
       <div className="page-heading">
         <span className="page-heading-icon" aria-hidden="true"><Icon icon={icon} /></span>
         <div>
@@ -140,7 +141,7 @@ function Header({ route, onOpenAgent }: { route: Route; onOpenAgent:()=>void }) 
 function Sidebar({ route }: { route: Route }) {
   const section = route.startsWith("productos/")||route==="transporte"?"marketplace":["entregas","inventario"].includes(route)?"compras":route.split("/")[0];
   return (
-    <aside className="sidebar">
+    <aside className="sidebar" id="main-navigation"><MobileMenuClose/>
       <Link href="/" className="brand brand-approved" aria-label="Obra Clara"><span className="approved-logo-crop" aria-hidden="true"><img className="approved-isotype" src="/brand/obra-clara-isotype-official.png" alt=""/><span className="approved-wordmark"><img src="/brand/obra-clara-brand-sample.png" alt=""/></span></span></Link>
       <RoleSelector/>
       <nav aria-label="Menú principal">
@@ -202,6 +203,6 @@ function Page({ route }: { route: Route }) {
 
 export function SaasApp({ route }: { route: Route }) {
   const normalized = useMemo(() => route.toLowerCase(), [route]);
-  if(process.env.NEXT_PUBLIC_OC_ROLE==="provider")return <ProviderApp route={normalized==="dashboard"?"":normalized}/>;
-  return <div className="app-shell"><SharedSync/><Sidebar route={normalized}/><main><Header route={normalized} onOpenAgent={openBrick}/><div className="page-content"><Page route={normalized}/></div></main><BrickPopupHost pageOpen={normalized==="agente"}/></div>;
+  if(process.env.NEXT_PUBLIC_OC_ROLE==="provider")return <MobileNavigationProvider><ProviderApp route={normalized==="dashboard"?"":normalized}/></MobileNavigationProvider>;
+  return <MobileNavigationProvider><div className="app-shell"><SharedSync/><Sidebar route={normalized}/><main><Header route={normalized} onOpenAgent={openBrick}/><div className="page-content"><Page route={normalized}/></div></main><BrickPopupHost pageOpen={normalized==="agente"}/></div></MobileNavigationProvider>;
 }
