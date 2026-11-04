@@ -42,3 +42,15 @@ Los movimientos actuales de fondos son registros internos del prototipo. Este re
 Los scripts `scripts/check-*.mjs` verifican los modelos de compras, proyectos, fondos, inventario y otros flujos. Los registros de investigación y verificación están en `research/`.
 
 No se incluyen credenciales, datos privados almacenados en Blob, cachés de construcción ni dependencias instaladas.
+
+## Despliegue automático
+
+Los proyectos Vercel `obra-clara-comprador`, `obra-clara-proveedor` y `obra-clara` están conectados a `bryantmedia-ai/obra-clara`. Cada cambio incorporado a la rama `main` debe iniciar un despliegue de producción en los tres proyectos. Las otras ramas generan previews.
+
+Los dominios de producción se mantienen:
+
+- https://obra-clara-comprador.vercel.app
+- https://obra-clara-proveedor.vercel.app
+- https://obra-clara-gray.vercel.app
+
+Las variables de rol y el almacenamiento privado se administran en cada proyecto de Vercel; no se copian secretos al repositorio.
