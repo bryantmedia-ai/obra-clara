@@ -61,7 +61,7 @@ export function TransportCatalog({embedded=false,favoritesOnly=false}:{embedded?
     {embedded&&<details className="transport-inline-filters"><summary>Filtrar por tipo de transporte</summary>{filters}</details>}
     <div className="transport-toolbar"><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Buscar vehículo, equipo o tipo de carga…" aria-label="Buscar transporte"/></div>
     <div className="section-head"><h2>{filtered.length} {filtered.length===1?"servicio":"servicios"} de transporte y entrega</h2><Link href="/carrito" className="button secondary">Ver carrito</Link></div>
-    <CatalogGrid noun="servicios" resetKey={JSON.stringify([query,selectedIds,onlyFavorites])} items={filtered.map(service=><TransportCard key={service.id} service={service} productId={product?.id??""} order={linkedOrder}/>)}/>
+    <CatalogGrid noun="servicios" resetKey={JSON.stringify([query,selectedIds,onlyFavorites])} items={filtered.map(service=><TransportCard key={service.id} service={service} productId={product?.id??""} order={linkedOrder?{...linkedOrder,project:state?.projects.find(p=>p.id===linkedOrder.project.id)??linkedOrder.project}:undefined}/>)}/>
     {!filtered.length&&<div className="panel"><h3>No encontramos transportes con estos filtros.</h3><p className="muted">Probá otros tipos de transporte o cambiá la búsqueda.</p><button className="button secondary" onClick={clearFilters}>Limpiar filtros</button></div>}
    </div>
   </div>
