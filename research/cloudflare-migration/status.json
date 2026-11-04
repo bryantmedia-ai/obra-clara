@@ -2,7 +2,7 @@
   "date": "2026-11-04",
   "targetCloudflareAccount": "mktbyjazmin@gmail.com",
   "targetAccountId": "aed96cd9606d309a45ffde168716a445",
-  "status": "prepared-not-deployed",
+  "status": "d1-created-worker-authorization-pending",
   "paidPlanActivated": false,
   "productionEndpointChanged": false,
   "existingDataReset": false,
@@ -21,8 +21,21 @@
     "existingSharedOrderRegression": "pass"
   },
   "blockers": [
-    "Cloudflare Wrangler consent page renders blank after device code validation; OAuth not complete.",
-    "Owner selected preserving original workspace and waiting for source recovery; source export remains blocked."
+    "Worker publication requires workers_scripts:write scope; renewal opened in Chrome.",
+    "Original workspace contents remain blocked by Vercel Blob suspension; owner requested waiting without replacement."
   ],
-  "productionBrowserVerification": "not run; endpoint not switched"
+  "productionBrowserVerification": {
+    "buyer": "Original URL renders; shared storage error remains visible.",
+    "seller": "Original URL renders; shared orders remain disconnected.",
+    "endpointSwitched": false
+  },
+  "d1DatabaseId": "400c95a3-1507-4697-97ca-220449dfe125",
+  "cloudflareOAuth": "connected; D1 works; Workers Scripts Write scope renewal pending",
+  "sourceExport": {
+    "listedObjects": 31,
+    "completeListing": true,
+    "downloadedObjects": 0,
+    "readResult": "403 Forbidden, both fresh and cached SDK reads",
+    "largestObjectBytes": 387547
+  }
 }

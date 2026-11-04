@@ -9,6 +9,6 @@
   "d1_databases": [{
     "binding": "DB",
     "database_name": "obra-clara-shared",
-    "database_id": "REPLACE_AFTER_CREATE"
+    "database_id": "400c95a3-1507-4697-97ca-220449dfe125"
   }]
 }

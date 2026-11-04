@@ -19,9 +19,9 @@ Use the official Wrangler CLI with the Cloudflare account
 `aed96cd9606d309a45ffde168716a445` (mktbyjazmin@gmail.com).
 Verify the account remains on Workers Free before creating resources.
 
-1. Authenticate with `wrangler login --scopes account:read user:read workers:write d1:write`.
-2. Run `wrangler d1 create obra-clara-shared` and insert the returned database ID
-   into `wrangler.jsonc`.
+1. Authenticate with `wrangler login --scopes account:read user:read workers_scripts:write d1:write`.
+2. The D1 database `obra-clara-shared` is already created and configured.
+   Do not create a duplicate. Its ID is `400c95a3-1507-4697-97ca-220449dfe125`.
 3. Run `wrangler d1 execute obra-clara-shared --remote --config cloudflare/wrangler.jsonc --file cloudflare/schema.sql`.
 4. Recover original persisted private Blob objects into `cloudflare/private/export/`.
    Preserve the SHA-256 basename. **Do not import the public API snapshot**:
