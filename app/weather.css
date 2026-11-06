@@ -96,3 +96,5 @@
 @media(max-width:800px){.ov-heading-weather{flex-direction:column;align-items:stretch;gap:9px}.oc-overview .ov-heading-weather>h2,.oc-overview .ov-heading-weather>p{flex:auto;max-width:none}.weather-widget footer{margin-top:0}}
 
 .weather-widget{padding-block:12px;row-gap:8px}.weather-widget .weather-now{margin-block:6px}.oc-overview .weather-widget .weather-rain-today{margin-bottom:0}
+
+.oc-overview .ov-toolbar .ov-heading-weather h2 span{color:var(--orange)}
