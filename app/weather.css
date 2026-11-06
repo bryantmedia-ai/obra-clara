@@ -91,6 +91,8 @@
 .weather-rain-detail li>div>span{max-width:680px}
 .weather-check-status{margin:0;padding:12px 16px;border:1px solid #d6e2e9;background:#f3f7fa;border-radius:10px;color:#55758b;font-size:12px;line-height:1.6}
 
-@media(min-width:801px){.weather-widget>.weather-days>div{padding:10px 4px;gap:6px}.weather-widget .weather-day-emoji{font-size:24px}.weather-widget .weather-days strong{font-size:12px}.weather-widget .weather-days small{font-size:10px}.weather-widget .weather-day-rain{font-size:10px}}
+@media(min-width:801px){.weather-widget>.weather-days>div{padding:7px 4px;gap:4px}.weather-widget .weather-day-emoji{font-size:24px}.weather-widget .weather-days strong{font-size:12px}.weather-widget .weather-days small{font-size:10px}.weather-widget .weather-day-rain{font-size:10px}}
 @media(min-width:601px) and (max-width:800px){.weather-widget{grid-template-columns:220px minmax(0,1fr);gap:12px}.weather-now{flex-wrap:wrap}.weather-now>div{flex-basis:100%;margin-left:0;gap:2px}.weather-now>div>span{font-size:11px}}
 @media(max-width:800px){.ov-heading-weather{flex-direction:column;align-items:stretch;gap:9px}.oc-overview .ov-heading-weather>h2,.oc-overview .ov-heading-weather>p{flex:auto;max-width:none}.weather-widget footer{margin-top:0}}
+
+.weather-widget{padding-block:12px;row-gap:8px}.weather-widget .weather-now{margin-block:6px}.oc-overview .weather-widget .weather-rain-today{margin-bottom:0}
