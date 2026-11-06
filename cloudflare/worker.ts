@@ -1,3 +1,4 @@
+import {reduceDemoProjects} from '../lib/project-scope-migration';
 import {applyCommand, emptyState, snapshot, type Command, type SharedState} from '../lib/demo-model';
 
 // Small structural interfaces keep the Next.js build independent of Wrangler.
@@ -66,13 +67,14 @@ export async function handle(request: Request, env: Env): Promise<Response> {
         // Never silently seed over an existing Vercel workspace whose export is blocked.
         return json({error: 'Tu espacio anterior está conservado en Vercel y pendiente de recuperación. No se reemplazaron tus datos.', code: 'MIGRATION_REQUIRED'}, 409);
       }
-      const state: SharedState = row ? JSON.parse(row.state) : emptyState();
+      const loaded: SharedState = row ? JSON.parse(row.state) : emptyState();
+      const state=reduceDemoProjects(loaded);
       let next = state;
       if (command) {
         try {next = applyCommand(state, command);}
         catch (error) {return json({error: error instanceof Error ? error.message : 'Operación inválida.'}, 400);}
       }
-      if (row && next === state) return json(snapshot(state));
+      if (row && next === loaded) return json(snapshot(state));
       const serialized = JSON.stringify(next);
       if (new TextEncoder().encode(serialized).byteLength > 1_800_000) return json({error: 'El espacio alcanzó su límite de tamaño. Los datos se conservan.'}, 413);
       const now = new Date().toISOString();

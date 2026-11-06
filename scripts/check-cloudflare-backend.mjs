@@ -30,3 +30,7 @@ assert.equal((await request(null,{path:'/unknown'})).status,404);
 const unavailable={DB:{prepare(){throw new Error('unavailable')}}};
 assert.equal((await worker.handle(new Request('https://api.example/api/demo',{headers:{Authorization:'Bearer '+token}}),unavailable)).status,503);
 console.log('PASS: D1 persistence, both app origins, workspace isolation, no silent legacy reset, idempotency, optimistic concurrency/retries, parallel writes, input limits and storage errors.');
+
+const legacyToken='c'.repeat(64);const legacyId=Array.from(new Uint8Array(await webcrypto.subtle.digest('SHA-256',new TextEncoder().encode(legacyToken))),b=>b.toString(16).padStart(2,'0')).join('');
+const legacyState={...initial,projectScopeVersion:undefined,projects:[...initial.projects,{...initial.projects[0],id:'olivos',name:'Casa Olivos'}]};database.prepare('INSERT INTO workspaces (id, revision, state, updated_at) VALUES (?, ?, ?, ?)').run(legacyId,0,JSON.stringify(legacyState),new Date().toISOString());
+const migrated=await (await request(null,{session:legacyToken})).json();assert.equal(migrated.projects.length,5);assert.equal(migrated.projectScopeVersion,1);assert.equal(migrated.revision,1);assert.equal(JSON.parse(database.prepare('SELECT state FROM workspaces WHERE id=?').get(legacyId).state).projects.length,5);assert.equal((await (await request(null,{session:legacyToken})).json()).revision,1);console.log('PASS legacy workspace cleanup persists on GET and never repeats.');

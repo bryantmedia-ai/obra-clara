@@ -77,7 +77,6 @@ const nav = [
 const orders = [
   { id: "OC-1042", project: "Torre Núñez", supplier: "Corralón Norte", item: "Cemento CPC40", total: "1.000.000 ARGt", state: "Entrega parcial", tone: "warn" },
   { id: "OC-1041", project: "Pilar Offices", supplier: "Aceros Delta", item: "Hierro del 8", total: "2.480.000 ARGt", state: "En tránsito", tone: "info" },
-  { id: "OC-1040", project: "Casa Olivos", supplier: "Sanitarios Norte", item: "Cañería PVC", total: "640.000 ARGt", state: "Completada", tone: "ok" },
   { id: "OC-1039", project: "Torre Núñez", supplier: "Maderas Centro", item: "Fenólicos 18 mm", total: "875.000 ARGt", state: "Por aprobar", tone: "neutral" },
 ];
 

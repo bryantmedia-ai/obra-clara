@@ -84,6 +84,8 @@ export type TransportService=typeof transportServices[number];
 export const projects=[
  {id:"nunez",name:"Torre Núñez",address:"Av. Cabildo 4200, CABA",zone:"Núñez · CABA"},
  {id:"pilar",name:"Pilar Offices",address:"Parque Industrial Pilar, Buenos Aires",zone:"Pilar · Zona Norte"},
- {id:"olivos",name:"Casa Olivos",address:"Olivos, Vicente López, Buenos Aires",zone:"Olivos · Zona Norte"},
+ {id:"palermo-verificacion",name:"Edificio Palermo",address:"Av. Santa Fe 4200, CABA",zone:"Palermo · CABA"},
+ {id:"sample-project-caballito",name:"Residencias Caballito",address:"Av. Rivadavia 5200, CABA",zone:"Caballito · CABA"},
+ {id:"sample-project-belgrano",name:"Torre Belgrano",address:"Av. Cabildo 1850, CABA",zone:"Belgrano · CABA"},
 ];
 export const deliveryModes=["Entrega programada","Entrega urgente","Viaje exclusivo","Carga compartida","Entrega parcial","Entregas recurrentes","Sincronizada con izaje","Transbordo en depósito","A pie de camión","Descargada en planta baja","Posicionada en destino","A piso determinado","Entrega con retiro","Retiro por la empresa","Entrega del proveedor","Flete contratado"];
