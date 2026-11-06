@@ -3,7 +3,7 @@ function load(file,deps={},context={}){const exports={};vm.runInNewContext(ts.tr
 const departments=load('components/catalog-departments.ts');
 const data=load('components/marketplace-data.ts',{'./catalog-departments':departments,'./marketplace-products.json':{default:JSON.parse(fs.readFileSync('components/marketplace-products.json'))},'./catalog-product-details.json':{default:JSON.parse(fs.readFileSync('components/catalog-product-details.json'))}});
 const links=load('components/catalog-links.ts',{}, {URLSearchParams});const filters={...links.defaultMarketFilters,department:'iluminacion',minPrice:'1000',maxPrice:'9999999'};
-assert.equal(departments.catalogDepartments.length,18);assert.equal(new Set(departments.catalogDepartments.map(d=>d.id)).size,18);
+assert.equal(departments.catalogDepartments.length,9);assert.equal(new Set(departments.catalogDepartments.map(d=>d.id)).size,9);
 assert.ok(data.completeMarketplaceCatalog.every(p=>departments.productDepartment(p)), 'Every existing offer maps to a department');
 const selected=data.filterMarketplaceProducts(filters,data.completeMarketplaceCatalog);assert.equal(selected.length,5);assert.ok(selected.every(p=>departments.departmentMatches(p,'iluminacion')));
 const restored=links.readMarketFilters(new URL(links.marketplaceHref(filters),'https://obra-clara-gray.vercel.app').searchParams);assert.equal(restored.department,'iluminacion');assert.equal(restored.minPrice,'1000');assert.equal(restored.maxPrice,'9999999');
@@ -18,4 +18,4 @@ let raw=null,serverReject=false;const store=load('components/supplier-offers.ts'
 await store.publishSupplierOffers(parsed);assert.equal(store.readSupplierOffers().length,1);await store.publishSupplierOffers([{...parsed[0],price:7000}]);assert.equal(store.readSupplierOffers().length,1);assert.equal(store.readSupplierOffers()[0].price,7000);serverReject=true;await assert.rejects(store.publishSupplierOffers([{...parsed[0],price:9000}]));assert.equal(store.readSupplierOffers()[0].price,7000);serverReject=false;
 const merged=store.applySupplierOffers(data.completeMarketplaceCatalog,store.readSupplierOffers());assert.equal(merged.length,214);assert.equal(merged.find(p=>p.id===parsed[0].id).supplier.slug,supplier.slug);
 const override={...data.completeMarketplaceCatalog[0],price:9999};const replaced=store.applySupplierOffers(data.completeMarketplaceCatalog,[override]);assert.equal(replaced.length,213);assert.equal(replaced[0].price,9999);
-console.log('PASS: 18 departments, classification, price and URL filters, supplier identity, validated bulk import, remote/local images and persistent offer updates.');
+console.log('PASS: 9 construction departments, classification, price and URL filters, supplier identity, validated bulk import, remote/local images and persistent offer updates.');
