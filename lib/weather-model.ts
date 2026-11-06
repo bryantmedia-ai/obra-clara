@@ -1,6 +1,7 @@
 export type WeatherLocation={city:string;province:string};
 export type WeatherDay={date:string;code:number|null;min:number|null;max:number|null;rain:number|null;probability:number|null};
-export type WeatherForecast={location:string;updatedAt:string;current:{time:string;temperature:number|null;code:number|null;isDay:boolean;rain:number|null};days:WeatherDay[]};
+export type WeatherHour={time:string;rain:number|null;probability:number|null};
+export type WeatherForecast={hours?:WeatherHour[];location:string;updatedAt:string;current:{time:string;temperature:number|null;code:number|null;isDay:boolean;rain:number|null};days:WeatherDay[]};
 export const normalizePlace=(value:string)=>value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
 // City/neighbourhood centres, never project addresses or browser geolocation.
 export const localWeatherPlaces:Record<string,{name:string;lat:number;lon:number}>={
