@@ -1,0 +1,12 @@
+import fs from 'node:fs';import vm from 'node:vm';import ts from 'typescript';import assert from 'node:assert/strict';import {createRequire} from 'node:module';import {NextRequest} from 'next/server.js';
+const require=createRequire(import.meta.url),exports={};let upstream,fail=false,status=200;
+vm.runInNewContext(ts.transpileModule(fs.readFileSync('app/api/demo/route.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,{exports,require,Set,Number,TextEncoder,AbortSignal,fetch:async(url,options)=>{upstream={url,options};if(fail)throw Error('network down');return Response.json(status===200?{revision:7}:{error:'Not ready'},{status});}});
+const token='d'.repeat(64),origin='https://obra-clara-comprador.vercel.app';const request=(method,extra={},body)=>new NextRequest('https://obra-clara-gray.vercel.app/api/demo',{method,headers:{Origin:origin,Authorization:'Bearer '+token,...extra},body});
+assert.equal((await exports.OPTIONS(request('OPTIONS'))).status,204);
+assert.equal((await exports.GET(request('GET',{Origin:'https://untrusted.example'}))).status,403);
+assert.equal((await exports.GET(request('GET',{Authorization:'invalid'}))).status,401);
+assert.equal((await exports.GET(request('GET'))).status,200);assert.equal(upstream.url,'https://obra-clara-api.obra-clara.workers.dev/api/demo');assert.equal(upstream.options.headers.Authorization,'Bearer '+token);
+const response=await exports.POST(request('POST',{'Content-Type':'application/json','X-OC-New-Workspace':'1'},JSON.stringify({id:'qa',type:'project',payload:{}})));assert.equal(response.status,200);assert.equal(upstream.options.headers['X-OC-New-Workspace'],'1');assert.equal(JSON.parse(upstream.options.body).id,'qa');
+assert.equal((await exports.POST(request('POST',{'Content-Length':'1500001'},'x'))).status,413);
+status=409;assert.equal((await exports.GET(request('GET'))).status,409);fail=true;assert.equal((await exports.GET(request('GET'))).status,503);
+console.log('PASS: legacy API proxies to Cloudflare, session/CORS validation, creation header, input cap and upstream failures.');

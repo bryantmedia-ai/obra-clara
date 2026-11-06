@@ -4,14 +4,18 @@ Compras and Ventas remain on their existing Vercel URLs. Only `/api/demo`
 moves to a free Cloudflare Worker backed by D1. No R2, paid plan, or billing
 subscription is required by this configuration.
 
-## Current migration gate
+## Active mockup storage
 
-The owner chose to retain the existing workspace and wait for recovery.
-The source Vercel Blob store still reports `limits-exceeded-suspended`.
-Do not change the production API environment variable until the persisted
-workspace JSON has been recovered, imported and verified. Do not seed a
-replacement workspace. The Worker returns `MIGRATION_REQUIRED` for missing
-workspaces unless a caller explicitly identifies a genuinely new workspace.
+On November 6, 2026, the owner approved continuing with fresh sample data
+because the previous workspace contents were test-only. The frontend now
+uses a separate `obra-clara-workspace-cloudflare-v2` browser session key.
+New sessions explicitly create a D1 workspace and initialize the existing
+sample prices, ten purchases and project budgets. Switching Compras/Ventas
+passes the same workspace token to the other app.
+
+The old Vercel Blob objects and old browser session key are preserved.
+Original content remains blocked by Vercel's quota; it is not required for
+this approved fresh demo. No support request has been sent.
 
 ## Deployed backend
 
@@ -19,8 +23,8 @@ The Worker is live at `https://obra-clara-api.obra-clara.workers.dev`.
 Version: `70fbc534-5ffc-45da-923d-f773eef9ebcb`.
 Thirteen live API checks passed using an isolated QA workspace; see
 `research/cloudflare-migration/live-backend-checks.json`.
-Production app API variables have not been changed because source recovery
-remains blocked.
+Both production app API variables point to this Worker. The legacy Vercel
+`/api/demo` route now proxies to Cloudflare and makes no Blob calls.
 
 ## Prepare and deploy
 
@@ -40,7 +44,7 @@ Verify the account remains on Workers Free before creating resources.
 7. Deploy with `wrangler deploy --config cloudflare/wrangler.jsonc`.
 8. Test the deployed health endpoint, authenticated reads, invalid requests,
    workspace isolation, duplicate commands, simultaneous writes and quota CPU metrics.
-9. Set `NEXT_PUBLIC_OC_SHARED_API` to the verified Worker `/api/demo` URL in both
+9. For fresh demo deployment, set `NEXT_PUBLIC_OC_SHARED_API` to the verified Worker `/api/demo` URL in both
    existing Vercel projects and redeploy their tested source commit. Keep role
    variables and domains unchanged. Verify the same workspace across both apps.
 

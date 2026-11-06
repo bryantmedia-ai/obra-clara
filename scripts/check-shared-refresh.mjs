@@ -1,6 +1,6 @@
 import fs from 'node:fs';import vm from 'node:vm';import ts from 'typescript';import assert from 'node:assert/strict';import {createRequire} from 'node:module';
-const require=createRequire(import.meta.url),exports={},values=new Map([['obra-clara-workspace-v1','a'.repeat(64)]]);let count=0,resolve;const events=[];
-const localStorage={getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value)};
+const require=createRequire(import.meta.url),exports={},values=new Map([['obra-clara-workspace-cloudflare-v2','a'.repeat(64)]]);let count=0,resolve;const events=[];
+const localStorage={getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value),removeItem:key=>values.delete(key)};
 const context={exports,require,process:{env:{}},URLSearchParams,crypto:{randomUUID:()=> 'test-command'},Event,localStorage,history:{replaceState(){}},location:{hash:'',pathname:'/',search:''},window:{dispatchEvent:event=>events.push(event.type)},fetch:()=>{count++;return new Promise(r=>resolve=r);}};
 vm.runInNewContext(ts.transpileModule(fs.readFileSync('components/shared-demo.tsx','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020,jsx:ts.JsxEmit.ReactJSX}}).outputText,context);
 const first=exports.refreshShared(),second=exports.refreshShared();assert.equal(first,second,'Concurrent refreshes share one request');await Promise.resolve();assert.equal(count,1);resolve({ok:true,json:async()=>({revision:1,offers:[],providers:[],projects:[{id:'saved'}]})});assert.equal(await first,true);const stored=values.get('obra-clara-projects-v1');assert.match(stored,/saved/);

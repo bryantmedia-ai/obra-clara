@@ -1,29 +1,21 @@
 import {NextRequest,NextResponse} from 'next/server';
-import {get,head,put,BlobNotFoundError,BlobPreconditionFailedError,BlobServiceRateLimited} from '@vercel/blob';
-import {createHash} from 'node:crypto';
-import {applyCommand,emptyState,snapshot,type SharedState} from '@/lib/demo-model';
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
-const origins=['https://obra-clara-gray.vercel.app','https://obra-clara-comprador.vercel.app','https://obra-clara-proveedor.vercel.app'];
-function headers(req:NextRequest){const origin=req.headers.get('origin');return {'Cache-Control':'no-store','Vary':'Origin',...(origin&&origins.includes(origin)?{'Access-Control-Allow-Origin':origin}:{}),'Access-Control-Allow-Headers':'Authorization, Content-Type','Access-Control-Allow-Methods':'GET, POST, OPTIONS'};}
-export async function OPTIONS(req:NextRequest){return new NextResponse(null,{status:204,headers:headers(req)});}
+const api='https://obra-clara-api.obra-clara.workers.dev/api/demo';
+const origins=new Set(['https://obra-clara-gray.vercel.app','https://obra-clara-comprador.vercel.app','https://obra-clara-proveedor.vercel.app']);
+// Keep the old API URL compatible without accessing the suspended Blob store.
 async function handle(req:NextRequest){
- const h=headers(req);const origin=req.headers.get('origin');if(origin&&!origins.includes(origin))return NextResponse.json({error:'Origen no autorizado.'},{status:403,headers:h});
- const token=req.headers.get('authorization')?.replace(/^Bearer /,'');if(!token||!/^[a-f0-9]{64}$/.test(token))return NextResponse.json({error:'Sesión requerida.'},{status:401,headers:h});
- const path='workspaces/'+createHash('sha256').update(token).digest('hex')+'.json';
+ const origin=req.headers.get('origin');const headers={'Cache-Control':'no-store','Vary':'Origin',...(origin&&origins.has(origin)?{'Access-Control-Allow-Origin':origin}:{}),'Access-Control-Allow-Headers':'Authorization, Content-Type, X-OC-New-Workspace','Access-Control-Allow-Methods':'GET, POST, OPTIONS'};
+ if(origin&&!origins.has(origin))return NextResponse.json({error:'Origen no autorizado.'},{status:403,headers});
+ if(req.method==='OPTIONS')return new NextResponse(null,{status:204,headers});
+ const authorization=req.headers.get('authorization')??'';
+ if(!/^Bearer [a-f0-9]{64}$/.test(authorization))return NextResponse.json({error:'Sesión requerida.'},{status:401,headers});
  try{
-  if(Number(req.headers.get('content-length')??0)>1500000)throw new Error('Solicitud demasiado grande.');
-  const command=req.method==='POST'?await req.json():null;
-  for(let attempt=0;attempt<5;attempt++){
-   let metadata=null;if(command){try{metadata=await head(path);}catch(e){if(!(e instanceof BlobNotFoundError))throw e;}}
-   const blob=await get(path,{access:'private',useCache:false});if(command&&!!metadata!==!!blob)continue;const state:SharedState=blob?JSON.parse(await new Response(blob.stream).text()):emptyState();
-   if(!command)return NextResponse.json(snapshot(state),{headers:h});
-   if(metadata){const after=await head(path);if(after.etag!==metadata.etag)continue;}
-   const next=applyCommand(state,command);if(next===state)return NextResponse.json(snapshot(state),{headers:h});
-   try{await put(path,JSON.stringify(next),{access:'private',addRandomSuffix:false,contentType:'application/json',...(blob?{allowOverwrite:true,ifMatch:metadata!.etag}:{allowOverwrite:false})});return NextResponse.json(snapshot(next),{headers:h});}
-   catch(error){const retry=error instanceof BlobPreconditionFailedError||error instanceof BlobServiceRateLimited||(error instanceof Error&&/already exists/i.test(error.message));if(!retry||attempt===4)throw error;await new Promise(r=>setTimeout(r,Math.max(1100,error instanceof BlobServiceRateLimited?error.retryAfter*1000:0)));}
-  }
- }catch(error){console.error('Shared workspace:',error instanceof Error?{kind:error.constructor.name,message:error.message.replace(/vercel_blob_rw_[A-Za-z0-9_]+/g,'[redacted]')}: 'error');return NextResponse.json({error:error instanceof Error&& !/token|blob|storage/i.test(error.message)?error.message:'No se pudo acceder al almacenamiento compartido. Los datos existentes se conservan; intentá reconectar más tarde.'},{status:error instanceof Error&&/token|blob|storage/i.test(error.message)?503:400,headers:h});}
- return NextResponse.json({error:'Reintentá la operación.'},{status:409,headers:h});
+  if(Number(req.headers.get('content-length')??0)>1500000)return NextResponse.json({error:'Solicitud demasiado grande.'},{status:413,headers});
+  const body=req.method==='POST'?await req.text():undefined;
+  if(body&&new TextEncoder().encode(body).byteLength>1500000)return NextResponse.json({error:'Solicitud demasiado grande.'},{status:413,headers});
+  const response=await fetch(api,{method:req.method,headers:{Authorization:authorization,...(origin?{Origin:origin}:{}),...(body?{'Content-Type':'application/json'}:{}),...(req.headers.get('X-OC-New-Workspace')==='1'?{'X-OC-New-Workspace':'1'}:{})},body,cache:'no-store',signal:AbortSignal.timeout(20000)});
+  return new NextResponse(response.body,{status:response.status,headers:{...headers,'Content-Type':response.headers.get('content-type')??'application/json'}});
+ }catch{return NextResponse.json({error:'No se pudo conectar con el almacenamiento compartido. Reintentá en unos instantes.'},{status:503,headers});}
 }
-export const GET=handle;export const POST=handle;
+export const GET=handle;export const POST=handle;export const OPTIONS=handle;
