@@ -1,0 +1,29 @@
+{
+  "pass": true,
+  "stores": 1173,
+  "corralones": 125,
+  "illustratedReferences": 9657,
+  "categories": {
+    "Corralones": 125,
+    "Sanitarios y plomería": 83,
+    "Electricidad e iluminación": 74,
+    "Ferretería y herramientas": 131,
+    "Fabricantes": 26,
+    "Otras especialidades": 734
+  },
+  "mappedStores": 1097,
+  "precision": {
+    "locality": 965,
+    "street": 72,
+    "address": 78
+  },
+  "productionBuild": "passed",
+  "typescript": "passed",
+  "browser": {
+    "ABBAddress": "Chile 249",
+    "ABBProductsImagesLoaded": true,
+    "removedProfileNotVisible": "Construcción Vía Web",
+    "mobileViewport": 390,
+    "mobileDocumentWidth": 390
+  }
+}

@@ -1,0 +1,693 @@
+{
+  "research-03fbb19e0570": {
+    "address": "Chile 249",
+    "locality": "Ciudad Autónoma de Buenos Aires",
+    "province": "CABA",
+    "addressSource": "https://new.abb.com/south-america/sobre-nosotros/quienes-somos/oficinas-sudamerica/argentina",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-45a6590d44ec": {
+    "address": "Av. Escalada 2353",
+    "locality": "Villa Lugano",
+    "province": "CABA",
+    "addressSource": "https://alicerimateriales.com.ar/contacto",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-7931527c10aa": {
+    "address": "Av. Melián 3362",
+    "locality": "Coghlan",
+    "province": "CABA",
+    "addressSource": "https://materialesmelian.com/servicios/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-0fdd96679491": {
+    "address": "Av. San Martín 62",
+    "locality": "Belén de Escobar",
+    "province": "Buenos Aires",
+    "addressSource": "https://cordanihnos.com.ar/sucursales/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-7dd3520fe170": {
+    "address": "Pola 2021",
+    "locality": "Mataderos",
+    "province": "CABA",
+    "addressSource": "https://materialespola.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-a0155eb8c310": {
+    "address": "Av. del Libertador 1998",
+    "locality": "Moreno",
+    "province": "Buenos Aires",
+    "addressSource": "https://materialesmoreno.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-7637e05b3d63": {
+    "address": "Av. Bartolomé Mitre 918, esquina Lebensohn",
+    "locality": "Paso del Rey",
+    "province": "Buenos Aires",
+    "addressSource": "https://nuciari.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-81c7d750dd53": {
+    "address": "Av. Dardo Rocha 2368, Ruta 25 km 10",
+    "locality": "Pilar",
+    "province": "Buenos Aires",
+    "addressSource": "https://elveloz.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-f4f7369c8e86": {
+    "address": "Av. Juan Bautista Alberdi 3928",
+    "locality": "Floresta",
+    "province": "CABA",
+    "addressSource": "https://www.blaisten.com.ar/sucursales",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-74094ce052be": {
+    "address": "Matanza 1772",
+    "locality": "Monte Chingolo, Lanús Este",
+    "province": "Buenos Aires",
+    "addressSource": "https://electrosurr.com.ar/preguntas-frecuentes/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-fe19fdc75c65": {
+    "address": "Bv. 27 de Febrero 566",
+    "locality": "Rosario",
+    "province": "Santa Fe",
+    "addressSource": "https://electrinet.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-7630e446063f": {
+    "address": "Humberto I 2352/2358",
+    "locality": "San Cristóbal",
+    "province": "CABA",
+    "addressSource": "https://www.teci.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-091df8fab0bd": {
+    "address": "Gral. Manuel A. Rodríguez 2452",
+    "locality": "Villa General Mitre",
+    "province": "CABA",
+    "addressSource": "https://interelec.com.ar/contacto.php",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-e2e35381af55": {
+    "address": "Álvarez Jonte 1902",
+    "locality": "La Paternal",
+    "province": "CABA",
+    "addressSource": "https://paternalsrl.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-d71d3ea332ba": {
+    "address": "Av. Triunvirato 3301",
+    "locality": "Villa Ortúzar",
+    "province": "CABA",
+    "addressSource": "https://coblapoint.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-75792d35f272": {
+    "address": "Vedia 3892",
+    "locality": "Saavedra",
+    "province": "CABA",
+    "addressSource": "https://www.g2e.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-b947eecb7918": {
+    "address": "Av. Galicia 643",
+    "locality": "Piñeyro, Avellaneda",
+    "province": "Buenos Aires",
+    "addressSource": "https://inbaco.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-450e29125a42": {
+    "address": "Manuel Ricardo Trelles 2778",
+    "locality": "La Paternal",
+    "province": "CABA",
+    "addressSource": "https://www.ferromil.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-b9c0daaf9088": {
+    "address": "Av. Centenario 971",
+    "locality": "San Isidro",
+    "province": "Buenos Aires",
+    "addressSource": "https://sanitariosbonomi.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-b02b095cd18c": {
+    "address": "Bartolomé Mitre 1083",
+    "locality": "Morón",
+    "province": "Buenos Aires",
+    "addressSource": "https://productos.sanitariosmoron.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-37278428b4e1": {
+    "address": "Av. Hipólito Yrigoyen 13350",
+    "locality": "Adrogué",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.adducciadrogue.com.ar/nuevositio/contact.html",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-ffaf4e0eed31": {
+    "address": "Av. Presidente Illia 416",
+    "locality": "Villa Sarmiento",
+    "province": "Buenos Aires",
+    "addressSource": "https://sanitariosillia.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-92d34b313e7c": {
+    "address": "Av. Calle Real 835",
+    "locality": "Merlo",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.sanitariosascension.com/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-753ac765618c": {
+    "address": "Av. La Plata 3091, esquina Laprida",
+    "locality": "Quilmes",
+    "province": "Buenos Aires",
+    "addressSource": "https://corralonlaprida.com.ar/sucursales.php",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-4eedd748dac8": {
+    "address": "Cecilia Grierson 355, piso 4",
+    "locality": "Puerto Madero",
+    "province": "CABA",
+    "addressSource": "https://www.lomanegra.com/productos/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-154d22c82bd8": {
+    "address": "Ruta Nacional 5 km 210",
+    "locality": "Bragado",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.acerbrag.com/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-248b07ca2180": {
+    "address": "José Melián 2725, Parque Industrial Burzaco",
+    "locality": "Burzaco",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.argenplas.net/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-0a781595fdc9": {
+    "address": "Av. Argentina 6784",
+    "locality": "Villa Lugano",
+    "province": "CABA",
+    "addressSource": "https://ar.prysmian.com/es/contact-us",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-c0304f5ca8cb": {
+    "address": "Puente del Inca 2450, Calle 12, lote 306, Polo Industrial Ezeiza",
+    "locality": "Carlos Spegazzini",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.marlew.com.ar/contactenos/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-4b7592c1146b": {
+    "address": "Antonio Beruti 1811/1851",
+    "locality": "Florida Oeste",
+    "province": "Buenos Aires",
+    "addressSource": "https://grupoerpla.com/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-60d74220ea52": {
+    "address": "Av. Calchaquí 5500",
+    "locality": "Quilmes",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.kalop.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-8989ebd4c480": {
+    "address": "Av. Presidente Perón 3750",
+    "locality": "San Justo",
+    "province": "Buenos Aires",
+    "addressSource": "https://grupodema.com.ar/contacto",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-1514a1bd01cb": {
+    "address": "Calle 70 n.º 4467",
+    "locality": "San Martín",
+    "province": "Buenos Aires",
+    "addressSource": "https://ips-arg.com/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-4d307d22f5a1": {
+    "address": "Av. Benito Pérez Galdós 8760",
+    "locality": "Pablo Podestá",
+    "province": "Buenos Aires",
+    "addressSource": "https://wavin.com/ar/contacto",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-985819ef12ca": {
+    "address": "Uruguay 2599",
+    "locality": "San Fernando",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.hidromet.com/contacto",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-469443ff0763": {
+    "address": "Bernardino Rivadavia 3428",
+    "locality": "Vicente López",
+    "province": "Buenos Aires",
+    "addressSource": "https://griferiapeirano.com/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-87853de75a88": {
+    "address": "Av. del Libertador 7536",
+    "locality": "Núñez",
+    "province": "CABA",
+    "addressSource": "https://www.roca.com.ar/atencion-al-cliente/contacto",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-57b7c6585050": {
+    "address": "Veracruz 2900",
+    "locality": "Valentín Alsina",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.motorarg.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-fdde73126c80": {
+    "address": "Av. San Martín 3653",
+    "locality": "Lomas del Mirador",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.roker.com.ar/productos-para-interior/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-43a59edda55c": {
+    "address": "Calle Haendel, lote 4, Centro Industrial Garín",
+    "locality": "Garín",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.cambre.com.ar/atencion-cliente/contacto",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-3310c36f29d3": {
+    "address": "Calle 47 n.º 8029",
+    "locality": "José León Suárez",
+    "province": "Buenos Aires",
+    "addressSource": "https://cimet.com/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-1a38aa516ab0": {
+    "address": "José Mazzini 3695",
+    "locality": "William C. Morris, Hurlingham",
+    "province": "Buenos Aires",
+    "addressSource": "https://conextube.com/index.php",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-7123f998c645": {
+    "address": "Garibaldi 2619, lote 61, Parque Industrial Lomas de Zamora",
+    "locality": "Llavallol",
+    "province": "Buenos Aires",
+    "addressSource": "https://conflex.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06",
+    "website": "https://conflex.com.ar/"
+  },
+  "research-fbab88f06893": {
+    "address": "Rivadavia 1701",
+    "locality": "Sastre",
+    "province": "Santa Fe",
+    "addressSource": "https://dbtsa.com/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-3daa08a25d6a": {
+    "address": "Sucre 1852",
+    "locality": "Lomas de Zamora",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.delga.com/contacto",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-88ad0a282ba5": {
+    "address": "Colectora Norte Acceso Oeste km 54,8",
+    "locality": "General Rodríguez",
+    "province": "Buenos Aires",
+    "addressSource": "https://miron.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-ee50fa8ea78b": {
+    "address": "Las Heras 2040",
+    "locality": "Ramos Mejía",
+    "province": "Buenos Aires",
+    "addressSource": "https://ferrolux.com.ar/productos",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-f0722cf6f825": {
+    "address": "Juan Pablo II 5665",
+    "locality": "Rosario",
+    "province": "Santa Fe",
+    "addressSource": "https://gapp-oil.com.ar/empresas-asociadas/industrias-j-f-secco-s-a/",
+    "addressCheckedAt": "2026-11-06",
+    "website": "https://www.secco.com.ar/"
+  },
+  "research-cb3f83d8e19a": {
+    "address": "Coronel Maure 1628",
+    "locality": "Lanús Este",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.industriasmh.com.ar/contacto.php",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-13759704e8af": {
+    "address": "Av. Jorge Newbery 372",
+    "locality": "Gálvez",
+    "province": "Santa Fe",
+    "addressSource": "https://www.czerweny.ar/contacto",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-e377d1234180": {
+    "address": "Av. Pedro Luro 7146",
+    "locality": "Mar del Plata",
+    "province": "Buenos Aires",
+    "addressSource": "https://ciardi.com.ar/sucursales",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-158d08784439": {
+    "address": "Calle 24 n.º 1595",
+    "locality": "La Plata",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.guanzetti.com.ar/contactus",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-1420b6959447": {
+    "address": "Mitre 962",
+    "locality": "Quilmes",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.fedanstore.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-ab209d907fdb": {
+    "address": "Rondeau y Sixto Laspiur",
+    "locality": "Bahía Blanca",
+    "province": "Buenos Aires",
+    "addressSource": "https://giliycia.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-b88f50a88b8b": {
+    "address": "Belgrano 3702",
+    "locality": "Mar del Plata",
+    "province": "Buenos Aires",
+    "addressSource": "https://maderasmeyer.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-e9dcc06db78d": {
+    "address": "Guayaquil S/N, Centro Industrial Panamericana 36, depósito 328",
+    "locality": "Tortuguitas",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.magazzino.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-affec762f8cf": {
+    "address": "Av. Pringles 3502",
+    "locality": "Olavarría",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.martinezescalada.com.ar/contenido/67-sucursales",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-09c171a093da": {
+    "address": "Salvador Curutchet 1747",
+    "locality": "Castelar",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.ronix.ar/contacto",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-6f271b87d1f9": {
+    "address": "Av. Champagnat 3245",
+    "locality": "Mar del Plata",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.plastigas.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-90a6c8a6543b": {
+    "address": "Acceso Oeste Colectora Sur 1196, esquina Río Negro",
+    "locality": "General Rodríguez",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.sanitariosferro.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-9599ccbc0911": {
+    "address": "La Crujía 3755",
+    "locality": "San Andrés, San Martín",
+    "province": "Buenos Aires",
+    "addressSource": "https://w1.armatel.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-321fb62ab2bb": {
+    "address": "Humberto Primo 680, Complejo Capitalinas, edificio Suquía, piso 4, oficina 47",
+    "locality": "Córdoba",
+    "province": "Córdoba",
+    "addressSource": "https://www.holcim.com.ar/quienes-somos/contactos",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-2cead8915cde": {
+    "address": "Alicia Moreau de Justo 2050, piso 3, oficina 304",
+    "locality": "Puerto Madero",
+    "province": "CABA",
+    "addressSource": "https://www.pcr.energy/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-e894f09b02cc": {
+    "address": "Av. Juana Manso 999, piso 4",
+    "locality": "Puerto Madero",
+    "province": "CABA",
+    "addressSource": "https://www.cementosavellaneda.com.ar/terminos-y-condiciones/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-29b1dd44baf1": {
+    "address": "Ruta 9 km 70, parcela 24, Parque Industrial Campana",
+    "locality": "Campana",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.gerdau.com.ar/pagina-basica/comercial-gerdau-argentina",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-07c10407d89f": {
+    "address": "Av. Dr. Ignacio Arieta 4936",
+    "locality": "La Tablada",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.acindar.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-815916624b55": {
+    "address": "Av. Leandro N. Alem 1067",
+    "locality": "Retiro",
+    "province": "CABA",
+    "addressSource": "https://ar.ternium.com/es/contactanos/nuestras-oficinas",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-df878888eeff": {
+    "address": "Ruta 2 km 55 y Av. 520, calles 519 y 237, Parque Industrial La Plata",
+    "locality": "Abasto, La Plata",
+    "province": "Buenos Aires",
+    "addressSource": "https://cedam.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-36e296d48778": {
+    "address": "Calle 12 n.º 70, Parque Industrial Pilar",
+    "locality": "Pilar",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.tigre.com.ar/quienes-somos",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-1ecf32d651e6": {
+    "address": "Dardo Rocha 1172",
+    "locality": "Acassuso",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.industriassaladillo.com.ar/contacto.php",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-388bf34b26b1": {
+    "address": "Bernardo de Irigoyen 1053",
+    "locality": "Florida",
+    "province": "Buenos Aires",
+    "addressSource": "https://fvsa.com/la-empresa/oficinas/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-2ec2adaddd19": {
+    "address": "Av. Almafuerte 3658",
+    "locality": "Paraná",
+    "province": "Entre Ríos",
+    "addressSource": "https://johnsonacero.com/donde-comprar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-00f16e3e7872": {
+    "address": "Av. Juan Manuel de Rosas 2720",
+    "locality": "San Justo",
+    "province": "Buenos Aires",
+    "addressSource": "https://durlock.com/files/biblioteca/archivos/creditosleedplacaciel.pdf",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-d82bae0ad94b": {
+    "address": "Asunción 2135",
+    "locality": "Ciudad Autónoma de Buenos Aires",
+    "province": "CABA",
+    "addressSource": "https://aea.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-2e35bd76da37": {
+    "address": "Av. Rodríguez Peña 4069",
+    "locality": "San Martín",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.atomlux.com.ar/web/Manuales/Manual-de-Uso-Luz-de-Emergencia-LED-Atomlux-Modelo-8091-LED-HEAVY-Gabinete-Plastico.pdf",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-e2b4c6864b51": {
+    "address": "25 de Mayo 1200",
+    "locality": "Lanús Oeste",
+    "province": "Buenos Aires",
+    "addressSource": "https://sicaelec.com/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-232893a05759": {
+    "address": "Ejército de los Andes 458/468",
+    "locality": "Banfield",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.editores.com.ar/empresa/jeluz",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-90b7fb246ee7": {
+    "address": "William Morris 567",
+    "locality": "Villa Martelli",
+    "province": "Buenos Aires",
+    "addressSource": "https://lumenac.com.ar/contacto",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "research-9d722e8ffa33": {
+    "address": "Av. Alsina 1234",
+    "locality": "Lomas de Zamora",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.sanitarioslomas.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-f80e03058406": {
+    "address": "Ruta 226 km 172,5",
+    "locality": "Tandil",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.bulonfer.com/ayuda/puntos-retiro",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-7127f68cc24f": {
+    "address": "Colectora Autopista Buenos Aires–La Plata km 33,5 y calle 63",
+    "locality": "Hudson",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.imperiodelceramico.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-dc8f557fa36b": {
+    "address": "Acceso Oeste Colectora Sur 1196, esquina Río Negro",
+    "locality": "General Rodríguez",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.sanitariosferro.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-449e65e40f57": {
+    "address": "Hipólito Yrigoyen 57",
+    "locality": "Lobos",
+    "province": "Buenos Aires",
+    "addressSource": "https://distribuidorahj.mitiendanube.com/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-53d8c0da232d": {
+    "address": "Av. Hipólito Yrigoyen 799",
+    "locality": "Chacabuco",
+    "province": "Buenos Aires",
+    "addressSource": "https://elcobertizo.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-b1204997d86a": {
+    "address": "Ruta 51 km 4,5, esquina Av. Daniel Dusso",
+    "locality": "Villa Ramallo",
+    "province": "Buenos Aires",
+    "addressSource": "https://ventamatshop.com.ar/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-cee785aee431": {
+    "address": "Av. Hipólito Yrigoyen 14981",
+    "locality": "Burzaco",
+    "province": "Buenos Aires",
+    "addressSource": "https://aiter.com.ar/",
+    "addressCheckedAt": "2026-11-06",
+    "website": "https://aiter.com.ar/"
+  },
+  "outlet-33d57f790c57": {
+    "address": "Camino General Belgrano 6060",
+    "locality": "Wilde",
+    "province": "Buenos Aires",
+    "addressSource": "https://chapaferro.com.ar/contacto/",
+    "addressCheckedAt": "2026-11-06",
+    "website": "https://chapaferro.com.ar/",
+    "tags": [
+      "Hierros y aceros",
+      "Corralón y obra gruesa"
+    ]
+  },
+  "outlet-9f0a5acf4986": {
+    "address": "Sarmiento 162",
+    "locality": "Castelli",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.waze.com/es/live-map/directions/majoba-s.a.-sarmiento-162-castelli?to=place.w.198051231.1980446775.11181263",
+    "addressCheckedAt": "2026-11-06",
+    "tags": [
+      "Pinturas"
+    ]
+  },
+  "outlet-9b08bf98f075": {
+    "address": "Av. Dardo Rocha 1563",
+    "locality": "Berazategui",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.sanitariosrubio.com.ar/fontanero/sanitarios-medigas/",
+    "addressCheckedAt": "2026-11-06"
+  },
+  "outlet-c8e29ad09607": {
+    "address": "D. Muscariello, esquina R. Riva, Parque Industrial Junín",
+    "locality": "Junín",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.grupoeyc.com.ar/",
+    "addressCheckedAt": "2026-11-06",
+    "website": "https://www.grupoeyc.com.ar/"
+  },
+  "outlet-678c26cded39": {
+    "address": "Ruta Nacional 7 km 260",
+    "locality": "Junín",
+    "province": "Buenos Aires",
+    "addressSource": "https://soyjunin.com.ar/comercios/zinguerias-en-junin/",
+    "addressCheckedAt": "2026-11-06",
+    "website": "https://www.zinguerialaartesanal.com/",
+    "tags": [
+      "Hierros y aceros"
+    ]
+  },
+  "outlet-6e491cc2e9d8": {
+    "address": "Av. Eva Perón 4935",
+    "locality": "Morón",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.ceramicasantamarta.com.ar/contacto.html",
+    "addressCheckedAt": "2026-11-06",
+    "website": "https://www.ceramicasantamarta.com.ar/"
+  },
+  "outlet-56219bb62e65": {
+    "address": "Av. Pellegrini 2461",
+    "locality": "Olavarría",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.hermetal.com.ar/distribuidores/distribuidor-1",
+    "addressCheckedAt": "2026-11-06",
+    "website": "https://www.hermetal.com.ar/"
+  },
+  "outlet-df41cba69dd9": {
+    "address": "Calle 3 n.º 15, Parque Industrial Tandil",
+    "locality": "Tandil",
+    "province": "Buenos Aires",
+    "addressSource": "https://www.camaraempresaria.org.ar/socios.php?cate=industria&pagina=3",
+    "addressCheckedAt": "2026-11-06",
+    "website": "https://dacavi.com.ar/",
+    "tags": [
+      "Hierros y aceros"
+    ]
+  },
+  "outlet-b8e563863466": {
+    "address": "Av. Centenario 1070",
+    "locality": "Ascensión",
+    "province": "Buenos Aires",
+    "addressSource": "https://ofg.com.ar/",
+    "addressCheckedAt": "2026-11-06",
+    "website": "https://ofg.com.ar/",
+    "tags": [
+      "Aberturas"
+    ]
+  }
+}

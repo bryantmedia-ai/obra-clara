@@ -1,0 +1,141 @@
+{
+  "outlet-b8e563863466": {
+    "source": "https://ofg.com.ar/",
+    "products": [
+      {
+        "id": "recovered-outlet-b8e563863466-0",
+        "name": "Aberturas de aluminio a medida",
+        "sourceUrl": "https://ofg.com.ar/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-b8e563863466-1",
+        "name": "Aberturas de PVC",
+        "sourceUrl": "https://ofg.com.ar/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-b8e563863466-2",
+        "name": "Puertas placa",
+        "sourceUrl": "https://ofg.com.ar/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-b8e563863466-3",
+        "name": "Portones",
+        "sourceUrl": "https://ofg.com.ar/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-b8e563863466-4",
+        "name": "Barandas",
+        "sourceUrl": "https://ofg.com.ar/",
+        "image": "",
+        "kind": "family"
+      }
+    ]
+  },
+  "outlet-33d57f790c57": {
+    "source": "https://chapaferro.com.ar/",
+    "products": [
+      {
+        "id": "recovered-outlet-33d57f790c57-0",
+        "name": "Barras de hierro para construcción",
+        "sourceUrl": "https://chapaferro.com.ar/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-33d57f790c57-1",
+        "name": "Chapas para cubiertas",
+        "sourceUrl": "https://chapaferro.com.ar/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-33d57f790c57-2",
+        "name": "Perfiles de acero",
+        "sourceUrl": "https://chapaferro.com.ar/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-33d57f790c57-3",
+        "name": "Mallas electrosoldadas",
+        "sourceUrl": "https://chapaferro.com.ar/",
+        "image": "",
+        "kind": "family"
+      }
+    ]
+  },
+  "outlet-678c26cded39": {
+    "source": "https://www.zinguerialaartesanal.com/",
+    "products": [
+      {
+        "id": "recovered-outlet-678c26cded39-0",
+        "name": "Canaletas de chapa a medida",
+        "sourceUrl": "https://www.zinguerialaartesanal.com/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-678c26cded39-1",
+        "name": "Babetas y cumbreras",
+        "sourceUrl": "https://www.zinguerialaartesanal.com/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-678c26cded39-2",
+        "name": "Conductos de ventilación",
+        "sourceUrl": "https://www.zinguerialaartesanal.com/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-678c26cded39-3",
+        "name": "Caños y codos de zinguería",
+        "sourceUrl": "https://www.zinguerialaartesanal.com/",
+        "image": "",
+        "kind": "family"
+      }
+    ]
+  },
+  "outlet-df41cba69dd9": {
+    "source": "https://dacavi.com.ar/",
+    "products": [
+      {
+        "id": "recovered-outlet-df41cba69dd9-0",
+        "name": "Artefactos de zinguería para desagües",
+        "sourceUrl": "https://dacavi.com.ar/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-df41cba69dd9-1",
+        "name": "Conductos de ventilación",
+        "sourceUrl": "https://dacavi.com.ar/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-df41cba69dd9-2",
+        "name": "Chapas acanaladas",
+        "sourceUrl": "https://dacavi.com.ar/",
+        "image": "",
+        "kind": "family"
+      },
+      {
+        "id": "recovered-outlet-df41cba69dd9-3",
+        "name": "Perfiles de chapa",
+        "sourceUrl": "https://dacavi.com.ar/",
+        "image": "",
+        "kind": "family"
+      }
+    ]
+  }
+}

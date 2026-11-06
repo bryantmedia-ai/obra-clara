@@ -1,177 +1,9 @@
 {
-  "research-45a6590d44ec": {
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "precision": "locality",
-    "label": "Ciudad de Buenos Aires",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-7931527c10aa": {
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "precision": "locality",
-    "label": "Ciudad de Buenos Aires",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-0fdd96679491": {
-    "lat": -34.3460457336529,
-    "lng": -58.7944154645154,
-    "precision": "locality",
-    "label": "Escobar",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-7dd3520fe170": {
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "precision": "locality",
-    "label": "Ciudad de Buenos Aires",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-81c7d750dd53": {
-    "lat": -34.4586965255936,
-    "lng": -58.913967911731,
-    "precision": "locality",
-    "label": "Pilar",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
   "research-60f09d8351f4": {
     "lat": -34.8163557987773,
     "lng": -58.4682642320418,
     "precision": "locality",
     "label": "Monte Grande",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-f4f7369c8e86": {
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "precision": "locality",
-    "label": "Ciudad de Buenos Aires",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-74094ce052be": {
-    "lat": -34.7141603772546,
-    "lng": -58.3743055982995,
-    "precision": "locality",
-    "label": "Lanús Este",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-7630e446063f": {
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "precision": "locality",
-    "label": "Ciudad de Buenos Aires",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-091df8fab0bd": {
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "precision": "locality",
-    "label": "Ciudad de Buenos Aires",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-e2e35381af55": {
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "precision": "locality",
-    "label": "Ciudad de Buenos Aires",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-d71d3ea332ba": {
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "precision": "locality",
-    "label": "Ciudad de Buenos Aires",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-75792d35f272": {
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "precision": "locality",
-    "label": "Ciudad de Buenos Aires",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-b947eecb7918": {
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "precision": "locality",
-    "label": "Ciudad de Buenos Aires",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-450e29125a42": {
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "precision": "locality",
-    "label": "Ciudad de Buenos Aires",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-b9c0daaf9088": {
-    "lat": -34.4664285221917,
-    "lng": -58.5096898131462,
-    "precision": "locality",
-    "label": "San Isidro",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-b02b095cd18c": {
-    "lat": -34.6510579231814,
-    "lng": -58.6218540984498,
-    "precision": "locality",
-    "label": "Morón",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-ffaf4e0eed31": {
-    "lat": -34.6037,
-    "lng": -58.3816,
-    "precision": "locality",
-    "label": "Ciudad de Buenos Aires",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-9d722e8ffa33": {
-    "lat": -34.7572838174373,
-    "lng": -58.4027167976743,
-    "precision": "locality",
-    "label": "Lomas de Zamora",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-753ac765618c": {
-    "lat": -34.7188582530574,
-    "lng": -58.2603653095576,
-    "precision": "locality",
-    "label": "Quilmes",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-c0304f5ca8cb": {
-    "lat": -34.8543939582115,
-    "lng": -58.524757807358,
-    "precision": "locality",
-    "label": "Ezeiza",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-df878888eeff": {
-    "lat": -34.9213519183204,
-    "lng": -57.9545026451864,
-    "precision": "locality",
-    "label": "La Plata",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-8989ebd4c480": {
-    "lat": -34.6811417496029,
-    "lng": -58.563738604389,
-    "precision": "locality",
-    "label": "San Justo",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-4d307d22f5a1": {
-    "lat": -34.5849488101072,
-    "lng": -58.6116379762528,
-    "precision": "locality",
-    "label": "Pablo Podestá",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-57b7c6585050": {
-    "lat": -34.6714140127777,
-    "lng": -58.4090486458359,
-    "precision": "locality",
-    "label": "Valentín Alsina",
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
   "outlet-e9690d096af2": {
@@ -454,13 +286,6 @@
     "label": "Adrogué",
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
-  "outlet-cee785aee431": {
-    "lat": -34.8281717078487,
-    "lng": -58.391033876775,
-    "precision": "locality",
-    "label": "Burzaco",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
   "outlet-94fac5efae7e": {
     "lat": -34.8281717078487,
     "lng": -58.391033876775,
@@ -557,13 +382,6 @@
     "lng": -58.3877465009579,
     "precision": "locality",
     "label": "Piñeyro",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "outlet-33d57f790c57": {
-    "lat": -34.7040788191542,
-    "lng": -58.3172095095929,
-    "precision": "locality",
-    "label": "Wilde",
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
   "outlet-cadb9e7cf362": {
@@ -1308,13 +1126,6 @@
     "label": "Avenida Mitre, Barrio 12 de Octubre, Berazategui, Partido de Berazategui, Buenos Aires, B1880DOP, Argentina",
     "source": "https://www.openstreetmap.org/way/542653355"
   },
-  "outlet-9b08bf98f075": {
-    "lat": -34.7697910449849,
-    "lng": -58.2261431860465,
-    "precision": "locality",
-    "label": "Berazategui",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
   "outlet-dc7c9453fed3": {
     "lat": -34.7818075686994,
     "lng": -58.1701856172611,
@@ -1477,13 +1288,6 @@
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
   "outlet-43da1c26289f": {
-    "lat": -36.0909178514273,
-    "lng": -57.8074789990778,
-    "precision": "locality",
-    "label": "Castelli",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "outlet-9f0a5acf4986": {
     "lat": -36.0909178514273,
     "lng": -57.8074789990778,
     "precision": "locality",
@@ -1708,13 +1512,6 @@
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
   "outlet-d60074a7fcb3": {
-    "lat": -34.6420259859288,
-    "lng": -60.4712365314463,
-    "precision": "locality",
-    "label": "Chacabuco",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "outlet-53d8c0da232d": {
     "lat": -34.6420259859288,
     "lng": -60.4712365314463,
     "precision": "locality",
@@ -2525,13 +2322,6 @@
     "precision": "street",
     "label": "Chubut, Ascensión, Partido de General Arenales, Buenos Aires, B6003BTS, Argentina",
     "source": "https://www.openstreetmap.org/way/956400088"
-  },
-  "outlet-b8e563863466": {
-    "lat": -34.2309522616024,
-    "lng": -61.1032209784133,
-    "precision": "locality",
-    "label": "Ascensión",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
   "outlet-07b6fe8911bc": {
     "lat": -34.1255773,
@@ -3450,20 +3240,6 @@
     "label": "Mar del Plata",
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
-  "outlet-dc8f557fa36b": {
-    "lat": -34.6064310688302,
-    "lng": -58.9521606358841,
-    "precision": "locality",
-    "label": "General Rodríguez",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "outlet-90a6c8a6543b": {
-    "lat": -34.6064310688302,
-    "lng": -58.9521606358841,
-    "precision": "locality",
-    "label": "General Rodríguez",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
   "outlet-99ea22426a0d": {
     "lat": -34.5480834920372,
     "lng": -58.5570844833764,
@@ -3653,13 +3429,6 @@
     "label": "Junín",
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
-  "outlet-c8e29ad09607": {
-    "lat": -34.5939417428353,
-    "lng": -60.9464309692372,
-    "precision": "locality",
-    "label": "Junín",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
   "outlet-a9a67554cbd7": {
     "lat": -34.5939417428353,
     "lng": -60.9464309692372,
@@ -3780,13 +3549,6 @@
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
   "outlet-a119cda84489": {
-    "lat": -34.5939417428353,
-    "lng": -60.9464309692372,
-    "precision": "locality",
-    "label": "Junín",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "outlet-678c26cded39": {
     "lat": -34.5939417428353,
     "lng": -60.9464309692372,
     "precision": "locality",
@@ -4654,13 +4416,6 @@
     "label": "Lobos",
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
-  "outlet-449e65e40f57": {
-    "lat": -35.1854255468713,
-    "lng": -59.0978341614036,
-    "precision": "locality",
-    "label": "Lobos",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
   "outlet-456a27378ac8": {
     "lat": -35.1854255468713,
     "lng": -59.0978341614036,
@@ -5249,13 +5004,6 @@
     "label": "Haedo",
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
-  "outlet-6e491cc2e9d8": {
-    "lat": -34.6510579231814,
-    "lng": -58.6218540984498,
-    "precision": "locality",
-    "label": "Morón",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
   "outlet-da19d77b1d04": {
     "lat": -34.6510579231814,
     "lng": -58.6218540984498,
@@ -5544,13 +5292,6 @@
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
   "outlet-2f8ed9d3f884": {
-    "lat": -36.8938423224315,
-    "lng": -60.3231937143701,
-    "precision": "locality",
-    "label": "Olavarría",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "outlet-56219bb62e65": {
     "lat": -36.8938423224315,
     "lng": -60.3231937143701,
     "precision": "locality",
@@ -6390,13 +6131,6 @@
     "label": "Pérez Millán",
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
-  "outlet-b1204997d86a": {
-    "lat": -33.4852021182933,
-    "lng": -60.0044384241728,
-    "precision": "locality",
-    "label": "Ramallo",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
   "outlet-7675839a3c12": {
     "lat": -33.49803273822,
     "lng": -60.0655531078037,
@@ -6874,13 +6608,6 @@
     "source": "https://apis.datos.gob.ar/georef/api/localidades"
   },
   "outlet-283d3a7d9151": {
-    "lat": -37.3286954825526,
-    "lng": -59.1368975569569,
-    "precision": "locality",
-    "label": "Tandil",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "outlet-df41cba69dd9": {
     "lat": -37.3286954825526,
     "lng": -59.1368975569569,
     "precision": "locality",
@@ -7447,20 +7174,6 @@
     "label": "Red Copmaco, 1425, Avenida General Manuel Nicolás Savio, Santa Rosa, San Nicolás de los Arroyos, Partido de San Nicolás, Buenos Aires, 2900, Argentina",
     "source": "https://www.openstreetmap.org/way/1301651563"
   },
-  "research-a0155eb8c310": {
-    "lat": -34.6469059433022,
-    "lng": -58.7889292381186,
-    "precision": "locality",
-    "label": "Moreno",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
-  "research-7637e05b3d63": {
-    "lat": -34.6469059433022,
-    "lng": -58.7889292381186,
-    "precision": "locality",
-    "label": "Moreno",
-    "source": "https://apis.datos.gob.ar/georef/api/localidades"
-  },
   "outlet-41d2bdc390f6": {
     "lat": -34.7918465006493,
     "lng": -58.1516189728872,
@@ -7481,5 +7194,614 @@
     "precision": "locality",
     "label": "Máximo Paz, Ruta Provincial 205, Máximo Paz, Partido de Cañuelas, Buenos Aires, 1980, Argentina",
     "source": "https://www.openstreetmap.org/node/1360339347"
+  },
+  "research-03fbb19e0570": {
+    "lat": -34.6157418,
+    "lng": -58.3700054,
+    "precision": "address",
+    "label": "249, Chile, Monserrat, Buenos Aires, Comuna 1, Ciudad Autónoma de Buenos Aires, C1100AAF, Argentina",
+    "source": "https://www.openstreetmap.org/way/335849615"
+  },
+  "research-45a6590d44ec": {
+    "lat": -34.6598041,
+    "lng": -58.4765254,
+    "precision": "address",
+    "label": "2353, Avenida Escalada, Villa Lugano, Buenos Aires, Comuna 8, Ciudad Autónoma de Buenos Aires, C1439BSN, Argentina",
+    "source": "https://www.openstreetmap.org/way/651330291"
+  },
+  "research-7931527c10aa": {
+    "lat": -34.5575542,
+    "lng": -58.4780931,
+    "precision": "address",
+    "label": "3362, Avenida Melián, Coghlan, Buenos Aires, Comuna 12, Ciudad Autónoma de Buenos Aires, C1430AIF, Argentina",
+    "source": "https://www.openstreetmap.org/way/304148500"
+  },
+  "research-0fdd96679491": {
+    "lat": -34.3428236,
+    "lng": -58.7891737,
+    "precision": "address",
+    "label": "62, Avenida San Martín, Belén de Escobar, Partido de Escobar, Buenos Aires, B1625AAF, Argentina",
+    "source": "https://www.openstreetmap.org/way/320200097"
+  },
+  "research-7dd3520fe170": {
+    "lat": -34.6569081,
+    "lng": -58.4915397,
+    "precision": "address",
+    "label": "2021, Pola, Mataderos, Buenos Aires, Comuna 9, Ciudad Autónoma de Buenos Aires, C1440AST, Argentina",
+    "source": "https://www.openstreetmap.org/way/306593996"
+  },
+  "research-a0155eb8c310": {
+    "lat": -34.628582,
+    "lng": -58.779881,
+    "precision": "address",
+    "label": "Materiales Moreno, 1998, Avenida del Libertador, Parque Gaona, Moreno Centro Norte, Moreno, Partido de Moreno, Buenos Aires, B1743IAE, Argentina",
+    "source": "https://www.openstreetmap.org/node/2296049828"
+  },
+  "research-7637e05b3d63": {
+    "lat": -34.6531326691341,
+    "lng": -58.7612422196769,
+    "precision": "locality",
+    "label": "Paso del Rey",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-81c7d750dd53": {
+    "lat": -34.4569822956164,
+    "lng": -58.9139117853571,
+    "precision": "locality",
+    "label": "Pilar",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-f4f7369c8e86": {
+    "lat": -34.6353942,
+    "lng": -58.4749012,
+    "precision": "street",
+    "label": "Avenida Juan Bautista Alberdi, Floresta, Buenos Aires, Comuna 10, Ciudad Autónoma de Buenos Aires, C1407GZB, Argentina",
+    "source": "https://www.openstreetmap.org/way/1229835216"
+  },
+  "research-74094ce052be": {
+    "lat": -34.7284244,
+    "lng": -58.3644777,
+    "precision": "street",
+    "label": "Matanza, Villa Besada, Monte Chingolo, Partido de Lanús, Buenos Aires, B1826FCL, Argentina",
+    "source": "https://www.openstreetmap.org/way/537791260"
+  },
+  "research-7630e446063f": {
+    "lat": -34.6037,
+    "lng": -58.3816,
+    "precision": "locality",
+    "label": "Ciudad Autónoma de Buenos Aires",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-091df8fab0bd": {
+    "lat": -34.6037,
+    "lng": -58.3816,
+    "precision": "locality",
+    "label": "Ciudad Autónoma de Buenos Aires",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-e2e35381af55": {
+    "lat": -34.6031235,
+    "lng": -58.4704864,
+    "precision": "address",
+    "label": "1902, Álvarez Jonte, Villa General Mitre, Buenos Aires, Comuna 11, Ciudad Autónoma de Buenos Aires, C1416BQL, Argentina",
+    "source": "https://www.openstreetmap.org/node/3130582286"
+  },
+  "research-d71d3ea332ba": {
+    "lat": -34.5832384,
+    "lng": -58.4686815,
+    "precision": "address",
+    "label": "3301, Avenida Triunvirato, Villa Ortúzar, Buenos Aires, Distrito Audiovisual, Comuna 15, Ciudad Autónoma de Buenos Aires, 1174, Argentina",
+    "source": "https://www.openstreetmap.org/node/3187354014"
+  },
+  "research-75792d35f272": {
+    "lat": -34.5466309,
+    "lng": -58.4898134,
+    "precision": "address",
+    "label": "Workplace, 3892, Vedia, Saavedra, Buenos Aires, Comuna 12, Ciudad Autónoma de Buenos Aires, C1430, Argentina",
+    "source": "https://www.openstreetmap.org/way/205190407"
+  },
+  "research-b947eecb7918": {
+    "lat": -34.6717816,
+    "lng": -58.3890506,
+    "precision": "address",
+    "label": "643, Avenida Galicia, Piñeyro, Partido de Avellaneda, Buenos Aires, C1294ACL, Argentina",
+    "source": "https://www.openstreetmap.org/way/683620693"
+  },
+  "research-450e29125a42": {
+    "lat": -34.6004846,
+    "lng": -58.466757,
+    "precision": "street",
+    "label": "Manuel Ricardo Trelles, La Paternal, Buenos Aires, Distrito Audiovisual, Comuna 15, Ciudad Autónoma de Buenos Aires, C1416BQL, Argentina",
+    "source": "https://www.openstreetmap.org/way/846606648"
+  },
+  "research-b9c0daaf9088": {
+    "lat": -34.4668593,
+    "lng": -58.5193718,
+    "precision": "address",
+    "label": "Bonomi, 971, Avenida Centenario, La Calabria, San Isidro, Partido de San Isidro, Buenos Aires, B1642, Argentina",
+    "source": "https://www.openstreetmap.org/node/13623973618"
+  },
+  "research-b02b095cd18c": {
+    "lat": -34.6528128,
+    "lng": -58.6239074,
+    "precision": "address",
+    "label": "1083, Bartolomé Mitre, Viejo Urbano, Morón, Partido de Morón, Buenos Aires, B1708DYO, Argentina",
+    "source": "https://www.openstreetmap.org/way/909043401"
+  },
+  "research-37278428b4e1": {
+    "lat": -34.8101841,
+    "lng": -58.4007508,
+    "precision": "address",
+    "label": "13350, Avenida Hipólito Yrigoyen, Adrogué, Partido de Almirante Brown, Buenos Aires, B1846, Argentina",
+    "source": "https://www.openstreetmap.org/way/636420920"
+  },
+  "research-ffaf4e0eed31": {
+    "lat": -34.6285316,
+    "lng": -58.5686844,
+    "precision": "address",
+    "label": "416, Avenida Presidente Arturo Umberto Illia, Barrio Ward, Villa Sarmiento, Partido de Morón, Buenos Aires, 1720, Argentina",
+    "source": "https://www.openstreetmap.org/way/909054036"
+  },
+  "research-92d34b313e7c": {
+    "lat": -34.6745277,
+    "lng": -58.7204137,
+    "precision": "street",
+    "label": "Avenida Calle Real, El Mirador, Merlo, Partido de Merlo, Buenos Aires, B1718EVD, Argentina",
+    "source": "https://www.openstreetmap.org/way/1445319988"
+  },
+  "research-753ac765618c": {
+    "lat": -34.7200676236621,
+    "lng": -58.254346982141,
+    "precision": "locality",
+    "label": "Quilmes",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-4eedd748dac8": {
+    "lat": -34.6037,
+    "lng": -58.3816,
+    "precision": "locality",
+    "label": "Ciudad Autónoma de Buenos Aires",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-154d22c82bd8": {
+    "lat": -35.1259929,
+    "lng": -60.4400222,
+    "precision": "street",
+    "label": "Ruta Nacional 5, Bragado, Cuartel Mechita, Partido de Bragado, Buenos Aires, 6440, Argentina",
+    "source": "https://www.openstreetmap.org/way/160180324"
+  },
+  "research-248b07ca2180": {
+    "lat": -34.8401013,
+    "lng": -58.4208617,
+    "precision": "street",
+    "label": "José Melián, Parque Industrial Almirante Brown, Villa Hogar Alemán, Burzaco, Partido de Almirante Brown, Buenos Aires, B1852EMM, Argentina",
+    "source": "https://www.openstreetmap.org/way/1035820517"
+  },
+  "research-0a781595fdc9": {
+    "lat": -34.6737463,
+    "lng": -58.4967305,
+    "precision": "address",
+    "label": "6784, Avenida Argentina, Villa Lugano, Buenos Aires, Comuna 8, Ciudad Autónoma de Buenos Aires, C1439GVN, Argentina",
+    "source": "https://www.openstreetmap.org/way/418336361"
+  },
+  "research-c0304f5ca8cb": {
+    "lat": -34.9117467019627,
+    "lng": -58.5921665202679,
+    "precision": "locality",
+    "label": "Carlos Spegazzini",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-4b7592c1146b": {
+    "lat": -34.5385072942887,
+    "lng": -58.5154588836308,
+    "precision": "locality",
+    "label": "Florida Oeste",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-60d74220ea52": {
+    "lat": -34.7334815,
+    "lng": -58.2964061,
+    "precision": "street",
+    "label": "Avenida Calchaquí, Nuestra Señora de Lourdes, Quilmes Oeste, Partido de Quilmes, Buenos Aires, 1779, Argentina",
+    "source": "https://www.openstreetmap.org/way/324768942"
+  },
+  "research-8989ebd4c480": {
+    "lat": -34.6811834,
+    "lng": -58.549438,
+    "precision": "address",
+    "label": "Grupo Dema, 3750, Avenida Presidente Juan Domingo Perón, Villa Sahores, San Justo, Partido de La Matanza, Buenos Aires, 1754, Argentina",
+    "source": "https://www.openstreetmap.org/way/958318561"
+  },
+  "research-4d307d22f5a1": {
+    "lat": -34.5786297,
+    "lng": -58.6117278,
+    "precision": "street",
+    "label": "962 - Benito Pérez Galdós, Pablo Podestá, Partido de Tres de Febrero, Buenos Aires, 1687, Argentina",
+    "source": "https://www.openstreetmap.org/way/1262027498"
+  },
+  "research-985819ef12ca": {
+    "lat": -34.4632193,
+    "lng": -58.5499264,
+    "precision": "address",
+    "label": "Hidromet, 2599, Avenida Uruguay, Victoria, Partido de San Fernando, Buenos Aires, B1644, Argentina",
+    "source": "https://www.openstreetmap.org/node/11339079136"
+  },
+  "research-469443ff0763": {
+    "lat": -34.5213287,
+    "lng": -58.5269276,
+    "precision": "address",
+    "label": "3428, Bernardino Rivadavia, Munro, Partido de Vicente López, Buenos Aires, B1605BUS, Argentina",
+    "source": "https://www.openstreetmap.org/way/380469983"
+  },
+  "research-87853de75a88": {
+    "lat": -34.5445204,
+    "lng": -58.4602727,
+    "precision": "address",
+    "label": "7536, Avenida Del Libertador, Núñez, Buenos Aires, Comuna 13, Ciudad Autónoma de Buenos Aires, C1426ABC, Argentina",
+    "source": "https://www.openstreetmap.org/way/301420234"
+  },
+  "research-57b7c6585050": {
+    "lat": -34.6791138,
+    "lng": -58.4082176,
+    "precision": "street",
+    "label": "Veracruz, Villa Progreso, Valentín Alsina, Partido de Lanús, Buenos Aires, 1822, Argentina",
+    "source": "https://www.openstreetmap.org/way/239619743"
+  },
+  "research-fdde73126c80": {
+    "lat": -34.6711744,
+    "lng": -58.5313688,
+    "precision": "address",
+    "label": "3653, Avenida General San Martín, Villa Larrumbre, Lomas del Mirador, Partido de La Matanza, Buenos Aires, 1756, Argentina",
+    "source": "https://www.openstreetmap.org/way/419340188"
+  },
+  "research-43a59edda55c": {
+    "lat": -34.4230339103436,
+    "lng": -58.7394613036842,
+    "precision": "locality",
+    "label": "Garín",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-1a38aa516ab0": {
+    "lat": -34.5823422,
+    "lng": -58.6416988,
+    "precision": "street",
+    "label": "José Mazzini, Cosmopolita, Hurlingham, Partido de Hurlingham, Buenos Aires, 1686, Argentina",
+    "source": "https://www.openstreetmap.org/way/58078801"
+  },
+  "research-7123f998c645": {
+    "lat": -34.7930707191435,
+    "lng": -58.4262793211745,
+    "precision": "locality",
+    "label": "Llavallol",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-fbab88f06893": {
+    "lat": -31.7681469,
+    "lng": -61.8246655,
+    "precision": "address",
+    "label": "1701, Rivadavia, Municipio de Sastre, Departamento San Martín, Santa Fe, 2440, Argentina",
+    "source": "https://www.openstreetmap.org/node/8822474138"
+  },
+  "research-3daa08a25d6a": {
+    "lat": -34.7773594,
+    "lng": -58.4204958,
+    "precision": "address",
+    "label": "1852, General Antonio José de Sucre, Lomas de Zamora, Partido de Lomas de Zamora, Buenos Aires, B1834GMJ, Argentina",
+    "source": "https://www.openstreetmap.org/way/1080281415"
+  },
+  "research-88ad0a282ba5": {
+    "lat": -34.6082064832342,
+    "lng": -58.9510798915332,
+    "precision": "locality",
+    "label": "General Rodríguez",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-ee50fa8ea78b": {
+    "lat": -34.6568917,
+    "lng": -58.5411441,
+    "precision": "address",
+    "label": "2040, Las Heras, Villa Rebasa, Ramos Mejía, Partido de La Matanza, Buenos Aires, B1752CXU, Argentina",
+    "source": "https://www.openstreetmap.org/way/430225081"
+  },
+  "research-f0722cf6f825": {
+    "lat": -32.9794127,
+    "lng": -60.7109741,
+    "precision": "street",
+    "label": "Colectora Juan Pablo II, Godoy, Distrito Oeste, Rosario, Municipio de Rosario, Gran Rosario, Departamento Rosario, Santa Fe, S2000, Argentina",
+    "source": "https://www.openstreetmap.org/way/287742020"
+  },
+  "research-cb3f83d8e19a": {
+    "lat": -34.703427,
+    "lng": -58.36572,
+    "precision": "street",
+    "label": "Coronel Maure, Villa de los Trabajadores, Lanús Este, Partido de Lanús, Buenos Aires, 1825, Argentina",
+    "source": "https://www.openstreetmap.org/way/1488986094"
+  },
+  "research-13759704e8af": {
+    "lat": -32.0360104,
+    "lng": -61.2141281,
+    "precision": "address",
+    "label": "372, Avenida Jorge Newbery, Florida, Gálvez, Municipio de Gálvez, Departamento San Jerónimo, Santa Fe, S2252BZG, Argentina",
+    "source": "https://www.openstreetmap.org/way/1193273197"
+  },
+  "outlet-e377d1234180": {
+    "lat": -37.9756336,
+    "lng": -57.5919984,
+    "precision": "address",
+    "label": "7146, Avenida Pedro Luro, San Cayetano, Mar del Plata, Partido de General Pueyrredón, Buenos Aires, B7602GGC, Argentina",
+    "source": "https://www.openstreetmap.org/way/440098458"
+  },
+  "outlet-158d08784439": {
+    "lat": -34.9145577,
+    "lng": -57.9524636,
+    "precision": "locality",
+    "label": "Area comercial \"Calle 8\", Microcentro, La Plata, Partido de La Plata, Buenos Aires, Argentina",
+    "source": "https://www.openstreetmap.org/way/287907796"
+  },
+  "outlet-1420b6959447": {
+    "lat": -34.7263548,
+    "lng": -58.2501562,
+    "precision": "address",
+    "label": "962, Avenida Mitre, Quilmes Centro, Quilmes, Partido de Quilmes, Buenos Aires, 1878, Argentina",
+    "source": "https://www.openstreetmap.org/way/634361925"
+  },
+  "outlet-ab209d907fdb": {
+    "lat": -38.7227702772442,
+    "lng": -62.2727419998288,
+    "precision": "locality",
+    "label": "Bahía Blanca",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "outlet-b88f50a88b8b": {
+    "lat": -37.995407,
+    "lng": -57.55954,
+    "precision": "address",
+    "label": "3702, Belgrano, San Juan, Mar del Plata, Partido de General Pueyrredón, Buenos Aires, 7606, Argentina",
+    "source": "https://www.openstreetmap.org/node/4301276399"
+  },
+  "outlet-e9dcc06db78d": {
+    "lat": -34.4882149333314,
+    "lng": -58.7782682636295,
+    "precision": "locality",
+    "label": "Tortuguitas",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "outlet-affec762f8cf": {
+    "lat": -36.8931943,
+    "lng": -60.3111955,
+    "precision": "address",
+    "label": "Martinez Escalada, 3502, Avenida Pringles, Hipólito Yrigoyen, Olavarría, Partido de Olavarría, Buenos Aires, 7400, Argentina",
+    "source": "https://www.openstreetmap.org/node/9023248340"
+  },
+  "outlet-09c171a093da": {
+    "lat": -34.6350492,
+    "lng": -58.6313413,
+    "precision": "address",
+    "label": "Ixnova - Ronix, 1747, Salvador Curutchet, Castelar, Partido de Morón, Buenos Aires, 1712, Argentina",
+    "source": "https://www.openstreetmap.org/way/1298064066"
+  },
+  "outlet-6f271b87d1f9": {
+    "lat": -37.9933737,
+    "lng": -57.5933391,
+    "precision": "address",
+    "label": "3245, Avenida Champagnat, Regional, Mar del Plata, Partido de General Pueyrredón, Buenos Aires, B7602GGC, Argentina",
+    "source": "https://www.openstreetmap.org/way/766097767"
+  },
+  "outlet-90a6c8a6543b": {
+    "lat": -34.6082064832342,
+    "lng": -58.9510798915332,
+    "precision": "locality",
+    "label": "General Rodríguez",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-9599ccbc0911": {
+    "lat": -34.5699843,
+    "lng": -58.5470483,
+    "precision": "address",
+    "label": "3755, 70 - La Crujía, Villa San Andrés, Partido de General San Martín, Buenos Aires, B1651APF, Argentina",
+    "source": "https://www.openstreetmap.org/way/626662935"
+  },
+  "research-2cead8915cde": {
+    "lat": -34.6037,
+    "lng": -58.3816,
+    "precision": "locality",
+    "label": "Ciudad Autónoma de Buenos Aires",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-e894f09b02cc": {
+    "lat": -34.6037,
+    "lng": -58.3816,
+    "precision": "locality",
+    "label": "Ciudad Autónoma de Buenos Aires",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-07c10407d89f": {
+    "lat": -34.6959701,
+    "lng": -58.537554,
+    "precision": "street",
+    "label": "Doctor Ignacio Arieta, Alberti, La Tablada, Partido de La Matanza, Buenos Aires, 1766, Argentina",
+    "source": "https://www.openstreetmap.org/way/1272911055"
+  },
+  "research-815916624b55": {
+    "lat": -34.5981074,
+    "lng": -58.3714513,
+    "precision": "street",
+    "label": "Avenida Leandro N. Alem, Catalinas Norte, Retiro, Buenos Aires, Comuna 1, Ciudad Autónoma de Buenos Aires, C1001AAQ, Argentina",
+    "source": "https://www.openstreetmap.org/way/499736261"
+  },
+  "research-36e296d48778": {
+    "lat": -34.4569822956164,
+    "lng": -58.9139117853571,
+    "precision": "locality",
+    "label": "Pilar",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-388bf34b26b1": {
+    "lat": -34.5388446,
+    "lng": -58.5037266,
+    "precision": "address",
+    "label": "FV, 1053, Bernardo de Irigoyen, Florida Oeste, Partido de Vicente López, Buenos Aires, B1604, Argentina",
+    "source": "https://www.openstreetmap.org/node/10098579201"
+  },
+  "research-2ec2adaddd19": {
+    "lat": -31.7605159,
+    "lng": -60.4692725,
+    "precision": "address",
+    "label": "Johnson Acero, 3658, Almafuerte, Barrio Presidente Ilia, Paraná, Municipio de Paraná, Distrito Sauce, Departamento Paraná, Entre Ríos, 3100, Argentina",
+    "source": "https://www.openstreetmap.org/node/4238202294"
+  },
+  "research-00f16e3e7872": {
+    "lat": -34.6772474,
+    "lng": -58.5468524,
+    "precision": "address",
+    "label": "2720, Avenida Brigadier General Juan Manuel de Rosas, Villa Sahores, San Justo, Partido de La Matanza, Buenos Aires, 1754, Argentina",
+    "source": "https://www.openstreetmap.org/way/491990710"
+  },
+  "research-d82bae0ad94b": {
+    "lat": -34.5865232,
+    "lng": -58.4880912,
+    "precision": "address",
+    "label": "2135, Asunción, Agronomía, Buenos Aires, Comuna 15, Ciudad Autónoma de Buenos Aires, C1419HTH, Argentina",
+    "source": "https://www.openstreetmap.org/way/135481015"
+  },
+  "research-2e35bd76da37": {
+    "lat": -34.5800941,
+    "lng": -58.5494932,
+    "precision": "street",
+    "label": "111 - Rodríguez Peña, Ciudad del Libertador General San Martín, Partido de General San Martín, Buenos Aires, B1650LYC, Argentina",
+    "source": "https://www.openstreetmap.org/way/1285370649"
+  },
+  "research-e2b4c6864b51": {
+    "lat": -34.7080581,
+    "lng": -58.3921249,
+    "precision": "address",
+    "label": "25, Avenida 25 de Mayo, Lanús Centro Oeste, Lanús Oeste, Partido de Lanús, Buenos Aires, B1824, Argentina",
+    "source": "https://www.openstreetmap.org/way/678780463"
+  },
+  "research-232893a05759": {
+    "lat": -34.7447138351125,
+    "lng": -58.3929263130465,
+    "precision": "locality",
+    "label": "Banfield",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "research-90b7fb246ee7": {
+    "lat": -34.5486286,
+    "lng": -58.5133396,
+    "precision": "street",
+    "label": "William Case Morris, Villa Martelli, Partido de Vicente López, Buenos Aires, 1603, Argentina",
+    "source": "https://www.openstreetmap.org/way/26547465"
+  },
+  "research-9d722e8ffa33": {
+    "lat": -34.7510021,
+    "lng": -58.3944827,
+    "precision": "address",
+    "label": "1234, Avenida Alsina, Lomas de Zamora, Partido de Lomas de Zamora, Buenos Aires, 1832, Argentina",
+    "source": "https://www.openstreetmap.org/node/2348883361"
+  },
+  "outlet-f80e03058406": {
+    "lat": -37.3286954825526,
+    "lng": -59.1368975569569,
+    "precision": "locality",
+    "label": "Tandil",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "outlet-dc8f557fa36b": {
+    "lat": -34.6082064832342,
+    "lng": -58.9510798915332,
+    "precision": "locality",
+    "label": "General Rodríguez",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "outlet-449e65e40f57": {
+    "lat": -35.1776241,
+    "lng": -59.0968819,
+    "precision": "address",
+    "label": "Distribuidora HJ, 57, Avenida Presidente Hipólito Yrigoyen, Empalme Lobos, Lobos, Partido de Lobos, Buenos Aires, B7240ACQ, Argentina",
+    "source": "https://www.openstreetmap.org/node/9312570757"
+  },
+  "outlet-53d8c0da232d": {
+    "lat": -34.6196352,
+    "lng": -60.43382,
+    "precision": "street",
+    "label": "Acceso Hipólito Yrigoyen, Calle 179 - Dr. Ramon Carrillo, Chacabuco, Partido de Chacabuco, Buenos Aires, B6746, Argentina",
+    "source": "https://www.openstreetmap.org/way/981632910"
+  },
+  "outlet-b1204997d86a": {
+    "lat": -33.49803273822,
+    "lng": -60.0655531078037,
+    "precision": "locality",
+    "label": "Villa Ramallo",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "outlet-cee785aee431": {
+    "lat": -34.8283176,
+    "lng": -58.3988016,
+    "precision": "address",
+    "label": "14981, Avenida Hipólito Yrigoyen, Burzaco, Partido de Almirante Brown, Buenos Aires, 1852, Argentina",
+    "source": "https://www.openstreetmap.org/way/635831893"
+  },
+  "outlet-33d57f790c57": {
+    "lat": -34.7248743,
+    "lng": -58.3359113,
+    "precision": "street",
+    "label": "Camino General Belgrano, Villa Gonnet, Wilde, Partido de Avellaneda, Buenos Aires, B1874BEO, Argentina",
+    "source": "https://www.openstreetmap.org/way/1436342013"
+  },
+  "outlet-9f0a5acf4986": {
+    "lat": -36.0936995,
+    "lng": -57.8051338,
+    "precision": "street",
+    "label": "Sarmiento, Castelli, Partido de Castelli, Buenos Aires, B7114BOB, Argentina",
+    "source": "https://www.openstreetmap.org/way/194106614"
+  },
+  "outlet-9b08bf98f075": {
+    "lat": -34.7678323,
+    "lng": -58.247192,
+    "precision": "street",
+    "label": "Avenida Dardo Rocha, Barrio 12 de Octubre, Berazategui, Partido de Berazategui, Buenos Aires, 1880, Argentina",
+    "source": "https://www.openstreetmap.org/way/1284757792"
+  },
+  "outlet-c8e29ad09607": {
+    "lat": -34.5939417428353,
+    "lng": -60.9464309692372,
+    "precision": "locality",
+    "label": "Junín",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "outlet-678c26cded39": {
+    "lat": -34.5987781,
+    "lng": -60.9725969,
+    "precision": "street",
+    "label": "Ruta Nacional 7, Martín Miguel de Güemes, Junín, Partido de Junín, Buenos Aires, B6000, Argentina",
+    "source": "https://www.openstreetmap.org/way/695512290"
+  },
+  "outlet-6e491cc2e9d8": {
+    "lat": -34.6855653,
+    "lng": -58.6360822,
+    "precision": "street",
+    "label": "Avenida Eva Perón, Belgrano, Morón, Partido de Morón, Buenos Aires, 1722, Argentina",
+    "source": "https://www.openstreetmap.org/way/222473158"
+  },
+  "outlet-56219bb62e65": {
+    "lat": -36.9081948,
+    "lng": -60.3103377,
+    "precision": "address",
+    "label": "2461, Avenida Pellegrini, Obrero, Luján, Olavarría, Partido de Olavarría, Buenos Aires, 7400, Argentina",
+    "source": "https://www.openstreetmap.org/way/293916463"
+  },
+  "outlet-df41cba69dd9": {
+    "lat": -37.3286954825526,
+    "lng": -59.1368975569569,
+    "precision": "locality",
+    "label": "Tandil",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
+  },
+  "outlet-b8e563863466": {
+    "lat": -34.2309522616024,
+    "lng": -61.1032209784133,
+    "precision": "locality",
+    "label": "Ascensión",
+    "source": "https://apis.datos.gob.ar/georef/api/localidades"
   }
 }

@@ -1,9 +1,10 @@
+import {withProviderAddress,concreteProviderAddress} from '../lib/provider-address';
 import {storeCategory} from '../lib/store-catalog';
 import data from './supplier-directory-data.json';
 import catalogs from './vendor-catalog-data.json';
 const catalogIndex=new Map((catalogs as {supplierId:string;products:{name:string;image:string;imageVerifiedAt?:string}[]}[]).map(v=>[v.supplierId,v]));
-export type DirectorySupplier={id:string;name:string;kind:string;recordType:string;sector:string;tags:string[];province:string;locality:string;address:string;priceMode:string;priceDetail:string;notes:string;source:string;sourceUrl:string;website:string;reviewedAt:string};
-export const supplierDirectory:DirectorySupplier[]=data;
+export type DirectorySupplier={id:string;name:string;kind:string;recordType:string;sector:string;tags:string[];province:string;locality:string;address:string;priceMode:string;priceDetail:string;notes:string;source:string;sourceUrl:string;website:string;reviewedAt:string;addressSource?:string;addressCheckedAt?:string};
+export const supplierDirectory:DirectorySupplier[]=(data as DirectorySupplier[]).map(withProviderAddress).filter(concreteProviderAddress);
 export type DirectoryFilters={networkCategory:string;query:string;tags:string[];kinds:string[];province:string;locality:string;priceMode:string;source:string;websiteOnly:boolean;favoritesOnly:boolean;recordType:string;sort:string;catalogOnly:boolean;photosOnly:boolean};
 export const defaultDirectoryFilters:DirectoryFilters={networkCategory:'',query:'',tags:[],kinds:[],province:'',locality:'',priceMode:'',source:'',websiteOnly:false,favoritesOnly:false,recordType:'',sort:'relevance',catalogOnly:false,photosOnly:false};
 export const directoryText=(value:string)=>value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
