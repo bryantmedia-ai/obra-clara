@@ -14,3 +14,11 @@ const reply={requestId:q.id,unitPrice:1200,validUntil:new Date(Date.now()+2*8640
 for(const bad of [{unitPrice:-1},{leadDays:-1},{depositPercent:101},{validUntil:'2020-01-01'},{conditions:''}])assert.throws(()=>run('catalog.respond',{...reply,...bad}));
 run('catalog.respond',reply);assert.equal(state.catalogRequests[0].status,'Cotizada');assert.equal(state.catalogRequests[0].offer.depositPercent,20);assert.equal(JSON.stringify(state.orders),before);assert.equal(JSON.stringify(state.offers),offers);assert.equal(m.snapshot(state).finance.wallet,wallet);run('catalog.archive',{requestId:q.id});assert.throws(()=>run('catalog.respond',reply));assert.ok(m.snapshot(state).catalogRequests.length);
 console.log('PASS catalog provenance, unique references, exact company association, RFQ validation and rollback, 3-digit quantities, project snapshots, idempotence, quote conditions and expiry, archive; no fabricated stock, orders or wallet movement.');
+
+const scope=load('components/catalog-departments.ts'),excluded=JSON.parse(fs.readFileSync('components/excluded-retail-products.json'));
+assert.ok(refs.every(p=>!excluded.includes(p.name)),'Removed retail products cannot appear in vendor profiles');
+assert.ok(refs.some(p=>p.name.includes('Bomba Presurizadora')),'Building water pumps remain available');
+const retired={...m.catalog(state)[0],id:'retired-retail',department:'climatizacion',name:'Equipo de hogar'};
+state.offers.push(retired);assert.ok(!m.snapshot(state).offers.some(p=>p.id===retired.id),'Saved retired offers do not reappear after refresh');
+assert.throws(()=>run('offers',[retired]),/rubro/,'Retired departments cannot be republished');
+console.log('PASS removed retail references, preserved construction equipment, saved offer filtering and publication guard.');

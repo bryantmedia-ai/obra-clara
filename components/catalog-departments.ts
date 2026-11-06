@@ -1,3 +1,8 @@
+import excludedRetailProducts from "./excluded-retail-products.json";
+const excludedProductNames=new Set(excludedRetailProducts);
+const removedDepartments=new Set(["cocina","climatizacion","muebles","organizacion","decoracion","aire-libre","jardin","automovil","navidad"]);
+const removedCategories=new Set(["Cocina y bazar","Electrohogar y climatización","Muebles","Organización y limpieza","Decoración","Aire libre","Jardín y mascotas","Automóvil","Navidad"]);
+export function constructionProduct(product:{name:string;category?:string;department?:string}){return !excludedProductNames.has(product.name)&&!removedDepartments.has(product.department??"")&&!removedCategories.has(product.category??"");}
 export const catalogDepartments=[
  {id:"construccion",name:"Construcción",categories:["Corralón"],image:"/products/catalog/corralon-01.jpg",children:["Cementos y morteros","Arenas y áridos","Yesos y cales","Ladrillos y bloques","Hierro y acero","Construcción en seco","Maderas y tableros","Techos y aislaciones","Químicos de construcción"]},
  {id:"pisos",name:"Pisos y revestimientos",categories:["Pisos y revestimientos"],image:"/departments/pisos.jpg",children:["Porcelanatos","Cerámicos","Pisos flotantes","Pisos vinílicos","Revestimientos de pared","Adhesivos y pastinas","Zócalos"]},
@@ -12,7 +17,6 @@ export const catalogDepartments=[
 export function productDepartment(product:{category?:string;name:string;productType?:string;department?:string}){if(product.department){const explicit=catalogDepartments.find(d=>d.id===product.department);if(explicit)return explicit;}
  const text=`${product.name} ${product.productType??""}`.toLowerCase();
  if(/reflector|proyector led|luz emergencia|plaf[oó]n/.test(text))return catalogDepartments.find(d=>d.id==="iluminacion");
- if(/aspiradora/.test(text))return catalogDepartments.find(d=>d.id==="herramientas");
  const normalize=(s:string)=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
  const category=normalize(product.category??"Corralón");
  return catalogDepartments.find(d=>[...d.categories,d.name].some(c=>normalize(c)===category))??(category==="materiales de construccion"||category==="construccion y reparacion"?catalogDepartments[0]:undefined);}

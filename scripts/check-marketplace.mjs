@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import {webcrypto} from 'node:crypto';
 function load(file,dependencies={},extra={}){const exports={};vm.runInNewContext(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,{exports,crypto:webcrypto,require:name=>dependencies[name]??{},...extra});return exports;}
 const rows=JSON.parse(fs.readFileSync('components/marketplace-products.json','utf8'));
-const departments=load('components/catalog-departments.ts');
+const departments=load('components/catalog-departments.ts',{'./excluded-retail-products.json':{default:JSON.parse(fs.readFileSync('components/excluded-retail-products.json'))}});
 const catalog=load('components/marketplace-data.ts',{'./catalog-departments':departments,'./marketplace-products.json':{default:rows},'./catalog-product-details.json':{default:JSON.parse(fs.readFileSync('components/catalog-product-details.json','utf8'))}});
 assert.equal(rows.length,180);
 assert.equal(catalog.productCategories.length,9);
@@ -14,12 +14,12 @@ assert.equal(new Set(rows.map(p=>p.name)).size,180,'Each listing must be a disti
 const defaults={categories:[],query:'',supplier:'',brand:'',format:'',today:false,shippingIncludedOnly:false,sort:'arrival'};
 for(const category of catalog.productCategories){
  const matches=catalog.filterMarketplaceProducts({...defaults,categories:[category]});
- assert.equal(matches.length,20,category);
+ assert.equal(matches.length,category==='Herramientas'?19:20,category);
  assert.ok(matches.every(p=>p.category===category));
 }
 assert.equal(catalog.filterMarketplaceProducts({...defaults,categories:['Electricidad','Sanitarios']}).length,40);
 assert.equal(catalog.filterMarketplaceProducts({...defaults,categories:['Transporte y entrega']}).length,0);
-assert.equal(catalog.filterMarketplaceProducts({...defaults,categories:['Transporte y entrega','Herramientas']}).length,20);
+assert.equal(catalog.filterMarketplaceProducts({...defaults,categories:['Transporte y entrega','Herramientas']}).length,19);
 assert.ok(catalog.filterMarketplaceProducts({...defaults,query:'electrogeno'}).length>0,'Search ignores accents');
 assert.ok(catalog.filterMarketplaceProducts({...defaults,categories:['Cables y conductores'],format:'100 m'}).every(p=>p.format==='100 m'));
 assert.ok(catalog.filterMarketplaceProducts({...defaults,shippingIncludedOnly:true}).every(p=>p.shippingIncluded));
@@ -42,7 +42,7 @@ assert.equal(store.readCart().products[0].unit,cable.unit);
 assert.equal(store.readCart().products[0].saleLabel,'1 rollo');
 assert.equal(store.cargoWeightLabel({kg:null,quantity:2}),'Peso a confirmar');
 assert.equal(store.cargoWeightLabel({kg:25,quantity:4}),'100 kg');
-console.log('PASS: 180 distinct products, 20 per category; photos, units, multi-category filters, search, sorting, cart and cargo weight.');
+console.log('PASS: 179 active construction products; photos, units, multi-category filters, search, sorting, cart and cargo weight.');
 
 const first=store.readCart().products[0];
 store.addCartProduct({...first,quantity:3});
@@ -90,9 +90,9 @@ assert.equal(favorites.readFavorites().length,1,'Stored IDs are validated and de
 console.log('PASS: favorites save/remove, survive refresh, include transports and supplier offers, combine with filters, and handle corrupt storage.');
 
 const links=load('components/catalog-links.ts',{}, {URLSearchParams});
-assert.equal(catalog.completeMarketplaceCatalog.length,213,'Supplier index includes all existing catalog offers');
+assert.equal(catalog.completeMarketplaceCatalog.length,212,'Supplier index includes all existing catalog offers');
 const refs=catalog.groupCatalogReferences(catalog.completeMarketplaceCatalog);
-assert.equal(refs.reduce((sum,ref)=>sum+ref.offers.length,0),213,'No offers disappear from the product index');
+assert.equal(refs.reduce((sum,ref)=>sum+ref.offers.length,0),212,'No offers disappear from the product index');
 assert.equal(new Set(refs.map(ref=>ref.id)).size,refs.length);
 for(const product of catalog.completeMarketplaceCatalog)assert.ok(product.productType&&product.model&&product.referenceCode&&product.referenceId,product.id);
 for(const supplier of catalog.cementSuppliers){
@@ -125,7 +125,7 @@ assert.equal(restoredFilters.query,special.query);
 assert.equal(restoredFilters.model,special.model);
 assert.equal(restoredFilters.categories.join('|'),special.categories.join('|'),'Repeated category parameters survive refresh/back navigation');
 assert.equal(restoredFilters.favoritesOnly,true);
-console.log(`PASS: ${refs.length} indexed references / 213 offers, provider counters, every product deep link, exact models, URL encoding and refresh-safe filter state.`);
+console.log(`PASS: ${refs.length} indexed references / 212 offers, provider counters, every product deep link, exact models, URL encoding and refresh-safe filter state.`);
 
 const northOffers=catalog.filterMarketplaceProducts({...defaults,query:'Corralón Norte'},catalog.completeMarketplaceCatalog);
 for(const ref of catalog.groupCatalogReferences(northOffers)){

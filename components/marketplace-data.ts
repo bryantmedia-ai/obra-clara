@@ -1,5 +1,5 @@
 import {productContent,productDimensions} from "./product-facets";
-import {departmentMatches} from "./catalog-departments";
+import {constructionProduct,departmentMatches} from "./catalog-departments";
 import rows from "./marketplace-products.json";
 import detailRows from "./catalog-product-details.json";
 type ProductDetails={productType:string;model:string;referenceId:string;referenceCode:string};
@@ -12,7 +12,7 @@ export const cementSuppliers = [
 ];
 
 export const productCategories=["Corralón","Ferretería","Electricidad","Cables y conductores","Grupos electrógenos","Herramientas","Sanitarios","Pinturas","Seguridad e indumentaria"];
-export const marketplaceProducts=rows.map(({supplierIndex,...product})=>({...product,...details[product.id],supplier:cementSuppliers[supplierIndex]}));
+export const marketplaceProducts=rows.filter(constructionProduct).map(({supplierIndex,...product})=>({...product,...details[product.id],supplier:cementSuppliers[supplierIndex]}));
 export type MarketplaceProduct=typeof marketplaceProducts[number];
 export type Product=import("../lib/pricing-model").PriceTerms & Omit<MarketplaceProduct,"category"|"format"|"saleLabel"|"stockUnit"> & {content?:string;dimensions?:string;color?:string;minimumOrder?:number;deliveryDays?:number;depositPercent?:number;department?:string;category?:string;format?:string;saleLabel?:string;stockUnit?:string};
 export type CatalogFilters={purchaseMode?:string;content?:string;dimensions?:string;color?:string;sellerType?:string;companySize?:string;department?:string;minPrice?:string;maxPrice?:string;categories:string[];query:string;supplier:string;brand:string;format:string;today:boolean;shippingIncludedOnly:boolean;sort:string;favoriteIds?:string[];productType?:string;model?:string;productId?:string;referenceId?:string};
