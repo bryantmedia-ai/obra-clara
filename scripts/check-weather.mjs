@@ -1,0 +1,23 @@
+import fs from 'node:fs';
+import vm from 'node:vm';
+import ts from 'typescript';
+import assert from 'node:assert/strict';
+function load(file,deps={},extras={}){const exports={};vm.runInNewContext(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,{exports,require:n=>deps[n],URL,URLSearchParams,Response,AbortSignal,...extras});return exports;}
+const model=load('lib/weather-model.ts');
+assert.equal(model.projectWeatherLocation({name:'Torre Palermo',city:'CABA'}).city,'Palermo');
+assert.equal(model.projectWeatherLocation({name:'Torre Palermo',city:'Córdoba',province:'Córdoba'}).city,'Córdoba','The saved city takes precedence over the project name');
+assert.equal(model.projectWeatherLocation({name:'Pilar Offices',zone:'Pilar · Zona Norte'}).city,'Pilar');
+assert.equal(model.projectWeatherLocation({name:'Nueva obra'}),null,'Missing locations never silently become Buenos Aires');
+assert.equal(model.weatherCondition(95).label,'Tormentas');
+assert.equal(model.weatherCondition(0,false).emoji,'🌙');
+assert.equal(model.rainyDay({probability:50,rain:0}),true);
+assert.equal(model.rainyDay({probability:10,rain:2}),true);
+assert.equal(model.rainyDay({probability:null,rain:null}),false);
+let fail=false;const urls=[];
+const route=load('app/api/weather/route.ts',{'../../../lib/weather-model':model},{fetch:async(url)=>{urls.push(url);if(fail)throw Error('offline');return {ok:true,json:async()=>url.includes('geocoding')?{results:[{country_code:'AR',name:'San Martín',admin1:'Mendoza',latitude:-33,longitude:-68},{country_code:'AR',name:'San Martín',admin1:'Buenos Aires',latitude:-34.57,longitude:-58.54}]}:{current:{time:'2026-11-06T16:00',temperature_2m:23.9,weather_code:80,is_day:1,precipitation:.5},daily:{time:['2026-11-06'],weather_code:[80],temperature_2m_max:[25],temperature_2m_min:[16],precipitation_sum:[5.9],precipitation_probability_max:[82]}}};}});
+const call=(city='Buenos Aires',province='CABA')=>route.GET(new Request('http://localhost/api/weather?'+new URLSearchParams({city,province})));
+let response=await call();assert.equal(response.status,200);let data=await response.json();assert.equal(data.current.temperature,23.9);assert.equal(data.days[0].rain,5.9);assert.equal(data.days[0].probability,82);assert.match(response.headers.get('Cache-Control'),/s-maxage=900/);
+await call('San Martín','Mendoza');assert.equal(new URL(urls.at(-1)).searchParams.get('latitude'),'-33','Geocoding must match the saved province');
+response=await call('X');assert.equal(response.status,400);
+fail=true;response=await call();assert.equal(response.status,503,'Provider failures return an unavailable state, never fabricated weather');
+console.log('PASS weather location resolution, province matching, rain thresholds, real response mapping, cache, validation and provider failure.');

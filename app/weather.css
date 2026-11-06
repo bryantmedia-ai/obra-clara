@@ -1,0 +1,65 @@
+.oc-overview .ov-toolbar{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;width:100%}
+.ov-heading-weather{display:flex;align-items:flex-start;justify-content:space-between;gap:28px;min-width:0}
+.ov-heading-weather>div{min-width:0;flex:1;padding-top:4px}
+.oc-overview .ov-controls{width:100%;justify-content:flex-start;display:flex;gap:12px}
+.oc-overview .ov-controls>label{flex:1;display:grid;gap:8px}
+.oc-overview .ov-controls select{width:100%;max-width:none;min-height:44px}
+.weather-widget{flex:0 0 300px;width:300px;max-width:100%;border-radius:18px;padding:16px 18px 12px;color:white;background:radial-gradient(ellipse at 100% 0%,#b8d9ea66,transparent 60%),linear-gradient(145deg,#2d648b,#4083af);box-shadow:0 5px 20px #2b537a12;overflow:hidden}
+.weather-widget header{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px}
+.weather-widget header>strong{font-weight:550;letter-spacing:.1px}
+.weather-widget header>span{font-size:10px;color:#e0effb}
+.weather-now{display:flex;align-items:center;gap:10px;margin:9px 0 7px}
+.weather-current-emoji{font-size:34px;line-height:1.2}
+.weather-now>strong{font-weight:350;font-size:43px;letter-spacing:-2px;line-height:1}
+.weather-now>div{display:grid;gap:5px;min-width:0;margin-left:auto}
+.weather-now>div>span{font-size:12px;line-height:1.4}
+.weather-now small{font-size:10px;color:#e0effb;white-space:nowrap}
+.oc-overview .weather-widget .weather-rain-today{font-size:10px;color:#e0effb;margin:0 0 10px;line-height:1.5}
+.weather-days{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+.weather-days>div{display:flex;align-items:center;flex-direction:column;gap:5px;min-width:0;padding:7px 2px;border-radius:8px;background:#ffffff12;font-size:10px}
+.weather-day-emoji{font-size:19px;line-height:1.3}
+.weather-days strong{font-size:10px;font-weight:550;white-space:nowrap}
+.weather-days small{font-size:9px;opacity:.72;font-weight:400}
+.weather-day-rain{font-size:9px;white-space:nowrap}
+.weather-widget footer{display:flex;justify-content:space-between;gap:10px;font-size:8px;color:#dfedfa;margin-top:10px;line-height:1.5}
+.weather-widget a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.weather-state{min-height:150px;display:flex;align-items:center;justify-content:center;gap:12px;flex-direction:column;font-size:12px;text-align:center;line-height:1.6}
+.weather-state button{padding:7px 12px;border:1px solid #ffffff66;border-radius:7px;color:white;background:#ffffff15}
+.weather-alerts{display:grid;gap:10px}
+.weather-alerts:empty{display:none}
+.weather-rain-alert{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid #c4dce9;border-radius:12px;background:#eaf3fa;color:#285b7b}
+.weather-alert-emoji{width:36px;flex:0 0 36px;text-align:center;font-size:26px;line-height:1.3}
+.weather-rain-alert>div{flex:1;min-width:0;display:grid;gap:5px}
+.weather-alert-label{font-size:10px;color:#567b94;line-height:1.5}
+.weather-rain-alert strong{font-size:13px;font-weight:550;line-height:1.6}
+.weather-rain-alert p{margin:0;font-size:11px;line-height:1.5;color:#53758c}
+.weather-rain-alert>a{font-size:11px;line-height:1.5;white-space:nowrap;color:#285b7b;text-decoration:underline;text-underline-offset:3px}
+.project-weather{border:1px solid var(--ui-border,#e0ded4);border-radius:13px;background:white;padding:22px;min-width:0;scroll-margin-top:100px}
+.project-weather>header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px}
+.project-weather h3{margin:0 0 6px;font-size:16px;font-weight:600;color:var(--ui-text,#26372c)}
+.project-weather>header p{margin:0;color:var(--ui-muted,#68745f);font-size:12px;line-height:1.6}
+.project-weather>header button{flex:none;padding:6px 0;border:0;background:transparent;color:#37759a;font-size:12px;min-height:32px}
+.project-weather-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.project-weather-card{border:1px solid #e1e7e9;border-radius:11px;background:#fbfcfd;min-width:0;overflow:hidden}
+.project-weather-card.has-rain{border-color:#cbdfea;background:#f5f9fc}
+.project-weather-card summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 10px;padding:15px 16px;list-style:none;cursor:pointer}
+.project-weather-card summary::-webkit-details-marker{display:none}
+.project-weather-identity{display:grid;gap:5px;min-width:0}
+.project-weather-identity strong{font-size:13px;font-weight:550;color:var(--ui-text,#26372c);line-height:1.4;overflow-wrap:anywhere}
+.project-weather-identity>span{font-size:11px;color:#71808c}
+.project-weather-current{display:flex;align-items:center;justify-content:center;gap:7px;font-size:23px;font-weight:450;color:#326c92;white-space:nowrap;align-self:start}
+.project-weather-current>span{font-size:24px}
+.project-weather-outlook{grid-column:1/-1;font-size:11px;line-height:1.6;color:#568068}
+.project-weather-outlook.rainy{color:#326f95}
+.project-weather-expand{grid-column:1/-1;font-size:10px;color:#6c7c89;display:flex;justify-content:space-between;gap:12px;margin-top:2px}
+.project-weather-card[open] .project-weather-expand>span{transform:rotate(180deg)}
+.project-weather-card>.weather-days{border-top:1px solid #dce8ee;margin:0 15px;padding:10px 0;color:#476378}
+.project-weather-card .weather-days>div.rainy{background:#e2eff8}
+.project-weather-error{padding:0 16px 14px;font-size:12px;line-height:1.6;color:#71808c;margin:0}
+.project-weather-more{display:block;margin:17px auto 0;border:1px solid #d5e1e9;border-radius:8px;padding:9px 14px;background:white;color:#37759a;font-size:12px;min-height:40px}
+.project-weather>footer{font-size:10px;color:#71808c;line-height:1.6;margin-top:17px}
+.project-weather>footer a{color:#37759a;text-decoration:underline;text-underline-offset:2px}
+.weather-widget button:focus-visible,.project-weather summary:focus-visible,.project-weather button:focus-visible,.weather-rain-alert a:focus-visible{outline:2px solid #f96b17;outline-offset:4px}
+@media(min-width:1500px){.project-weather-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:800px){.ov-heading-weather{gap:18px}.weather-widget{flex-basis:270px;width:270px;padding:14px}.ov-heading-weather>div{padding-top:0}.oc-overview .ov-heading-weather h2{font-size:23px}.weather-widget footer{font-size:8px}.weather-rain-alert{align-items:flex-start;flex-wrap:wrap}.weather-rain-alert>a{margin-left:50px;white-space:normal}.project-weather{padding:18px 16px}.project-weather>header{flex-wrap:wrap;gap:10px}}
+@media(max-width:600px){.ov-heading-weather{flex-direction:column;align-items:stretch;gap:18px}.weather-widget{width:100%;flex:auto;padding:16px 18px}.weather-now>div{margin-left:10px}.weather-days>div{padding:8px 3px}.weather-days>div>span:first-child{font-size:11px}.weather-days strong{font-size:12px}.weather-days small{font-size:10px}.weather-day-rain{font-size:10px}.weather-widget footer{font-size:9px}.oc-overview .ov-controls{flex-wrap:wrap}.oc-overview .ov-controls>label{flex-basis:100%}.oc-overview .ov-controls>.ov-export{width:100%}.project-weather-grid{grid-template-columns:minmax(0,1fr)}.weather-rain-alert{padding:14px;gap:10px}.weather-rain-alert strong{font-size:13px}.weather-rain-alert>a{margin-left:46px}.project-weather>header button{min-height:40px}.project-weather-card summary{padding:15px}}
