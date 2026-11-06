@@ -1,0 +1,12 @@
+"use client";
+import {workspaceToken,sharedAPIPath} from './shared-demo';
+import {orderChunkSize,orderFileType,validateOrderAttachment,type OrderAttachment} from '../lib/order-attachments';
+import type {OrderChatRole} from '../lib/order-chat-model';
+async function fileRequest(path:string,init:RequestInit={}){let last:unknown;for(let attempt=0;attempt<3;attempt++){try{const response=await fetch(sharedAPIPath(path),{...init,headers:{...init.headers,Authorization:'Bearer '+workspaceToken()},cache:'no-store'});if(response.status>=500&&attempt<2)continue;if(!response.ok){const data=await response.json().catch(()=>({error:'No se pudo guardar o abrir el archivo.'}));throw new Error(data.error||'No se pudo guardar o abrir el archivo.');}return response;}catch(error){last=error;if(error instanceof Error&&!(error instanceof TypeError))throw error;}}throw last instanceof Error?last:new Error('No se pudo conectar con los archivos.');}
+export async function saveOrderFile(file:File,orderId:string,role:OrderChatRole,supplierSlug:string|undefined,onProgress:(percentage:number)=>void){
+ const reference=validateOrderAttachment({id:crypto.randomUUID(),orderId,name:file.name,type:orderFileType(file.name,file.type),size:file.size},orderId);
+ const start=await (await fileRequest('order-files',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...reference,role,supplierSlug})})).json() as {file:OrderAttachment;ready:boolean;chunkSize:number};
+ if(!start.ready){for(let offset=0,part=0;offset<file.size;offset+=start.chunkSize,part++){await fileRequest('order-files/'+reference.id+'/chunks/'+part,{method:'POST',headers:{'Content-Type':'application/octet-stream'},body:file.slice(offset,offset+start.chunkSize)});onProgress(Math.round(Math.min(file.size,offset+start.chunkSize)/file.size*100));}}
+ const complete=await (await fileRequest('order-files/'+reference.id+'/complete',{method:'POST'})).json() as {file:OrderAttachment};return validateOrderAttachment(complete.file,orderId);
+}
+export async function readOrderFile(file:OrderAttachment){const chunks:Blob[]=[];for(let offset=0,index=0;offset<file.size;offset+=orderChunkSize,index++){const response=await fileRequest('order-files/'+encodeURIComponent(file.id)+'/chunks/'+index),chunk=await response.blob();if(chunk.size!==Math.min(orderChunkSize,file.size-offset))throw new Error('El archivo recibido está incompleto. Reintentá descargarlo.');chunks.push(chunk);}return new Blob(chunks,{type:file.type});}

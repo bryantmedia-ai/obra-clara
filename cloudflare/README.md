@@ -70,3 +70,9 @@ These checks do not substitute for production/browser verification.
 
 `node scripts/check-cloudflare-live.mjs` exercises the deployed Worker with
 a separate QA token saved only under the ignored private directory.
+
+## Order-chat attachments
+
+`order_files` stores private metadata and `order_file_chunks` stores binary parts separately from workspace JSON. Files accept up to 20 MiB each, six per message. Uploads and reads use authenticated `/api/order-files` endpoints with 512 KiB parts; this keeps video transfers bounded per Worker request. A file becomes readable by the other app only after upload completion and association with a persisted message on the same order. Published files cannot be overwritten. The client fetches authenticated parts and creates a temporary browser URL for playback or download; no file is made public.
+
+The existing free D1 database is used without adding a paid service. Metadata reserves at most 100 MiB per workspace and 350 MiB across attachment storage, leaving room for operational records. Interrupted, unsent uploads remain private and are not silently removed. Run `scripts/check-order-chat.mjs` and `scripts/check-cloudflare-backend.mjs` for message validation, byte-for-byte round trips, incomplete uploads, supplier/order validation and workspace isolation.

@@ -1,3 +1,4 @@
+import {handleOrderFiles,storedAttachments} from "./order-files";
 import {reduceDemoProjects} from '../lib/project-scope-migration';
 import {applyCommand, emptyState, snapshot, type Command, type SharedState} from '../lib/demo-model';
 
@@ -46,14 +47,15 @@ export async function handle(request: Request, env: Env): Promise<Response> {
     try {await env.DB.prepare('SELECT 1 AS ok').first(); return json({ok: true, storage: 'd1'});}
     catch {return json({ok: false}, 503);}
   }
-  const inbox=new URL(request.url).pathname === '/api/messages';
-  if (!inbox && new URL(request.url).pathname !== '/api/demo') return json({error: 'Ruta no encontrada.'}, 404);
+  const inbox=new URL(request.url).pathname === '/api/messages';const files=new URL(request.url).pathname.startsWith('/api/order-files');
+  if (!inbox && !files && new URL(request.url).pathname !== '/api/demo') return json({error: 'Ruta no encontrada.'}, 404);
   if (request.method === 'OPTIONS') return new Response(null, {status: 204, headers: h});
   if (!(inbox?['GET']:['GET','POST']).includes(request.method)) return json({error: 'Método no permitido.'}, 405);
   const token = request.headers.get('authorization')?.match(/^Bearer ([a-f0-9]{64})$/)?.[1];
   if (!token) return json({error: 'Sesión requerida.'}, 401);
   const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
   const id = Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, '0')).join('');
+  if(files){try{return await handleOrderFiles(request,env,id,h);}catch(error){return json({error:error instanceof Error?error.message:'No se pudo guardar el archivo.'},400);}}
   let command: Command | null = null;
   try {
     if (request.method === 'POST') {
@@ -71,6 +73,7 @@ export async function handle(request: Request, env: Env): Promise<Response> {
       const loaded: SharedState = row ? JSON.parse(row.state) : emptyState();
       if(inbox)return json({revision:loaded.revision,orderThreads:loaded.orderThreads??[]});
       const state=reduceDemoProjects(loaded);
+      if(command?.type==='orderchat.send'){const payload=command.payload as Record<string,unknown>;try{payload.attachments=await storedAttachments(env,id,String(payload.orderId),payload.attachments);}catch(error){return json({error:error instanceof Error?error.message:'Adjuntos inválidos.'},400);}}
       let next = state;
       if (command) {
         try {next = applyCommand(state, command);}
