@@ -9,7 +9,7 @@ import {financeActors,contractBalance,contractLimits,pendingAmount,requiredAppro
 import {brickAction,readBrickUI,setBrickDraft,openBrick} from './brick-store';
 const cash=(n:number)=>toMajor(n).toLocaleString('es-AR',{minimumFractionDigits:0,maximumFractionDigits:2})+' ARGt';
 const short=(n:number)=>Math.abs(n)>=100000000?(toMajor(n)/1000000).toLocaleString('es-AR',{maximumFractionDigits:2})+' M':Math.abs(n)>=100000? (toMajor(n)/1000).toLocaleString('es-AR',{maximumFractionDigits:1})+' mil':toMajor(n).toLocaleString('es-AR',{maximumFractionDigits:2});
-const date=(s:string)=>new Date(s.length===10?s+'T12:00:00Z':s).toLocaleDateString('es-AR',{day:'numeric',month:'short'});
+const date=(s:string)=>{const value=new Date(s.length===10?s+'T12:00:00Z':s);return Number.isNaN(value.getTime())?'A coordinar':value.toLocaleDateString('es-AR',{day:'numeric',month:'short'});};
 const time=(s:string)=>new Date(s).toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Argentina/Buenos_Aires'});
 const tabs=[['overview','Visión general'],['contracts','Contratos y reservas'],['payments','Pagos y anticipos'],['movements','Movimientos'],['reconcile','Conciliación'],['beneficiaries','Beneficiarios'],['audit','Auditoría'],['rules','Reglas y conexión']];
 type Selection={type:'contract'|'request'|'operation'|'fund'|'control'|'beneficiary'|'wallet'|'statement'|'movement';id?:string;kind?:FinanceKind;control?:'pause'|'dispute'|'cancelAdvance'|'source'};
