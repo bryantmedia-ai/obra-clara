@@ -10,7 +10,7 @@ import {ProviderCompany} from "./provider-company";
 import Link from 'next/link';
 import {useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faHouse,faBoxOpen,faBoxesStacked,faListCheck,faTruck,faWallet,faFileInvoice,faStore,faRobot,faArrowUpRightFromSquare,faPlus,faArrowRight,faUsers,faCircleQuestion} from '@fortawesome/free-solid-svg-icons';
+import {faChartLine,faBoxOpen,faBoxesStacked,faListCheck,faTruck,faWallet,faFileInvoice,faStore,faRobot,faArrowUpRightFromSquare,faPlus,faArrowRight,faUsers,faCircleQuestion} from '@fortawesome/free-solid-svg-icons';
 import {RoleSelector,SharedSync,switchApp,useShared} from './shared-demo';
 import {SupplierAccount} from './supplier-account';
 import {useActiveProvider,useProviders,setActiveProvider} from './provider-store';
@@ -19,7 +19,7 @@ import {SharedOrders,formatMoney} from './shared-orders';
 import {orderAccount} from '../lib/account-summary';
 import {BrickPage,BrickPopupHost} from './brick-chat';
 import {openBrick} from './brick-store';
-const menu=[['','Resumen',faHouse],['cuentas','Fondos',faWallet],['ordenes','Ventas',faListCheck],['despachos','Despachos',faTruck],['transportes','Transportes',faTruck],['cotizaciones','Cotizaciones',faFileInvoice],['precios','Precios',faWallet],['productos','Productos',faBoxOpen],['stock','Stock',faBoxesStacked],['comprobantes','Comprobantes',faFileInvoice],['empresa','Mi empresa',faStore],['agente','Brick',faRobot]] as const;
+const menu=[['','Resumen',faChartLine],['cuentas','Fondos',faWallet],['ordenes','Ventas',faListCheck],['despachos','Despachos',faTruck],['transportes','Transportes',faTruck],['cotizaciones','Cotizaciones',faFileInvoice],['precios','Precios',faWallet],['productos','Productos',faBoxOpen],['stock','Stock',faBoxesStacked],['comprobantes','Comprobantes',faFileInvoice],['empresa','Mi empresa',faStore],['agente','Brick',faRobot]] as const;
 export function ProviderApp({route}:{route:string}){
  const [stockSearch,setStockSearch]=useState(''),[stockPage,setStockPage]=useState(1);const [stockMessage,setStockMessage]=useState(''),[stockBusy,setStockBusy]=useState('');const section=menu.some(([r])=>r===route)?route:'';const providers=useProviders();const active=useActiveProvider();const provider=providers.find(v=>v.slug===active)??providers[0];const offers=useSupplierOffers().filter(v=>v.supplier.slug===provider.slug);const {state,ready}=useShared();const orders=(state?.orders??[]).filter(o=>o.supplierSlug===provider.slug);const title=menu.find(([r])=>r===section)!;const receivable=orders.reduce((n,o)=>n+orderAccount(o,state?.finance).receivable,0);const held=orders.reduce((n,o)=>n+orderAccount(o,state?.finance).held,0);
  const stockRows=offers.filter(p=>`${p.name} ${p.brand} ${p.referenceCode}`.toLowerCase().includes(stockSearch.toLowerCase()));const stockPages=Math.max(1,Math.ceil(stockRows.length/12)),currentStockPage=Math.min(stockPage,stockPages);

@@ -43,6 +43,7 @@ import {
   faFilePdf,
   faGear,
   faHouse,
+  faChartLine,
   faLink,
   faListCheck,
   faLocationDot,
@@ -67,7 +68,7 @@ import { useMemo, useState } from "react";
 type Route = string;
 
 const nav = [
-  ["dashboard", "Resumen", faHouse],
+  ["dashboard", "Resumen", faChartLine],
   ["fondos", "Fondos", faWallet],
   ["compras", "Compras", faListCheck],
   ["proyectos", "Proyectos", faBuilding],
