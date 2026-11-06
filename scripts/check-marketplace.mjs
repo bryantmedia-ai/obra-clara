@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import ts from 'typescript';
 import assert from 'node:assert/strict';
-function load(file,dependencies={},extra={}){const exports={};vm.runInNewContext(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,{exports,require:name=>dependencies[name]??{},...extra});return exports;}
+import {webcrypto} from 'node:crypto';
+function load(file,dependencies={},extra={}){const exports={};vm.runInNewContext(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,{exports,crypto:webcrypto,require:name=>dependencies[name]??{},...extra});return exports;}
 const rows=JSON.parse(fs.readFileSync('components/marketplace-products.json','utf8'));
 const departments=load('components/catalog-departments.ts');
 const catalog=load('components/marketplace-data.ts',{'./catalog-departments':departments,'./marketplace-products.json':{default:rows},'./catalog-product-details.json':{default:JSON.parse(fs.readFileSync('components/catalog-product-details.json','utf8'))}});

@@ -55,6 +55,19 @@ export function applyCommand(original:SharedState,c:Command):SharedState{
   else if(c.type==='order.receipt'){const amount=Number(p.amount);if(!['Factura','Remito','Recibo de pago'].includes(String(p.receiptType))||!String(p.reference??'').trim()||!Number.isFinite(amount)||amount<0)fail('Comprobante inválido.');if(p.receiptType==='Recibo de pago'){if(amount<=0||amount>finances(order).receivable)fail('El importe supera el saldo liberado por cobrar.');order.paid+=amount;}order.receipts.unshift({id:c.id,type:String(p.receiptType),reference:String(p.reference).slice(0,120),amount,date:now});}
   else fail('Operación no reconocida.');order.updatedAt=now;
  }
+ // A buyer confirmation moves existing wallet funds into escrow atomically.
+ // Supplier acceptance and subsequent receipts must never create new capital.
+ if(c.type==='order.create'||c.type==='quote.accept'){
+  const created=s.orders.filter(order=>!original.orders.some(previous=>previous.id===order.id));
+  if(created.length){
+   s.finance=operationalFinance(s,now);
+   for(const [index,order]of created.entries()){
+    const contract=s.finance.contracts.find(contract=>contract.orderId===order.id)!;
+    const amount=contract.principal-contract.funded;
+    if(amount>0)s.finance=applyFinanceCommand(s.finance,'finance.fund',{contractId:contract.id,amount,actor:'jm',reason:'Reserva de fondos confirmada por el comprador para '+order.id},c.id+'-fund-'+index,now);
+   }
+  }
+ }
  s.revision++;s.commands=[...s.commands,c.id].slice(-2000);return s;
 }
 
