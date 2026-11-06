@@ -43,3 +43,11 @@
 .date-picker-dialog.date-picker-popover>footer{padding:10px 12px;margin-top:10px}
 .date-picker-dialog.date-picker-popover>footer button{min-height:36px}
 @media(max-width:900px){.oc-funds .fn-context>.project-checklist{grid-column:1/-1}}
+.report-projects-only{display:flex;align-items:flex-end;gap:14px;padding:16px 18px;background:#fff;border:1px solid var(--ui-border);border-radius:12px}
+.report-projects-only>.project-checklist{flex:1}
+.report-projects-only .button{height:44px}
+.pc-workspace>.date-range-filter,.shared-orders>.date-range-filter,.product-quotes .date-range-filter,.transport-request-workspace>.date-range-filter,.vendor-request-list>.date-range-filter{margin:20px 0}
+@media(max-width:600px){.report-projects-only{align-items:stretch;flex-direction:column}}
+.date-range-fields:has(>.project-checklist+.date-range-reset:last-child){grid-template-columns:minmax(0,1fr) auto}
+.date-range-fields:has(>.date-range-reset:only-child){display:flex;justify-content:flex-end;padding-top:10px}
+@media(max-width:900px){.date-range-fields:has(>.project-checklist+.date-range-reset:last-child){grid-template-columns:1fr}}
