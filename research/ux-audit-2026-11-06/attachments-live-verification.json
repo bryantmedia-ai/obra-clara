@@ -1,0 +1,13 @@
+{
+  "at": "2026-11-06T20:30:11.572Z",
+  "passed": true,
+  "bytes": 1048593,
+  "parts": 3,
+  "sha256": "f4bf9b8dec6e3e28b2ec33266145d244fe97a6bce1ec054ace053bab67d2ef9a",
+  "checks": [
+    "real D1 BLOB chunks over 1 MB",
+    "attachment-only message",
+    "binary integrity",
+    "persistent order association"
+  ]
+}
