@@ -1,0 +1,45 @@
+/* Shared date and multi-project filters. Popovers remain above clipped panels. */
+.scope-filter-label{display:block;font-size:13px;line-height:20px;color:var(--ui-muted);margin-bottom:6px}
+.project-checklist{min-width:0}
+.project-checklist-trigger{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;height:44px;padding:10px 13px;border:1px solid var(--ui-border);border-radius:8px;background:#fff;color:var(--ui-text);font:inherit;font-size:14px;cursor:pointer;text-align:left}
+.project-checklist-trigger>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.project-checklist-trigger>span:last-child{color:var(--orange)}
+.project-checklist-popover{position:fixed;inset:auto;margin:0;max-height:calc(100dvh - 24px);padding:0;border:1px solid var(--ui-border);border-radius:12px;background:#fff;box-shadow:0 12px 44px #18291c33;color:var(--ui-text);overflow:auto;font-family:inherit}
+.project-checklist-popover::backdrop,.date-picker-popover::backdrop{background:transparent;backdrop-filter:none}
+.project-checklist-popover>header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--ui-border)}
+.project-checklist-popover>header strong{font-size:15px;font-weight:600}
+.project-checklist-popover>header button{width:36px;height:36px;border:0;background:transparent;font-size:23px;cursor:pointer;color:var(--ui-muted)}
+.project-checklist-search{display:block;padding:12px 14px 0}
+.project-checklist-search input{width:100%;height:42px;border:1px solid var(--ui-border);border-radius:7px;background:#faf9f6;padding:10px 12px;font:inherit;font-size:14px}
+.project-checklist-actions{display:flex;gap:14px;flex-wrap:wrap;padding:8px 14px}
+.project-checklist-actions button{padding:6px 0;min-height:36px;background:transparent;border:0;color:#bd4c11;font:inherit;font-size:12px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.project-checklist-popover fieldset{border:0;padding:0;margin:0;min-width:0}
+.project-checklist-popover fieldset label{display:flex;align-items:center;gap:12px;padding:12px 16px;min-height:46px;cursor:pointer;font-size:14px;line-height:1.5;color:var(--ui-text)}
+.project-checklist-popover fieldset label:hover{background:#fff6ee}
+.project-checklist-popover input[type=checkbox]{appearance:auto;flex:0 0 18px;width:18px;height:18px;min-height:0;margin:0;accent-color:var(--orange)}
+.project-checklist-all{border-bottom:1px solid var(--ui-border);font-weight:600}
+.project-checklist-options{max-height:240px;overflow:auto}
+.project-checklist-options label span{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.project-checklist-options small{font-size:11px;font-weight:600;color:#bd4c11}
+.project-checklist-options p{padding:14px;font-size:13px;color:var(--ui-muted)}
+.project-checklist-popover>footer{padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--ui-border);font-size:12px;color:var(--ui-muted)}
+.project-checklist-popover>footer button{min-height:38px;border:0;border-radius:7px;background:var(--orange);color:#fff;padding:9px 16px;font:inherit;font-weight:600;cursor:pointer}
+.project-checklist :is(button,input):focus-visible,.project-checklist-popover :is(button,input):focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.scope-filter-dates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:18px 18px 0}
+.scope-date-error{padding:0 18px;color:#ac3829;font-size:13px;line-height:1.5}
+.date-range-presets select{width:auto;min-height:40px;padding:8px 30px 8px 12px;border:1px solid var(--ui-border);border-radius:8px;background:white;font:inherit;font-size:13px;color:var(--ui-text)}
+.oc-overview .date-range-fields{grid-template-columns:minmax(0,1fr) auto auto}
+.oc-overview .date-range-filter{width:100%}
+.date-picker-dialog.date-picker-popover{position:fixed;inset:auto;margin:0;padding:0;max-height:calc(100dvh - 24px);width:min(336px,calc(100vw - 24px));border-radius:12px;box-shadow:0 12px 44px #18291c33}
+.date-picker-selects{display:flex;align-items:center;gap:3px;min-width:0}
+.date-picker-dialog .date-picker-selects select{width:auto;min-height:38px;max-width:125px;border:0;box-shadow:none;background:#fff;padding:7px 20px 7px 5px;color:var(--ui-text);font:inherit;font-size:13px;text-transform:capitalize}
+.date-picker-dialog .date-picker-month{gap:5px;padding:10px 12px}
+.date-picker-month button{width:36px;height:36px;flex-shrink:0}
+@media(max-width:900px){.scope-filter-dates{padding:16px 16px 0;gap:12px}.date-range-filter .date-range-presets{display:flex;flex-wrap:wrap}.date-range-presets select{flex:1 1 150px}.oc-overview .date-range-fields{grid-template-columns:1fr}.project-checklist-trigger{font-size:16px}.project-checklist-search input{font-size:16px}.date-picker-dialog .date-picker-selects select{font-size:14px}.date-picker-dialog.date-picker-popover{right:auto;bottom:auto}.date-range-filter .date-range-fields>button{width:100%}}
+@media(max-width:450px){.scope-filter-dates{grid-template-columns:1fr}.date-picker-dialog .date-picker-days button{height:40px}}
+.date-picker-dialog.date-picker-popover>header{display:none}
+.date-picker-dialog.date-picker-popover .date-picker-days button{height:36px}
+.date-picker-dialog.date-picker-popover .date-picker-week span{padding:5px 0}
+.date-picker-dialog.date-picker-popover>footer{padding:10px 12px;margin-top:10px}
+.date-picker-dialog.date-picker-popover>footer button{min-height:36px}
+@media(max-width:900px){.oc-funds .fn-context>.project-checklist{grid-column:1/-1}}

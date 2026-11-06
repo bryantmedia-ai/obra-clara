@@ -22,6 +22,7 @@ import "./workspace-ui.css";
 import "./mobile.css";
 import "./interaction.css";
 import "./weather.css";
+import "./scope-filters.css";
 
 export const metadata: Metadata = {
   title: "Obra Clara",
