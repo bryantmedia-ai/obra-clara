@@ -1,0 +1,20 @@
+{
+  "pass": true,
+  "stores": 1197,
+  "corralones": 125,
+  "illustratedReferences": 9818,
+  "categories": {
+    "Corralones": 125,
+    "Sanitarios y plomería": 84,
+    "Electricidad e iluminación": 76,
+    "Ferretería y herramientas": 133,
+    "Fabricantes": 26,
+    "Otras especialidades": 753
+  },
+  "mappedStores": 1069,
+  "precision": {
+    "locality": 981,
+    "street": 50,
+    "address": 38
+  }
+}

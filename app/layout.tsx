@@ -18,6 +18,7 @@ import "./overview.css";
 import "./funds.css";
 import "./purchases.css";
 import "./pricing.css";
+import "../public/maps/leaflet.css";
 import "./supplier-directory.css";
 import "./workspace-ui.css";
 import "./mobile.css";
