@@ -13,6 +13,7 @@ import "./projects.css";
 import "./retail-marketplace.css";
 import "./navigation.css";
 import "./brick.css";
+import "./order-inbox.css";
 import "./overview.css";
 import "./funds.css";
 import "./purchases.css";

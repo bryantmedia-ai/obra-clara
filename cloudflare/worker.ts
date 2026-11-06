@@ -46,9 +46,10 @@ export async function handle(request: Request, env: Env): Promise<Response> {
     try {await env.DB.prepare('SELECT 1 AS ok').first(); return json({ok: true, storage: 'd1'});}
     catch {return json({ok: false}, 503);}
   }
-  if (new URL(request.url).pathname !== '/api/demo') return json({error: 'Ruta no encontrada.'}, 404);
+  const inbox=new URL(request.url).pathname === '/api/messages';
+  if (!inbox && new URL(request.url).pathname !== '/api/demo') return json({error: 'Ruta no encontrada.'}, 404);
   if (request.method === 'OPTIONS') return new Response(null, {status: 204, headers: h});
-  if (!['GET', 'POST'].includes(request.method)) return json({error: 'Método no permitido.'}, 405);
+  if (!(inbox?['GET']:['GET','POST']).includes(request.method)) return json({error: 'Método no permitido.'}, 405);
   const token = request.headers.get('authorization')?.match(/^Bearer ([a-f0-9]{64})$/)?.[1];
   if (!token) return json({error: 'Sesión requerida.'}, 401);
   const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
@@ -68,6 +69,7 @@ export async function handle(request: Request, env: Env): Promise<Response> {
         return json({error: 'Tu espacio anterior está conservado en Vercel y pendiente de recuperación. No se reemplazaron tus datos.', code: 'MIGRATION_REQUIRED'}, 409);
       }
       const loaded: SharedState = row ? JSON.parse(row.state) : emptyState();
+      if(inbox)return json({revision:loaded.revision,orderThreads:loaded.orderThreads??[]});
       const state=reduceDemoProjects(loaded);
       let next = state;
       if (command) {
