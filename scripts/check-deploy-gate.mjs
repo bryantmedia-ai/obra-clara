@@ -1,0 +1,31 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+
+const desk = fs.readFileSync("components/fuji-escrow-desk.tsx", "utf8");
+const cart = fs.readFileSync("components/cart-page.tsx", "utf8");
+const profile = fs.readFileSync("lib/buyer-profile.ts", "utf8");
+const catalog = fs.readFileSync("components/marketplace-data.ts", "utf8");
+const escrow = fs.readFileSync("lib/fuji-escrow.ts", "utf8");
+const contract = fs.readFileSync("contracts/src/ObraClaraPartialEscrow.sol", "utf8");
+
+assert.match(desk, /eth_requestAccounts/);
+assert.match(desk, /wallet_switchEthereumChain/);
+assert.match(desk, /0xa86a/);
+assert.match(desk, /Firmar despliegue con Core/);
+assert.match(desk, /disabled=\{busy \|\| !official \|\| !account \|\| !onRail\}/);
+assert.doesNotMatch(desk, /deployment == null|deployment === null|!deployment/);
+assert.match(desk, /El vendedor no hace falta para desplegar/);
+assert.match(desk, /El precio de catálogo no es los 5 ARGt/);
+assert.match(profile, /coreWallet: ""/);
+assert.match(profile, /0x621c700f27c2a9631468be51ad7daebe97879b92/);
+assert.match(catalog, /base:16900/);
+assert.match(cart, /No es lo que bloquea el escrow: esta prueba son 5 ARGt/);
+assert.match(cart, /no el precio de catálogo/);
+assert.doesNotMatch(cart, /reserva USDT no está confirmada/);
+assert.match(escrow, /commercialBase\(asset\.decimals/);
+assert.match(escrow, /unitPrice: 0/);
+assert.match(escrow, /addressOf\(payload\.seller, "la vendedora"\)/);
+assert.match(contract, /constructor\(address token_, uint8 expectedDecimals_, uint256 chainId_\)/);
+assert.doesNotMatch(contract, /constructor\([^)]*seller/);
+
+console.log("PASS deploy waits for Core on 43114, ignores the catalog price, and does not invent a seller.");

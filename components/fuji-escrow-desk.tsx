@@ -9,8 +9,9 @@ import {approveSteps} from "../lib/fuji-escrow";
 import {ARBITRUM_CHAIN_ID, AVALANCHE_ARGT, AVALANCHE_CHAIN_ID, TWIN_ADAPTER, TWIN_ARGT_ARBITRUM, canMoveOfficialFunds, type AssetConfig} from "../lib/fuji-asset";
 import type {SharedOrder} from "../lib/demo-model";
 import {BuyerIdentity} from "./buyer-identity";
+import {verifiedArgtBalanceWallet} from "../lib/buyer-profile";
 
-type CoreProvider = {request(args: {method: string; params?: unknown[]}): Promise<unknown>; on?(event: string, listener: () => void): void};
+type CoreProvider = {request(args: {method: string; params?: unknown[]}): Promise<unknown>; on?(event: string, listener: () => void): void; removeListener?(event: string, listener: () => void): void};
 type AssetResponse = AssetConfig;
 function expectedChain(asset?: {chainId?: number}) {
   return "0x" + (asset?.chainId || 43113).toString(16);
@@ -39,7 +40,8 @@ export function FujiEscrowBoard({role, focus}: {role: "Compras" | "Ventas"; focu
   const argt = asset?.symbol === "ARGt";
   const railLive = argt && !!asset?.enabled && !asset.simulation;
   return <section className="fuji-wallet panel" aria-label={argt ? "Compra de cemento en ARGt" : "Compra de cemento en Fuji"}>
-    <p className="escrow-sim-banner">{railLive ? "Riel ARGt habilitado. No hay contrato desplegado ni wallet Core en esta pantalla. Nada se firma ni se reserva solo." : argt ? "SIMULACIÓN · no es producción · mainnet bloqueado hasta configuración real" : asset?.simulation ? "SIMULACIÓN · riel Fuji · no es producción" : "Riel separado. Nada de esta pantalla es un saldo hasta un recibo."}</p>
+    <p className="escrow-sim-banner">{railLive ? "Riel ARGt habilitado. El contrato todavía no existe: lo crea la firma de Core de esta pantalla. El vendedor no hace falta para desplegar. El precio de catálogo no es los 5 ARGt." : argt ? "SIMULACIÓN · no es producción · mainnet bloqueado hasta configuración real" : asset?.simulation ? "SIMULACIÓN · riel Fuji · no es producción" : "Riel separado. Nada de esta pantalla es un saldo hasta un recibo."}</p>
+    {railLive && <p>La billetera de más arriba, si aparece, es USDC de Fuji y no sirve para este despliegue. Core tiene que quedar en Avalanche C-Chain (43114). No cambies a Fuji.</p>}
     <BuyerIdentity/>
     <span className="fn-eyebrow">{argt ? "ARGt · TOKEN DE PESOS · NO ES USD" : "USDT EN FUJI · NO ES EL REGISTRO ARGt"}</span>
     <h2>Compra de 100 bolsas</h2>
@@ -61,7 +63,7 @@ export function EscrowPurchaseNote() {
     }).catch(() => undefined);
     return () => { active = false; };
   }, []);
-  if (asset?.symbol === "ARGt" && asset.enabled && !asset.simulation) return <p className="escrow-sim-banner">Riel ARGt habilitado. 100 bolsas son 5 ARGt, token de pesos, no USD ni USDT. 80 recibidas pagan 4 ARGt y devuelven 1 ARGt. Agregar al carrito no reserva: faltan el contrato y una firma de Core.</p>;
+  if (asset?.symbol === "ARGt" && asset.enabled && !asset.simulation) return <p className="escrow-sim-banner">Riel ARGt habilitado. El escrow de la prueba son 5 ARGt por 100 bolsas, no el precio de catálogo de la bolsa y no son dólares. Con 80 recibidas se pagan 4 ARGt y se devuelve 1. Agregar al carrito no reserva.</p>;
   if (asset?.symbol === "ARGt") return <p className="escrow-sim-banner">SIMULACIÓN. 100 bolsas bloquean 5 ARGt, token de pesos, no USD ni USDT. 80 recibidas pagan 4 ARGt y devuelven 1 ARGt. El polvo de la wallet no se suma. Agregar al carrito no reserva.</p>;
   return <p>100 bolsas de Cemento Portland Loma Negra, Corralón Norte. El precio de catálogo es una demostración. El riel Fuji, si aparece, no es esta compra en ARGt y no queda reservado al agregar al carrito.</p>;
 }
@@ -210,6 +212,13 @@ function FujiDeploy() {
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
   const official = !!asset && canMoveOfficialFunds(asset);
+  function remember(accounts: unknown, chainId: unknown) {
+    const list = Array.isArray(accounts) ? accounts.map(item => String(item)) : [];
+    const verified = list.find(item => item.toLowerCase() === verifiedArgtBalanceWallet.toLowerCase());
+    const next = verified || list[0] || "";
+    setAccount(/^0x[a-fA-F0-9]{40}$/.test(next) ? next : "");
+    setChain(String(chainId || "").toLowerCase());
+  }
   useEffect(() => {
     let active = true;
     void fetch(endpoint(), {headers: {Authorization: "Bearer " + workspaceToken()}, cache: "no-store"}).then(async response => {
@@ -221,14 +230,53 @@ function FujiDeploy() {
       if (!provider) { setAccount(""); setChain(""); return; }
       try {
         const [accounts, chainId] = await Promise.all([provider.request({method: "eth_accounts"}), provider.request({method: "eth_chainId"})]);
-        const next = Array.isArray(accounts) ? String(accounts[0] || "") : "";
-        setAccount(/^0x[a-fA-F0-9]{40}$/.test(next) ? next : "");
-        setChain(String(chainId || "").toLowerCase());
-      } catch { setAccount(""); setChain(""); }
+        if (active) remember(accounts, chainId);
+      } catch { if (active) { setAccount(""); setChain(""); } }
     };
     void sync();
-    return () => { active = false; };
+    provider?.on?.("accountsChanged", sync);
+    provider?.on?.("chainChanged", sync);
+    return () => {
+      active = false;
+      provider?.removeListener?.("accountsChanged", sync);
+      provider?.removeListener?.("chainChanged", sync);
+    };
   }, []);
+  async function connectCore() {
+    const provider = core();
+    if (!provider) {
+      setMessage("Abrí esta página en Chrome con la extensión Core. Esta pantalla no tiene una clave.");
+      return;
+    }
+    if (!asset?.chainId) {
+      setMessage("Todavía no se leyó el riel. Recargá la página. No se cambió de red ni se desplegó.");
+      return;
+    }
+    setBusy(true);
+    setMessage("");
+    try {
+      const accounts = await provider.request({method: "eth_requestAccounts"});
+      let chainId = String(await provider.request({method: "eth_chainId"}) || "");
+      const wanted = expectedChain(asset);
+      if (asset && chainId.toLowerCase() !== wanted) {
+        try {
+          await provider.request({method: "wallet_switchEthereumChain", params: [{chainId: wanted}]});
+        } catch (error) {
+          const code = typeof error === "object" && error && "code" in error ? Number(error.code) : 0;
+          if (code === 4001) throw new Error("Core no cambió de red. Elegí Avalanche C-Chain (43114).");
+          if (wanted !== "0xa86a") throw error;
+          await provider.request({method: "wallet_addEthereumChain", params: [{chainId: "0xa86a", chainName: "Avalanche C-Chain", nativeCurrency: {name: "Avalanche", symbol: "AVAX", decimals: 18}, rpcUrls: ["https://api.avax.network/ext/bc/C/rpc"], blockExplorerUrls: ["https://snowtrace.io/"]}]});
+        }
+        chainId = String(await provider.request({method: "eth_chainId"}) || "");
+      }
+      remember(accounts, chainId);
+      if (asset && chainId.toLowerCase() !== wanted) setMessage("Core sigue en otra red. En la ventana de Core elegí Avalanche C-Chain (43114). No se envió el despliegue.");
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Core no completó la conexión. No se envió el despliegue.");
+    } finally {
+      setBusy(false);
+    }
+  }
   async function deploy() {
     if (!official || !asset?.address || asset.decimals == null) throw new Error(asset?.blocked || "El activo no está habilitado. No se envía el despliegue.");
     const provider = core();
@@ -245,11 +293,15 @@ function FujiDeploy() {
     const network = asset.symbol === "ARGt" ? "Avalanche C-Chain" : "Fuji";
     return {status: "confirmed", reason: `Contrato verificado por el backend: ${contract}. En el explorador de ${network} abrí esa dirección y publicá el código con el archivo contracts/VERIFY.md.`};
   }
+  const onRail = !!asset && chain === expectedChain(asset);
+  const sameVerified = account.toLowerCase() === verifiedArgtBalanceWallet.toLowerCase();
   return <div>
     <h3>Despliegue del escrow</h3>
-    <p>El botón arma la transacción de creación y la firma Core. Esta pantalla no tiene una clave, no despliega sola y no agrega el token a la wallet. El botón queda apagado si el riel no está habilitado o si Core no está vinculado.</p>
-    <p>{account ? `Core vinculado: ${account}. La firma sigue siendo manual.` : "Core: sin vincular en este navegador. El despliegue espera esa wallet. No hay contrato on-chain todavía."}</p>
-    <button className="button primary" type="button" disabled={busy || !official || !account} onClick={() => {
+    <p>El constructor solo recibe el token ARGt, 18 decimales y la cadena 43114. No pide vendedor, empleado ni orden. Lo firma la cuenta que elijas en Core. Esta pantalla no tiene una clave y no lo envía sola.</p>
+    <p>Los ARGt verificados están en {verifiedArgtBalanceWallet}. Si Core muestra otra cuenta, el contrato nacería ahí y esos ARGt no quedarían en él.</p>
+    <p>{!official ? "El riel no está habilitado. No se arma el despliegue." : !account ? "Core: sin conectar en este navegador. El primer botón solo pide la cuenta y la red. No despliega." : !onRail ? "Core está en otra red. Hace falta Avalanche C-Chain (43114). No se envió el despliegue." : sameVerified ? `Core listo: ${account}. Falta tu firma para crear el contrato.` : `Core conectó ${account}, que no es la cuenta con los ARGt verificados.`}</p>
+    {official && (!account || !onRail) && <button className="button secondary" type="button" disabled={busy} onClick={() => void connectCore()}>{account ? "Cambiar Core a Avalanche 43114" : "Conectar Core"}</button>}
+    <button className="button primary" type="button" disabled={busy || !official || !account || !onRail} onClick={() => {
       setBusy(true); setMessage("");
       deploy().then(result => setMessage(result.reason)).catch(error => setMessage(error instanceof Error ? error.message : "No se pudo firmar el despliegue.")).finally(() => setBusy(false));
     }}>Firmar despliegue con Core</button>
