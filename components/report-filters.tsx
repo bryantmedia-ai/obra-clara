@@ -20,8 +20,8 @@ export function useReportFilters(rows:ReportRow[]){
  function reset(){setProjectIds(null);setDates(null);setMode('all');}
  return {projectIds,setProjectIds,dates,mode,start,end,today,matchesProject,matchesDate,apply,preset,reset};
 }
-export function ReportFilters({filter,projects,count,dateLabel,noun='registro',allowFuture=false,showDate=true,showProjects=true}:{filter:ReturnType<typeof useReportFilters>;projects:{id:string;name:string;code?:string}[];count:number;dateLabel:string;noun?:string;allowFuture?:boolean;showDate?:boolean;showProjects?:boolean}){
+export function ReportFilters({filter,projects,count,dateLabel,noun='registro',allowFuture=false,showDate=true,showProjects=true,applyLabel}:{filter:ReturnType<typeof useReportFilters>;projects:{id:string;name:string;code?:string}[];count:number;dateLabel:string;noun?:string;allowFuture?:boolean;showDate?:boolean;showProjects?:boolean;applyLabel?:string}){
  const checklist=showProjects?<ProjectChecklist projects={projects} value={filter.projectIds} onChange={filter.setProjectIds}/>:null;
  if(!showDate)return <div className="report-projects-only">{checklist}<button type="button" className="button secondary" onClick={filter.reset}>Restablecer</button></div>;
- return <DateRangeFilter mode={filter.mode} start={filter.start} end={filter.end} today={filter.today} count={count} onPreset={filter.preset} onApply={filter.apply} onReset={filter.reset} dateLabel={dateLabel} noun={noun} allowFuture={allowFuture}>{checklist}</DateRangeFilter>;
+ return <DateRangeFilter applyLabel={applyLabel} mode={filter.mode} start={filter.start} end={filter.end} today={filter.today} count={count} onPreset={filter.preset} onApply={filter.apply} onReset={filter.reset} dateLabel={dateLabel} noun={noun} allowFuture={allowFuture}>{checklist}</DateRangeFilter>;
 }

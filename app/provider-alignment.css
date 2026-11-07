@@ -1,0 +1,105 @@
+/* Ventas shares the operational visual language and responsive rules of Compras. */
+.provider-app .page-content{display:grid;align-content:start;gap:24px}
+.provider-app .page-content>*{min-width:0;margin-block:0}
+.provider-app .provider-context{align-items:center;padding:16px 18px;border-radius:var(--ui-radius);gap:16px}
+.provider-app .provider-context label{min-width:0;flex:0 1 360px;gap:7px;font-size:13px;color:var(--ui-muted)}
+.provider-app .provider-context select{width:100%;min-width:0;font-size:13px;border-color:var(--ui-border);border-radius:8px}
+.provider-app .provider-context>span{font-size:12px;color:var(--ui-muted)}
+.provider-app .workspace-tabs{margin:0;gap:4px}
+.provider-app .workspace-tabs a{font-size:14px;font-weight:500}
+.provider-app :is(.shared-orders,.supplier-account,.pricing-workspace){display:grid;gap:24px;min-width:0}
+.provider-app .shared-orders>*,.provider-app .supplier-account>:not(dialog){min-width:0;margin-block:0}
+.provider-app :is(.workspace-heading,.provider-list-head,.pricing-intro) h2{font-size:var(--workspace-headline-size);line-height:1.2;letter-spacing:-.7px;color:var(--ui-text);font-weight:650;margin:0 0 8px}
+.provider-app :is(.workspace-heading,.provider-list-head,.pricing-intro) p{font-size:14px;line-height:1.65;color:var(--ui-muted);margin:0;max-width:680px}
+.provider-app .page-content>section.panel{padding:22px}
+.provider-app .page-content>div>form.panel{padding:24px}
+.provider-app .provider-stats{margin:0;gap:16px}
+.provider-app .provider-stats article{border-radius:var(--ui-radius);border-color:var(--ui-border);padding:20px;min-width:0}
+.provider-app .provider-stats article>span{font-size:13px;color:var(--ui-muted);margin-bottom:14px}
+.provider-app .provider-stats article>strong{display:block;font-size:clamp(21px,2vw,30px);font-weight:650;line-height:1.3;color:var(--ui-text);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.provider-app .provider-table-wrap{max-width:100%;min-width:0;border-radius:var(--ui-radius)}
+.provider-app .provider-table{table-layout:auto;min-width:720px;color:var(--ui-text)}
+.provider-app .provider-table th{font-size:11px;color:var(--ui-muted);background:var(--ui-soft);padding:13px 16px;white-space:normal;border-color:var(--ui-border)}
+.provider-app .provider-table td{padding:18px 16px;font-size:13px;line-height:1.6;white-space:normal;overflow-wrap:anywhere;border-color:#e9ece5}
+.provider-app .provider-table :is(th,td):first-child{width:28%}
+.provider-app .provider-table small{font-size:11px;line-height:1.5;color:var(--ui-muted);max-width:none}
+.provider-app .provider-table :is(input,select){min-width:0;max-width:100%}
+.provider-app .provider-stock-form{align-items:center;gap:8px;min-width:170px}
+.provider-app .provider-stock-form input{width:80px;max-width:95px}
+.provider-app .provider-stock-form .button{flex:none}
+.provider-app .provider-list-head{margin:0;align-items:flex-start}
+.provider-app .provider-list-head>div{min-width:0;flex:1}
+.provider-app .provider-list-head>select{width:auto;min-width:150px;max-width:100%;font-size:13px}
+.provider-app .provider-order-hero{gap:16px;align-items:flex-start;flex-wrap:wrap}
+.provider-app .provider-order-hero h2{font-size:22px;overflow-wrap:anywhere}
+.provider-app .order-workspace{margin-top:0;gap:24px}
+.provider-app .order-workspace>.panel{padding:22px}
+.provider-app .provider-two-col{margin:0;gap:20px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.provider-app .provider-two-col>.panel{padding:22px;min-width:0}
+.provider-app .provider-two-col h3,.provider-app .order-workspace h3{font-size:17px;line-height:1.4;margin:0 0 12px}
+.provider-app .provider-receipt-form{gap:12px;grid-template-columns:minmax(100px,1fr) minmax(140px,1.3fr) minmax(100px,1fr) auto}
+.provider-app .provider-receipt-form label{min-width:0;color:var(--ui-muted)}
+.provider-app .pricing-metrics article{border-radius:var(--ui-radius);padding:20px;border-color:var(--ui-border)}
+.provider-app .pricing-metrics strong{font-size:clamp(21px,2vw,30px);line-height:1.3;font-weight:650}
+.provider-app .pricing-table{font-size:13px}
+.provider-app .pricing-table th{background:var(--ui-soft);color:var(--ui-muted);font-size:11px;padding:13px 16px}
+.provider-app .pricing-table td{padding:18px 16px;line-height:1.6}
+.provider-app .supplier-account>.panel:not(.provider-table-wrap){padding:22px}
+.provider-app .supplier-account>.panel :is(.section-head h2){font-size:18px}
+.provider-app .supplier-account-identity{display:none}
+.provider-app .supplier-bulk-import{display:grid;gap:16px}
+.provider-app .supplier-bulk-import>h2{font-size:18px}
+.provider-overview .ov-kpi{color:var(--ui-text);text-decoration:none;min-width:0}
+.provider-overview .ov-kpi>strong{font-size:clamp(20px,2.1vw,30px);overflow-wrap:anywhere}
+.provider-overview .ov-attention-banner>a{display:flex;align-items:center;gap:10px;color:inherit;font-size:13px;font-weight:600;white-space:nowrap}
+.provider-overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.provider-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:20px 22px;border-bottom:1px solid var(--ui-border)}
+.provider-panel-head h3{font-size:17px;line-height:1.4;margin:0;color:var(--ui-text)}
+.provider-panel-head p{font-size:12px;line-height:1.6;color:var(--ui-muted);margin:6px 0 0}
+.provider-panel-head a{font-size:12px;color:var(--orange);display:flex;gap:8px;align-items:center;white-space:nowrap}
+.provider-stage-chart{display:grid;gap:18px;padding:22px}
+.provider-stage-chart>div{display:grid;grid-template-columns:110px minmax(0,1fr) 24px;gap:12px;align-items:center;font-size:12px;color:var(--ui-muted)}
+.provider-stage-chart strong{color:var(--ui-text);text-align:right}
+.provider-stage-track{height:10px;background:#edf1ec;border-radius:6px;overflow:hidden}
+.provider-stage-track>span{display:block;height:100%;min-width:0;background:#3d7da6;border-radius:6px}
+.provider-stage-chart>div:last-child .provider-stage-track>span{background:#24835e}
+.provider-project-sales{display:grid;gap:20px;padding:22px}
+.provider-project-sales>div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;font-size:13px}
+.provider-project-sales strong{font-variant-numeric:tabular-nums}
+.provider-project-sales progress{grid-column:1/-1;width:100%;height:8px;accent-color:#24835e}
+.provider-recent-orders>a{display:grid;grid-template-columns:minmax(0,1fr) auto auto 16px;gap:16px;align-items:center;padding:18px 22px;border-bottom:1px solid var(--ui-border);font-size:13px;color:var(--ui-text)}
+.provider-recent-orders>a:last-child{border:0}
+.provider-recent-orders>a:hover{background:var(--ui-soft)}
+.provider-recent-orders small{display:block;color:var(--ui-muted);font-size:11px;margin-top:5px;overflow-wrap:anywhere}
+.provider-recent-orders>a>svg{color:var(--orange)}
+@media(max-width:1100px){.provider-app .provider-receipt-form{grid-template-columns:repeat(2,minmax(0,1fr))}.provider-overview-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:900px){.provider-app .sidebar{position:fixed}.provider-app .sidebar nav{display:grid;overflow:visible;margin-top:0}.provider-app .sidebar nav a{white-space:normal}.provider-app .sidebar .sidebar-foot{display:flex}.provider-app .provider-context{flex-direction:column;align-items:stretch;gap:10px}.provider-app .provider-context label{flex:auto}.provider-app .provider-two-col{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){
+ .provider-app .page-content{gap:20px}
+ .provider-app .workspace-tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin}
+ .provider-app .workspace-tabs a{padding:12px 10px;font-size:13px;flex:none}
+ .provider-app .provider-context{padding:14px}
+ .provider-app .provider-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .provider-app .provider-stats article{padding:14px}
+ .provider-app .provider-stats article>strong{font-size:21px}
+ .provider-app .provider-table :is(th,td):first-child{width:auto}
+ .provider-app .provider-table td{padding:14px}
+ .provider-app .provider-stock-form{min-width:0;flex-wrap:wrap}
+ .provider-app .provider-receipt-form{grid-template-columns:minmax(0,1fr)}
+ .provider-app .provider-order-hero h2{font-size:18px}
+ .provider-app .order-workspace>.panel,.provider-app .page-content>section.panel,.provider-app .supplier-account>.panel:not(.provider-table-wrap),.provider-app .page-content>div>form.panel{padding:16px}
+ .provider-overview .ov-attention-banner>a{grid-column:1/-1;white-space:normal}
+ .provider-panel-head{padding:16px;gap:12px;flex-wrap:wrap}
+ .provider-stage-chart,.provider-project-sales{padding:16px}
+ .provider-stage-chart>div{grid-template-columns:95px minmax(0,1fr) 20px;gap:8px}
+ .provider-project-sales>div{grid-template-columns:minmax(0,1fr)}
+ .provider-recent-orders>a{grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:16px}
+ .provider-recent-orders>a>svg{display:none}
+ .provider-recent-orders>a>strong{grid-column:1/-1}
+}
+/* Provider icon styling must not expose the mobile menu on desktop. */
+.provider-app .topbar .mobile-menu-toggle{display:none}
+.provider-app .provider-context label{display:grid;align-items:start}
+@media(max-width:900px){.provider-app .topbar .mobile-menu-toggle{display:inline-flex}}
+
+.provider-app .provider-stock-panel{display:grid;gap:16px;min-width:0}

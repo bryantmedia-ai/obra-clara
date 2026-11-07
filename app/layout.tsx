@@ -29,6 +29,7 @@ import "./workspace-headlines.css";
 import "./hackatwin.css";
 import "./market-navigation.css";
 import "./marketplace-cards.css";
+import "./provider-alignment.css";
 
 export const metadata: Metadata = {
   title: "Obra Clara",
