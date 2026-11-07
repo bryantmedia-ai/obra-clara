@@ -34,3 +34,12 @@ assert.equal(market.productCount(duplicated),2,'Two vendor listings of the same 
 assert.equal(market.productCount([{id:'custom-a'},{id:'custom-b'}]),2,'Products without a shared reference must remain distinct');
 assert.equal(market.productCount([]),0);
 console.log('PASS: product counts deduplicate supplier listings consistently and preserve custom products without references.');
+const highlights=fs.readFileSync('components/seller-highlights.tsx','utf8');
+assert.match(highlights,/Imágenes ilustrativas/);
+assert.doesNotMatch(highlights,/\/products\//);
+assert.doesNotMatch(highlights,/materiales-generales/);
+const supplierImages=[...highlights.matchAll(/image:"([^"]+)"/g)].map(match=>match[1]);
+assert.equal(supplierImages.length,15);
+assert.equal(new Set(supplierImages).size,15);
+for(const image of supplierImages){assert.ok(image.startsWith('/suppliers/'),image);assert.ok(fs.existsSync('public'+image),image);}
+console.log('PASS: 15 distinct installation photos, no product images, illustrative label.');
