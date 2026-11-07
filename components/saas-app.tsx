@@ -148,7 +148,7 @@ function Sidebar({ route }: { route: Route }) {
           </Link>
         ))}
       </nav>
-      <div className="sidebar-agent"><Link href="/agente" className={section==="agente"?"active":""}><Icon icon={faRobot}/> Brick</Link></div>
+      <div className="sidebar-agent"><Link href="/agente" className={section==="agente"?"active":""}><Icon icon={faRobot}/> Chats</Link></div>
       <div className="sidebar-foot">
         <div className="sidebar-info-links">
           <Link href="/hackatwin" className={`about-nav-link ${section === "hackatwin" ? "active" : ""}`} aria-current={section === "hackatwin" ? "page" : undefined}><Icon icon={faShieldHalved}/> Hacka Twin</Link>
