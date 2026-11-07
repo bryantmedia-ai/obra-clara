@@ -1,0 +1,10 @@
+{
+  "asset": "public/suppliers/materiales-generales.jpg",
+  "source": "https://unsplash.com/photos/OiywY3XKTsQ",
+  "image": "https://images.unsplash.com/photo-1681880511033-b9582a379ce2?auto=format&fit=crop&w=480&q=85",
+  "photographer": "set.sj",
+  "purpose": "Generic representative image of sand and gravel, not claimed to show a named supplier facility.",
+  "layout": "Single horizontal scrolling row sharing the same image-circle and label rules as category shortcuts.",
+  "suppliers": 15,
+  "manufacturers": 3
+}
