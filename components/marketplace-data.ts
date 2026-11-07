@@ -1,3 +1,4 @@
+import {demoShippingIncluded} from "../lib/order-delivery";
 import {productContent,productDimensions} from "./product-facets";
 import {constructionProduct,departmentMatches} from "./catalog-departments";
 import rows from "./marketplace-products.json";
@@ -12,7 +13,7 @@ export const cementSuppliers = [
 ];
 
 export const productCategories=["Corralón","Ferretería","Electricidad","Cables y conductores","Grupos electrógenos","Herramientas","Sanitarios","Pinturas","Seguridad e indumentaria"];
-export const marketplaceProducts=rows.filter(constructionProduct).map(({supplierIndex,...product})=>({...product,...details[product.id],supplier:cementSuppliers[supplierIndex]}));
+export const marketplaceProducts=rows.filter(constructionProduct).map(({supplierIndex,...product})=>({...product,...details[product.id],shippingIncluded:demoShippingIncluded(product.id),supplier:cementSuppliers[supplierIndex]}));
 export type MarketplaceProduct=typeof marketplaceProducts[number];
 export type Product=import("../lib/pricing-model").PriceTerms & Omit<MarketplaceProduct,"category"|"format"|"saleLabel"|"stockUnit"> & {content?:string;dimensions?:string;color?:string;minimumOrder?:number;deliveryDays?:number;depositPercent?:number;department?:string;category?:string;format?:string;saleLabel?:string;stockUnit?:string};
 export type CatalogFilters={purchaseMode?:string;content?:string;dimensions?:string;color?:string;sellerType?:string;companySize?:string;department?:string;minPrice?:string;maxPrice?:string;categories:string[];query:string;supplier:string;brand:string;format:string;today:boolean;shippingIncludedOnly:boolean;sort:string;favoriteIds?:string[];productType?:string;model?:string;productId?:string;referenceId?:string};
@@ -41,7 +42,7 @@ export const cementProducts = cementSuppliers.flatMap((supplier,i) => {
 
 // Additional prototype offers share one product reference and retain each seller's identity.
 export const crossSupplierOffers:Product[]=productCategories.flatMap(category=>{const product=marketplaceProducts.find(p=>p.category===category)!;return cementSuppliers.filter(s=>s.slug!==product.supplier.slug).map((supplier,i)=>({...product,id:`${supplier.slug}-offer-${product.id}`,supplier,price:Math.round(product.price*(1.025+i*.035)),stock:Math.max(50,product.stock+35+i*22),minimumOrder:i===0?1:5,deliveryDays:i+2,depositPercent:0,shippingIncluded:i===0}));});
-export const completeMarketplaceCatalog:Product[]=[...marketplaceProducts,...cementProducts,...crossSupplierOffers];
+export const completeMarketplaceCatalog:Product[]=[...marketplaceProducts,...cementProducts,...crossSupplierOffers].map(p=>({...p,shippingIncluded:demoShippingIncluded(p.id)}));
 export function getSupplierProducts(slug:string,products:Product[]=completeMarketplaceCatalog){return products.filter(product=>product.supplier.slug===slug);}
 export type CatalogReference={id:string;name:string;brand:string;category:string;productType:string;model:string;referenceCode:string;image:string;offers:Product[]};
 export function groupCatalogReferences(products:Product[]){

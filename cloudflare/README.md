@@ -20,7 +20,7 @@ this approved fresh demo. No support request has been sent.
 ## Deployed backend
 
 The Worker is live at `https://obra-clara-api.obra-clara.workers.dev`.
-Version: `d3b9a0c7-abe0-430e-acf8-f95190bd24dd`.
+Version: `771f4a9a-6c3b-4f31-a48d-672091b7742a`.
 Thirteen live API checks passed using an isolated QA workspace; see
 `research/cloudflare-migration/live-backend-checks.json`.
 Both production app API variables point to this Worker. The legacy Vercel
@@ -80,3 +80,5 @@ The existing free D1 database is used without adding a paid service. Metadata re
 ## Material-only MVP scope (November 6)
 
 New freight marketplace commands and cart freight services are rejected. Material checkout and quote acceptance use arranged delivery and do not depend on booking a transport. Historical records remain stored. Material receipts and payment controls remain active.
+
+Checkout delivery preferences are persisted per project as an immutable order snapshot. The preferred date does not set a financial refund deadline. Demo shipping initialization updates seed offers once; subsequent supplier edits remain intact.

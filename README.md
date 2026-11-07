@@ -64,3 +64,11 @@ La compra conserva proveedores, cantidades, proyectos y condiciones de envío in
 Se mantienen las entregas de materiales dentro de Compras y los despachos en Ventas: recepción, cantidades conformadas, remitos, incidencias y habilitación de pagos contra entrega. Los registros históricos de viajes no se borran de los espacios compartidos.
 
 Validación específica: `node scripts/check-material-only-checkout.mjs`, además de las verificaciones de órdenes, cotizaciones, recepción e integración de Cloudflare.
+
+## Entrega simplificada en el checkout
+
+El catálogo de ejemplo tiene 170 productos con envío incluido y 42 sin incluir (80% / 20%). Una inicialización versionada aplica esa distribución a las ofertas existentes sin cambiar precios, stock ni órdenes históricas; las ediciones posteriores del proveedor se conservan.
+
+Por cada proyecto del carrito se puede ajustar dirección, persona que recibe, teléfono, fecha y franja preferidas e indicaciones. Se guardan como snapshot `order.delivery`, compartido con Ventas, sin modificar el proyecto. El proveedor decide vehículo y logística. Los productos sin envío incluido mantienen ese costo fuera del total hasta acordarlo por separado.
+
+Una fecha preferida no modifica por sí sola el vencimiento financiero del contrato: la programación confirmada sigue gestionándose en las entregas de materiales.

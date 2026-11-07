@@ -1,0 +1,70 @@
+{
+  "base": "https://obra-clara-api.obra-clara.workers.dev",
+  "passed": true,
+  "checks": [
+    {
+      "name": "D1 health",
+      "passed": true
+    },
+    {
+      "name": "Missing session rejected",
+      "passed": true
+    },
+    {
+      "name": "Untrusted origin rejected",
+      "passed": true
+    },
+    {
+      "name": "Existing workspace not silently replaced",
+      "passed": true
+    },
+    {
+      "name": "Isolated QA workspace creation",
+      "passed": true
+    },
+    {
+      "name": "prices.initialize",
+      "passed": true
+    },
+    {
+      "name": "demo.shipping.initialize",
+      "passed": true
+    },
+    {
+      "name": "demo.seedPurchases",
+      "passed": true
+    },
+    {
+      "name": "project.budgets.initialize",
+      "passed": true
+    },
+    {
+      "name": "Buyer write",
+      "passed": true
+    },
+    {
+      "name": "Seller sees buyer write and CORS",
+      "passed": true
+    },
+    {
+      "name": "Duplicate command idempotency",
+      "passed": true
+    },
+    {
+      "name": "Parallel updates preserved",
+      "passed": true
+    },
+    {
+      "name": "Direct checkout reserves existing wallet funds once",
+      "passed": true
+    },
+    {
+      "name": "Quote acceptance reserves agreed amount after seller response",
+      "passed": true
+    },
+    {
+      "name": "Workspace isolation",
+      "passed": true
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 "use client";
+import type {OrderDelivery} from "../lib/order-delivery";
 import {useEffect,useState} from "react";
 import {readProjects} from "./project-store";
 import {projectAddress} from "./project-data";
@@ -7,7 +8,7 @@ export type OwnDelivery={company:string;contact:string;phone:string;vehicle:stri
 export type CartProduct={priceRevision?:number;deliveryChoice?:"supplier"|"marketplace"|"own"|"arranged";ownDelivery?:OwnDelivery;offerId?:string;supplierSlug?:string;minimumOrder?:number;depositPercent?:number;projectId?:string;id:string;name:string;supplier:string;pickup:string;quantity:number;unitPrice:number;kg:number|null;shippingIncluded:boolean;image:string;unit?:string;saleLabel?:string};
 export function cargoWeightLabel(p:{kg:number|null;quantity:number}){return p.kg!==null&&Number.isFinite(p.kg)&&p.kg>0?`${(p.kg*p.quantity).toLocaleString("es-AR",{maximumFractionDigits:2})} kg`:"Peso a confirmar";}
 export type CartTransport={replaceIncluded?:boolean;quoteId?:string;key:string;serviceId:string;providerId?:string;productId:string;orderId:string;pickup:string;dropoff:string;projectId:string;mode:string;date:string;time:string;floor:string;notes:string};
-export type CartState={products:CartProduct[];transports:CartTransport[];projectId:string};
+export type CartState={deliveries?:Record<string,OrderDelivery>;products:CartProduct[];transports:CartTransport[];projectId:string};
 const empty:CartState={products:[],transports:[],projectId:""};
 const key="obra-clara-cart-v1";
 export function readCart():CartState{if(typeof window==="undefined")return empty;try{const s=JSON.parse(localStorage.getItem(key)??"null");return s&&Array.isArray(s.products)&&Array.isArray(s.transports)?{...s,transports:[],products:s.products.map((p:CartProduct)=>({...p,deliveryChoice:"arranged",projectId:p.projectId??s.projectId??""}))}:empty;}catch{return empty;}}
