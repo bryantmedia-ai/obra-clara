@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-06",
+  "route": "/hackatwin",
+  "replaces": [
+    "/quienes-somos",
+    "/como-funciona"
+  ],
+  "scope": "Unified jury presentation shared by buyer and provider apps; no changes to financial execution or data.",
+  "inputs": [
+    "Obra-Clara-Decisiones-Tecnicas-HackaTwin.pdf",
+    "Standard recording 266 - Transcription.pdf",
+    "market-modelo.html (only reported case studies)",
+    "Pasted track alignment text"
+  ],
+  "case_sources": [
+    "https://www.analisisdigital.com.ar/locales/2026/03/16/clientes-reclaman-materiales-comprados-y-acopiados-en-un-corralon-de-oro-verde",
+    "https://www.latrochadigital.com.ar/2026/04/19/cierra-un-corralon-y-deja-un-tendal-de-damnificados/",
+    "https://www.infobae.com/judiciales/2026/02/12/construia-su-casa-y-decidio-acopiar-cemento-denuncias-aumentos-y-un-fallo-judicial-contra-el-corralon/"
+  ],
+  "official_sources": [
+    "https://luma.com/cudf7cqz",
+    "https://ecosystem-hub-test.up.railway.app/events/hackatwin-yonj",
+    "https://agentic.belo.app/",
+    "https://docs.twin.finance/stablecoins/supported-chains",
+    "https://docs.x402.org/introduction"
+  ],
+  "accuracy": [
+    "No financial market estimates from HTML used.",
+    "No fabricated interviews or customer endorsements.",
+    "Cases explicitly attributed to reporting about individual buyers, not proof of high-rise market incidence.",
+    "Track eligibility, network, token and sponsor capabilities remain to be confirmed.",
+    "Escrow, real model/tools, Belo and Twin execution remain pending.",
+    "Interactive explorer is illustrative and performs no transactions.",
+    "Refund calculation only concerns retained funds; paid advance excluded."
+  ],
+  "image_generation": {
+    "mode": "built-in image_gen",
+    "assets": [
+      {
+        "path": "public/illustrations/hackatwin-escrow-hero.webp",
+        "concept": "Protected reserve, materials, site manager and mid-rise construction in Buenos Aires."
+      },
+      {
+        "path": "public/illustrations/hackatwin-recepcion.webp",
+        "concept": "Site reception with remito review and partial payment from retained funds."
+      }
+    ],
+    "originals_retained": true
+  },
+  "verification": {
+    "next_build": "passed",
+    "typescript": "passed",
+    "diff_check": "passed",
+    "desktop_horizontal_overflow": false,
+    "mobile_390_horizontal_overflow": false,
+    "broken_images": 0,
+    "missing_section_anchors": 0,
+    "explorer": {
+      "complete": [
+        200000,
+        800000,
+        0,
+        0
+      ],
+      "partial": [
+        200000,
+        400000,
+        400000,
+        0
+      ],
+      "expired": [
+        200000,
+        0,
+        0,
+        800000
+      ],
+      "dispute": [
+        200000,
+        0,
+        800000,
+        0
+      ]
+    },
+    "explorer_value_order": [
+      "advance",
+      "additional_release",
+      "held",
+      "refund"
+    ]
+  }
+}

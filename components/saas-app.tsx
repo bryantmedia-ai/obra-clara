@@ -5,8 +5,7 @@ import {PurchaseTabs} from "./workspace-ui";
 import {NotificationCenter} from "./notification-center";
 import {CompanySettings} from "./company-settings";
 import {ProductQuotes} from "./product-quotes";
-import {AboutMarket} from "./about-market";
-import {ProtectionLanding} from './protection-landing';
+import {HackaTwinLanding} from './hackatwin-landing';
 
 import Link from "next/link";
 import {ProviderApp} from "./provider-app";
@@ -102,8 +101,7 @@ const routeTitles: Record<string, [string, string]> = {
   fondos: ["Fondos", "Belo, ARGt y contratos activos"],
   agente: ["Brick", "Copiloto de compras y conciliación"],
   configuracion: ["Configuración", "Empresa, usuarios y reglas"],
-  "quienes-somos": ["¿Quiénes somos?", "Obra Clara"],
-  "como-funciona": ["¿Cómo funciona?", "Obra Clara"],
+  "hackatwin": ["Hacka Twin", "Obra Clara"],
 };
 
 function Icon({ icon }: { icon: typeof faHouse }) {
@@ -119,7 +117,7 @@ function Header({ route, onOpenAgent }: { route: Route; onOpenAgent:()=>void }) 
   const supplier = providers.find(s => route === `proveedores/${s.slug}`);
   const title = supplier?.name ?? routeTitles[route]?.[0] ?? (route.startsWith("productos/")?"Producto":"Obra Clara");
   const section = route.startsWith("productos/")||route==="transporte"?"marketplace":["entregas","inventario"].includes(route)?"compras":route.split("/")[0];
-  const icon = route==="transporte"?faTruckFast:nav.find(([href]) => href === section)?.[2] ?? (section === "agente" ? faRobot : section === "transporte" ? faTruckFast : section === "mi-tienda" ? faStore : section === "carrito" ? faCartShopping : section === "quienes-somos" ? faUsers : section === "como-funciona" ? faCircleQuestion : section === "configuracion" ? faGear : faHouse);
+  const icon = route==="transporte"?faTruckFast:nav.find(([href]) => href === section)?.[2] ?? (section === "agente" ? faRobot : section === "transporte" ? faTruckFast : section === "mi-tienda" ? faStore : section === "carrito" ? faCartShopping : section === "hackatwin" ? faShieldHalved : section === "configuracion" ? faGear : faHouse);
   return (
     <header className="topbar"><MobileMenuButton/>
       <div className="page-heading">
@@ -153,8 +151,7 @@ function Sidebar({ route }: { route: Route }) {
       <div className="sidebar-agent"><Link href="/agente" className={section==="agente"?"active":""}><Icon icon={faRobot}/> Brick</Link></div>
       <div className="sidebar-foot">
         <div className="sidebar-info-links">
-          <Link href="/quienes-somos" className={`about-nav-link ${section === "quienes-somos" ? "active" : ""}`} aria-current={section === "quienes-somos" ? "page" : undefined}><Icon icon={faUsers}/> ¿Quiénes somos?</Link>
-          <Link href="/como-funciona" className={`about-nav-link ${section === "como-funciona" ? "active" : ""}`} aria-current={section === "como-funciona" ? "page" : undefined}><Icon icon={faCircleQuestion}/> ¿Cómo funciona?</Link>
+          <Link href="/hackatwin" className={`about-nav-link ${section === "hackatwin" ? "active" : ""}`} aria-current={section === "hackatwin" ? "page" : undefined}><Icon icon={faShieldHalved}/> Hacka Twin</Link>
         </div>
         <Link href="/configuracion" className="profile"><span>JM</span><div><strong>Jazmín M.</strong><small>Administración</small></div><Icon icon={faGear} /></Link>
       </div>
@@ -166,10 +163,6 @@ function Agent(){return <BrickPage/>;}
 
 function Settings(){return <CompanySettings/>;}
 
-function AboutUs() {
-  return <div className="about-page"><section className="about-intro"><div><h2>Construimos claridad.<br/><span>Para que vos construyas más.</span></h2><p>Obra Clara nace para proteger el dinero de las obras: reservarlo en un smart contract, liberarlo contra la entrega conformada y devolver el saldo que corresponde cuando no se cumple. Conectamos a constructoras y proveedores alrededor de reglas claras para cobrar y pagar.</p><Link className="button primary" href="/marketplace">Explorar el marketplace <Icon icon={faArrowRight}/></Link></div><aside className="about-promise"><Icon icon={faBuilding}/><strong>Una obra conectada,<br/>de principio a fin.</strong><p>Compras · Logística · Inventario · Pagos</p></aside></section><AboutMarket/><section className="three-col about-pillars"><article className="panel"><Icon icon={faListCheck}/><h3>Todo lo que necesitás</h3><p>Un marketplace para abastecer cada etapa de la obra: corralón, ferretería, electricidad, herramientas y equipamiento.</p></article><article className="panel"><Icon icon={faTruck}/><h3>Cada entrega, visible</h3><p>Pedidos, responsables, cantidades recibidas y documentación reunidos para que todos trabajen con la misma información.</p></article><article className="panel"><Icon icon={faShieldHalved}/><h3>Reglas claras para pagar</h3><p>Diseñamos pagos en ARGt con reservas de fondos, liberaciones por entrega y devolución del saldo según las condiciones pactadas.</p></article></section><section className="about-technology panel"><div><Icon icon={faRobot}/><h2>Tecnología al servicio de la obra</h2><p>El agente OC está pensado para ayudarte a encontrar productos, preparar compras y seguir entregas. Belo y ARGt forman parte de la integración financiera prevista para conectar las operaciones con sus pagos.</p></div></section><section className="about-closing"><h2>Menos incertidumbre. <span>Más obra.</span></h2><p>Ese es el futuro que estamos construyendo con Obra Clara.</p><Link href="/marketplace" className="button primary">Conocer los productos <Icon icon={faArrowRight}/></Link></section></div>;
-}
-
 function ProviderGateway(){return <section className="panel"><h2>Tu cuenta proveedora</h2><p>Administrá productos, stock y órdenes en la app de proveedores.</p><button className="button primary" onClick={()=>void switchApp("provider")}>Abrir cuenta proveedora →</button></section>;}
 
 
@@ -178,8 +171,7 @@ function Page({ route }: { route: Route }) {
   if (route.startsWith("productos/")) return <ProductDetail id={route.slice(10)}/>;
   if (route === "proyectos") return <ProjectsPage/>;
   if (route === "carrito") return <CartPage/>;
-  if (route === "como-funciona") return <ProtectionLanding/>;
-  if (route === "quienes-somos") return <AboutUs/>;
+  if (route === "hackatwin") return <HackaTwinLanding/>;
   if (route === "marketplace") return <CementMarketplace/>;
   if (route === "dashboard") return <BuyerOverview/>;
   if (route === "compras/cotizaciones") return <div className="purchases-workspace"><PurchaseTabs active="quotes"/><ProductQuotes/></div>;

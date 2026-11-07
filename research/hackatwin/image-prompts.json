@@ -1,0 +1,14 @@
+{
+  "mode": "built-in image_gen",
+  "transparent_background": false,
+  "prompts": [
+    {
+      "asset": "public/illustrations/hackatwin-escrow-hero.webp",
+      "prompt": "Use case: illustration-story. Create a polished wide 3D editorial illustration for Obra Clara, an Argentine construction fintech presentation. Warm off-white background, charcoal architectural concrete model of a mid-rise Buenos Aires apartment building under construction at right, an orange protected vault/escrow capsule holding a few neutral token discs at center, material pallets and a worker with white hard hat and tablet confirming physical delivery at left. Thin orange connection paths between the vault and material pallets communicate money released only after delivery. Premium architectural maquette style, soft realistic shadows, clean isometric perspective, restrained orange #f06420, forest green #237c57, pale blue accents, generous whitespace. No words, letters, logos, currency symbols, QR codes or claims. Horizontal 3:2 composition, image to be used as hero of real web landing page. Make objects distinct and uncluttered."
+    },
+    {
+      "asset": "public/illustrations/hackatwin-recepcion.webp",
+      "prompt": "Use case: illustration-story. A premium editorial architectural maquette illustration for Obra Clara construction payments explainer, landscape 3:2. On warm off-white background, show an Argentine construction site receiving three pallets of cement bags and steel bars. A site manager wearing a white hard hat and orange safety vest holds a tablet and checks a paper delivery note; another worker stands near pallets. At right a compact transparent glass orange vault holds neutral token discs, a portion of discs moves on a thin green path toward a simple supplier warehouse model, while remaining discs stay in the vault, visually expressing partial delivery and proportional payment. Fine charcoal linework, realistic miniature materials, restrained orange #f06420, green #237c57 and blue #37759a. Soft daylight studio lighting, polished dimensional isometric composition. No text, numbers, logos, money symbols, QR codes, badges or watermarks. Clear uncluttered objects. This is a concept illustration, not a UI screenshot."
+    }
+  ]
+}

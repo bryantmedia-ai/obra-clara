@@ -26,6 +26,7 @@ import "./interaction.css";
 import "./weather.css";
 import "./scope-filters.css";
 import "./workspace-headlines.css";
+import "./hackatwin.css";
 
 export const metadata: Metadata = {
   title: "Obra Clara",
