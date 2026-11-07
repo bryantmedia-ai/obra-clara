@@ -9,3 +9,6 @@
 .oc-overview .ov-status-line{justify-content:flex-end;margin-top:0;gap:10px;align-items:center}
 .oc-overview .ov-status-line>button{margin-left:0}
 .oc-overview .ov-last-update{font-variant-numeric:tabular-nums}
+
+.oc-overview .date-range-apply{background:var(--orange);border-color:var(--orange);color:#fff}
+.oc-overview .date-range-apply:hover{background:#e9550c;border-color:#e9550c;color:#fff}
