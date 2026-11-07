@@ -276,7 +276,7 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
       if (!provider) throw new Error("Abrí Chrome con Core.");
       await provider.request({method: "eth_requestAccounts"});
     })}>Conectar Core</button>}
-    {hash && <button className="button secondary" disabled={busy || !/^0x[a-fA-F0-9]{64}$/.test(hash)} onClick={() => void run(() => verify(pendingAction?.hash === hash ? pendingAction.kind : escrow.attempts.find(attempt => attempt.hash === hash)?.kind ?? "fund", hash, pendingAction?.hash === hash ? pendingAction.reception : undefined))}>Actualizar confirmación</button>}
+    {hash && <button className="button secondary" disabled={busy || !/^0x[a-fA-F0-9]{64}$/.test(hash)} onClick={() => void run(() => verify(pendingAction?.hash === hash ? pendingAction.kind : escrow.attempts.find(attempt => attempt.hash === hash)?.kind ?? (reserved && !escrow.delegate ? "authorize" : "fund"), hash, pendingAction?.hash === hash ? pendingAction.reception : undefined))}>Actualizar confirmación</button>}
     </div>
     <details className="oc-escrow-details"><summary>Detalles de la orden</summary>
     <p className="oc-escrow-id">{order.id}</p>
@@ -287,7 +287,7 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
       <button className="button secondary" disabled={busy || !official || !/^0x[a-fA-F0-9]{40}$/.test(delegate)} onClick={() => void run(async () => submit("authorize", await send(contract, encodeAuthorize(escrow.orderId, delegate))))}>Autorizar otra wallet</button>
     </div>}
     <label>Reintentar un hash ya enviado<input value={hash} onChange={event => setHash(event.target.value)} placeholder="0x…"/></label>
-    <button className="button secondary" disabled={busy || !/^0x[a-fA-F0-9]{64}$/.test(hash)} onClick={() => void run(() => verify(pendingAction?.hash === hash ? pendingAction.kind : escrow.attempts.find(attempt => attempt.hash === hash)?.kind ?? "fund", hash, pendingAction?.hash === hash ? pendingAction.reception : undefined))}>Verificar de nuevo</button>
+    <button className="button secondary" disabled={busy || !/^0x[a-fA-F0-9]{64}$/.test(hash)} onClick={() => void run(() => verify(pendingAction?.hash === hash ? pendingAction.kind : escrow.attempts.find(attempt => attempt.hash === hash)?.kind ?? (reserved && !escrow.delegate ? "authorize" : "fund"), hash, pendingAction?.hash === hash ? pendingAction.reception : undefined))}>Verificar de nuevo</button>
     </details>
     {message && <p role="status">{message}</p>}
     {!account && <p>Core: sin vincular en este navegador. Esta pantalla no agrega el token ni cambia de red sola.</p>}
