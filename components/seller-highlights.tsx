@@ -1,5 +1,22 @@
 "use client";
 import Link from "next/link";
-import {useProviders} from "./provider-store";
-import {useSupplierOffers} from "./supplier-offers";
-export function SellerHighlights(){const providers=useProviders();const offers=useSupplierOffers();return <section className="marketplace-sellers"><div className="section-head"><div><h2>Cada proveedor, su propia tienda.</h2><p>Fabricantes, productores y distribuidores de todos los tamaños.</p></div><Link href="/proveedores">Explorar vendedores →</Link></div><div className="marketplace-seller-tiles">{providers.slice(-3).map(p=><Link key={p.slug} href={`/proveedores/${p.slug}`}><span className="marketplace-seller-initials">{p.initials}</span><div><h3>{p.name}</h3><p>{p.businessType} · {p.companySize}</p><small>{p.area} · {offers.filter(o=>o.supplier.slug===p.slug).length} ofertas</small></div><span aria-hidden="true">→</span></Link>)}</div></section>;}
+
+const featuredSuppliers=[
+ {name:"Loma Negra",kind:"Fabricante",id:"research-4eedd748dac8",image:"/products/loma-negra-25.jpg"},
+ {name:"Holcim Argentina",kind:"Fabricante",id:"research-321fb62ab2bb",image:"/products/holcim-25.jpg"},
+ {name:"Cementos Avellaneda",kind:"Fabricante",id:"research-e894f09b02cc",image:"/products/avellaneda-25.jpg"},
+ {name:"Corralón Norte",kind:"Corralón",slug:"corralon-norte",image:"/suppliers/corralon-norte.jpg",photo:true},
+ {name:"Corralón Centro",kind:"Distribuidor",slug:"corralon-centro",image:"/suppliers/corralon-centro.jpg",photo:true},
+ {name:"Materiales del Sur",kind:"Distribuidor",slug:"materiales-del-sur",image:"/suppliers/materiales-del-sur.jpg",photo:true},
+ {name:"Aliceri Materiales",kind:"Corralón",id:"research-45a6590d44ec",image:"/products/catalog/corralon-05.jpg"},
+ {name:"Materiales Nuciari",kind:"Corralón",id:"research-7637e05b3d63",image:"/products/catalog/corralon-15.jpg"},
+ {name:"Materiales Moreno",kind:"Corralón",id:"research-a0155eb8c310",image:"/products/catalog/corralon-16.jpg"},
+ {name:"Familia Bercomat",kind:"Distribuidor",id:"outlet-dc1c569d4430",image:"/departments/pisos.jpg"},
+ {name:"Blaisten",kind:"Distribuidor",id:"research-f4f7369c8e86",image:"/departments/bano.jpg"},
+ {name:"Codimat",kind:"Distribuidor",id:"outlet-5ba15cd53e30",image:"/products/catalog/corralon-20.jpg"},
+ {name:"Altea",kind:"Distribuidor",id:"outlet-90f29d6c42b6",image:"/departments/aberturas.jpg"},
+ {name:"Yrigoyen Construcciones",kind:"Distribuidor",id:"outlet-c8afba51c565",image:"/products/catalog/corralon-11.jpg"},
+ {name:"Construnort",kind:"Distribuidor",id:"outlet-15fe28f92ac6",image:"/products/catalog/corralon-09.jpg"},
+];
+
+export function SellerHighlights(){return <section className="marketplace-sellers" aria-label="15 proveedores destacados"><div className="section-head"><div><h2>Los proveedores de tu próxima obra.</h2><p>3 fabricantes · 12 corralones y distribuidores.</p></div><Link href="/proveedores">Explorar proveedores →</Link></div><div className="marketplace-seller-shortcuts">{featuredSuppliers.map(p=><Link key={p.slug??p.id} href={p.slug?`/proveedores/${p.slug}`:`/proveedores?perfil=${encodeURIComponent(p.id!)}`} aria-label={`Ver tienda de ${p.name}, ${p.kind.toLowerCase()}`}><span className={p.photo?"supplier-circle is-store-photo":"supplier-circle"}><img src={p.image} alt={`Foto representativa de ${p.name}`} width={74} height={74} loading="lazy" onError={e=>{if(e.currentTarget.getAttribute('src')!=='/products/loma-negra-25.jpg')e.currentTarget.src='/products/loma-negra-25.jpg';}}/></span><strong>{p.name}</strong><small className={p.kind==='Fabricante'?'is-manufacturer':''}>{p.kind}</small></Link>)}</div></section>;}
