@@ -12,3 +12,14 @@
 
 .oc-overview .date-range-apply{background:var(--orange);border-color:var(--orange);color:#fff}
 .oc-overview .date-range-apply:hover{background:#e9550c;border-color:#e9550c;color:#fff}
+
+/* Attention uses the same red palette as priority notifications. */
+.oc-overview .ov-attention{border-color:#edd2c7;background:#fbefea}
+.oc-overview .ov-attention .ov-panel-head h3{color:#944338}
+.oc-overview .ov-attention .ov-panel-head p{color:#aa7c6d}
+.oc-overview .ov-attention .ov-filter-chips>button{border-color:#edd2c7;color:#944338;background:#fff}
+.oc-overview .ov-attention .ov-filter-chips>button.active{background:#f4dcd2;border-color:#e7b7a7;color:#944338}
+.oc-overview .ov-attention .ov-issue{border-top-color:#edd2c7}
+.oc-overview .ov-attention .ov-issue.high{background:#fff9f6}
+.oc-overview .ov-attention .ov-issue:hover{background:#fbefea}
+.oc-overview .ov-attention .ov-issue>span>strong,.oc-overview .ov-attention .ov-issue-icon.red,.oc-overview .ov-attention .ov-issue-end>svg{color:#944338}
