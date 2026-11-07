@@ -21,12 +21,12 @@ export function CatalogGrid({items,resetKey="",noun="productos"}:{items:ReactNod
  function pagination(scroll=false){return <nav className="catalog-pagination" aria-label={scroll?"Paginación inferior":"Paginación del catálogo"}>
   <button type="button" aria-label="Primera página" title="Primera página" aria-controls={listId} disabled={page===1} onClick={()=>go(1,scroll)}>«</button>
   <button type="button" aria-label="Página anterior" title="Página anterior" aria-controls={listId} disabled={page===1} onClick={()=>go(page-1,scroll)}>‹</button>
-  <label>Página <select aria-label={scroll?"Elegir página al pie":"Elegir página"} value={page} onChange={e=>go(Number(e.target.value),scroll)}>{Array.from({length:pages},(_,i)=><option key={i+1} value={i+1}>{i+1}</option>)}</select><span>de {pages}</span></label>
+  <label><span className="catalog-page-label">Página</span> <select aria-label={scroll?"Elegir página al pie":"Elegir página"} value={page} onChange={e=>go(Number(e.target.value),scroll)}>{Array.from({length:pages},(_,i)=><option key={i+1} value={i+1}>{i+1}</option>)}</select><span>de {pages}</span></label>
   <button type="button" aria-label="Página siguiente" title="Página siguiente" aria-controls={listId} disabled={page===pages} onClick={()=>go(page+1,scroll)}>›</button>
   <button type="button" aria-label="Última página" title="Última página" aria-controls={listId} disabled={page===pages} onClick={()=>go(pages,scroll)}>»</button>
  </nav>;}
  return <div className={`catalog-browser columns-${columns}`} style={{"--catalog-columns":columns} as CSSProperties} ref={top}>
-  <div className="catalog-viewbar"><fieldset className="catalog-columns"><legend>{noun==="servicios"?"Servicios":"Productos"} por fila</legend><div>{[1,3,5].map(n=><button key={n} type="button" aria-pressed={columns===n} onClick={()=>setColumns(n)}>{n}</button>)}</div></fieldset>{pagination()}</div>
+  <div className="catalog-viewbar"><fieldset className="catalog-columns"><legend className="catalog-columns-legend">{noun==="servicios"?"Servicios":"Productos"} por fila</legend><div>{[1,3,5].map(n=><button key={n} type="button" aria-pressed={columns===n} onClick={()=>setColumns(n)}>{n}</button>)}</div></fieldset>{pagination()}</div>
   <p className="catalog-range" role="status">{items.length?`Mostrando ${start+1}–${Math.min(start+PAGE_SIZE,items.length)} de ${items.length} ${noun}`:`Sin ${noun}`}</p>
   <div className="product-grid catalog-product-grid" id={listId}>{items.slice(start,start+PAGE_SIZE)}</div>
   {items.length>0&&<div className="catalog-page-footer">{pagination(true)}</div>}
