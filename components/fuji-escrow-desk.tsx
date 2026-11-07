@@ -184,23 +184,48 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
     return data.verdict as {status: string; reason: string};
   }
 
+  function walletError(error: unknown) {
+    if (typeof error === "string") return error;
+    if (error && typeof error === "object") {
+      const {code, message} = error as {code?: number; message?: string};
+      if (code === 4001) return "Core no recibió la aprobación. Abrí la extensión y confirmá la solicitud.";
+      if (code === 4100) return "Core no autorizó esta cuenta. Revisá la conexión de Compras en la extensión.";
+      if (message) return message;
+      if (code != null) return "Core devolvió el código " + code + ".";
+    }
+    return "Core no devolvió un motivo. Abrí la extensión y revisá si hay una solicitud pendiente.";
+  }
+
   async function send(to: string, data: string) {
     const provider = core();
-    if (!provider) throw new Error("Abrí Chrome con Core. Esta pantalla no firma sola.");
-    if (chain !== expectedChain(asset)) throw new Error(asset?.symbol === "ARGt" ? "Core está en otra red. Hace falta Avalanche C-Chain (43114). No se agrega el token solo." : "Cambiá Core a Avalanche Fuji C-Chain.");
-    if (!official || asset?.simulation) throw new Error(asset?.blocked || "El activo no está habilitado. No se envía la transacción.");
-    const tx = await provider.request({method: "eth_sendTransaction", params: [{from: account, to, data}]}) as string;
+    if (!provider) throw new Error("Abrí Chrome con Core para firmar.");
+    if (chain !== expectedChain(asset)) throw new Error(asset?.symbol === "ARGt" ? "Seleccioná Avalanche C-Chain (43114) en Core." : "Seleccioná Avalanche Fuji C-Chain en Core.");
+    if (!official || asset?.simulation) throw new Error(asset?.blocked || "El activo no está habilitado.");
+    const accounts = await provider.request({method: "eth_accounts"});
+    const from = Array.isArray(accounts) ? String(accounts[0] || "") : "";
+    if (!/^0x[a-fA-F0-9]{40}$/.test(from) || from.toLowerCase() !== account.toLowerCase()) throw new Error("La cuenta de Core cambió. Seleccioná la wallet correspondiente y volvé a intentar.");
+    const transaction = {from, to, data, value: "0x0"};
+    const estimated = await provider.request({method: "eth_estimateGas", params: [transaction]});
+    if (typeof estimated !== "string" || !/^0x[a-fA-F0-9]+$/.test(estimated) || BigInt(estimated) === 0n) throw new Error("Avalanche no devolvió un estimado válido para esta operación.");
+    const gas = "0x" + ((BigInt(estimated) * 12n + 9n) / 10n).toString(16);
+    setMessage("Confirmá la transacción en Core.");
+    const tx = await provider.request({method: "eth_sendTransaction", params: [{...transaction, gas}]});
+    if (typeof tx !== "string" || !/^0x[a-fA-F0-9]{64}$/.test(tx)) throw new Error("Core todavía no devolvió el hash de la transacción.");
     setHash(tx);
     return tx;
   }
 
   async function fund() {
+    const provider = core();
+    if (!provider || !account) throw new Error("Seleccioná la cuenta Comprador en Core.");
     if (!contract || !asset?.address || asset.decimals == null || !escrow.amount) throw new Error("Falta el escrow verificado o el importe del activo.");
     const allowanceData = "0xdd62ed3e" + account.slice(2).padStart(64, "0") + contract.slice(2).padStart(64, "0");
-    const rawAllowance = String(await core()?.request({method: "eth_call", params: [{to: asset.address, data: allowanceData}, "latest"]}) ?? "0x0");
-    const allowance = BigInt(rawAllowance === "0x" ? "0x0" : rawAllowance);
-    for (const amount of approveSteps(allowance, BigInt(escrow.amount))) {
-      await send(asset.address, encodeApprove(contract, amount));
+    const rawAllowance = await provider.request({method: "eth_call", params: [{to: asset.address, data: allowanceData}, "latest"]});
+    if (typeof rawAllowance !== "string" || !/^0x[a-fA-F0-9]+$/.test(rawAllowance)) throw new Error("Avalanche no devolvió el permiso de ARGt. Verificá la red de Core.");
+    const steps = approveSteps(BigInt(rawAllowance), BigInt(escrow.amount));
+    if (steps.length) {
+      await send(asset.address, encodeApprove(contract, steps[0]));
+      return {status: "pending", reason: "Permiso enviado a Avalanche. Cuando se confirme, pulsá Firmar reserva con Core otra vez para reservar los 5 ARGt."};
     }
     const tx = await send(contract, encodeFund({orderId: escrow.orderId, seller: escrow.seller, quantity: BigInt(escrow.quantity), unitPrice: BigInt(escrow.unitPrice), amount: BigInt(escrow.amount), deadline: BigInt(escrow.deadline), asset: asset.address}));
     return submit("fund", tx);
@@ -209,7 +234,7 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
   async function run(action: () => Promise<{status: string; reason: string} | void>) {
     setBusy(true); setMessage("");
     try { const result = await action(); setMessage(result ? result.reason : "Listo."); }
-    catch (error) { setMessage(error instanceof Error ? error.message : "No se pudo completar."); }
+    catch (error) { setMessage(walletError(error)); }
     finally { setBusy(false); }
   }
 
