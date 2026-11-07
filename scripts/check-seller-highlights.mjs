@@ -1,0 +1,12 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+const source = fs.readFileSync("components/seller-highlights.tsx", "utf8");
+const images = [...source.matchAll(/image:"([^"]+)"/g)].map(match => match[1]);
+assert.equal(images.length, 15);
+assert.equal(new Set(images).size, images.length, "cada proveedor destacado usa una imagen distinta");
+assert.equal(images.filter(image => image === "/suppliers/materiales-generales.jpg").length, 1);
+for (const image of images) assert.ok(fs.existsSync("public" + image), image);
+assert.match(source, /Yrigoyen Construcciones/);
+assert.match(source, /Imágenes ilustrativas/);
+assert.match(source, /no es una foto de/);
+console.log("PASS distinct illustrative supplier images, Yrigoyen Construcciones kept, caption present.");

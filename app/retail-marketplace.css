@@ -14,7 +14,8 @@
 .market-storefront .retail-category-shortcuts>button>span,.market-storefront .retail-category-shortcuts .supplier-circle{display:grid;place-items:center;width:74px;height:74px;flex:none;border:1px solid #eee;border-radius:50%;overflow:hidden;background:#fff}
 .market-storefront .retail-category-shortcuts strong{font-weight:500;font-size:11px;line-height:1.45;min-height:32px;text-align:center;max-width:100%;overflow-wrap:anywhere}
 .marketplace-sellers .marketplace-seller-shortcuts{margin-top:22px;padding:20px 12px}
-.marketplace-seller-shortcuts .is-store-photo img{object-fit:cover;padding:0}
+.marketplace-seller-shortcuts .supplier-circle img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;padding:0}
+.marketplace-illustrative{color:#8a9188;font-size:11px}
 .marketplace-seller-shortcuts>a:hover .supplier-circle{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange)}
 .marketplace-seller-shortcuts>a:hover strong{color:var(--orange)}
 .marketplace-seller-shortcuts>a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:7px}
