@@ -1,3 +1,4 @@
+import {demoProductPrice} from "../lib/demo-product-price";
 import {demoShippingIncluded} from "../lib/order-delivery";
 import {productContent,productDimensions} from "./product-facets";
 import {constructionProduct,departmentMatches} from "./catalog-departments";
@@ -13,7 +14,7 @@ export const cementSuppliers = [
 ];
 
 export const productCategories=["Corralón","Ferretería","Electricidad","Cables y conductores","Grupos electrógenos","Herramientas","Sanitarios","Pinturas","Seguridad e indumentaria"];
-export const marketplaceProducts=rows.filter(constructionProduct).map(({supplierIndex,...product})=>({...product,...details[product.id],shippingIncluded:demoShippingIncluded(product.id),supplier:cementSuppliers[supplierIndex]}));
+export const marketplaceProducts=rows.filter(constructionProduct).map(({supplierIndex,...product})=>({...product,...details[product.id],price:demoProductPrice,shippingIncluded:demoShippingIncluded(product.id),supplier:cementSuppliers[supplierIndex]}));
 export type MarketplaceProduct=typeof marketplaceProducts[number];
 export type Product=import("../lib/pricing-model").PriceTerms & Omit<MarketplaceProduct,"category"|"format"|"saleLabel"|"stockUnit"> & {content?:string;dimensions?:string;color?:string;minimumOrder?:number;deliveryDays?:number;depositPercent?:number;department?:string;category?:string;format?:string;saleLabel?:string;stockUnit?:string};
 export type CatalogFilters={purchaseMode?:string;content?:string;dimensions?:string;color?:string;sellerType?:string;companySize?:string;department?:string;minPrice?:string;maxPrice?:string;categories:string[];query:string;supplier:string;brand:string;format:string;today:boolean;shippingIncludedOnly:boolean;sort:string;favoriteIds?:string[];productType?:string;model?:string;productId?:string;referenceId?:string};
@@ -28,20 +29,20 @@ function legacyDetails(item:{key:string;name:string;kg:number},pack=false):Produ
  return {productType:"Cementos",model:`${item.name}${pack?" · Pack de obra":""}`,referenceId:`cement-${item.key}-${pack?500:item.kg}`,referenceCode:`OC-${item.key.toUpperCase()}-${pack?500:item.kg}`};
 }
 const range = [
- {key:"avellaneda",name:"Cemento Portland CPC40 Avellaneda",brand:"Cementos Avellaneda",unit:"Bolsa de 50 kg",kg:50,image:"avellaneda-25.jpg",base:15800,use:"Hormigones y morteros"},
- {key:"holcim",name:"Cemento Holcim Fuerte",brand:"Holcim",unit:"Bolsa de 50 kg",kg:50,image:"holcim-25.jpg",base:16200,use:"Construcción general"},
- {key:"loma",name:"Cemento Portland Loma Negra",brand:"Loma Negra",unit:"Bolsa de 50 kg",kg:50,image:"loma-negra-25.jpg",base:16900,use:"Hormigones y morteros"},
- {key:"hidralit",name:"Cemento de albañilería Hidralit",brand:"Cementos Avellaneda",unit:"Bolsa de 20 kg",kg:20,image:"hidralit-20.jpg",base:7400,use:"Mampostería y revoques · No estructural"},
+ {key:"avellaneda",name:"Cemento Portland CPC40 Avellaneda",brand:"Cementos Avellaneda",unit:"Bolsa de 50 kg",kg:50,image:"avellaneda-25.jpg",use:"Hormigones y morteros"},
+ {key:"holcim",name:"Cemento Holcim Fuerte",brand:"Holcim",unit:"Bolsa de 50 kg",kg:50,image:"holcim-25.jpg",use:"Construcción general"},
+ {key:"loma",name:"Cemento Portland Loma Negra",brand:"Loma Negra",unit:"Bolsa de 50 kg",kg:50,image:"loma-negra-25.jpg",use:"Hormigones y morteros"},
+ {key:"hidralit",name:"Cemento de albañilería Hidralit",brand:"Cementos Avellaneda",unit:"Bolsa de 20 kg",kg:20,image:"hidralit-20.jpg",use:"Mampostería y revoques · No estructural"},
 ];
 
 export const cementProducts = cementSuppliers.flatMap((supplier,i) => {
-  const singles = range.map((item,j)=>({...item,...legacyDetails(item),category:"Corralón",id:`${supplier.slug}-${item.key}`,supplier,price:item.base+i*350,stock:supplier.slug==="corralon-norte"&&item.key==="loma"?200:120+i*70+j*23,minimumOrder:supplier.slug==="corralon-norte"&&item.key==="loma"?1:undefined,pack:1,shippingIncluded:(i*7+j*3)%5<3}));
+  const singles = range.map((item,j)=>({...item,...legacyDetails(item),category:"Corralón",id:`${supplier.slug}-${item.key}`,supplier,price:demoProductPrice,stock:supplier.slug==="corralon-norte"&&item.key==="loma"?200:120+i*70+j*23,minimumOrder:supplier.slug==="corralon-norte"&&item.key==="loma"?1:undefined,pack:1,shippingIncluded:(i*7+j*3)%5<3}));
   const item = range[i];
-  return [...singles,{...item,...legacyDetails(item,true),category:"Corralón",id:`${supplier.slug}-pack`,name:`${item.name} · Pack de obra`,unit:"Pack de 10 bolsas × 50 kg · 500 kg",kg:500,supplier,price:(item.base+i*350)*9.5,stock:12+i*5,pack:10,shippingIncluded:i%2===1}];
+  return [...singles,{...item,...legacyDetails(item,true),category:"Corralón",id:`${supplier.slug}-pack`,name:`${item.name} · Pack de obra`,unit:"Pack de 10 bolsas × 50 kg · 500 kg",kg:500,supplier,price:demoProductPrice,stock:12+i*5,pack:10,shippingIncluded:i%2===1}];
 });
 
 // Additional prototype offers share one product reference and retain each seller's identity.
-export const crossSupplierOffers:Product[]=productCategories.flatMap(category=>{const product=marketplaceProducts.find(p=>p.category===category)!;return cementSuppliers.filter(s=>s.slug!==product.supplier.slug).map((supplier,i)=>({...product,id:`${supplier.slug}-offer-${product.id}`,supplier,price:Math.round(product.price*(1.025+i*.035)),stock:Math.max(50,product.stock+35+i*22),minimumOrder:i===0?1:5,deliveryDays:i+2,depositPercent:0,shippingIncluded:i===0}));});
+export const crossSupplierOffers:Product[]=productCategories.flatMap(category=>{const product=marketplaceProducts.find(p=>p.category===category)!;return cementSuppliers.filter(s=>s.slug!==product.supplier.slug).map((supplier,i)=>({...product,id:`${supplier.slug}-offer-${product.id}`,supplier,price:demoProductPrice,stock:Math.max(50,product.stock+35+i*22),minimumOrder:i===0?1:5,deliveryDays:i+2,depositPercent:0,shippingIncluded:i===0}));});
 export const completeMarketplaceCatalog:Product[]=[...marketplaceProducts,...cementProducts,...crossSupplierOffers].map(p=>({...p,shippingIncluded:demoShippingIncluded(p.id)}));
 export function getSupplierProducts(slug:string,products:Product[]=completeMarketplaceCatalog){return products.filter(product=>product.supplier.slug===slug);}
 export type CatalogReference={id:string;name:string;brand:string;category:string;productType:string;model:string;referenceCode:string;image:string;offers:Product[]};

@@ -75,7 +75,7 @@ Una fecha preferida no modifica por sí sola el vencimiento financiero del contr
 
 ## Compra de cemento: ARGt en Avalanche, Fuji aparte
 
-La única compra habilitada es 100 bolsas de Cemento Portland Loma Negra de Corralón Norte. El carrito crea una orden compartida entre Compras y Ventas. El riel elegido bloquea 5 ARGt (token de pesos, 18 decimales, no dólares): 80 recibidas pagan 4 ARGt y devuelven 1 ARGt. Si el plazo vence sin recepción, el reembolso es el total. El polvo que no entra en esos 5 ARGt queda en la wallet.
+La única compra habilitada es 100 bolsas de Cemento Portland Loma Negra de Corralón Norte. El catálogo de la hackathon muestra 5 ARGt por presentación. El carrito crea una orden compartida entre Compras y Ventas. El riel elegido bloquea 5 ARGt (token de pesos, 18 decimales, no dólares): 80 recibidas pagan 4 ARGt y devuelven 1 ARGt. Si el plazo vence sin recepción, el reembolso es el total. El polvo que no entra en esos 5 ARGt queda en la wallet.
 
 ```mermaid
 flowchart LR

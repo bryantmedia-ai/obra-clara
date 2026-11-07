@@ -29,7 +29,7 @@ assert.match(desk, /El vendedor no hace falta para desplegar/);
 assert.match(desk, /El precio de catálogo no es los 5 ARGt/);
 assert.match(profile, /coreWallet: ""/);
 assert.match(profile, /0x621c700f27c2a9631468be51ad7daebe97879b92/);
-assert.match(catalog, /base:16900/);
+assert.match(catalog, /price:demoProductPrice/);
 assert.match(cart, /No es lo que bloquea el escrow: esta prueba son 5 ARGt/);
 assert.match(cart, /no el precio de catálogo/);
 assert.doesNotMatch(cart, /reserva USDT no está confirmada/);
