@@ -6,6 +6,7 @@ import {NotificationCenter} from "./notification-center";
 import {CompanySettings} from "./company-settings";
 import {ProductQuotes} from "./product-quotes";
 import {HackaTwinLanding} from './hackatwin-landing';
+import {PlansPage} from './plans-page';
 
 import Link from "next/link";
 import {ProviderApp} from "./provider-app";
@@ -50,6 +51,7 @@ import {
   faLock,
   faMagnifyingGlass,
   faPaperPlane,
+  faTags,
   faPlus,
   faRobot,
   faRotateLeft,
@@ -103,6 +105,7 @@ const routeTitles: Record<string, [string, string]> = {
   agente: ["Brick", "Copiloto de compras y conciliación"],
   configuracion: ["Configuración", "Empresa, usuarios y reglas"],
   "hackatwin": ["Hacka Twin", "Obra Clara"],
+  "planes": ["Planes", "Suscripciones y monetización"],
 };
 
 function Icon({ icon }: { icon: typeof faHouse }) {
@@ -118,7 +121,7 @@ function Header({ route, onOpenAgent }: { route: Route; onOpenAgent:()=>void }) 
   const supplier = providers.find(s => route === `proveedores/${s.slug}`);
   const title = supplier?.name ?? routeTitles[route]?.[0] ?? (route.startsWith("productos/")?"Producto":"Obra Clara");
   const section = route.startsWith("productos/")||route==="transporte"?"marketplace":["entregas","inventario"].includes(route)?"compras":route.split("/")[0];
-  const icon = route==="transporte"?faTruckFast:nav.find(([href]) => href === section)?.[2] ?? (section === "agente" ? faRobot : section === "transporte" ? faTruckFast : section === "mi-tienda" ? faStore : section === "carrito" ? faCartShopping : section === "hackatwin" ? faShieldHalved : section === "configuracion" ? faGear : faHouse);
+  const icon = route==="transporte"?faTruckFast:nav.find(([href]) => href === section)?.[2] ?? (section === "agente" ? faRobot : section === "transporte" ? faTruckFast : section === "mi-tienda" ? faStore : section === "carrito" ? faCartShopping : section === "planes" ? faTags : section === "hackatwin" ? faShieldHalved : section === "configuracion" ? faGear : faHouse);
   return (
     <header className="topbar"><MobileMenuButton/>
       <div className="page-heading">
@@ -152,6 +155,7 @@ function Sidebar({ route }: { route: Route }) {
       <div className="sidebar-agent"><Link href="/agente" className={section==="agente"?"active":""}><Icon icon={faRobot}/> Chats</Link></div>
       <div className="sidebar-foot">
         <div className="sidebar-info-links">
+          <Link href="/planes" className={`about-nav-link plans-nav-link ${section === "planes" ? "active" : ""}`} aria-current={section === "planes" ? "page" : undefined}><Icon icon={faTags}/> Planes</Link>
           <Link href="/hackatwin" className={`about-nav-link ${section === "hackatwin" ? "active" : ""}`} aria-current={section === "hackatwin" ? "page" : undefined}><Icon icon={faShieldHalved}/> Hacka Twin</Link>
         </div>
         <Link href="/configuracion" className="profile" aria-label="Perfil de José, contratista"><span>J</span><div><strong>José</strong><small>Contratista</small></div><Icon icon={faGear} /></Link>
@@ -173,6 +177,7 @@ function Page({ route }: { route: Route }) {
   if (route === "proyectos") return <ProjectsPage/>;
   if (route === "carrito") return <CartPage/>;
   if (route === "hackatwin") return <HackaTwinLanding/>;
+  if (route === "planes") return <PlansPage/>;
   if (route === "marketplace") return <CementMarketplace/>;
   if (route === "dashboard") return <BuyerOverview/>;
   if (route === "compras/cotizaciones") return <div className="purchases-workspace"><PurchaseTabs active="quotes"/><ProductQuotes/></div>;
