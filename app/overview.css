@@ -4,3 +4,8 @@
 .oc-overview .ov-tag.red{color:#a84436;background:#fbede7}.oc-overview .ov-tag.green{color:#237c57;background:#eaf4ed}.oc-overview .ov-tag.blue{color:#37759a;background:#eaf2f6}.oc-overview .ov-tag.orange{color:#9b661f;background:#fff3e3}.oc-overview .ov-kpi>strong,.oc-overview .ov-table td>strong,.oc-overview .ov-project-name strong,.oc-overview .ov-project-total strong,.oc-overview .ov-fund-cards strong,.oc-overview .ov-stock-grid article>div>strong,.oc-overview .ov-supplier-grid strong,.oc-overview .ov-detail-metrics strong{color:#2b3a28}.oc-overview .ov-insight h4,.oc-overview .ov-panel-head h3,.oc-overview .ov-issue>span>strong,.oc-overview .ov-stock-grid h4,.oc-overview .ov-dialog-content h2{color:#34452e}.oc-overview .ov-insight button,.oc-overview .ov-stock-grid a,.oc-overview .ov-panel-head>a,.oc-overview .ov-panel-head>button{color:#37759a}.oc-overview .ov-insight-number.red{color:#b94339}.oc-overview .ov-insight-number.blue{color:#37759a}.oc-overview .ov-insight-number.green{color:#237c57}.oc-overview .ov-category>div:first-child>strong,.oc-overview .ov-release-days strong{color:#416a42}.oc-overview .ov-detail-metrics .ov-text-red{color:#b94339!important}.oc-overview .ov-detail-metrics .ov-text-green{color:#237c57!important}
 
 .ov-detail-order-list>a{text-decoration:none;color:inherit}
+
+/* Keep the last refresh time beside its action, without a period legend. */
+.oc-overview .ov-status-line{justify-content:flex-end;margin-top:0;gap:10px;align-items:center}
+.oc-overview .ov-status-line>button{margin-left:0}
+.oc-overview .ov-last-update{font-variant-numeric:tabular-nums}
