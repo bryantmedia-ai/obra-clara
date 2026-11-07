@@ -22,3 +22,8 @@
 /* Keep case studies and the solution together without a blank transition. */
 #ht-problema.ht-section{padding-bottom:20px}
 #ht-proteccion.ht-section{padding-top:24px}
+
+/* Main section headlines use two intentional lines and orange emphasis. */
+.ht-section-title h2 em{color:var(--ht-orange);font-style:normal}
+@media(max-width:600px){.ht-section-title h2{font-size:clamp(21px,6.2vw,31px);letter-spacing:-.7px}}
+@media(max-width:600px){.ht-pitch h2{font-size:clamp(20px,5.6vw,28px);letter-spacing:-.7px}}
