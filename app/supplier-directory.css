@@ -31,3 +31,26 @@
     order: 1;
   }
 }
+
+.directory-commercial-terms {
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.directory-commercial-terms > h3,
+.directory-commercial-terms > p {
+  margin: 0;
+}
+
+.directory-commercial-terms > p {
+  color: var(--ui-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.directory-commercial-terms .directory-profile-actions {
+  margin-top: 4px;
+}
