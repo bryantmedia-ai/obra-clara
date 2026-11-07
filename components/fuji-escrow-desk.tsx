@@ -83,21 +83,6 @@ export function FujiEscrowBoard({role, focus}: {role: "Compras" | "Ventas"; focu
   </section>;
 }
 
-export function EscrowPurchaseNote() {
-  const [asset, setAsset] = useState<AssetResponse>();
-  useEffect(() => {
-    let active = true;
-    void fetch(endpoint(), {headers: {Authorization: "Bearer " + workspaceToken()}, cache: "no-store"}).then(async response => {
-      const data = await response.json();
-      if (active) setAsset(data.asset);
-    }).catch(() => undefined);
-    return () => { active = false; };
-  }, []);
-  if (asset?.symbol === "ARGt" && asset.enabled && !asset.simulation) return <p className="escrow-sim-banner">Riel ARGt habilitado. Cada bolsa de la demo cuesta 0,05 ARGt. El escrow reserva 5 ARGt por 100 bolsas. Con 80 recibidas se pagan 4 ARGt y se devuelve 1. Agregar al carrito no reserva.</p>;
-  if (asset?.symbol === "ARGt") return <p className="escrow-sim-banner">SIMULACIÓN. 100 bolsas bloquean 5 ARGt, token de pesos, no USD ni USDT. 80 recibidas pagan 4 ARGt y devuelven 1 ARGt. El polvo de la wallet no se suma. Agregar al carrito no reserva.</p>;
-  return <p>100 bolsas de Cemento Portland Loma Negra, Corralón Norte. El precio de catálogo es una demostración. El riel Fuji, si aparece, no es esta compra en ARGt y no queda reservado al agregar al carrito.</p>;
-}
-
 function AcquisitionSteps() {
   const [hash, setHash] = useState("");
   const [chain, setChain] = useState(String(ARBITRUM_CHAIN_ID));
