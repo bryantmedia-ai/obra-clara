@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from "react";
 import Link from "next/link";
+import {EscrowReception, type ReceptionEvidence} from "./escrow-reception";
 import {refreshShared, sharedCommand, useShared, workspaceToken} from "./shared-demo";
 import {escrowListLabel, type FujiDeployment, type FujiEscrowRecord} from "../lib/fuji-escrow";
 import {encodeApprove, encodeAuthorize, encodeDeploy, encodeFund, encodeRefund, encodeSettle} from "../lib/fuji-abi";
@@ -61,6 +62,10 @@ export function FujiEscrowBoard({role, focus}: {role: "Compras" | "Ventas"; focu
     window.addEventListener(DEPLOYMENT_EVENT, load);
     return () => { active = false; window.removeEventListener(DEPLOYMENT_EVENT, load); };
   }, []);
+  if (focus && role === "Compras") return <section className="fuji-wallet panel">
+    <h2>Recepción de mercadería</h2>
+    {orders.length ? orders.map(order => <FujiOrderCard key={order.id} order={order} role={role} receptionPage/>) : <p>Si la orden no aparece, abrí este enlace en el navegador donde hiciste la compra.</p>}
+  </section>;
   const argt = asset?.symbol === "ARGt";
   const railLive = argt && !!asset?.enabled && !asset.simulation;
   return <section className="fuji-wallet panel" aria-label={argt ? "Compra de cemento en ARGt" : "Compra de cemento en Fuji"}>
@@ -119,7 +124,7 @@ function AcquisitionSteps() {
   </div>;
 }
 
-function FujiOrderCard({order, role}: {order: SharedOrder; role: "Compras" | "Ventas"}) {
+function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: "Compras" | "Ventas"; receptionPage?: boolean}) {
   const escrow = order.escrow as FujiEscrowRecord;
   const [asset, setAsset] = useState<AssetResponse>();
   const [deployment, setDeployment] = useState("");
@@ -167,11 +172,15 @@ function FujiOrderCard({order, role}: {order: SharedOrder; role: "Compras" | "Ve
     return () => { active = false; };
   }, [order.id]);
 
-  async function verify(kind: "deployment" | "fund" | "authorize" | "settle" | "refund", txHash: string) {
-    const response = await fetch(endpoint(), {method: "POST", headers: {Authorization: "Bearer " + workspaceToken(), "Content-Type": "application/json"}, body: JSON.stringify({action: "verify", orderId: order.id, txHash, kind})});
+  async function verify(kind: "deployment" | "fund" | "authorize" | "settle" | "refund", txHash: string, reception?: ReceptionEvidence) {
+    const response = await fetch(endpoint(), {method: "POST", headers: {Authorization: "Bearer " + workspaceToken(), "Content-Type": "application/json"}, body: JSON.stringify({action: "verify", orderId: order.id, txHash, kind, reception})});
     const data = await response.json();
     if (!response.ok || data.verdict?.status === "rejected" || data.verdict?.status === "failed") throw new Error(data.error || data.verdict?.reason || "La verificación no pasó.");
     await refreshShared();
+    if (kind === "fund" && data.verdict?.status === "confirmed" && data.email) {
+      const mail = data.email === "enviado" ? " Comprobante enviado." : " No se pudo enviar el comprobante: " + data.email + ".";
+      return {status: data.verdict.status, reason: data.verdict.reason + mail};
+    }
     return data.verdict as {status: string; reason: string};
   }
 
@@ -194,7 +203,7 @@ function FujiOrderCard({order, role}: {order: SharedOrder; role: "Compras" | "Ve
       await send(asset.address, encodeApprove(contract, amount));
     }
     const tx = await send(contract, encodeFund({orderId: escrow.orderId, seller: escrow.seller, quantity: BigInt(escrow.quantity), unitPrice: BigInt(escrow.unitPrice), amount: BigInt(escrow.amount), deadline: BigInt(escrow.deadline), asset: asset.address}));
-    return verify("fund", tx);
+    return submit("fund", tx);
   }
 
   async function run(action: () => Promise<{status: string; reason: string} | void>) {
@@ -204,6 +213,11 @@ function FujiOrderCard({order, role}: {order: SharedOrder; role: "Compras" | "Ve
     finally { setBusy(false); }
   }
 
+  const [pendingAction, setPendingAction] = useState<{kind: "fund" | "authorize" | "settle" | "refund"; hash: string; reception?: ReceptionEvidence}>();
+  async function submit(kind: "fund" | "authorize" | "settle" | "refund", txHash: string, reception?: ReceptionEvidence) {
+    setPendingAction({kind, hash: txHash, reception});
+    return verify(kind, txHash, reception);
+  }
   const closed = escrow.phase === "liquidada" || escrow.phase === "reembolsada";
   return <article>
     <p><strong>{order.id}</strong> · {order.lines[0]?.quantity ?? 100} × {order.lines[0]?.name}</p>
@@ -211,18 +225,32 @@ function FujiOrderCard({order, role}: {order: SharedOrder; role: "Compras" | "Ve
     <p>Estado financiero: {escrowListLabel(escrow, order.status)}</p>
     <p>{asset?.blocked || (official ? "Activo configurado. Las firmas las hace Core." : "Transacciones reales bloqueadas.")} {!account && " Sin wallet no se firma ni se reserva."}</p>
     <p>Vendedor {escrow.seller || "sin dirección"} · Empleado {escrow.delegate || "sin autorización on-chain"} · Contrato {contract || "sin escrow verificado"}</p>
-    <p><Link href={"/recepcion/" + order.id}>Comprobante de la orden</Link>. El enlace no autoriza fondos.</p>
+    {!receptionPage && <p><Link href={"/recepcion/" + order.id}>Abrir recepción de la orden</Link></p>}
+    {receptionPage && order.status === "Pendiente" && <p>La recepción se habilita cuando el proveedor registra el despacho.</p>}
+    {receptionPage && escrow.phase === "reservada" && Date.now() >= Number(escrow.deadline) * 1000 && <p>El plazo para confirmar esta recepción venció.</p>}
+    {escrow.phase === "liquidada" && escrow.reception && <details><summary>Remito firmado</summary><p>{escrow.reception.name} · {escrow.reception.quantity} bolsas</p><img src={escrow.reception.signature} alt="Firma del responsable de recepción" width={240}/></details>}
     <button className="button secondary" type="button" onClick={() => window.print()}>Imprimir comprobante</button>
     {role === "Ventas" && <button className="button primary" disabled={busy || escrow.phase !== "reservada" || order.status === "Despachada"} onClick={() => void run(async () => { await sharedCommand("fuji.dispatch", {orderId: order.id}); setMessage("Despacho registrado. No se liberaron fondos."); })}>Registrar despacho sin cobro</button>}
     {role === "Compras" && !closed && <>
       <label>Wallet del empleado<input value={delegate} onChange={event => setDelegate(event.target.value)} placeholder="0x… la carga el comprador, no se inventa"/></label>
       <button className="button primary" disabled={busy || !official || !contract || escrow.phase === "reservada"} onClick={() => void run(() => fund())}>Firmar reserva con Core</button>
-      <button className="button secondary" disabled={busy || !official || escrow.phase !== "reservada" || !/^0x[a-fA-F0-9]{40}$/.test(delegate)} onClick={() => void run(async () => verify("authorize", await send(contract, encodeAuthorize(escrow.orderId, delegate))))}>Autorizar empleado</button>
-      <button className="button secondary" disabled={busy || !official || order.status !== "Despachada" || !escrow.delegate} onClick={() => void run(async () => verify("settle", await send(contract, encodeSettle(escrow.orderId, 80n))))}>Empleado firma 80 recibidas</button>
-      {escrow.mode === "expiry" && <button className="button secondary" disabled={busy || !official || escrow.phase !== "reservada"} onClick={() => void run(async () => verify("refund", await send(contract, encodeRefund(escrow.orderId))))}>Reembolsar total vencido</button>}
+      <button className="button secondary" disabled={busy || !official || escrow.phase !== "reservada" || !/^0x[a-fA-F0-9]{40}$/.test(delegate)} onClick={() => void run(async () => submit("authorize", await send(contract, encodeAuthorize(escrow.orderId, delegate))))}>Autorizar empleado</button>
+      {order.status === "Despachada" && escrow.phase === "reservada" && Date.now() < Number(escrow.deadline) * 1000 &&
+        <EscrowReception order={order} autoOpen={receptionPage} ready={!busy && official && !!escrow.delegate && account.toLowerCase() === escrow.delegate.toLowerCase() && chain === expectedChain(asset)}
+          connect={() => void run(async () => {
+            if (!escrow.delegate) throw new Error("Primero autorizá la wallet de recepción.");
+            const provider = core();
+            if (!provider) throw new Error("Abrí Chrome con Core.");
+            await provider.request({method: "eth_requestAccounts"});
+          })}
+          onConfirm={evidence => void run(async () => {
+            const tx = await send(contract, encodeSettle(escrow.orderId, BigInt(evidence.quantity)));
+            return submit("settle", tx, evidence);
+          })}/>}
+      {escrow.mode === "expiry" && <button className="button secondary" disabled={busy || !official || escrow.phase !== "reservada"} onClick={() => void run(async () => submit("refund", await send(contract, encodeRefund(escrow.orderId))))}>Reembolsar total vencido</button>}
     </>}
     <label>Reintentar un hash ya enviado<input value={hash} onChange={event => setHash(event.target.value)} placeholder="0x…"/></label>
-    <button className="button secondary" disabled={busy || !/^0x[a-fA-F0-9]{64}$/.test(hash)} onClick={() => void run(() => verify(escrow.phase === "reservada" && order.status === "Despachada" ? "settle" : "fund", hash))}>Verificar de nuevo</button>
+    <button className="button secondary" disabled={busy || !/^0x[a-fA-F0-9]{64}$/.test(hash)} onClick={() => void run(() => verify(pendingAction?.hash === hash ? pendingAction.kind : escrow.attempts.find(attempt => attempt.hash === hash)?.kind ?? "fund", hash, pendingAction?.hash === hash ? pendingAction.reception : undefined))}>Verificar de nuevo</button>
     {message && <p role="status">{message}</p>}
     {!account && <p>Core: sin vincular en este navegador. Esta pantalla no agrega el token ni cambia de red sola.</p>}
     {account && chain !== expectedChain(asset) && <p>{asset?.symbol === "ARGt" ? "Core está en otra red. Hace falta Avalanche C-Chain (43114)." : "Core está en otra red. Hace falta Fuji."}</p>}

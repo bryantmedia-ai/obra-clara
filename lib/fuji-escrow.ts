@@ -31,6 +31,8 @@ export type FujiEscrowRecord = {
   dispatchedAt: string;
   attempts: FujiAttempt[];
   wholeTokens: "5";
+  reception?: {name: string; quantity: number; signature: string; txHash: string};
+  receiptEmailSentAt?: string;
 };
 export type FujiDeployment = {contract: string; token: string; decimals: string; symbol: AssetSymbol; simulation: boolean; tx: string; chainId?: number};
 

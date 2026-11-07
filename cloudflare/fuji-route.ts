@@ -1,6 +1,7 @@
 import {AVALANCHE_ARGT, AVALANCHE_CHAIN_ID, ARBITRUM_CHAIN_ID, readAssetConfig, type AssetConfig} from "../lib/fuji-asset";
 import {commitVerified, escrowListLabel, type FujiKind, type Verdict} from "../lib/fuji-escrow";
 import {verifyEscrowAction} from "../lib/fuji-escrow-verify";
+import {escrowOrderPdf, receptionLink} from "../lib/escrow-order-document";
 import type {Command, SharedState} from "../lib/demo-model";
 
 type Statement = {bind(...values: unknown[]): Statement; first<T>(): Promise<T | null>; run(): Promise<{meta: {changes: number}}>};
@@ -16,6 +17,9 @@ export type FujiEnv = {
   OC_ESCROW_ENABLE?: string;
   OC_ESCROW_SIMULATION?: string;
   OC_LOCAL_PREVIEW?: string;
+  RESEND_API_KEY?: string;
+  OC_RECEIPT_EMAIL_FROM?: string;
+  OC_RECEIPT_EMAIL_TO?: string;
 };
 
 export function stampFujiCheckout(command: Command, env: FujiEnv): Command {
@@ -62,7 +66,7 @@ export async function handleFujiEscrow(request: Request, env: FujiEnv, workspace
     return json({asset: publicAsset(asset), deployment: state?.fujiDeployment ?? null, orders: (state?.orders ?? []).filter(order => order.escrow).map(order => ({id: order.id, status: order.status, supplierSlug: order.supplierSlug, supplier: order.supplier, label: escrowListLabel(order.escrow!, order.status), escrow: order.escrow}))});
   }
   if (request.method !== "POST") return json({error: "Método no permitido."}, 405);
-  const body = await request.json() as {action?: string; orderId?: string; txHash?: string; kind?: FujiKind; phase?: string};
+  const body = await request.json() as {action?: string; orderId?: string; txHash?: string; kind?: FujiKind; phase?: string; reception?: unknown};
   if (body.action === "track") return trackHash(env, body as {txHash?: string; chainId?: number}, headers);
   if (body.action !== "verify") return json({error: "Solo se acepta la verificación de un recibo. El cliente no puede marcar una reserva."}, 400);
   if (body.phase) return json({error: "El estado financiero no se acepta desde el cliente."}, 400);
@@ -87,6 +91,22 @@ export async function handleFujiEscrow(request: Request, env: FujiEnv, workspace
     if (order?.escrow?.phase === "activo pendiente") return json({verdict, order, asset: publicAsset(asset)});
     try { commitVerified(state as unknown as Parameters<typeof commitVerified>[0], verdict, new Date().toISOString()); }
     catch (error) { return json({error: error instanceof Error ? error.message : "No se pudo registrar el recibo.", verdict}, 400); }
+    if (kind === "settle" && order?.escrow && body.reception && (verdict.status === "pending" || verdict.status === "confirmed")) {
+      const {name, quantity, signature} = body.reception as {name?: unknown; quantity?: unknown; signature?: unknown};
+      if (typeof name !== "string" || name.trim().split(/\s+/).length < 2 || name.length > 100 ||
+          typeof quantity !== "number" || !Number.isInteger(quantity) || quantity < 0 || quantity > Number(order.escrow.quantity) ||
+          typeof signature !== "string" || signature.length > 100_000 || !/^data:image\/png;base64,[A-Za-z0-9+/]+={0,2}$/.test(signature) ||
+          (verdict.status === "confirmed" && String(quantity) !== verdict.received)) {
+        return json({error: "El remito no coincide con la recepción."}, 400);
+      }
+      if (!order.escrow.reception || order.escrow.reception.txHash !== verdict.hash) {
+        order.escrow.reception = {name: name.trim(), quantity, signature, txHash: verdict.hash};
+      }
+    }
+    if (kind === "settle" && verdict.status === "confirmed" && order?.escrow?.reception &&
+        (order.escrow.reception.txHash !== verdict.hash || String(order.escrow.reception.quantity) !== verdict.received)) {
+      delete order.escrow.reception;
+    }
     const serialized = JSON.stringify(state);
     if (serialized !== before) {
       state.revision += 1;
@@ -95,7 +115,18 @@ export async function handleFujiEscrow(request: Request, env: FujiEnv, workspace
       if (!result.meta.changes) continue;
       await env.DB.prepare("INSERT OR REPLACE INTO fuji_escrow_receipts (workspace_id, order_id, kind, tx_hash, status, reason, simulation, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)").bind(workspaceId, order?.id || "", kind, verdict.hash, verdict.status, verdict.reason, verdict.simulation ? 1 : 0, new Date().toISOString()).run();
     }
-    return json({verdict, order: order ? state.orders.find(item => item.id === order.id) : null, deployment: state.fujiDeployment ?? null, asset: publicAsset(asset)});
+    let email: string | undefined;
+    if (kind === "fund" && verdict.status === "confirmed" && order?.escrow && !verdict.simulation && !order.escrow.receiptEmailSentAt) {
+      email = await sendReceiptEmail(env, order, verdict.hash).catch(() => "error");
+      if (email === "enviado") {
+        const revision = state.revision;
+        order.escrow.receiptEmailSentAt = new Date().toISOString();
+        state.revision += 1;
+        await env.DB.prepare("UPDATE workspaces SET state = ?, revision = ?, updated_at = ? WHERE id = ? AND revision = ?")
+          .bind(JSON.stringify(state), state.revision, order.escrow.receiptEmailSentAt, workspaceId, revision).run();
+      }
+    }
+    return json({verdict, email, order: order ? state.orders.find(item => item.id === order.id) : null, deployment: state.fujiDeployment ?? null, asset: publicAsset(asset)});
   }
   return json({error: "Otra operación modificó el espacio. Reintentá la verificación con el mismo hash."}, 409);
 }
@@ -127,4 +158,25 @@ async function rpc(url: string, method: string, params: unknown[]) {
   const body = await response.json() as {result?: unknown; error?: {message?: string}};
   if (body.error) throw new Error(body.error.message || "La red rechazó la consulta.");
   return body.result;
+}
+
+async function sendReceiptEmail(env: FujiEnv, order: SharedState["orders"][number], hash: string) {
+  if (!env.RESEND_API_KEY || !env.OC_RECEIPT_EMAIL_FROM || !env.OC_RECEIPT_EMAIL_TO) return "sin configuración";
+  const url = receptionLink(order.id);
+  const pdf = escrowOrderPdf({
+    id: order.id, project: order.project.name, product: order.lines[0].name,
+    quantity: Number(order.escrow!.quantity), total: `5 ${order.escrow!.symbol}`, supplier: order.supplier,
+  });
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {"Authorization": "Bearer " + env.RESEND_API_KEY, "Content-Type": "application/json", "Idempotency-Key": "escrow-receipt/" + hash},
+    body: JSON.stringify({
+      from: env.OC_RECEIPT_EMAIL_FROM,
+      to: [env.OC_RECEIPT_EMAIL_TO],
+      subject: "Obra Clara | Orden reservada " + order.id,
+      text: "La reserva está confirmada. Abrí el formulario de recepción: " + url + "\nEl QR del PDF abre el mismo formulario.",
+      attachments: [{filename: "Orden-" + order.id + ".pdf", content: btoa(pdf)}],
+    }),
+  });
+  return response.ok ? "enviado" : "error";
 }
