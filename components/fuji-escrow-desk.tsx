@@ -46,7 +46,7 @@ function asDeployment(value: unknown): FujiDeployment | null {
 }
 
 export function FujiEscrowBoard({role, focus}: {role: "Compras" | "Ventas"; focus?: string}) {
-  const {state} = useShared();
+  const {state, ready} = useShared();
   const [asset, setAsset] = useState<AssetResponse>();
   const [recordedContract, setRecordedContract] = useState("");
   const orders = (state?.orders ?? []).filter(order => order.escrow && (!focus || order.id.toLowerCase() === focus.toLowerCase()));
@@ -62,21 +62,21 @@ export function FujiEscrowBoard({role, focus}: {role: "Compras" | "Ventas"; focu
     window.addEventListener(DEPLOYMENT_EVENT, load);
     return () => { active = false; window.removeEventListener(DEPLOYMENT_EVENT, load); };
   }, []);
-  if (focus && role === "Compras") return <section className="fuji-wallet panel">
-    <h2>Recepción de mercadería</h2>
-    {orders.length ? orders.map(order => <FujiOrderCard key={order.id} order={order} role={role} receptionPage/>) : <p>Si la orden no aparece, abrí este enlace en el navegador donde hiciste la compra.</p>}
+  if (focus && role === "Compras") return <section className="oc-receipt-page">
+    <Link href="/compras" className="oc-receipt-back">← Volver a Compras</Link>
+    {orders.length ? orders.map(order => <FujiOrderCard key={order.id} order={order} role={role} receptionPage/>) : <p>{ready ? "Abrí este enlace en el navegador donde hiciste la compra." : "Cargando orden…"}</p>}
   </section>;
   const argt = asset?.symbol === "ARGt";
   const railLive = argt && !!asset?.enabled && !asset.simulation;
   return <section className="fuji-wallet panel" aria-label={argt ? "Compra de cemento en ARGt" : "Compra de cemento en Fuji"}>
-    <p className="escrow-sim-banner">{railLive ? (recordedContract ? `Riel ARGt habilitado. Escrow verificado: ${recordedContract}. No se firma otro despliegue. El vendedor no hace falta para desplegar. La bolsa de la demo cuesta 0,05 ARGt. Las 100 bolsas suman 5 ARGt.` : "Riel ARGt habilitado. El contrato todavía no existe: lo crea la firma de Core de esta pantalla. El vendedor no hace falta para desplegar. La bolsa de la demo cuesta 0,05 ARGt. Las 100 bolsas suman 5 ARGt.") : argt ? "SIMULACIÓN · no es producción · mainnet bloqueado hasta configuración real" : asset?.simulation ? "SIMULACIÓN · riel Fuji · no es producción" : "Riel separado. Nada de esta pantalla es un saldo hasta un recibo."}</p>
-    {railLive && <p>La billetera de más arriba, si aparece, es USDC de Fuji y no sirve para este despliegue. Core tiene que quedar en Avalanche C-Chain (43114). No cambies a Fuji.</p>}
-    <BuyerIdentity/>
-    <span className="fn-eyebrow">{argt ? "ARGt · TOKEN DE PESOS · NO ES USD" : "USDT EN FUJI · NO ES EL REGISTRO ARGt"}</span>
-    <h2>Compra de 100 bolsas</h2>
-    {argt ? <p>El guion es 100 bolsas de 50 kg y 5 ARGt. Con 80 recibidas se pagan 4 ARGt al vendedor y se devuelve 1 ARGt. No son dólares. Esos números no son un saldo hasta que el backend lea un recibo. Despachar no libera fondos.</p> : <p>El guion de Fuji sigue separado: 5 USDT de prueba solo si ese riel se configura. No reemplaza a ARGt y no es un saldo sin recibo.</p>}
-    {argt && <AcquisitionSteps/>}
-    <FujiDeploy/>
+    <div className="oc-escrow-heading"><h2>Compras con fondos protegidos</h2><p>Seguí la reserva, el despacho y la recepción de cada orden.</p></div>
+    <details className="oc-escrow-details">
+      <summary>Configuración de billetera y contrato</summary>
+      <p>{railLive ? recordedContract ? "Avalanche C-Chain · Contrato verificado" : "Avalanche C-Chain · Contrato pendiente" : "Riel de prueba"}</p>
+      <BuyerIdentity/>
+      {argt && <AcquisitionSteps/>}
+      <FujiDeploy/>
+    </details>
     {!orders.length && <p>Todavía no hay una orden de cemento en este espacio. Se crea desde el carrito, no desde este panel.</p>}
     {orders.map(order => <FujiOrderCard key={order.id} order={order} role={role}/>)}
   </section>;
@@ -216,27 +216,49 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
   const [pendingAction, setPendingAction] = useState<{kind: "fund" | "authorize" | "settle" | "refund"; hash: string; reception?: ReceptionEvidence}>();
   async function submit(kind: "fund" | "authorize" | "settle" | "refund", txHash: string, reception?: ReceptionEvidence) {
     setPendingAction({kind, hash: txHash, reception});
-    return verify(kind, txHash, reception);
+    let result = await verify(kind, txHash, reception);
+    for (let attempt = 0; attempt < 5 && result.status === "pending"; attempt++) {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      result = await verify(kind, txHash, reception);
+    }
+    return result;
   }
   const closed = escrow.phase === "liquidada" || escrow.phase === "reembolsada";
-  return <article>
-    <p><strong>{order.id}</strong> · {order.lines[0]?.quantity ?? 100} × {order.lines[0]?.name}</p>
-    <p>Estado logístico compartido: {order.status}</p>
-    <p>Estado financiero: {escrowListLabel(escrow, order.status)}</p>
-    <p>{asset?.blocked || (official ? "Activo configurado. Las firmas las hace Core." : "Transacciones reales bloqueadas.")} {!account && " Sin wallet no se firma ni se reserva."}</p>
-    <p>Vendedor {escrow.seller || "sin dirección"} · Empleado {escrow.delegate || "sin autorización on-chain"} · Contrato {contract || "sin escrow verificado"}</p>
-    {!receptionPage && <p><Link href={"/recepcion/" + order.id}>Abrir recepción de la orden</Link></p>}
+  const canDispatch = escrow.phase === "reservada" && order.status !== "Despachada";
+  const funded = escrow.attempts.some(attempt => attempt.kind === "fund" && attempt.status === "confirmed");
+  const reserved = escrow.phase === "reservada";
+  const dispatched = !!escrow.dispatchedAt;
+  const settled = escrow.phase === "liquidada";
+  return <article className="oc-escrow-order">
+    <header className="oc-escrow-order-head">
+      <div><span className="fn-eyebrow">{order.project.name}</span>
+        <h2>{receptionPage ? "Recepción de mercadería" : order.lines[0]?.name}</h2>
+        <p>{receptionPage && <>{order.lines[0]?.name} · </>}{order.supplier} · {escrow.quantity} bolsas</p>
+      </div>
+      <span className="oc-escrow-status">{order.status}</span>
+    </header>
+    <ol className="oc-escrow-steps" aria-label="Seguimiento de la orden">
+      <li data-done={funded}>1. Fondos reservados</li>
+      <li data-done={dispatched}>2. Despacho</li>
+      <li data-done={settled}>3. Recepción y pago</li>
+    </ol>
+    <p className="oc-escrow-balance">{escrowListLabel(escrow, order.status)}</p>
     {receptionPage && order.status === "Pendiente" && <p>La recepción se habilita cuando el proveedor registra el despacho.</p>}
     {receptionPage && escrow.phase === "reservada" && Date.now() >= Number(escrow.deadline) * 1000 && <p>El plazo para confirmar esta recepción venció.</p>}
     {escrow.phase === "liquidada" && escrow.reception && <details><summary>Remito firmado</summary><p>{escrow.reception.name} · {escrow.reception.quantity} bolsas</p><img src={escrow.reception.signature} alt="Firma del responsable de recepción" width={240}/></details>}
-    <button className="button secondary" type="button" onClick={() => window.print()}>Imprimir comprobante</button>
-    {role === "Ventas" && <button className="button primary" disabled={busy || escrow.phase !== "reservada" || order.status === "Despachada"} onClick={() => void run(async () => { await sharedCommand("fuji.dispatch", {orderId: order.id}); setMessage("Despacho registrado. No se liberaron fondos."); })}>Registrar despacho sin cobro</button>}
+    <div className="oc-escrow-actions">
+    {!receptionPage && (role === "Ventas" || role === "Compras") && canDispatch &&
+      <button className="button primary" disabled={busy} onClick={() => void run(async () => {
+        await sharedCommand("fuji.dispatch", {orderId: order.id});
+        setMessage("Despacho registrado.");
+      })}>{role === "Compras" ? "Simular despacho del proveedor" : "Registrar despacho"}</button>}
     {role === "Compras" && !closed && <>
-      <label>Wallet del empleado<input value={delegate} onChange={event => setDelegate(event.target.value)} placeholder="0x… la carga el comprador, no se inventa"/></label>
-      <button className="button primary" disabled={busy || !official || !contract || escrow.phase === "reservada"} onClick={() => void run(() => fund())}>Firmar reserva con Core</button>
-      <button className="button secondary" disabled={busy || !official || escrow.phase !== "reservada" || !/^0x[a-fA-F0-9]{40}$/.test(delegate)} onClick={() => void run(async () => submit("authorize", await send(contract, encodeAuthorize(escrow.orderId, delegate))))}>Autorizar empleado</button>
-      {order.status === "Despachada" && escrow.phase === "reservada" && Date.now() < Number(escrow.deadline) * 1000 &&
-        <EscrowReception order={order} autoOpen={receptionPage} ready={!busy && official && !!escrow.delegate && account.toLowerCase() === escrow.delegate.toLowerCase() && chain === expectedChain(asset)}
+      {!funded && <button className="button primary" disabled={busy || !official || !contract || escrow.phase === "reserva pendiente"} onClick={() => void run(() => fund())}>Firmar reserva con Core</button>}
+      {reserved && !escrow.delegate && <button className="button secondary" disabled={busy || !official || !escrow.buyer || account.toLowerCase() !== escrow.buyer.toLowerCase()} onClick={() => void run(async () =>
+        submit("authorize", await send(contract, encodeAuthorize(escrow.orderId, escrow.buyer))))}>Autorizar mi wallet para recibir</button>}
+      {reserved && dispatched && !receptionPage && <Link className="button secondary" href={"/recepcion/" + order.id}>Abrir recepción</Link>}
+      {receptionPage && order.status === "Despachada" && escrow.phase === "reservada" && Date.now() < Number(escrow.deadline) * 1000 &&
+        <EscrowReception order={order} autoOpen={!!escrow.delegate} ready={!busy && official && !!escrow.delegate && account.toLowerCase() === escrow.delegate.toLowerCase() && chain === expectedChain(asset)}
           connect={() => void run(async () => {
             if (!escrow.delegate) throw new Error("Primero autorizá la wallet de recepción.");
             const provider = core();
@@ -249,8 +271,24 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
           })}/>}
       {escrow.mode === "expiry" && <button className="button secondary" disabled={busy || !official || escrow.phase !== "reservada"} onClick={() => void run(async () => submit("refund", await send(contract, encodeRefund(escrow.orderId))))}>Reembolsar total vencido</button>}
     </>}
+    {role === "Compras" && !account && <button className="button secondary" onClick={() => void run(async () => {
+      const provider = core();
+      if (!provider) throw new Error("Abrí Chrome con Core.");
+      await provider.request({method: "eth_requestAccounts"});
+    })}>Conectar Core</button>}
+    {hash && <button className="button secondary" disabled={busy || !/^0x[a-fA-F0-9]{64}$/.test(hash)} onClick={() => void run(() => verify(pendingAction?.hash === hash ? pendingAction.kind : escrow.attempts.find(attempt => attempt.hash === hash)?.kind ?? "fund", hash, pendingAction?.hash === hash ? pendingAction.reception : undefined))}>Actualizar confirmación</button>}
+    </div>
+    <details className="oc-escrow-details"><summary>Detalles de la orden</summary>
+    <p className="oc-escrow-id">{order.id}</p>
+    <p>Wallet del proveedor <code>{escrow.seller}</code></p>
+    <p>Contrato <code>{contract}</code></p>
+    {role === "Compras" && reserved && !escrow.delegate && <div className="oc-escrow-actions">
+      <label>Otra wallet receptora<input value={delegate} onChange={event => setDelegate(event.target.value)} placeholder="0x…"/></label>
+      <button className="button secondary" disabled={busy || !official || !/^0x[a-fA-F0-9]{40}$/.test(delegate)} onClick={() => void run(async () => submit("authorize", await send(contract, encodeAuthorize(escrow.orderId, delegate))))}>Autorizar otra wallet</button>
+    </div>}
     <label>Reintentar un hash ya enviado<input value={hash} onChange={event => setHash(event.target.value)} placeholder="0x…"/></label>
     <button className="button secondary" disabled={busy || !/^0x[a-fA-F0-9]{64}$/.test(hash)} onClick={() => void run(() => verify(pendingAction?.hash === hash ? pendingAction.kind : escrow.attempts.find(attempt => attempt.hash === hash)?.kind ?? "fund", hash, pendingAction?.hash === hash ? pendingAction.reception : undefined))}>Verificar de nuevo</button>
+    </details>
     {message && <p role="status">{message}</p>}
     {!account && <p>Core: sin vincular en este navegador. Esta pantalla no agrega el token ni cambia de red sola.</p>}
     {account && chain !== expectedChain(asset) && <p>{asset?.symbol === "ARGt" ? "Core está en otra red. Hace falta Avalanche C-Chain (43114)." : "Core está en otra red. Hace falta Fuji."}</p>}

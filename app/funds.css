@@ -23,3 +23,30 @@
 .buyer-identity strong{display:block}
 .buyer-identity small{color:#5d6b73}
 .buyer-identity p{margin:.35rem 0 0;color:#5d6b73;font-size:.92rem;line-height:1.45}
+
+.oc-receipt-page{max-width:58rem;margin-inline:auto;display:grid;gap:1rem}
+.oc-receipt-back{color:#b74711;font-weight:650;width:fit-content}
+.oc-escrow-heading h2,.oc-escrow-order h2,.oc-receipt-dialog h2{margin:.25rem 0}
+.oc-escrow-heading p,.oc-escrow-order-head p,.oc-receipt-dialog header p{margin:.3rem 0;color:var(--muted,#526057)}
+.oc-escrow-order{min-width:0;background:#fff;border:1px solid #dedbd2;border-radius:18px;padding:clamp(1rem,3vw,1.75rem);display:grid;gap:1rem}
+.oc-escrow-order-head,.oc-escrow-actions{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.75rem}
+.oc-escrow-actions{justify-content:flex-start;align-items:center}
+.oc-escrow-status,.oc-escrow-steps li{padding:.45rem .75rem;border-radius:8px;background:#f5f3ed;color:#565f57;font-size:.9rem;font-weight:650}
+.oc-escrow-steps{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0}
+.oc-escrow-steps li[data-done=true]{background:#e7f2ec;color:#176447}
+.oc-escrow-balance{margin:0;padding:.8rem 1rem;border-radius:10px;background:#f3f6f4;color:#24463a}
+.oc-escrow-details{color:var(--muted,#526057);border-top:1px solid #e8e4dc;padding-top:.7rem;min-width:0}
+.oc-escrow-details summary{width:fit-content;cursor:pointer;font-weight:650}
+.oc-escrow-details code,.oc-escrow-id{overflow-wrap:anywhere}
+.oc-escrow-details label,.oc-receipt-fields label{display:grid;gap:.35rem}
+.oc-receipt-dialog{width:min(36rem,calc(100% - 2rem));max-height:calc(100dvh - 2rem);padding:clamp(1rem,4vw,1.75rem);border:1px solid #dedbd2;border-radius:18px;background:#fff;color:#222c25}
+.oc-receipt-dialog::backdrop{background:#17221db0}
+.oc-receipt-dialog form,.oc-receipt-signature{display:grid;gap:.8rem}
+.oc-receipt-fields,.oc-receipt-split{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:0}
+.oc-receipt-fields input{width:100%;min-width:0}
+.oc-receipt-split div{padding:.75rem;border-radius:10px;background:#e7f2ec;color:#176447}
+.oc-receipt-split dd{margin:.2rem 0 0;font-size:1.1rem;font-weight:700}
+.oc-receipt-signature canvas{width:100%;border:1px dashed #afaea5;border-radius:10px;background:#faf9f5;touch-action:none}
+.oc-receipt-signature button{justify-self:start}
+.oc-receipt-dialog footer{justify-content:flex-end}
+@media(max-width:520px){.oc-receipt-fields{grid-template-columns:1fr}.oc-escrow-steps{display:grid;grid-template-columns:1fr}.oc-receipt-dialog footer .button{flex:1}}

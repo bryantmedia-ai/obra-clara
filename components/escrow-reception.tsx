@@ -21,13 +21,18 @@ export function EscrowReception({order, onConfirm, ready, connect, autoOpen}: {
   const [quantity, setQuantity] = useState("");
   const ordered = Number(order.escrow?.quantity);
   const units = Number(quantity);
+  const validQuantity = quantity !== "" && Number.isInteger(units) && units >= 0 && units <= ordered;
+  const symbol = order.escrow?.symbol;
+  const sellerAmount = Number(order.escrow?.wholeTokens) * units / ordered;
+  const refund = Number(order.escrow?.wholeTokens) - sellerAmount;
+  const format = (value: number) => new Intl.NumberFormat("es-AR", {maximumFractionDigits: 2}).format(value) + " " + symbol;
   function point(event: PointerEvent<HTMLCanvasElement>) {
     const bounds = event.currentTarget.getBoundingClientRect();
     return [(event.clientX - bounds.left) * 480 / bounds.width, (event.clientY - bounds.top) * 144 / bounds.height] as const;
   }
   return <>
     <button className="button primary" onClick={() => dialog.current?.showModal()}>Registrar recepción</button>
-    <dialog ref={dialog} style={{width: "min(520px, 94vw)", padding: 24, borderRadius: 16, border: "1px solid #ddd"}}>
+    <dialog ref={dialog} className="oc-receipt-dialog" aria-labelledby="oc-receipt-title">
       <form onSubmit={event => {
         event.preventDefault();
         if (!ready || !signed || !canvas.current || name.trim().split(/\s+/).length < 2) return;
@@ -35,13 +40,16 @@ export function EscrowReception({order, onConfirm, ready, connect, autoOpen}: {
         onConfirm({name: name.trim(), quantity: units, signature: canvas.current.toDataURL("image/png")});
         dialog.current?.close();
       }}>
-        <h2>Recepción en obra</h2>
-        <p>{order.project.name} · {order.id}</p>
-        <p>{ordered} × {order.lines[0]?.name}</p>
+        <header><span className="fn-eyebrow">{order.project.name}</span>
+        <h2 id="oc-receipt-title">Confirmá la recepción</h2>
+        <p>{ordered} bolsas pedidas · {order.supplier}</p></header>
+        <div className="oc-receipt-fields">
         <label>Nombre y apellido<input required maxLength={100} value={name} onChange={event => setName(event.target.value)}/></label>
         <label>Bolsas recibidas<input required type="number" min={0} max={ordered} step={1} value={quantity} onChange={event => setQuantity(event.target.value)}/></label>
-        <p id="escrow-signature">Firmá el remito en el recuadro</p>
-        <canvas ref={canvas} width={480} height={144} aria-labelledby="escrow-signature" style={{width: "100%", border: "1px solid #bbb", background: "#fff", touchAction: "none"}}
+        </div>
+        {validQuantity && <dl className="oc-receipt-split"><div><dt>Pago al proveedor</dt><dd>{format(sellerAmount)}</dd></div><div><dt>Devolución al comprador</dt><dd>{format(refund)}</dd></div></dl>}
+        <div className="oc-receipt-signature"><label id="escrow-signature">Firma en el remito</label>
+        <canvas ref={canvas} width={480} height={144} aria-labelledby="escrow-signature"
           onPointerDown={event => {
             if (drawing.current) return;
             event.currentTarget.setPointerCapture(event.pointerId);
@@ -63,11 +71,10 @@ export function EscrowReception({order, onConfirm, ready, connect, autoOpen}: {
           onPointerUp={() => {drawing.current = false;}}
           onPointerCancel={() => {drawing.current = false;}}
         />
-        <p>Core te va a pedir la firma de la wallet autorizada para liquidar la orden.</p>
-        <button type="button" className="button secondary" onClick={() => {canvas.current?.getContext("2d")?.clearRect(0, 0, 480, 144); setSigned(false);}}>Borrar firma</button>
-        <button type="button" className="button secondary" onClick={() => dialog.current?.close()}>Cerrar</button>
+        <button type="button" className="button secondary" onClick={() => {canvas.current?.getContext("2d")?.clearRect(0, 0, 480, 144); setSigned(false);}}>Borrar firma</button></div>
+        <footer className="oc-escrow-actions"><button type="button" className="button secondary" onClick={() => dialog.current?.close()}>Cerrar</button>
         {!ready && <button type="button" className="button secondary" onClick={connect}>Conectar Core</button>}
-        <button className="button primary" disabled={!ready || !signed || name.trim().split(/\s+/).length < 2 || quantity === "" || !Number.isInteger(units) || units < 0 || units > ordered}>Confirmar en Core</button>
+        <button className="button primary" disabled={!ready || !signed || name.trim().split(/\s+/).length < 2 || quantity === "" || !Number.isInteger(units) || units < 0 || units > ordered}>Confirmar en Core</button></footer>
       </form>
     </dialog>
   </>;
