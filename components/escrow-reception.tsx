@@ -5,13 +5,15 @@ import type {SharedOrder} from "../lib/demo-model";
 
 export type ReceptionEvidence = {name: string; quantity: number; signature: string};
 
-export function EscrowReception({order, onConfirm, ready, connect, autoOpen, walletNotice}: {
+export function EscrowReception({order, onConfirm, ready, connect, autoOpen, walletNotice, statusMessage, authorize}: {
   order: SharedOrder;
   onConfirm: (evidence: ReceptionEvidence) => void;
   ready: boolean;
   autoOpen?: boolean;
   connect?: () => void;
   walletNotice?: string;
+  statusMessage?: string;
+  authorize?: {disabled: boolean; label: string; onClick: () => void};
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -39,7 +41,6 @@ export function EscrowReception({order, onConfirm, ready, connect, autoOpen, wal
         if (!ready || !signed || !canvas.current || name.trim().split(/\s+/).length < 2) return;
         if (quantity === "" || !Number.isInteger(units) || units < 0 || units > ordered) return;
         onConfirm({name: name.trim(), quantity: units, signature: canvas.current.toDataURL("image/png")});
-        dialog.current?.close();
       }}>
         <header><span className="fn-eyebrow">{order.project.name}</span>
         <h2 id="oc-receipt-title">Confirmá la recepción</h2>
@@ -73,10 +74,12 @@ export function EscrowReception({order, onConfirm, ready, connect, autoOpen, wal
           onPointerCancel={() => {drawing.current = false;}}
         />
         <button type="button" className="button secondary" onClick={() => {canvas.current?.getContext("2d")?.clearRect(0, 0, 480, 144); setSigned(false);}}>Borrar firma</button></div>
-        {walletNotice && <p className="oc-escrow-balance" role="status">{walletNotice}</p>}
+        {walletNotice && <p className="oc-escrow-balance">{walletNotice}</p>}
+        {statusMessage && <p className="oc-escrow-balance" role="status">{statusMessage}</p>}
         <footer className="oc-escrow-actions"><button type="button" className="button secondary" onClick={() => dialog.current?.close()}>Cerrar</button>
         {connect && <button type="button" className="button secondary" onClick={connect}>Conectar Core</button>}
-        <button className="button primary" disabled={!ready || !signed || name.trim().split(/\s+/).length < 2 || quantity === "" || !Number.isInteger(units) || units < 0 || units > ordered}>Confirmar en Core</button></footer>
+        {authorize && <button type="button" className="button primary" disabled={authorize.disabled} onClick={authorize.onClick}>{authorize.label}</button>}
+        {!authorize && !connect && <button className="button primary" disabled={!ready || !signed || name.trim().split(/\s+/).length < 2 || quantity === "" || !Number.isInteger(units) || units < 0 || units > ordered}>Confirmar en Core</button>}</footer>
       </form>
     </dialog>
   </>;

@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import {useEffect, useEffectEvent, useState} from "react";
 import Link from "next/link";
 import {EscrowReception, type ReceptionEvidence} from "./escrow-reception";
 import {refreshShared, sharedCommand, useShared, workspaceToken} from "./shared-demo";
@@ -14,6 +14,7 @@ import {verifiedArgtBalanceWallet} from "../lib/buyer-profile";
 
 type CoreProvider = {request(args: {method: string; params?: unknown[]}): Promise<unknown>; on?(event: string, listener: () => void): void; removeListener?(event: string, listener: () => void): void};
 type AssetResponse = AssetConfig;
+class RejectedReceipt extends Error {}
 function expectedChain(asset?: {chainId?: number}) {
   return "0x" + (asset?.chainId || 43113).toString(16);
 }
@@ -175,7 +176,8 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
   async function verify(kind: "deployment" | "fund" | "authorize" | "settle" | "refund", txHash: string, reception?: ReceptionEvidence) {
     const response = await fetch(endpoint(), {method: "POST", headers: {Authorization: "Bearer " + workspaceToken(), "Content-Type": "application/json"}, body: JSON.stringify({action: "verify", orderId: order.id, txHash, kind, reception})});
     const data = await response.json();
-    if (!response.ok || data.verdict?.status === "rejected" || data.verdict?.status === "failed") throw new Error(data.error || data.verdict?.reason || "La verificación no pasó.");
+    if (data.verdict?.status === "rejected" || data.verdict?.status === "failed") throw new RejectedReceipt(data.error || data.verdict.reason || "Avalanche rechazó la transacción.");
+    if (!response.ok) throw new Error(data.error || "No se pudo verificar la transacción. Volvé a consultar su confirmación.");
     await refreshShared();
     if (kind === "fund" && data.verdict?.status === "confirmed" && data.email) {
       const mail = data.email === "enviado" ? " Comprobante enviado." : " No se pudo enviar el comprobante: " + data.email + ".";
@@ -188,7 +190,8 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
     if (typeof error === "string") return error;
     if (error && typeof error === "object") {
       const {code, message} = error as {code?: number; message?: string};
-      if (code === 4001) return "Core no recibió la aprobación. Abrí la extensión y confirmá la solicitud.";
+      if (code === 4001) return "La solicitud de Core se cerró sin confirmar. Volvé a pulsar el botón y confirmá en la ventana de Core.";
+      if (code === -32002) return "Ya hay una solicitud abierta. Revisá la ventana de Core.";
       if (code === 4100) return "Core no autorizó esta cuenta. Revisá la conexión de Compras en la extensión.";
       if (message) return message;
       if (code != null) return "Core devolvió el código " + code + ".";
@@ -238,15 +241,52 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
     finally { setBusy(false); }
   }
 
+  function authorizationKey() {
+    return "oc-pending-reception-authorization:" + workspaceToken() + ":" + order.id;
+  }
+
+  const [authorizationHash, setAuthorizationHash] = useState("");
+  function rememberAuthorization(txHash: string) {
+    setAuthorizationHash(txHash);
+    try {
+      if (txHash) localStorage.setItem(authorizationKey(), txHash);
+      else localStorage.removeItem(authorizationKey());
+    } catch {
+      // The current tab can still verify a submitted transaction.
+    }
+  }
+
+  const restoreAuthorization = useEffectEvent(() => {
+    let saved = "";
+    try { saved = localStorage.getItem(authorizationKey()) || ""; } catch {}
+    if (!/^0x[a-fA-F0-9]{64}$/.test(saved)) return;
+    if (escrow.delegate) {
+      rememberAuthorization("");
+      return;
+    }
+    setAuthorizationHash(saved);
+    void run(() => submit("authorize", saved));
+  });
+  useEffect(() => {
+    if (role === "Compras") restoreAuthorization();
+  }, [order.id, role]);
+
   const [pendingAction, setPendingAction] = useState<{kind: "fund" | "authorize" | "settle" | "refund"; hash: string; reception?: ReceptionEvidence}>();
   async function submit(kind: "fund" | "authorize" | "settle" | "refund", txHash: string, reception?: ReceptionEvidence) {
     setPendingAction({kind, hash: txHash, reception});
-    let result = await verify(kind, txHash, reception);
-    for (let attempt = 0; attempt < 5 && result.status === "pending"; attempt++) {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      result = await verify(kind, txHash, reception);
+    if (kind === "authorize") rememberAuthorization(txHash);
+    try {
+      let result = await verify(kind, txHash, reception);
+      for (let attempt = 0; attempt < 5 && result.status === "pending"; attempt++) {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        result = await verify(kind, txHash, reception);
+      }
+      if (kind === "authorize" && result.status === "confirmed") rememberAuthorization("");
+      return result;
+    } catch (error) {
+      if (kind === "authorize" && error instanceof RejectedReceipt) rememberAuthorization("");
+      throw error;
     }
-    return result;
   }
   const closed = escrow.phase === "liquidada" || escrow.phase === "reembolsada";
   const canDispatch = escrow.phase === "reservada" && order.status !== "Despachada";
@@ -256,10 +296,20 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
   const settled = escrow.phase === "liquidada";
   const rightWallet = !!account && account.toLowerCase() === escrow.delegate.toLowerCase();
   const rightNetwork = chain === expectedChain(asset);
-  const walletNotice = !escrow.delegate ? "Autorizá la wallet receptora desde el seguimiento de la orden."
-    : account && !rightWallet ? "Seleccioná la wallet receptora autorizada en Core."
-    : account && !rightNetwork ? "Seleccioná Avalanche C-Chain en Core."
+  const buyerWallet = !!account && account.toLowerCase() === escrow.buyer.toLowerCase();
+  const canAuthorize = official && !!contract && buyerWallet && rightNetwork;
+  const walletNotice = !account ? "Conectá Core para continuar con la recepción."
+    : !rightNetwork ? "Seleccioná la red de esta orden en Core."
+    : !escrow.delegate && !buyerWallet ? "Seleccioná la wallet compradora en Core."
+    : !escrow.delegate ? "Habilitá la recepción en Core. Los fondos quedan reservados hasta que confirmes el remito."
+    : !rightWallet ? "Seleccioná la wallet receptora autorizada en Core."
     : undefined;
+  function authorizeReception() {
+    void run(async () => {
+      const txHash = authorizationHash || await send(contract, encodeAuthorize(escrow.orderId, escrow.buyer));
+      return submit("authorize", txHash);
+    });
+  }
   async function connectWallet() {
     const provider = core();
     if (!provider) throw new Error("Abrí Chrome con Core.");
@@ -294,13 +344,18 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
       })}>{role === "Compras" ? "Simular despacho del proveedor" : "Registrar despacho"}</button>}
     {role === "Compras" && !closed && <>
       {!funded && <button className="button primary" disabled={busy || !official || !contract || escrow.phase === "reserva pendiente"} onClick={() => void run(() => fund())}>Firmar reserva con Core</button>}
-      {reserved && !escrow.delegate && <button className="button secondary" disabled={busy || !official || !escrow.buyer || account.toLowerCase() !== escrow.buyer.toLowerCase()} onClick={() => void run(async () =>
-        submit("authorize", await send(contract, encodeAuthorize(escrow.orderId, escrow.buyer))))}>Autorizar mi wallet para recibir</button>}
+      {reserved && !escrow.delegate && !receptionPage && <button className="button secondary" disabled={busy || (!authorizationHash && !canAuthorize)} onClick={authorizeReception}>{authorizationHash ? "Verificar autorización" : "Autorizar mi wallet para recibir"}</button>}
       {reserved && dispatched && !receptionPage && <Link className="button secondary" href={"/recepcion/" + order.id}>Abrir recepción</Link>}
       {receptionPage && order.status === "Despachada" && escrow.phase === "reservada" && Date.now() < Number(escrow.deadline) * 1000 &&
-        <EscrowReception order={order} autoOpen={!!escrow.delegate} ready={!busy && official && rightWallet && rightNetwork}
+        <EscrowReception order={order} autoOpen ready={!busy && official && rightWallet && rightNetwork}
           walletNotice={walletNotice}
-          connect={!account && escrow.delegate ? () => void run(connectWallet) : undefined}
+          statusMessage={message}
+          connect={!account && !busy ? () => void run(connectWallet) : undefined}
+          authorize={!escrow.delegate && (canAuthorize || !!authorizationHash) ? {
+            disabled: busy,
+            label: authorizationHash ? "Verificar autorización" : "Habilitar recepción en Core",
+            onClick: authorizeReception,
+          } : undefined}
           onConfirm={evidence => void run(async () => {
             const tx = await send(contract, encodeSettle(escrow.orderId, BigInt(evidence.quantity)));
             return submit("settle", tx, evidence);
@@ -314,7 +369,7 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
     <p className="oc-escrow-id">{order.id}</p>
     <p>Wallet del proveedor <code>{escrow.seller}</code></p>
     <p>Contrato <code>{contract}</code></p>
-    {role === "Compras" && reserved && !escrow.delegate && <div className="oc-escrow-actions">
+    {role === "Compras" && reserved && !escrow.delegate && !authorizationHash && <div className="oc-escrow-actions">
       <label>Otra wallet receptora<input value={delegate} onChange={event => setDelegate(event.target.value)} placeholder="0x…"/></label>
       <button className="button secondary" disabled={busy || !official || !/^0x[a-fA-F0-9]{40}$/.test(delegate)} onClick={() => void run(async () => submit("authorize", await send(contract, encodeAuthorize(escrow.orderId, delegate))))}>Autorizar otra wallet</button>
     </div>}
