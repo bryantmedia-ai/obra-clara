@@ -73,20 +73,31 @@ Por cada proyecto del carrito se puede ajustar dirección, persona que recibe, t
 
 Una fecha preferida no modifica por sí sola el vencimiento financiero del contrato: la programación confirmada sigue gestionándose en las entregas de materiales.
 
-## Avalanche Fuji: compra de cemento
+## Compra de cemento: ARGt en Avalanche, Fuji aparte
 
-Construido en este tramo, separado del marketplace y del registro ARGt que ya existían. El ARGt sigue siendo administrativo. No es el pago de esta compra y no cumple un track de stablecoin.
+La única compra habilitada es 100 bolsas de Cemento Portland Loma Negra de Corralón Norte. El carrito crea una orden compartida entre Compras y Ventas. El riel elegido bloquea 5 ARGt (token de pesos, 18 decimales, no dólares): 80 recibidas pagan 4 ARGt y devuelven 1 ARGt. Si el plazo vence sin recepción, el reembolso es el total. El polvo que no entra en esos 5 ARGt queda en la wallet.
 
-La única compra habilitada es 100 bolsas de Cemento Portland Loma Negra de Corralón Norte. El carrito crea una orden compartida entre Compras y Ventas. El objetivo es bloquear 5 USDT de prueba, despachar sin cobrar, y que el empleado autorizado firme 80 recibidas. Una sola liquidación paga 4 al vendedor y devuelve 1 al comprador. No queda un saldo de 20 pendiente. Si el plazo vence sin recepción, el reembolso es total.
+```mermaid
+flowchart LR
+  belo[ETH en Arbitrum 42161]
+  belo --> gasEth[ETH reservado para gas]
+  belo --> ruta[ETH a USDt0 a ARGt]
+  ruta --> twin[Bridge Twin]
+  twin --> argt[ARGt en Avalanche 43114]
+  belo --> across[Across a AVAX nativo]
+  across --> gasAvax[AVAX para gas]
+  argt --> escrow[Escrow propio]
+  gasAvax --> escrow
+  escrow --> pago[4 ARGt al vendedor]
+  escrow --> vuelta[1 ARGt al comprador]
+```
 
-Why Avalanche: Fuji C-Chain (43113) da finalidad rápida para cerrar la carrera entre liquidación y vencimiento en el mismo contrato, con el recibo verificable en el explorer. El activo aceptado queda fijo al desplegar el escrow. El cliente no elige otro token.
+El bridge y Across consiguen el token y el gas. No son el recibo del escrow. La cotización 0,001 ETH ≈ 0,262 AVAX con fee 0,08 USD es un snapshot de las 11:30 ART del 7 nov 2026, no una cotización viva. Mainnet no firma hasta `OC_ESCROW_ENABLE=1` y la RPC real. Esto no está desplegado en producción.
 
-El contrato `contracts/src/ObraClaraPartialEscrow.sol` usa SafeERC20, lee los decimales del token y rechaza un activo distinto. Las pruebas `forge test` usan `LocalSimulationERC20` (SIM-LOCAL). Eso es una simulación local, no USDT oficial y no una transacción de Fuji.
+Fuji (43113) queda como riel separado. USDT de Fuji sigue sin dirección confirmada. USDT y USDT.e de mainnet, y el USDC de Circle, no se aceptan como ARGt. Una orden guardada con `chainId` 43113 no se reescribe a 43114.
 
-USDT en Fuji no tiene dirección confirmada por Tether. Las direcciones públicas de USDT y USDT.e son de mainnet (43114) y el código las rechaza. USDC de Circle en Fuji queda disponible solo si se configura de forma explícita; no es el reemplazo automático. Sin esa configuración el backend no confirma reservas y la interfaz no envía transacciones.
+El contrato `contracts/src/ObraClaraPartialEscrow.sol` no tiene la cadena escrita adentro: el constructor exige que el argumento sea `block.chainid`. El bytecode de `lib/fuji-escrow-artifact.json` sirve para Fuji y para ARGt. En mainnet los argumentos son el ARGt, 18 y 43114. En Fuji siguen siendo el token de ese riel, sus decimales y 43113.
 
-No hay dirección de escrow ni enlace de explorer: nadie firmó el despliegue. En Fondos está el botón "Firmar despliegue con Core". Queda apagado hasta que exista el USDT de prueba. El bytecode está en `lib/fuji-escrow-artifact.json`. Cómo publicarlo en el explorador: `contracts/VERIFY.md`. La migración D1 es aditiva: `cloudflare/migrations/0002_fuji_escrow.sql`. No está aplicada en producción.
+`node scripts/check-fuji-escrow.mjs` cubre el riel Fuji en Anvil y el riel ARGt en un fork local de la C-Chain. No toca D1 ni producción. La migración `cloudflare/migrations/0003_argt_no_rewrite.sql` no está aplicada en producción y no reescribe filas.
 
-La vista previa de Vercel sigue hablando con el Worker actual. Registrar la orden ahí no crea la compra nueva hasta desplegar este Worker, y no debe hacerse contra la base de producción antes de revisarlo. Una prueba aislada usa `node scripts/check-fuji-escrow.mjs`, que no toca D1.
-
-Guion de demo, de menos de tres minutos: agregar 100 bolsas, registrar la orden, mostrar la misma orden en Ventas, explicar que el bloqueo espera el USDT de prueba, y mostrar en local el recibo de 80/100. Hasta que el recibo exista, 5, 4 y 1 son el guion, no un saldo.
+El botón "Firmar despliegue con Core" queda apagado mientras `OC_ESCROW_ENABLE` no sea 1. Nadie firmó un despliegue de mainnet en este trabajo. La vista previa de Vercel sigue en el Worker anterior. No hay que registrar esta compra contra la base de producción.

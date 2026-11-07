@@ -166,7 +166,8 @@ export function FujiWallet({role}: {role: "Compras" | "Ventas"}) {
         <div>
           <span className="fn-eyebrow">AVALANCHE FUJI C-CHAIN · TESTNET</span>
           <h2 id="fuji-wallet-title">Billetera de {role}</h2>
-          <p>Saldo de USDC de Circle en Fuji. No es USDT y no se convierte. La compra de cemento usa USDT, que sigue sin contrato confirmado.</p>
+          <p>Saldo de USDC de Circle en Fuji. No es la compra de cemento, no se convierte a ARGt y no es un dólar del escrow.</p>
+          {role === "Compras" && <p>El perfil representado es José, contratista. Su cuenta Belo no conecta esta wallet. Si nadie asigna una dirección Core, José no controla los fondos.</p>}
         </div>
         <span className={`ov-tag ${connected ? "green" : "neutral"}`}>{status}</span>
       </div>

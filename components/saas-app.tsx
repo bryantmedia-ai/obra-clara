@@ -154,7 +154,7 @@ function Sidebar({ route }: { route: Route }) {
         <div className="sidebar-info-links">
           <Link href="/hackatwin" className={`about-nav-link ${section === "hackatwin" ? "active" : ""}`} aria-current={section === "hackatwin" ? "page" : undefined}><Icon icon={faShieldHalved}/> Hacka Twin</Link>
         </div>
-        <Link href="/configuracion" className="profile"><span>JM</span><div><strong>Jazmín M.</strong><small>Administración</small></div><Icon icon={faGear} /></Link>
+        <Link href="/configuracion" className="profile" aria-label="Perfil de José, contratista"><span>J</span><div><strong>José</strong><small>Contratista</small></div><Icon icon={faGear} /></Link>
       </div>
     </aside>
   );

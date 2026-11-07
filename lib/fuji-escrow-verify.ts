@@ -1,6 +1,6 @@
 import {addressOf, decodeFund, uintOf, wordsOf, escrowTopics, escrowSelectors} from "./fuji-abi";
 import {settlement, type FujiEscrowRecord, type FujiKind, type Verdict} from "./fuji-escrow";
-import type {AssetConfig} from "./fuji-asset";
+import {AVALANCHE_CHAIN_ID, FUJI_CHAIN_ID, type AssetConfig} from "./fuji-asset";
 
 export type Rpc = (method: string, params: unknown[]) => Promise<unknown>;
 type Tx = {from?: string; to?: string | null; input?: string; hash?: string};
@@ -9,6 +9,7 @@ type OrderTerms = FujiEscrowRecord;
 
 const same = (a?: string, b?: string) => (a || "").toLowerCase() === (b || "").toLowerCase();
 const hex = (value: unknown) => typeof value === "string" && /^0x[a-fA-F0-9]*$/.test(value) ? value.toLowerCase() : "";
+const TRANSFER_TOPIC = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef";
 
 export async function verifyEscrowAction(rpc: Rpc, input: {
   kind: FujiKind;
@@ -21,12 +22,19 @@ export async function verifyEscrowAction(rpc: Rpc, input: {
   const hash = hex(input.hash);
   const base: Verdict = {status: "rejected", reason: "", kind: input.kind, hash, businessId: "", simulation: input.asset.simulation, chainId: 0};
   if (!/^0x[a-f0-9]{64}$/.test(hash)) return {...base, reason: "Hash de transacción inválido."};
-  if (!input.asset.ready || !input.asset.address || input.asset.decimals == null) return {...base, reason: input.asset.blocked || "El activo de Fuji no está configurado."};
+  if (!input.asset.ready || !input.asset.address || input.asset.decimals == null) return {...base, reason: input.asset.blocked || "El activo no está configurado."};
+  if (input.asset.rail === "avalanche-argt" && !input.asset.enabled && !input.asset.simulation) return {...base, reason: "Mainnet ARGt no está habilitado. No se registra un estado financiero."};
+  if (input.order?.chainId && input.order.chainId !== input.asset.chainId) return {...base, reason: "Esta orden quedó en otra red. No se reescribe ni se migra a mainnet."};
+  if (input.order?.token && !same(input.order.token, input.asset.address)) return {...base, reason: "El token guardado en la orden no es el activo configurado."};
   const chainHex = hex(await rpc("eth_chainId", []));
   const chainId = chainHex ? Number(BigInt(chainHex)) : 0;
   base.chainId = chainId;
-  if (chainId === 43114) return {...base, reason: "Esta RPC es Avalanche mainnet. El escrow solo puede usar Fuji."};
-  if (chainId !== 43113 && !input.allowLocalChain) return {...base, reason: "La red no es Avalanche Fuji C-Chain (43113)."};
+  if (input.asset.chainId === AVALANCHE_CHAIN_ID) {
+    if (chainId !== AVALANCHE_CHAIN_ID) return {...base, reason: "La red no es Avalanche C-Chain mainnet (43114)."};
+  } else if (input.asset.chainId === FUJI_CHAIN_ID) {
+    if (chainId === AVALANCHE_CHAIN_ID) return {...base, reason: "Esta RPC es Avalanche mainnet. El escrow de Fuji no la usa."};
+    if (chainId !== FUJI_CHAIN_ID && !input.allowLocalChain) return {...base, reason: "La red no es Avalanche Fuji C-Chain (43113)."};
+  } else return {...base, reason: "La red configurada no está en la allowlist."};
   const tx = await rpc("eth_getTransactionByHash", [hash]) as Tx | null;
   if (!tx) return {...base, status: "pending", reason: "La transacción todavía no está en la red."};
   const receipt = await rpc("eth_getTransactionReceipt", [hash]) as Receipt | null;
@@ -57,7 +65,10 @@ async function verifyDeployment(rpc: Rpc, base: Verdict, asset: AssetConfig, rec
   if (!same(addressOf(wordsOf(token)[0] || ""), asset.address)) return {...base, reason: "El escrow no quedó atado al activo configurado."};
   if (Number(uintOf(wordsOf(decimals)[0] || "0")) !== asset.decimals) return {...base, reason: "Los decimales del escrow no coinciden con la configuración."};
   if (Number(uintOf(wordsOf(reportedChain)[0] || "0")) !== chainId) return {...base, reason: "El escrow informa otra red."};
-  return {...base, status: "confirmed", reason: asset.simulation ? "Simulación local. No es USDT oficial ni evidencia de Fuji." : "Despliegue verificado contra el activo configurado.", contract, token: asset.address.toLowerCase(), decimals: String(asset.decimals), symbol: asset.symbol};
+  const reason = asset.symbol === "ARGt"
+    ? (asset.simulation ? "SIMULACIÓN. Despliegue leído en un fork local. No es producción." : "Despliegue verificado contra ARGt de 18 decimales en Avalanche.")
+    : (asset.simulation ? "Simulación local. No es USDT oficial ni evidencia de Fuji." : "Despliegue verificado contra el activo configurado.");
+  return {...base, status: "confirmed", reason, contract, token: asset.address.toLowerCase(), decimals: String(asset.decimals), symbol: asset.symbol};
 }
 
 function verifyFund(base: Verdict, order: OrderTerms, asset: AssetConfig, contract: string, tx: Tx, receipt: Receipt): Verdict {
@@ -83,7 +94,11 @@ function verifyFund(base: Verdict, order: OrderTerms, asset: AssetConfig, contra
     && same(decoded.asset, asset.address) && same(decoded.asset, order.token)
     && same(addressOf(fundedTopics[2] || ""), buyer);
   if (!matches || !buyer) return {...base, reason: "El recibo no coincide con la orden, el activo o el importe."};
-  return {...base, status: "confirmed", reason: asset.simulation ? "Simulación local. Reserva leída de un recibo local, no de USDT oficial." : "Reserva confirmada con el recibo de Fuji.", contract, token: asset.address.toLowerCase(), buyer, seller: order.seller, orderId: order.orderId, quantity: order.quantity, unitPrice: order.unitPrice, amount: order.amount, deadline: order.deadline};
+  if (asset.rail === "avalanche-argt" && !hasTransfer(receipt, asset.address, buyer, contract, BigInt(order.amount))) return {...base, reason: "El recibo no trae la transferencia de ARGt del comprador al escrow."};
+  const reason = asset.symbol === "ARGt"
+    ? (asset.simulation ? "SIMULACIÓN. Reserva leída en un fork local. No es un saldo de producción." : "Reserva confirmada en ARGt. No es un importe en dólares.")
+    : (asset.simulation ? "Simulación local. Reserva leída de un recibo local, no de USDT oficial." : "Reserva confirmada con el recibo de Fuji.");
+  return {...base, status: "confirmed", reason, contract, token: asset.address.toLowerCase(), buyer, seller: order.seller, orderId: order.orderId, quantity: order.quantity, unitPrice: order.unitPrice, amount: order.amount, deadline: order.deadline};
 }
 
 function verifyAuthorize(base: Verdict, order: OrderTerms, tx: Tx, receipt: Receipt): Verdict {
@@ -111,7 +126,11 @@ async function verifySettle(rpc: Rpc, base: Verdict, order: OrderTerms, contract
   if (sellerAmount !== expected.seller || buyerRefund !== expected.buyer || sellerAmount + buyerRefund !== BigInt(order.amount)) return {...base, reason: "Los importes del recibo no conservan el total."};
   const stored = wordsOf(await call(rpc, contract, "0x" + escrowSelectors.order + order.orderId.slice(2).padStart(64, "0")));
   if (Number(uintOf(stored[8] || "0")) !== 2) return {...base, reason: "El contrato no quedó cerrado."};
-  return {...base, status: "confirmed", reason: order.simulation ? "Simulación local. Liquidación leída de un recibo local." : "Liquidación confirmada en un solo recibo.", received: received.toString(), sellerAmount: sellerAmount.toString(), buyerRefund: buyerRefund.toString(), delegate};
+  if (order.rail === "avalanche-argt") {
+    if (sellerAmount !== 0n && !hasTransfer(receipt, order.token, contract, order.seller, sellerAmount)) return {...base, reason: "Falta la transferencia de ARGt al vendedor."};
+    if (buyerRefund !== 0n && !hasTransfer(receipt, order.token, contract, order.buyer, buyerRefund)) return {...base, reason: "Falta la devolución de ARGt al comprador."};
+  }
+  return {...base, status: "confirmed", reason: order.simulation ? "Simulación local. Liquidación leída de un recibo local." : order.symbol === "ARGt" ? "Liquidación confirmada en ARGt. El total queda cerrado." : "Liquidación confirmada en un solo recibo.", received: received.toString(), sellerAmount: sellerAmount.toString(), buyerRefund: buyerRefund.toString(), delegate};
 }
 
 async function verifyRefund(rpc: Rpc, base: Verdict, order: OrderTerms, contract: string, tx: Tx, receipt: Receipt): Promise<Verdict> {
@@ -123,11 +142,23 @@ async function verifyRefund(rpc: Rpc, base: Verdict, order: OrderTerms, contract
   if (amount.toString() !== order.amount) return {...base, reason: "El reembolso no es el total bloqueado."};
   const stored = wordsOf(await call(rpc, contract, "0x" + escrowSelectors.order + order.orderId.slice(2).padStart(64, "0")));
   if (Number(uintOf(stored[8] || "0")) !== 3 || uintOf(stored[7] || "0") !== BigInt(0)) return {...base, reason: "El contrato no quedó reembolsado sin recepción."};
-  return {...base, status: "confirmed", reason: order.simulation ? "Simulación local. Reembolso leído de un recibo local." : "Reembolso total confirmado.", amount: amount.toString(), buyer: addressOf((refundTopics[2] || "").slice(2).padStart(64, "0"))};
+  const buyer = addressOf((refundTopics[2] || "").slice(2).padStart(64, "0"));
+  if (order.rail === "avalanche-argt" && !hasTransfer(receipt, order.token, contract, buyer, amount)) return {...base, reason: "Falta la transferencia de reembolso en ARGt."};
+  return {...base, status: "confirmed", reason: order.simulation ? "Simulación local. Reembolso leído de un recibo local." : order.symbol === "ARGt" ? "Reembolso total confirmado en ARGt." : "Reembolso total confirmado.", amount: amount.toString(), buyer};
 }
 
 function log(receipt: Receipt, contract: string, topic: string) {
   return (receipt.logs || []).find(item => same(item.address, contract) && same(item.topics?.[0], topic));
+}
+
+function hasTransfer(receipt: Receipt, token: string, from: string, to: string, value: bigint) {
+  return (receipt.logs || []).some(item => {
+    if (!same(item.address, token) || !same(item.topics?.[0], TRANSFER_TOPIC) || (item.topics?.length ?? 0) < 3) return false;
+    const body = (item.data || "").toLowerCase().replace(/^0x/, "");
+    if (!body) return false;
+    const moved = BigInt("0x" + body.slice(0, 64));
+    return same(addressOf(item.topics?.[1] || ""), from) && same(addressOf(item.topics?.[2] || ""), to) && moved === value;
+  });
 }
 
 async function call(rpc: Rpc, to: string, data: string) {

@@ -1,4 +1,4 @@
-import {readAssetConfig, type AssetConfig} from "../lib/fuji-asset";
+import {AVALANCHE_ARGT, AVALANCHE_CHAIN_ID, ARBITRUM_CHAIN_ID, readAssetConfig, type AssetConfig} from "../lib/fuji-asset";
 import {commitVerified, escrowListLabel, type FujiKind, type Verdict} from "../lib/fuji-escrow";
 import {verifyEscrowAction} from "../lib/fuji-escrow-verify";
 import type {Command, SharedState} from "../lib/demo-model";
@@ -12,6 +12,10 @@ export type FujiEnv = {
   FUJI_ASSET_ADDRESS?: string;
   FUJI_ASSET_DECIMALS?: string;
   FUJI_ASSET_SIMULATION?: string;
+  OC_ESCROW_RAIL?: string;
+  OC_ESCROW_ENABLE?: string;
+  OC_ESCROW_SIMULATION?: string;
+  OC_LOCAL_PREVIEW?: string;
 };
 
 export function stampFujiCheckout(command: Command, env: FujiEnv): Command {
@@ -25,12 +29,28 @@ export function stampFujiCheckout(command: Command, env: FujiEnv): Command {
 }
 
 function assetFrom(env: FujiEnv): AssetConfig {
+  const simulation = env.OC_ESCROW_SIMULATION === "1" || env.FUJI_ASSET_SIMULATION === "1";
+  if (env.OC_ESCROW_RAIL === "avalanche-argt") {
+    return readAssetConfig({
+      rail: "avalanche-argt",
+      symbol: "ARGt",
+      address: env.FUJI_ASSET_ADDRESS || AVALANCHE_ARGT,
+      decimals: env.FUJI_ASSET_DECIMALS || "18",
+      simulation,
+      enabled: env.OC_ESCROW_ENABLE === "1",
+    });
+  }
   return readAssetConfig({
     symbol: env.FUJI_ASSET_SYMBOL,
     address: env.FUJI_ASSET_ADDRESS,
     decimals: env.FUJI_ASSET_DECIMALS,
-    simulation: env.FUJI_ASSET_SIMULATION === "1",
+    simulation,
   });
+}
+
+export function escrowRpcUrl(env: FujiEnv) {
+  if (env.FUJI_RPC_URL) return env.FUJI_RPC_URL;
+  return env.OC_ESCROW_RAIL === "avalanche-argt" ? "https://api.avax.network/ext/bc/C/rpc" : "https://api.avax-test.network/ext/bc/C/rpc";
 }
 
 export async function handleFujiEscrow(request: Request, env: FujiEnv, workspaceId: string, headers: Record<string, string>) {
@@ -43,6 +63,7 @@ export async function handleFujiEscrow(request: Request, env: FujiEnv, workspace
   }
   if (request.method !== "POST") return json({error: "Método no permitido."}, 405);
   const body = await request.json() as {action?: string; orderId?: string; txHash?: string; kind?: FujiKind; phase?: string};
+  if (body.action === "track") return trackHash(env, body as {txHash?: string; chainId?: number}, headers);
   if (body.action !== "verify") return json({error: "Solo se acepta la verificación de un recibo. El cliente no puede marcar una reserva."}, 400);
   if (body.phase) return json({error: "El estado financiero no se acepta desde el cliente."}, 400);
   const kind = body.kind;
@@ -56,7 +77,7 @@ export async function handleFujiEscrow(request: Request, env: FujiEnv, workspace
     if (kind !== "deployment" && !order?.escrow) return json({error: "Orden no encontrada."}, 404);
     let verdict: Verdict;
     try {
-      verdict = await verifyEscrowAction((method, params) => rpc(env.FUJI_RPC_URL || "https://api.avax-test.network/ext/bc/C/rpc", method, params), {
+      verdict = await verifyEscrowAction((method, params) => rpc(escrowRpcUrl(env), method, params), {
         kind, hash: body.txHash || "", asset, order: order?.escrow, deployment: state.fujiDeployment ?? null, allowLocalChain: env.FUJI_ALLOW_LOCAL_CHAIN === "1",
       });
     } catch (error) {
@@ -80,7 +101,25 @@ export async function handleFujiEscrow(request: Request, env: FujiEnv, workspace
 }
 
 function publicAsset(asset: AssetConfig) {
-  return {symbol: asset.symbol, ready: asset.ready, simulation: asset.simulation, blocked: asset.blocked, address: asset.ready ? asset.address : "", decimals: asset.ready ? asset.decimals : null, chainId: 43113};
+  return {...asset, address: asset.ready ? asset.address : ""};
+}
+
+async function trackHash(env: FujiEnv, body: {txHash?: string; chainId?: number}, headers: Record<string, string>) {
+  const hash = (body.txHash || "").toLowerCase();
+  const chainId = Number(body.chainId);
+  const json = (data: unknown, status = 200) => Response.json(data, {status, headers});
+  if (!/^0x[a-f0-9]{64}$/.test(hash) || (chainId !== AVALANCHE_CHAIN_ID && chainId !== ARBITRUM_CHAIN_ID)) {
+    return json({verified: false, reason: "El hash o la red no se pueden consultar."});
+  }
+  const url = chainId === AVALANCHE_CHAIN_ID ? escrowRpcUrl(env) : "https://arb1.arbitrum.io/rpc";
+  try {
+    const tx = await rpc(url, "eth_getTransactionByHash", [hash]) as {to?: string | null; from?: string} | null;
+    if (!tx) return json({verified: false, chainId, reason: "La RPC no devolvió esa transacción. No se inventa un puente ni un precio."});
+    const receipt = await rpc(url, "eth_getTransactionReceipt", [hash]) as {status?: string} | null;
+    return json({verified: true, chainId, from: tx.from || "", to: tx.to || "", status: receipt?.status || "", reason: "La RPC devolvió la transacción. No es la reserva del escrow y no se leyó una cotización."});
+  } catch {
+    return json({verified: false, chainId, reason: "La RPC no respondió. El hash queda sin verificar."});
+  }
 }
 
 async function rpc(url: string, method: string, params: unknown[]) {

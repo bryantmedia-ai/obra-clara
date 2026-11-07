@@ -9,20 +9,24 @@ type Statement = {
   first<T>(): Promise<T | null>;
   run(): Promise<{meta: {changes: number}}>;
 };
-export type Env = {DB: {prepare(sql: string): Statement}; FUJI_RPC_URL?: string; FUJI_ALLOW_LOCAL_CHAIN?: string; FUJI_ASSET_SYMBOL?: string; FUJI_ASSET_ADDRESS?: string; FUJI_ASSET_DECIMALS?: string; FUJI_ASSET_SIMULATION?: string};
+export type Env = {DB: {prepare(sql: string): Statement}; FUJI_RPC_URL?: string; FUJI_ALLOW_LOCAL_CHAIN?: string; FUJI_ASSET_SYMBOL?: string; FUJI_ASSET_ADDRESS?: string; FUJI_ASSET_DECIMALS?: string; FUJI_ASSET_SIMULATION?: string; OC_ESCROW_RAIL?: string; OC_ESCROW_ENABLE?: string; OC_ESCROW_SIMULATION?: string; OC_LOCAL_PREVIEW?: string};
 const origins = new Set([
   'https://obra-clara-comprador.vercel.app',
   'https://obra-clara-proveedor.vercel.app',
   'https://obra-clara-gray.vercel.app',
 ]);
 const maxBytes = 1_500_000;
-function headers(origin: string | null) {
+function allowedOrigin(origin: string, env: Env) {
+  if (origins.has(origin)) return true;
+  return env.OC_LOCAL_PREVIEW === '1' && /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin);
+}
+function headers(origin: string | null, env: Env) {
   return {
     'Cache-Control': 'no-store',
     'Vary': 'Origin',
     'Access-Control-Allow-Headers': 'Authorization, Content-Type, X-OC-New-Workspace',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    ...(origin && origins.has(origin) ? {'Access-Control-Allow-Origin': origin} : {}),
+    ...(origin && allowedOrigin(origin, env) ? {'Access-Control-Allow-Origin': origin} : {}),
   };
 }
 async function body(request: Request) {
@@ -41,9 +45,9 @@ async function body(request: Request) {
   return JSON.parse(new TextDecoder().decode(bytes)) as Command;
 }
 export async function handle(request: Request, env: Env): Promise<Response> {
-  const origin = request.headers.get('origin'); const h = headers(origin);
+  const origin = request.headers.get('origin'); const h = headers(origin, env);
   const json = (data: unknown, status = 200) => Response.json(data, {status, headers: h});
-  if (origin && !origins.has(origin)) return json({error: 'Origen no autorizado.'}, 403);
+  if (origin && !allowedOrigin(origin, env)) return json({error: 'Origen no autorizado.'}, 403);
   if (new URL(request.url).pathname === '/health' && request.method === 'GET') {
     try {await env.DB.prepare('SELECT 1 AS ok').first(); return json({ok: true, storage: 'd1'});}
     catch {return json({ok: false}, 503);}

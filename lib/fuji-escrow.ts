@@ -1,18 +1,18 @@
 import {completeMarketplaceCatalog, type Product} from "../components/marketplace-data";
 import {projectReady, type Project} from "../components/project-data";
 import {validateOrderDelivery, type OrderDelivery} from "./order-delivery";
-import {LIVE_CEMENT_OFFER_ID, LIVE_CEMENT_QUANTITY, LIVE_CEMENT_WHOLE_TOKENS, type AssetConfig} from "./fuji-asset";
+import {AVALANCHE_CHAIN_ID, LIVE_CEMENT_OFFER_ID, LIVE_CEMENT_QUANTITY, LIVE_CEMENT_WHOLE_TOKENS, type AssetConfig, type AssetSymbol} from "./fuji-asset";
 import {sha256Hex} from "./sha256";
 
 export type FujiPhase = "activo pendiente" | "sin reserva" | "reserva pendiente" | "reservada" | "liquidación pendiente" | "liquidada" | "reembolso pendiente" | "reembolsada";
 export type FujiKind = "deployment" | "fund" | "authorize" | "settle" | "refund";
 export type FujiAttempt = {hash: string; kind: FujiKind; status: "pending" | "failed" | "rejected" | "confirmed"; reason: string; at: string};
 export type FujiEscrowRecord = {
-  rail: "fuji-erc20";
+  rail: "fuji-erc20" | "avalanche-argt";
   mode: "partial" | "expiry";
-  symbol: "USDT" | "USDC";
+  symbol: AssetSymbol;
   simulation: boolean;
-  chainId: 43113;
+  chainId: number;
   token: string;
   contract: string;
   orderId: string;
@@ -32,7 +32,7 @@ export type FujiEscrowRecord = {
   attempts: FujiAttempt[];
   wholeTokens: "5";
 };
-export type FujiDeployment = {contract: string; token: string; decimals: string; symbol: "USDT" | "USDC"; simulation: boolean; tx: string};
+export type FujiDeployment = {contract: string; token: string; decimals: string; symbol: AssetSymbol; simulation: boolean; tx: string; chainId?: number};
 
 export type EscrowOrder = {
   id: string;
@@ -67,6 +67,13 @@ export function commercialBase(decimals: number) {
   return {quantity, unitPrice, amount};
 }
 
+export function walletDust(balance: bigint, decimals: number) {
+  const terms = commercialBase(decimals);
+  if (terms.amount % 100n !== 0n) fail("El importe bloqueado tiene que ser divisible por 100 wei.");
+  if (balance < terms.amount) return {locked: terms.amount, dust: 0n, shortfall: terms.amount - balance};
+  return {locked: terms.amount, dust: balance - terms.amount, shortfall: 0n};
+}
+
 export function settlement(amount: bigint, quantity: bigint, received: bigint) {
   if (quantity <= 0n) fail("Cantidad inválida.");
   if (received < 0n || received > quantity) fail("Recepción fuera de rango.");
@@ -94,9 +101,25 @@ export function formatBaseUnits(amount: string, decimals: string) {
 }
 
 export function escrowListLabel(record: FujiEscrowRecord, status = "") {
+  if (record.symbol === "ARGt") {
+    if (record.simulation) return "SIMULACIÓN. 5 ARGt es el guion, token de pesos, no un saldo y no son dólares.";
+    if (record.phase === "activo pendiente" || !record.amount) return "ARGt. Objetivo: 5 ARGt. No es USD ni USDT. Reserva no confirmada.";
+  }
   if (record.simulation) return "Simulación local. No es USDT oficial ni un saldo de Fuji.";
   if (record.phase === "activo pendiente" || !record.amount) return "USDT. Objetivo: 5 tokens de prueba. Reserva no confirmada.";
   const amount = formatBaseUnits(record.amount, record.decimals);
+  if (record.symbol === "ARGt") {
+    const unit = "ARGt";
+    if (record.phase === "liquidada") {
+      const missing = BigInt(record.quantity) - BigInt(record.received || "0");
+      return `Cerrada. ${record.received} recibidas y ${missing} no recibidas. Vendedor ${formatBaseUnits(record.sellerAmount, record.decimals)} ${unit}. Devuelto ${formatBaseUnits(record.buyerRefund, record.decimals)} ${unit}. Token de pesos, no dólares. No queda saldo ni entrega pendiente.`;
+    }
+    if (record.phase === "reembolsada") return `Cerrada sin recepción. Reembolso total confirmado: ${amount} ${unit}.`;
+    if (status === "Despachada" && record.phase === "reservada") return `Despachada. La reserva sigue bloqueada: ${amount} ${unit}. Despachar no libera fondos.`;
+    if (record.phase === "reservada") return `Reserva confirmada por recibo: ${amount} ${unit}. Todavía no se liquidó.`;
+    if (record.phase === "liquidación pendiente" || record.phase === "reembolso pendiente" || record.phase === "reserva pendiente") return "Transacción enviada. Pendiente de confirmación del recibo. No es una reserva ni una liquidación.";
+    return `Objetivo ${amount} ${unit}. Sin recibo de reserva.`;
+  }
   if (record.phase === "liquidada") {
     const missing = BigInt(record.quantity) - BigInt(record.received || "0");
     return `Cerrada. ${record.received} recibidas y ${missing} no recibidas. Vendedor ${formatBaseUnits(record.sellerAmount, record.decimals)} ${record.symbol}. Devuelto ${formatBaseUnits(record.buyerRefund, record.decimals)} ${record.symbol}. No queda saldo ni entrega pendiente.`;
@@ -109,7 +132,7 @@ export function escrowListLabel(record: FujiEscrowRecord, status = "") {
 }
 
 function addressOf(value: unknown, label: string) {
-  if (typeof value !== "string" || !/^0x[a-fA-F0-9]{40}$/.test(value) || /^0x0{40}$/i.test(value)) fail(`Ingresá la dirección Fuji de ${label}. No se inventa una.`);
+  if (typeof value !== "string" || !/^0x[a-fA-F0-9]{40}$/.test(value) || /^0x0{40}$/i.test(value)) fail(`Ingresá la dirección de ${label}. No se inventa una.`);
   return value.toLowerCase();
 }
 
@@ -121,13 +144,15 @@ export function applyFujiCommand(s: EscrowState, type: string, payload: Record<s
   const walletBefore = s.finance?.wallet;
   if (type === "fuji.checkout") checkout(s, payload, commandId, now, today);
   else if (type === "fuji.dispatch") dispatch(s, payload, now);
-  else fail("Esta operación no confirma fondos. La reserva y la liquidación salen de un recibo de Fuji.");
+  else fail("Esta operación no confirma fondos. La reserva y la liquidación salen de un recibo de la red.");
   if (s.finance && s.finance.wallet !== walletBefore) fail("La compra de cemento no mueve el registro administrativo.");
 }
 
 function checkout(s: EscrowState, payload: Record<string, unknown>, commandId: string, now: string, today: string) {
   const asset = payload.serverAsset as AssetConfig | undefined;
-  if (!asset || (asset.symbol !== "USDT" && asset.symbol !== "USDC")) fail("La configuración del activo la define el servidor.");
+  if (!asset || (asset.symbol !== "USDT" && asset.symbol !== "USDC" && asset.symbol !== "ARGt")) fail("La configuración del activo la define el servidor.");
+  if (asset.symbol === "ARGt" && asset.chainId !== AVALANCHE_CHAIN_ID) fail("ARGt solo se bloquea en Avalanche mainnet.");
+  if (asset.symbol !== "ARGt" && asset.chainId === AVALANCHE_CHAIN_ID) fail("Avalanche mainnet no acepta USDT ni USDC en este escrow.");
   const mode = payload.mode === "expiry" ? "expiry" : payload.mode === "partial" ? "partial" : fail("Tipo de orden inválido.");
   if (payload.offerId !== LIVE_CEMENT_OFFER_ID || payload.quantity !== LIVE_CEMENT_QUANTITY) fail("La única compra habilitada es 100 bolsas de cemento Loma Negra de Corralón Norte.");
   const product = completeMarketplaceCatalog.find(item => item.id === LIVE_CEMENT_OFFER_ID);
@@ -149,10 +174,12 @@ function checkout(s: EscrowState, payload: Record<string, unknown>, commandId: s
   }
   const ready = asset.ready && asset.decimals != null && asset.address;
   const terms = ready ? commercialBase(asset.decimals as number) : null;
+  const readyToken = ready ? asset.address.toLowerCase() : "";
+  const linked = !!s.fujiDeployment && s.fujiDeployment.token === readyToken && s.fujiDeployment.symbol === asset.symbol && s.fujiDeployment.simulation === (ready ? asset.simulation : false);
   const id = "OC-FUJI-" + commandId.replace(/[^a-zA-Z0-9]/g, "").toUpperCase();
   const record: FujiEscrowRecord = {
-    rail: "fuji-erc20", mode, symbol: asset.symbol, simulation: ready ? asset.simulation : false, chainId: 43113,
-    token: ready ? asset.address.toLowerCase() : "", contract: "", orderId: orderIdFor(id), buyer: "", seller,
+    rail: asset.symbol === "ARGt" ? "avalanche-argt" : "fuji-erc20", mode, symbol: asset.symbol, simulation: ready ? asset.simulation : false, chainId: asset.chainId,
+    token: readyToken, contract: linked && s.fujiDeployment ? s.fujiDeployment.contract : "", orderId: orderIdFor(id), buyer: "", seller,
     delegate: "", quantity: String(LIVE_CEMENT_QUANTITY), unitPrice: terms ? terms.unitPrice.toString() : "",
     amount: terms ? terms.amount.toString() : "", decimals: terms ? String(asset.decimals) : "", deadline: String(deadline),
     received: "", sellerAmount: "", buyerRefund: "", phase: ready ? "sin reserva" : "activo pendiente", dispatchedAt: "", attempts: [], wholeTokens: "5",
@@ -185,7 +212,7 @@ export type Verdict = {
   contract?: string;
   token?: string;
   decimals?: string;
-  symbol?: "USDT" | "USDC";
+  symbol?: AssetSymbol;
   buyer?: string;
   seller?: string;
   delegate?: string;
@@ -208,7 +235,7 @@ export function commitVerified(s: EscrowState, verdict: Verdict, now: string) {
   if (!order?.escrow) fail("Orden no encontrada.");
   const previous = order.escrow.attempts.find(item => item.hash === verdict.hash && item.kind === verdict.kind);
   if (previous?.status === verdict.status) return s;
-  if (!order.escrow.amount || order.escrow.phase === "activo pendiente") fail("Esta orden no tiene importe: el activo de Fuji todavía no está configurado.");
+  if (!order.escrow.amount || order.escrow.phase === "activo pendiente") fail("Esta orden no tiene importe: el activo todavía no está configurado.");
   if (order.escrow.simulation !== verdict.simulation) fail("La simulación local no puede confirmar una orden oficial, ni al revés.");
   const attempt: FujiAttempt = {hash: verdict.hash, kind: verdict.kind, status: verdict.status, reason: verdict.reason, at: now};
   order.escrow.attempts = [attempt, ...order.escrow.attempts.filter(item => !(item.hash === verdict.hash && item.kind === verdict.kind))].slice(0, 20);
@@ -274,7 +301,12 @@ function commitDeployment(s: EscrowState, verdict: Verdict) {
   }
   if (s.fujiDeployment && s.fujiDeployment.contract.toLowerCase() === verdict.contract.toLowerCase() && s.fujiDeployment.tx === verdict.hash) return s;
   if (s.fujiDeployment) fail("Este espacio ya tiene un escrow verificado.");
-  s.fujiDeployment = {contract: verdict.contract.toLowerCase(), token: verdict.token.toLowerCase(), decimals: verdict.decimals, symbol: verdict.symbol, simulation: verdict.simulation, tx: verdict.hash};
-  for (const order of s.orders) if (order.escrow && !order.escrow.contract && order.escrow.simulation === verdict.simulation) order.escrow.contract = verdict.contract.toLowerCase();
+  s.fujiDeployment = {contract: verdict.contract.toLowerCase(), token: verdict.token.toLowerCase(), decimals: verdict.decimals, symbol: verdict.symbol, simulation: verdict.simulation, tx: verdict.hash, chainId: verdict.chainId};
+  for (const order of s.orders) {
+    if (!order.escrow || order.escrow.contract || order.escrow.simulation !== verdict.simulation) continue;
+    if (order.escrow.symbol !== verdict.symbol) continue;
+    if (order.escrow.token && order.escrow.token !== verdict.token.toLowerCase()) continue;
+    order.escrow.contract = verdict.contract.toLowerCase();
+  }
   return s;
 }

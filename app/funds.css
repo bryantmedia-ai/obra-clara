@@ -16,3 +16,10 @@
 .fuji-wallet-balances div{border:1px solid #dce4e8;background:#f2f7fa;border-radius:12px;padding:.8rem;min-width:0}
 .fuji-wallet-balances dt{color:#31566c;font-size:.9rem}
 .fuji-wallet-balances dd{margin:.3rem 0 0;font-weight:700;font-size:clamp(1.05rem,2vw,1.5rem);overflow-wrap:anywhere}
+.escrow-sim-banner{background:#fff4e5;border:1px solid #e2a15a;color:#6a3b00;padding:.75rem .9rem;border-radius:8px;font-weight:700;line-height:1.45}
+.buyer-identity{display:flex;gap:.8rem;align-items:flex-start;padding:.8rem .9rem;border:1px solid #d7e0ea;border-radius:10px;background:#f7fafc}
+.buyer-identity.is-compact{padding:0;border:0;background:transparent}
+.buyer-identity-mark{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#1b2521;color:#fff;font-weight:700;flex:none}
+.buyer-identity strong{display:block}
+.buyer-identity small{color:#5d6b73}
+.buyer-identity p{margin:.35rem 0 0;color:#5d6b73;font-size:.92rem;line-height:1.45}

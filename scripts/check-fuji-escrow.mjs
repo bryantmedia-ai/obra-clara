@@ -69,6 +69,38 @@ assert.equal(cement.kg, 50);
 assert.ok(cement.stock >= 100);
 assert.ok((cement.minimumOrder ?? 1) <= 100);
 console.log("PASS asset config blocks mainnet USDT and does not fall back to USDC.");
+const argtTerms = escrow.commercialBase(18);
+assert.equal(argtTerms.amount, 5_000_000_000_000_000_000n);
+assert.equal(argtTerms.unitPrice, 50_000_000_000_000_000n);
+assert.equal(argtTerms.amount % 100n, 0n);
+const argtSplit = escrow.settlement(argtTerms.amount, 100n, 80n);
+assert.equal(argtSplit.seller, 4_000_000_000_000_000_000n);
+assert.equal(argtSplit.buyer, 1_000_000_000_000_000_000n);
+assert.equal(escrow.formatBaseUnits(argtTerms.amount.toString(), "18"), "5");
+assert.equal(escrow.formatBaseUnits(argtSplit.seller.toString(), "18"), "4");
+assert.equal(escrow.formatBaseUnits(argtSplit.buyer.toString(), "18"), "1");
+const dust = escrow.walletDust(argtTerms.amount + 25n, 18);
+assert.equal(dust.locked, argtTerms.amount);
+assert.equal(dust.dust, 25n);
+assert.equal(dust.shortfall, 0n);
+const short = escrow.walletDust(argtTerms.amount - 1n, 18);
+assert.equal(short.shortfall, 1n);
+assert.equal(short.dust, 0n);
+const argtOff = asset.readAssetConfig({rail: "avalanche-argt", symbol: "ARGt", address: asset.AVALANCHE_ARGT, decimals: "18", enabled: false});
+assert.equal(argtOff.ready, true);
+assert.equal(argtOff.chainId, 43114);
+assert.equal(argtOff.decimals, 18);
+assert.equal(asset.canMoveOfficialFunds(argtOff), false);
+const argtOn = asset.readAssetConfig({rail: "avalanche-argt", symbol: "ARGt", address: asset.AVALANCHE_ARGT, decimals: "18", enabled: true});
+assert.equal(asset.canMoveOfficialFunds(argtOn), true);
+const six = asset.readAssetConfig({rail: "avalanche-argt", symbol: "ARGt", address: asset.AVALANCHE_ARGT, decimals: "6", enabled: true});
+assert.equal(six.ready, false);
+assert.match(six.blocked, /18/);
+const otherToken = asset.readAssetConfig({rail: "avalanche-argt", symbol: "ARGt", address: asset.MAINNET_USDT, decimals: "18", enabled: true});
+assert.equal(otherToken.ready, false);
+assert.equal(asset.readAssetConfig({rail: "avalanche-argt", symbol: "USDT", address: asset.AVALANCHE_ARGT, decimals: "18", enabled: true}).ready, false);
+assert.equal(asset.readAssetConfig({symbol: "USDT", address: asset.AVALANCHE_ARGT, decimals: "18"}).ready, false);
+console.log("PASS ARGt allowlist is 18 decimals on 43114 and does not treat it as USD or USDT.");
 
 const database = new DatabaseSync(":memory:");
 database.exec(fs.readFileSync("cloudflare/schema.sql", "utf8"));
@@ -186,6 +218,13 @@ const strictBody = await strict.json();
 assert.equal(strictBody.verdict.status, "rejected");
 assert.match(strictBody.verdict.reason, /Fuji/);
 assert.equal((await readAs("https://obra-clara-comprador.vercel.app")).escrow.phase, "reservada");
+const crossed = await worker.handle(new Request("https://api.example/api/fuji-escrow", {method: "POST", headers: {Origin: "https://obra-clara-comprador.vercel.app", Authorization: "Bearer " + chainToken, "Content-Type": "application/json"}, body: JSON.stringify({action: "verify", orderId: live.id, txHash: "0x" + "cd".repeat(32), kind: "fund"})}), {...env, OC_ESCROW_RAIL: "avalanche-argt", OC_ESCROW_ENABLE: "1", FUJI_ALLOW_LOCAL_CHAIN: "", FUJI_ASSET_SIMULATION: "", FUJI_ASSET_ADDRESS: "", FUJI_ASSET_DECIMALS: "18"});
+const crossedBody = await crossed.json();
+assert.equal(crossedBody.verdict.status, "rejected");
+assert.match(crossedBody.verdict.reason, /otra red/);
+assert.equal((await readAs("https://obra-clara-comprador.vercel.app")).escrow.chainId, 43113);
+assert.equal((await readAs("https://obra-clara-comprador.vercel.app")).escrow.phase, "reservada");
+console.log("PASS a Fuji order is not rewritten onto Avalanche.");
 assert.equal(units(await cast(["call", tokenAddress, "balanceOf(address)(uint256)", seller])), sellerBefore);
 const authTx = await send(["--from", buyer, escrowAddress, "authorizeDelegate(bytes32,address)", live.escrow.orderId, employee]);
 verified = await (await chainRequest({action: "verify", orderId: live.id, txHash: authTx.transactionHash, kind: "authorize"}, {path: "/api/fuji-escrow"})).json();
@@ -233,3 +272,102 @@ assert.equal(verified.order.status, "Cancelada");
 assert.equal(units(await cast(["call", tokenAddress, "balanceOf(address)(uint256)", escrowAddress])), 0n);
 anvil.kill();
 console.log("PASS expiry without receipt refunds the full locked amount.");
+
+const forkPort = 18547;
+const fork = spawn(path.join(foundry, "anvil"), ["--fork-url", "https://api.avax.network/ext/bc/C/rpc", "--port", String(forkPort), "--chain-id", "43114", "--silent"], {stdio: "ignore"});
+const forkUrl = "http://127.0.0.1:" + forkPort;
+try {
+  await new Promise((resolve, reject) => {
+    const started = Date.now();
+    const timer = setInterval(async () => {
+      try { await fetch(forkUrl, {method: "POST", headers: {"content-type": "application/json"}, body: JSON.stringify({jsonrpc: "2.0", id: 1, method: "eth_chainId", params: []})}); clearInterval(timer); resolve(); }
+      catch (error) { if (Date.now() - started > 20000) { clearInterval(timer); reject(error); } }
+    }, 200);
+  });
+  async function forkCast(args) {
+    const {stdout} = await exec(path.join(foundry, "cast"), args, {cwd: "/workspace", env: {...process.env, PATH: foundry + ":" + process.env.PATH}});
+    return stdout.trim();
+  }
+  async function forkSend(args) {
+    return JSON.parse(await forkCast(["send", "--rpc-url", forkUrl, "--unlocked", "--json", ...args]));
+  }
+  const holder = "0x1c83cdef1c2bd63395a6a1d2f294334d3c6db5d4";
+  const forkSeller = "0x70997970C51812dc3A010C7d01b50e0d17dc79C8";
+  const forkEmployee = "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC";
+  await forkCast(["rpc", "--rpc-url", forkUrl, "anvil_impersonateAccount", holder]);
+  await forkCast(["rpc", "--rpc-url", forkUrl, "anvil_setBalance", holder, "0x8AC7230489E80000"]);
+  await forkCast(["rpc", "--rpc-url", forkUrl, "anvil_setBalance", forkEmployee, "0x8AC7230489E80000"]);
+  const creation = artifact.bytecode + (await forkCast(["abi-encode", "constructor(address,uint8,uint256)", asset.AVALANCHE_ARGT, "18", "43114"])).slice(2);
+  let wrongDecimalsFailed = false;
+  try { await forkSend(["--from", holder, "--create", artifact.bytecode + (await forkCast(["abi-encode", "constructor(address,uint8,uint256)", asset.AVALANCHE_ARGT, "6", "43114"])).slice(2)]); }
+  catch { wrongDecimalsFailed = true; }
+  assert.equal(wrongDecimalsFailed, true);
+  const deployed = await forkSend(["--from", holder, "--create", creation]);
+  const forkEscrow = deployed.contractAddress;
+  assert.equal((await forkCast(["call", "--rpc-url", forkUrl, forkEscrow, "token()(address)"])).toLowerCase(), asset.AVALANCHE_ARGT.toLowerCase());
+  assert.equal((await forkCast(["call", "--rpc-url", forkUrl, forkEscrow, "tokenDecimals()(uint8)"])).split(" ")[0], "18");
+  const forkDb = new DatabaseSync(":memory:");
+  forkDb.exec(fs.readFileSync("cloudflare/schema.sql", "utf8"));
+  const forkEnv = {DB: {prepare(sql) { let values = []; const stmt = {bind(...valuesIn) { values = valuesIn; return stmt; }, async first() { return forkDb.prepare(sql).get(...values) ?? null; }, async run() { return {meta: {changes: Number(forkDb.prepare(sql).run(...values).changes)}}; }}; return stmt; }}, FUJI_RPC_URL: forkUrl, OC_ESCROW_RAIL: "avalanche-argt", OC_ESCROW_ENABLE: "1", FUJI_ASSET_ADDRESS: asset.AVALANCHE_ARGT, FUJI_ASSET_DECIMALS: "18"};
+  const forkToken = "f".repeat(64);
+  function forkRequest(command, path = "/api/demo") {
+    return worker.handle(new Request("https://api.example" + path, {method: command ? "POST" : "GET", headers: {Origin: "https://obra-clara-comprador.vercel.app", Authorization: "Bearer " + forkToken, "X-OC-New-Workspace": "1", ...(command ? {"Content-Type": "application/json"} : {})}, body: command ? JSON.stringify(command) : undefined}), forkEnv);
+  }
+  const seeded = await (await forkRequest(null)).json();
+  const forkProject = seeded.projects[0];
+  const forkDelivery = {address: forkProject.address, contactName: "Recepcion de obra", contactPhone: "1140001000", requestedDate: "", timeWindow: "08:00 a 12:00", notes: ""};
+  const disabled = await worker.handle(new Request("https://api.example/api/fuji-escrow", {method: "POST", headers: {Origin: "https://obra-clara-comprador.vercel.app", Authorization: "Bearer " + forkToken, "Content-Type": "application/json"}, body: JSON.stringify({action: "verify", txHash: deployed.transactionHash, kind: "deployment"})}), {...forkEnv, OC_ESCROW_ENABLE: ""});
+  assert.equal((await disabled.json()).verdict.status, "rejected");
+  const deployment = await (await forkRequest({action: "verify", txHash: deployed.transactionHash, kind: "deployment"}, "/api/fuji-escrow")).json();
+  assert.equal(deployment.verdict.status, "confirmed", JSON.stringify(deployment));
+  assert.equal(deployment.deployment.chainId, 43114);
+  assert.equal(deployment.deployment.symbol, "ARGt");
+  const partialOrder = await (await forkRequest({id: "argt-partial", type: "fuji.checkout", payload: {mode: "partial", offerId: asset.LIVE_CEMENT_OFFER_ID, quantity: 100, projectId: forkProject.id, seller: forkSeller, deadline: Math.floor(Date.now() / 1000) + 86400, delivery: forkDelivery, amount: "1", token: asset.MAINNET_USDT, phase: "reservada"}})).json();
+  const argtOrder = partialOrder.orders.find(item => item.requestId === "argt-partial");
+  assert.equal(argtOrder.escrow.chainId, 43114);
+  assert.equal(argtOrder.escrow.symbol, "ARGt");
+  assert.equal(argtOrder.escrow.amount, "5000000000000000000");
+  assert.equal(argtOrder.escrow.phase, "sin reserva");
+  assert.equal(argtOrder.escrow.contract, forkEscrow.toLowerCase());
+  await forkSend(["--from", holder, asset.AVALANCHE_ARGT, "approve(address,uint256)", forkEscrow, "10000000000000000000"]);
+  const fund = await forkSend(["--from", holder, forkEscrow, "fund(bytes32,address,uint256,uint256,uint256,uint64,address)", argtOrder.escrow.orderId, forkSeller, "100", "50000000000000000", "5000000000000000000", argtOrder.escrow.deadline, asset.AVALANCHE_ARGT]);
+  let verifiedFork = await (await forkRequest({action: "verify", orderId: argtOrder.id, txHash: fund.transactionHash, kind: "fund"}, "/api/fuji-escrow")).json();
+  assert.equal(verifiedFork.verdict.status, "confirmed", JSON.stringify(verifiedFork));
+  assert.equal(verifiedFork.order.escrow.phase, "reservada");
+  const doubleFund = await (await forkRequest({action: "verify", orderId: argtOrder.id, txHash: fund.transactionHash, kind: "fund"}, "/api/fuji-escrow")).json();
+  assert.equal(doubleFund.order.escrow.phase, "reservada");
+  const dispatchedFork = await (await forkRequest({id: "dispatch-argt", type: "fuji.dispatch", payload: {orderId: argtOrder.id}})).json();
+  assert.equal(dispatchedFork.orders.find(item => item.id === argtOrder.id).status, "Despachada");
+  assert.equal(dispatchedFork.orders.find(item => item.id === argtOrder.id).escrow.phase, "reservada");
+  const auth = await forkSend(["--from", holder, forkEscrow, "authorizeDelegate(bytes32,address)", argtOrder.escrow.orderId, forkEmployee]);
+  verifiedFork = await (await forkRequest({action: "verify", orderId: argtOrder.id, txHash: auth.transactionHash, kind: "authorize"}, "/api/fuji-escrow")).json();
+  assert.equal(verifiedFork.order.escrow.delegate, forkEmployee.toLowerCase());
+  const settle = await forkSend(["--from", forkEmployee, forkEscrow, "settle(bytes32,uint256)", argtOrder.escrow.orderId, "80"]);
+  verifiedFork = await (await forkRequest({action: "verify", orderId: argtOrder.id, txHash: settle.transactionHash, kind: "settle"}, "/api/fuji-escrow")).json();
+  assert.equal(verifiedFork.verdict.status, "confirmed", JSON.stringify(verifiedFork));
+  assert.equal(verifiedFork.order.escrow.phase, "liquidada");
+  assert.equal(verifiedFork.order.escrow.sellerAmount, "4000000000000000000");
+  assert.equal(verifiedFork.order.escrow.buyerRefund, "1000000000000000000");
+  assert.equal((await forkCast(["call", "--rpc-url", forkUrl, asset.AVALANCHE_ARGT, "balanceOf(address)(uint256)", forkSeller])).split(" ")[0], "4000000000000000000");
+  assert.match(escrow.escrowListLabel(verifiedFork.order.escrow, verifiedFork.order.status), /4 ARGt/);
+  assert.match(escrow.escrowListLabel(verifiedFork.order.escrow, verifiedFork.order.status), /1 ARGt/);
+  const replayed = await (await forkRequest({action: "verify", orderId: argtOrder.id, txHash: settle.transactionHash, kind: "settle"}, "/api/fuji-escrow")).json();
+  assert.equal(replayed.order.escrow.sellerAmount, "4000000000000000000");
+  const expiryFork = await (await forkRequest({id: "argt-expiry", type: "fuji.checkout", payload: {mode: "expiry", offerId: asset.LIVE_CEMENT_OFFER_ID, quantity: 100, projectId: forkProject.id, seller: forkSeller, deadline: Math.floor(Date.now() / 1000) + 90, delivery: forkDelivery}})).json();
+  const expiryOrder = expiryFork.orders.find(item => item.requestId === "argt-expiry");
+  const reboundFork = await (await forkRequest({action: "verify", orderId: expiryOrder.id, txHash: fund.transactionHash, kind: "fund"}, "/api/fuji-escrow")).json();
+  assert.notEqual(reboundFork.verdict.status, "confirmed");
+  const expiryFund = await forkSend(["--from", holder, forkEscrow, "fund(bytes32,address,uint256,uint256,uint256,uint64,address)", expiryOrder.escrow.orderId, forkSeller, "100", "50000000000000000", "5000000000000000000", expiryOrder.escrow.deadline, asset.AVALANCHE_ARGT]);
+  verifiedFork = await (await forkRequest({action: "verify", orderId: expiryOrder.id, txHash: expiryFund.transactionHash, kind: "fund"}, "/api/fuji-escrow")).json();
+  assert.equal(verifiedFork.order.escrow.phase, "reservada");
+  await forkCast(["rpc", "--rpc-url", forkUrl, "evm_increaseTime", "120"]);
+  await forkCast(["rpc", "--rpc-url", forkUrl, "evm_mine"]);
+  const refund = await forkSend(["--from", forkSeller, forkEscrow, "refundExpired(bytes32)", expiryOrder.escrow.orderId]);
+  verifiedFork = await (await forkRequest({action: "verify", orderId: expiryOrder.id, txHash: refund.transactionHash, kind: "refund"}, "/api/fuji-escrow")).json();
+  assert.equal(verifiedFork.order.escrow.phase, "reembolsada", JSON.stringify(verifiedFork));
+  assert.equal(verifiedFork.order.escrow.buyerRefund, "5000000000000000000");
+  assert.equal((await forkCast(["call", "--rpc-url", forkUrl, asset.AVALANCHE_ARGT, "balanceOf(address)(uint256)", forkEscrow])).split(" ")[0], "0");
+  console.log("PASS Avalanche fork: 5 ARGt, 80 received, 4 paid, 1 refunded, expiry refunds 5, wrong decimals rejected.");
+} finally {
+  fork.kill();
+}
