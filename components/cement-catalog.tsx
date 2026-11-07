@@ -55,7 +55,7 @@ export function ProductCard({product,offerCount=1,compared,compareDisabled,onCom
  return <article className="product-card cement-card">
   {onCompare&&<label className="retail-compare-checkbox"><input type="checkbox" checked={compared} disabled={compareDisabled} aria-label={`Comparar ${product.name}`} onChange={()=>onCompare(product.id)}/>Comparar</label>}
   <FavoriteButton itemId={`product:${product.id}`} name={product.name}/>
-  {offerCount>1&&<Link className="product-vendor-count" href={`/productos/${product.id}#ofertas`}>{offerCount} vendedores · Comparar →</Link>}
+  {offerCount>1&&<Link className="product-vendor-count" href={`/productos/${product.id}#vendedores`}>{offerCount} vendedores · Comparar →</Link>}
   <Link href={`/productos/${product.id}`} className="cement-photo"><img src={productImage(product.image)} alt={product.imageAlt??product.name} loading="lazy" onError={e=>{if(e.currentTarget.getAttribute("src")!=="/products/product-placeholder.svg")e.currentTarget.src="/products/product-placeholder.svg";}}/></Link>
   <div className="product-sale-format" aria-label={`Presentación incluida en el precio: ${format}, ${sale}`}><span className="sale-weight" title={format}>{format}</span><span className="sale-units">{saleUnits}</span></div>
   <div className={`product-shipping ${product.shippingIncluded?"":"shipping-excluded"}`}>{product.shippingIncluded?"Incluye envío":"No incluye envío"}</div>
