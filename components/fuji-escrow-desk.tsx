@@ -64,7 +64,7 @@ export function FujiEscrowBoard({role, focus}: {role: "Compras" | "Ventas"; focu
   const argt = asset?.symbol === "ARGt";
   const railLive = argt && !!asset?.enabled && !asset.simulation;
   return <section className="fuji-wallet panel" aria-label={argt ? "Compra de cemento en ARGt" : "Compra de cemento en Fuji"}>
-    <p className="escrow-sim-banner">{railLive ? (recordedContract ? `Riel ARGt habilitado. Escrow verificado: ${recordedContract}. No se firma otro despliegue. El vendedor no hace falta para desplegar. El precio de catálogo no es los 5 ARGt.` : "Riel ARGt habilitado. El contrato todavía no existe: lo crea la firma de Core de esta pantalla. El vendedor no hace falta para desplegar. El precio de catálogo no es los 5 ARGt.") : argt ? "SIMULACIÓN · no es producción · mainnet bloqueado hasta configuración real" : asset?.simulation ? "SIMULACIÓN · riel Fuji · no es producción" : "Riel separado. Nada de esta pantalla es un saldo hasta un recibo."}</p>
+    <p className="escrow-sim-banner">{railLive ? (recordedContract ? `Riel ARGt habilitado. Escrow verificado: ${recordedContract}. No se firma otro despliegue. El vendedor no hace falta para desplegar. La bolsa de la demo cuesta 0,05 ARGt. Las 100 bolsas suman 5 ARGt.` : "Riel ARGt habilitado. El contrato todavía no existe: lo crea la firma de Core de esta pantalla. El vendedor no hace falta para desplegar. La bolsa de la demo cuesta 0,05 ARGt. Las 100 bolsas suman 5 ARGt.") : argt ? "SIMULACIÓN · no es producción · mainnet bloqueado hasta configuración real" : asset?.simulation ? "SIMULACIÓN · riel Fuji · no es producción" : "Riel separado. Nada de esta pantalla es un saldo hasta un recibo."}</p>
     {railLive && <p>La billetera de más arriba, si aparece, es USDC de Fuji y no sirve para este despliegue. Core tiene que quedar en Avalanche C-Chain (43114). No cambies a Fuji.</p>}
     <BuyerIdentity/>
     <span className="fn-eyebrow">{argt ? "ARGt · TOKEN DE PESOS · NO ES USD" : "USDT EN FUJI · NO ES EL REGISTRO ARGt"}</span>
@@ -87,7 +87,7 @@ export function EscrowPurchaseNote() {
     }).catch(() => undefined);
     return () => { active = false; };
   }, []);
-  if (asset?.symbol === "ARGt" && asset.enabled && !asset.simulation) return <p className="escrow-sim-banner">Riel ARGt habilitado. El escrow de la prueba son 5 ARGt por 100 bolsas, no el precio de catálogo de la bolsa y no son dólares. Con 80 recibidas se pagan 4 ARGt y se devuelve 1. Agregar al carrito no reserva.</p>;
+  if (asset?.symbol === "ARGt" && asset.enabled && !asset.simulation) return <p className="escrow-sim-banner">Riel ARGt habilitado. Cada bolsa de la demo cuesta 0,05 ARGt. El escrow reserva 5 ARGt por 100 bolsas. Con 80 recibidas se pagan 4 ARGt y se devuelve 1. Agregar al carrito no reserva.</p>;
   if (asset?.symbol === "ARGt") return <p className="escrow-sim-banner">SIMULACIÓN. 100 bolsas bloquean 5 ARGt, token de pesos, no USD ni USDT. 80 recibidas pagan 4 ARGt y devuelven 1 ARGt. El polvo de la wallet no se suma. Agregar al carrito no reserva.</p>;
   return <p>100 bolsas de Cemento Portland Loma Negra, Corralón Norte. El precio de catálogo es una demostración. El riel Fuji, si aparece, no es esta compra en ARGt y no queda reservado al agregar al carrito.</p>;
 }

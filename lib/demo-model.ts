@@ -15,7 +15,7 @@ import {finances} from "./order-finances";
 export {finances} from "./order-finances";
 import {applyBrickCommand,type BrickChat} from "./brick-model";
 import {applyFujiCommand,type FujiDeployment,type FujiEscrowRecord,type EscrowState} from './fuji-escrow';
-import {demoProductPrice} from "./demo-product-price";
+import {hackathonProductName, hackathonProductPrice} from "./demo-product-price";
 import {completeMarketplaceCatalog,type Product} from '../components/marketplace-data';
 import {cementSuppliers} from '../components/marketplace-data';
 import {initialProjects,projectReady,projectAddress,type Project} from '../components/project-data';
@@ -28,7 +28,7 @@ export type SharedState={shippingDemoVersion?:number;orderThreads?:OrderThread[]
 export type Command={id:string;type:string;payload:unknown};
 export function emptyState():SharedState{return {projectScopeVersion:1,retiredProjectIds:retiredDemoProjectIds,revision:0,providers:cementSuppliers,offers:[],projects:initialProjects,orders:[],commands:[]};}
 export function reserved(s:SharedState,id:string){return s.orders.filter(o=>o.status!=='Cancelada'&&o.escrow?.phase!=='liquidada'&&o.escrow?.phase!=='reembolsada'&&o.escrow?.mode!=='expiry').reduce((n,o)=>n+o.lines.filter(l=>l.id===id).reduce((v,l)=>v+l.quantity-l.received,0),0);}
-export function catalog(s:SharedState){const m=new Map(completeMarketplaceCatalog.map(p=>[p.id,p]));s.offers.forEach(p=>m.set(p.id,p));return [...m.values()].filter(constructionProduct).map(p=>({...p,price:demoProductPrice,supplier:s.providers.find(v=>v.slug===p.supplier.slug)??p.supplier}));}
+export function catalog(s:SharedState){const m=new Map(completeMarketplaceCatalog.map(p=>[p.id,p]));s.offers.forEach(p=>m.set(p.id,p));return [...m.values()].filter(constructionProduct).map(p=>({...p,name:hackathonProductName(p.id,p.name),price:hackathonProductPrice(p.id),supplier:s.providers.find(v=>v.slug===p.supplier.slug)??p.supplier}));}
 export function snapshot(s:SharedState):SharedState{return {...s,finance:operationalFinance(s,new Date().toISOString()),offers:catalog(s).map(p=>({...p,stock:Math.max(0,p.stock-reserved(s,p.id))})),commands:[]};}
 
 function fail(text:string):never{throw new Error(text);}

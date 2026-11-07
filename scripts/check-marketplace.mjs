@@ -6,7 +6,7 @@ import {webcrypto} from 'node:crypto';
 function load(file,dependencies={},extra={}){const exports={};vm.runInNewContext(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,{exports,crypto:webcrypto,require:name=>dependencies[name]??{},...extra});return exports;}
 const rows=JSON.parse(fs.readFileSync('components/marketplace-products.json','utf8'));
 const departments=load('components/catalog-departments.ts',{'./excluded-retail-products.json':{default:JSON.parse(fs.readFileSync('components/excluded-retail-products.json'))}});
-const catalog=load('components/marketplace-data.ts',{'../lib/demo-product-price':load('lib/demo-product-price.ts'),'../lib/order-delivery':load('lib/order-delivery.ts'),'./catalog-departments':departments,'./marketplace-products.json':{default:rows},'./catalog-product-details.json':{default:JSON.parse(fs.readFileSync('components/catalog-product-details.json','utf8'))}});
+const catalog=load('components/marketplace-data.ts',{'../lib/demo-product-price':load('lib/demo-product-price.ts',{'./fuji-asset':load('lib/fuji-asset.ts')}),'../lib/order-delivery':load('lib/order-delivery.ts'),'./catalog-departments':departments,'./marketplace-products.json':{default:rows},'./catalog-product-details.json':{default:JSON.parse(fs.readFileSync('components/catalog-product-details.json','utf8'))}});
 assert.equal(rows.length,180);
 assert.equal(catalog.productCategories.length,9);
 assert.equal(new Set(rows.map(p=>p.id)).size,180);
@@ -26,6 +26,10 @@ assert.ok(catalog.filterMarketplaceProducts({...defaults,shippingIncludedOnly:tr
 assert.ok(catalog.filterMarketplaceProducts({...defaults,brand:'Bosch'}).every(p=>p.brand==='Bosch'));
 const sorted=catalog.filterMarketplaceProducts({...defaults,sort:'price'});
 assert.ok(sorted.length>0&&sorted.every(product=>product.price===5));
+const demoCement=catalog.completeMarketplaceCatalog.find(product=>product.id==='corralon-norte-loma');
+assert.ok(demoCement.name.endsWith(' (Demo)'));
+assert.equal(demoCement.price*100,5);
+assert.ok(catalog.completeMarketplaceCatalog.filter(product=>product.id!==demoCement.id).every(product=>product.price===5));
 for(const p of rows){
  assert.ok(catalog.productCategories.includes(p.category));
  assert.ok(p.price>0&&p.stock>0);
@@ -35,7 +39,7 @@ for(const p of rows){
 }
 assert.ok(rows.filter(p=>p.category==='Grupos electrógenos').every(p=>p.saleLabel==='1 equipo'&&p.format.includes('kVA')&&p.kg===null));
 let saved=null;
-const store=load('components/cart-store.ts',{'../lib/demo-product-price':load('lib/demo-product-price.ts')}, {window:{dispatchEvent(){}},localStorage:{getItem:()=>saved,setItem:(_,v)=>saved=v},Event:class{}});
+const store=load('components/cart-store.ts',{'../lib/demo-product-price':load('lib/demo-product-price.ts',{'./fuji-asset':load('lib/fuji-asset.ts')})}, {window:{dispatchEvent(){}},localStorage:{getItem:()=>saved,setItem:(_,v)=>saved=v},Event:class{}});
 const cable=catalog.marketplaceProducts.find(p=>p.id==='cables-01');
 store.addCartProduct({id:cable.id,name:cable.name,supplier:cable.supplier.name,pickup:cable.supplier.address,quantity:2,unitPrice:cable.price,kg:cable.kg,shippingIncluded:cable.shippingIncluded,image:cable.image,unit:cable.unit,saleLabel:cable.saleLabel});
 assert.equal(store.readCart().products[0].unit,cable.unit);

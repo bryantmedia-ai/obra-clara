@@ -26,12 +26,12 @@ assert.doesNotMatch(consult, /eth_sendTransaction|eth_requestAccounts|wallet_swi
 assert.match(desk.slice(desk.indexOf("async function deploy"), desk.indexOf("const onRail")), /writePendingDeploy\(tx\)/);
 assert.doesNotMatch(desk, /deployment == null|deployment === null|!deployment/);
 assert.match(desk, /El vendedor no hace falta para desplegar/);
-assert.match(desk, /El precio de catálogo no es los 5 ARGt/);
+assert.match(desk, /Las 100 bolsas suman 5 ARGt/);
 assert.match(profile, /coreWallet: ""/);
 assert.match(profile, /0x621c700f27c2a9631468be51ad7daebe97879b92/);
 assert.match(catalog, /price:demoProductPrice/);
-assert.match(cart, /No es lo que bloquea el escrow: esta prueba son 5 ARGt/);
-assert.match(cart, /no el precio de catálogo/);
+assert.match(cart, /el total del carrito y la reserva del escrow son 5 ARGt/);
+assert.match(cart, /0,05 ARGt/);
 assert.doesNotMatch(cart, /reserva USDT no está confirmada/);
 assert.match(escrow, /commercialBase\(asset\.decimals/);
 assert.match(escrow, /unitPrice: 0/);
