@@ -6,7 +6,7 @@ import {webcrypto} from 'node:crypto';
 function load(file,dependencies={},extra={}){const exports={};vm.runInNewContext(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,{exports,crypto:webcrypto,require:name=>dependencies[name]??{},...extra});return exports;}
 const rows=JSON.parse(fs.readFileSync('components/marketplace-products.json','utf8'));
 const departments=load('components/catalog-departments.ts',{'./excluded-retail-products.json':{default:JSON.parse(fs.readFileSync('components/excluded-retail-products.json'))}});
-const catalog=load('components/marketplace-data.ts',{'./catalog-departments':departments,'./marketplace-products.json':{default:rows},'./catalog-product-details.json':{default:JSON.parse(fs.readFileSync('components/catalog-product-details.json','utf8'))}});
+const catalog=load('components/marketplace-data.ts',{'../lib/order-delivery':load('lib/order-delivery.ts'),'./catalog-departments':departments,'./marketplace-products.json':{default:rows},'./catalog-product-details.json':{default:JSON.parse(fs.readFileSync('components/catalog-product-details.json','utf8'))}});
 assert.equal(rows.length,180);
 assert.equal(catalog.productCategories.length,9);
 assert.equal(new Set(rows.map(p=>p.id)).size,180);

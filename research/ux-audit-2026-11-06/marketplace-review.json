@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-06",
+  "scope": "Marketplace catalog, cards, browsing controls, cart handoff and product detail",
+  "changes": [
+    "Removed fixed card content tracks that overlapped price validity, amounts and quantity controls.",
+    "Grouped price mode, validity, amount, currency and price unit in natural-flow sections.",
+    "Removed duplicate model text from cards; complete specifications remain on detail pages.",
+    "Quantity input keeps four digits, respects minimum/stock and resets blank values to the product minimum.",
+    "Retired freight option and embedded freight catalog removed; old freight category URL ignored.",
+    "Arrival sorting uses day and time. Active filter chips cover search, brand, presentation, mode, shipping and favorites.",
+    "Comparison no longer sits beneath connection feedback.",
+    "Product detail has a bounded main column; specification comparisons scroll within their own container.",
+    "15 products per page suits 1, 3 and 5 column layouts."
+  ],
+  "validation": {
+    "production_build": "PASS including TypeScript",
+    "scripts": [
+      "check-marketplace.mjs PASS",
+      "check-retail-marketplace.mjs PASS",
+      "check-pricing-quotes.mjs PASS",
+      "check-material-only-checkout.mjs PASS"
+    ],
+    "browser": [
+      "Desktop 1/3/5 columns: no page or card overflow.",
+      "Final five-column page: 15 cards, zero price/mode intersections.",
+      "Uniform card heights confirmed within desktop page.",
+      "390px catalog and detail: document width equals viewport width.",
+      "9999 remains typed; cart action disabled when over stock.",
+      "100 units added to local cart and correct subtotal inspected. Test cart items removed afterwards.",
+      "Cart popup opens/closes and links to complete cart.",
+      "Favorite save/filter/remove and count checked.",
+      "Ascending price, first/last navigation, empty search and reset checked.",
+      "Shipping included filter returns only included-shipping cards.",
+      "Quote dialog opens and closes; no request submitted.",
+      "Comparison dialog opens with mouse and keyboard.",
+      "Product detail tabs specs/delivery/payment open.",
+      "Categories panel stays below actual header height; no retired promo."
+    ],
+    "live_financial_actions": false,
+    "live_quote_submission": false,
+    "local_backend_note": "The local origin is not connected to the production shared workspace; backend quote/order invariants were checked by the existing model test scripts."
+  },
+  "publication": {
+    "github": "main",
+    "vercel": "pending due to known api-deployments-free-per-day quota",
+    "last_buyer_production_commit": "17688adda5f3f69a861cbafc3e64a3ee8dd5384f",
+    "no_plan_purchased": true
+  },
+  "local_preview": "http://localhost:3100/marketplace"
+}

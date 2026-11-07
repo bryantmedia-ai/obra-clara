@@ -28,6 +28,7 @@ import "./scope-filters.css";
 import "./workspace-headlines.css";
 import "./hackatwin.css";
 import "./market-navigation.css";
+import "./marketplace-cards.css";
 
 export const metadata: Metadata = {
   title: "Obra Clara",

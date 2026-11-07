@@ -9,7 +9,7 @@ import {useRouter,useSearchParams} from "next/navigation";
 import {saleUnits as formatSaleUnits,shortSaleLabel,cartSaleUnits} from "./sale-units";
 import {productQuantityState,quantityDraft} from "./product-quantity";
 import {productContent,productDimensions} from "./product-facets";
-import {marketplaceListings,sellerCount} from "./marketplace-model";
+import {marketplaceListings,sellerCount,deliveryRank} from "./marketplace-model";
 import {useProviders,businessTypes,companySizes} from "./provider-store";
 import {useSupplierOffers} from "./supplier-offers";
 import {productImage} from "./product-images";
@@ -19,10 +19,8 @@ import {ProductComparison} from "./product-comparison";
 import {addCartProduct,cartProductLineId} from "./cart-store";
 import {marketplaceHref,readMarketFilters,defaultMarketFilters,type MarketLocation} from "./catalog-links";
 import {SupplierProductIndex} from "./supplier-product-index";
-import {TransportCatalog} from "./transport-catalog";
 import {FavoriteButton} from "./favorite-button";
 import {useFavorites} from "./favorites-store";
-import {transportServices} from "./transport-data";
 import {CatalogGrid} from "./catalog-grid";
 import {Suspense,useId,useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -34,21 +32,20 @@ import {cementSuppliers,cementProducts,marketplaceProducts,completeMarketplaceCa
 const money = (amount:number)=>`${amount.toLocaleString("es-AR")} ARGt`;
 
 export function ProductCard({product,offerCount=1,compared,compareDisabled,onCompare}:{product:Product;offerCount?:number;compared?:boolean;compareDisabled?:boolean;onCompare?:(id:string)=>void}) {
- const router=useRouter();
  const quantityId=useId();
  const [quantity,setQuantity]=useState(String(product.minimumOrder??1));
  const [added,setAdded]=useState<number|null>(null);
- const priceIssue=directPriceIssue(product);const needsQuote=!!priceIssue;const [quoteOpen,setQuoteOpen]=useState(false);
+ const minimumOrder=product.minimumOrder??1;const unavailable=product.stock<minimumOrder;
+ const priceIssue=directPriceIssue(product);const needsQuote=!!priceIssue||unavailable;const [quoteOpen,setQuoteOpen]=useState(false);
  const maxQuantity=needsQuote?9999:Math.min(9999,product.stock);
  const rawSelection=productQuantityState(quantity,maxQuantity);
- const minimumOrder=product.minimumOrder??1;
  const selection={...rawSelection,valid:rawSelection.valid&&rawSelection.quantity>=minimumOrder,message:rawSelection.quantity>0&&rawSelection.quantity<minimumOrder?`Compra mínima: ${minimumOrder}`:rawSelection.message};
  const selectedQuantity=selection.quantity;
  function changeQuantity(value:string){if(quantityDraft(value)){setQuantity(value);setAdded(null);}}
  const format=product.format??`${product.kg} kg`;
  const sale=product.saleLabel??`${product.pack} U`;
  const saleUnits=formatSaleUnits(product.pack,sale,product.unit);
- const presentation=product.unit.replace(/\bunidad(?:es)?\b/gi,"U");
+ const presentation=product.unit.replace(/\bunidad(?:es)?\b/gi,"U").replace(/\bbolsas?\b/gi,"B").replace(/\bpaquetes?\b/gi,"P");
  function addToCart(){
   if(!selection.valid||needsQuote)return;
   setQuantity(String(selectedQuantity));
@@ -59,17 +56,17 @@ export function ProductCard({product,offerCount=1,compared,compareDisabled,onCom
   {onCompare&&<label className="retail-compare-checkbox"><input type="checkbox" checked={compared} disabled={compareDisabled} aria-label={`Comparar ${product.name}`} onChange={()=>onCompare(product.id)}/>Comparar</label>}
   <FavoriteButton itemId={`product:${product.id}`} name={product.name}/>
   {offerCount>1&&<Link className="product-vendor-count" href={`/productos/${product.id}#ofertas`}>{offerCount} vendedores · Ver ofertas →</Link>}
-  <Link href={`/productos/${product.id}`} className="cement-photo"><img src={productImage(product.image)} alt={product.imageAlt??product.name} loading="lazy"/></Link>
+  <Link href={`/productos/${product.id}`} className="cement-photo"><img src={productImage(product.image)} alt={product.imageAlt??product.name} loading="lazy" onError={e=>{if(e.currentTarget.getAttribute("src")!=="/products/product-placeholder.svg")e.currentTarget.src="/products/product-placeholder.svg";}}/></Link>
   <div className="product-sale-format" aria-label={`Presentación incluida en el precio: ${format}, ${sale}`}><span className="sale-weight" title={format}>{format}</span><span className="sale-units">{saleUnits}</span></div>
   <div className={`product-shipping ${product.shippingIncluded?"":"shipping-excluded"}`}>{product.shippingIncluded?"Incluye envío":"No incluye envío"}</div>
   <div className="product-body"><Link className="cement-seller" href={`/proveedores/${product.supplier.slug}`}>Vendido por {product.supplier.name} ↗</Link>
-   <h3 title={product.name}><Link href={`/productos/${product.id}`}>{product.name}</Link></h3><p className="product-specifications" title={`Modelo / especificación: ${product.model} · ${presentation}`}><span>Modelo: {product.model}</span><span>{presentation}</span></p><small title={product.use}>{product.use}</small>
+   <h3 title={product.name}><Link href={`/productos/${product.id}`}>{product.name}</Link></h3><p className="product-specifications" title={`Modelo / especificación: ${product.model} · ${presentation}`}><span>{presentation}</span></p><small title={product.use}>{product.use}</small>
    <div className="product-rating"><span>★ {product.supplier.score}</span><small>{product.stock} {product.stockUnit??(product.pack>1?"packs":"bolsas")} disponibles</small></div>
-   <div className="product-price-mode"><span className={"price-status "+(needsQuote?"blue":"green")}>{saleMode(product)==="quote"?"A cotizar":priceExpired(product)?"Precio vencido":"Compra directa"}</span><small>{needsQuote?"El proveedor confirma precio y disponibilidad":`Vigente hasta ${priceDate(product.priceValidUntil)}`}</small></div>
-   <strong title={needsQuote?"Solicitar cotización":money(product.price)}>{offerCount>1&&<span className="offer-from">Desde </span>}{needsQuote?"Solicitar cotización":money(product.price)}</strong><span className="cement-unit-price">Precio por {shortSaleLabel(sale.replace(/^1 /,""))}</span>
+   <div className="product-offer-block"><div className="product-price-mode"><span className={"price-status "+(needsQuote?"blue":"green")}>{unavailable?"Consultar stock":saleMode(product)==="quote"?"A cotizar":priceExpired(product)?"Precio vencido":"Compra directa"}</span><small>{needsQuote?"El proveedor confirma precio y disponibilidad":`Vigente hasta ${priceDate(product.priceValidUntil)}`}</small></div>
+   <div className="product-price"><strong title={needsQuote?"Solicitar cotización":money(product.price)}>{!needsQuote&&offerCount>1&&<span className="offer-from">Desde</span>}{needsQuote?"Precio a confirmar":<><span className="product-price-value">{product.price.toLocaleString("es-AR")}</span><span className="product-price-currency">ARGt</span></>}</strong>{!needsQuote&&<span className="cement-unit-price">Precio por {shortSaleLabel(sale.replace(/^1 /,""))}</span>}</div></div>
    <span className={`badge ${product.supplier.arrival.startsWith("Hoy")?"ok":"neutral"}`}>{product.supplier.arrival}</span>
-   <div className="product-purchase"><label htmlFor={quantityId}>{minimumOrder>1?`Cantidad · mínimo ${minimumOrder}`:"Cantidad"}</label><div className="product-purchase-controls">
-    <div className="quantity-stepper"><button type="button" aria-label={`Restar cantidad de ${product.name}`} disabled={selectedQuantity<=minimumOrder} onClick={()=>changeQuantity(String(selectedQuantity-1))}>−</button><input id={quantityId} type="text" inputMode="numeric" pattern="[0-9]*" maxLength={4} aria-invalid={!selection.valid} aria-describedby={`${quantityId}-feedback`} aria-label={`Cantidad de ${product.name}`} value={quantity} onChange={e=>changeQuantity(e.target.value)} onFocus={e=>e.currentTarget.select()} onBlur={()=>{if(!quantity)setQuantity("1");}}/><button type="button" aria-label={`Sumar cantidad de ${product.name}`} disabled={selectedQuantity>=maxQuantity} onClick={()=>changeQuantity(String(selectedQuantity+1))}>+</button></div>
+   <div className={`product-purchase${needsQuote?" quote-only":""}`}><label htmlFor={quantityId}>{minimumOrder>1?`Cantidad · mínimo ${minimumOrder}`:"Cantidad"}</label><div className="product-purchase-controls">
+    <div className="quantity-stepper"><button type="button" aria-label={`Restar cantidad de ${product.name}`} disabled={selectedQuantity<=minimumOrder} onClick={()=>changeQuantity(String(selectedQuantity-1))}>−</button><input id={quantityId} type="text" inputMode="numeric" pattern="[0-9]*" maxLength={4} aria-invalid={!selection.valid} aria-describedby={`${quantityId}-feedback`} aria-label={`Cantidad de ${product.name}`} value={quantity} onChange={e=>changeQuantity(e.target.value)} onFocus={e=>e.currentTarget.select()} onBlur={()=>{if(!quantity)setQuantity(String(minimumOrder));}}/><button type="button" aria-label={`Sumar cantidad de ${product.name}`} disabled={selectedQuantity>=maxQuantity} onClick={()=>changeQuantity(String(selectedQuantity+1))}>+</button></div>
     <button type="button" className="product-add-cart" disabled={!selection.valid||needsQuote} aria-label={`Agregar ${selectedQuantity} al carrito: ${product.name}`} title="Agregar al carrito" onClick={()=>addToCart()}><FontAwesomeIcon icon={faCartPlus} aria-hidden="true"/><span className="mobile-add-label">Agregar</span></button>
    </div><div id={`${quantityId}-feedback`} className={`product-add-feedback${!selection.valid?" quantity-error":""}`} role="status">{!selection.valid?selection.message:added!==null?<>{added>0?`${added} ${added===1?"presentación agregada":"presentaciones agregadas"}`:"Alcanzaste el stock disponible"} · <Link href="/carrito">Ver carrito</Link></>:needsQuote?<>Precio final sujeto a la cotización del proveedor.</>:<>Total por {cartSaleUnits(selectedQuantity,sale,product.unit)}: <strong>{money(selectedQuantity*product.price)}</strong></>}</div></div>
    <button type="button" className={`button ${needsQuote?"primary":"secondary"} full product-quote-action`} disabled={!selection.valid} onClick={()=>setQuoteOpen(true)}>Solicitar cotización</button>
@@ -90,9 +87,8 @@ function MarketplaceContent(){
  const providers=useProviders();
  const categories=[...new Set([...productCategories,...catalogProducts.map(p=>p.category??"Corralón")])];
  const favoriteProductIds=favorites.filter(id=>id.startsWith("product:")).map(id=>id.slice(8));
- const favoriteTransportCount=transportServices.filter(s=>favorites.includes(`transport:${s.id}`)).length;
  const favoriteProductCount=catalogProducts.filter(p=>favoriteProductIds.includes(p.id)).length;
- const favoriteCount=favoriteProductCount+favoriteTransportCount;
+ const favoriteCount=favoriteProductCount;
  function updateFilters(patch:Partial<MarketLocation>,replace=false){
   const next={...filters,...patch};
   if(replace)window.history.replaceState(null,"",marketplaceHref(next));
@@ -108,7 +104,7 @@ function MarketplaceContent(){
  const setFavoritesOnly=(value:boolean)=>updateFilters({favoritesOnly:value});
  const categoryProducts=catalogProducts.filter(p=>(!supplier||p.supplier.slug===supplier)&&departmentMatches(p,filters.department));
  const category=selectedCategories.length?selectedCategories.join(", "):"Todos los productos";
- const showProducts=(!selectedCategories.length||selectedCategories.some(c=>c!=="Transporte y entrega"))&&!(favoritesOnly&&!selectedCategories.length&&!favoriteProductCount&&favoriteTransportCount>0);
+ const showProducts=true;
  const scoped=categoryProducts.filter(p=>(!favoritesOnly||favoriteProductIds.includes(p.id))&&(!selectedCategories.length||selectedCategories.includes(p.category??"Corralón")));
  const brands=[...new Set(scoped.map(p=>p.brand))].sort((a,b)=>a.localeCompare(b,"es"));
  const contents=[...new Set(scoped.map(productContent).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es",{numeric:true}));
@@ -118,12 +114,13 @@ function MarketplaceContent(){
  const types=[...new Set(scoped.filter(p=>!brand||p.brand===brand).map(p=>p.productType))].sort((a,b)=>a.localeCompare(b,"es"));
  const models=[...new Set(scoped.filter(p=>(!brand||p.brand===brand)&&(!productType||p.productType===productType)).map(p=>p.model))].sort((a,b)=>a.localeCompare(b,"es",{numeric:true}));
  const filtered=filterMarketplaceProducts({...filters,favoriteIds:favoritesOnly?favoriteProductIds:undefined},catalogProducts);
- const listings=marketplaceListings(filtered).sort((a,b)=>sort==="price"?a.offer.price-b.offer.price:sort==="price-desc"?b.offer.price-a.offer.price:0);
+ const listings=marketplaceListings(filtered).sort((a,b)=>sort==="price"?a.offer.price-b.offer.price:sort==="price-desc"?b.offer.price-a.offer.price:deliveryRank(a.offer.supplier.arrival)-deliveryRank(b.offer.supplier.arrival));
  function toggleCategory(c:string){updateFilters({categories:selectedCategories.includes(c)?selectedCategories.filter(item=>item!==c):[...selectedCategories,c],brand:"",format:"",productType:"",model:"",productId:"",referenceId:""});}
  function clearFilters(){window.history.pushState(null,"",marketplaceHref(defaultMarketFilters));}
  return <div className="retail-marketplace">
   <MarketStorefront filters={filters} products={catalogProducts} onFilter={patch=>updateFilters(patch,Object.keys(patch).length===1&&"query" in patch)}/>
-  {(supplier||filters.content||filters.dimensions||filters.color||filters.sellerType||filters.companySize||filters.department||filters.minPrice||filters.maxPrice||productType||model||productId||referenceId||filters.completeCatalog)&&<div className="active-catalog-filters" aria-label="Filtros aplicados">
+  {(query||brand||size||today||shippingIncludedOnly||favoritesOnly||selectedCategories.length>0||filters.purchaseMode||supplier||filters.content||filters.dimensions||filters.color||filters.sellerType||filters.companySize||filters.department||filters.minPrice||filters.maxPrice||productType||model||productId||referenceId||filters.completeCatalog)&&<div className="active-catalog-filters" aria-label="Filtros aplicados">
+   {query&&<button onClick={()=>updateFilters({query:""})}>Búsqueda: {query} ×</button>}{brand&&<button onClick={()=>setBrand("")}>{brand} ×</button>}{size&&<button onClick={()=>setSize("")}>{size} ×</button>}{selectedCategories.map(c=><button key={c} onClick={()=>toggleCategory(c)}>{c} ×</button>)}{filters.purchaseMode&&<button onClick={()=>updateFilters({purchaseMode:""})}>{filters.purchaseMode==="direct"?"Compra directa":"Solicitar cotización"} ×</button>}{today&&<button onClick={()=>setToday(false)}>Llega hoy ×</button>}{shippingIncludedOnly&&<button onClick={()=>setShippingIncludedOnly(false)}>Incluye envío ×</button>}{favoritesOnly&&<button onClick={()=>setFavoritesOnly(false)}>Favoritos ×</button>}
    {filters.content&&<button onClick={()=>updateFilters({content:""})}>{filters.content} ×</button>}{filters.dimensions&&<button onClick={()=>updateFilters({dimensions:""})}>{filters.dimensions} ×</button>}{filters.color&&<button onClick={()=>updateFilters({color:""})}>{filters.color} ×</button>}
    {filters.department&&<button onClick={()=>updateFilters({department:"",query:""})}>{catalogDepartments.find(d=>d.id===filters.department)?.name} ×</button>}
    {filters.completeCatalog&&<span>Catálogo de proveedores</span>}
@@ -134,7 +131,6 @@ function MarketplaceContent(){
    <button onClick={clearFilters}>Limpiar filtros</button>
   </div>}
   <section className="market-layout"><MobileFilters id="mobile-product-filters" label="Filtrar productos"><aside className="market-filters panel"><div><label className="favorites-filter"><input type="checkbox" aria-label="Mostrar solo favoritos" checked={favoritesOnly} onChange={e=>setFavoritesOnly(e.target.checked)}/><span aria-hidden="true">♥</span>Favoritos<span className="filter-count">{favoriteCount}</span></label></div><div><h3>Departamentos</h3><select aria-label="Filtrar departamento" value={filters.department??""} onChange={e=>updateFilters({department:e.target.value,categories:[],query:"",brand:"",productType:"",model:""})}><option value="">Todos los departamentos</option>{catalogDepartments.map(d=><option key={d.id} value={d.id}>{d.name}</option>)}</select></div><div><h3>Categorías</h3><label><input type="checkbox" checked={!selectedCategories.length} onChange={()=>updateFilters({categories:[],brand:"",format:"",productType:"",model:"",productId:"",referenceId:""})}/>Todas las categorías<span className="filter-count">{categoryProducts.length}</span></label>
-   <label><input type="checkbox" checked={selectedCategories.includes("Transporte y entrega")} onChange={()=>toggleCategory("Transporte y entrega")}/>Transporte y entrega</label>
    {categories.map(c=><label key={c}><input type="checkbox" checked={selectedCategories.includes(c)} onChange={()=>toggleCategory(c)}/>{c}<span className="filter-count">{categoryProducts.filter(p=>p.category===c).length}</span></label>)}</div>
    {showProducts&&<><div><h3>Modalidad de compra</h3><select aria-label="Modalidad de compra" value={filters.purchaseMode??""} onChange={e=>updateFilters({purchaseMode:e.target.value})}><option value="">Todas las modalidades</option><option value="direct">Compra directa</option><option value="quote">Solicitar cotización</option></select></div><div><h3>Marca</h3><select aria-label="Filtrar marca" value={brand} onChange={e=>setBrand(e.target.value)}><option value="">Todas las marcas</option>{brands.map(b=><option key={b}>{b}</option>)}</select></div>
    <div><h3>Precio (ARGt)</h3><div className="retail-price-filter"><label>Desde<input type="number" min="0" value={filters.minPrice??""} onChange={e=>updateFilters({minPrice:e.target.value})}/></label><label>Hasta<input type="number" min="0" value={filters.maxPrice??""} onChange={e=>updateFilters({maxPrice:e.target.value})}/></label></div></div>
@@ -149,7 +145,7 @@ function MarketplaceContent(){
    <div className="market-results" id="cement-results">{showProducts&&<><div className="results-head"><div><p className="eyebrow">{favoritesOnly?`Favoritos · ${category}`:catalogDepartments.find(d=>d.id===filters.department)?.name??category} · {supplier?providers.find(s=>s.slug===supplier)?.name:`${sellerCount(filtered)} vendedores`}</p><h2>{listings.length} {listings.length===1?"producto":"productos"}</h2><p className="marketplace-offer-total">{filtered.length} ofertas publicadas por {sellerCount(filtered)} vendedores</p></div><select aria-label="Ordenar productos" value={sort} onChange={e=>setSort(e.target.value)}><option value="arrival">Entrega más rápida</option><option value="price">Menor precio</option><option value="price-desc">Mayor precio</option></select></div>
    <CatalogGrid resetKey={JSON.stringify([filters.purchaseMode,filters.content,filters.dimensions,filters.color,filters.sellerType,filters.companySize,filters.department,filters.minPrice,filters.maxPrice,selectedCategories,query,supplier,brand,size,today,shippingIncludedOnly,sort,favoritesOnly,productType,model,productId,referenceId])} items={listings.map(({offer:p,offers})=><ProductCard key={p.referenceId} product={p} offerCount={offers.length} compared={comparison.includes(p.id)} compareDisabled={comparison.length>=3&&!comparison.includes(p.id)} onCompare={id=>setComparison(current=>current.includes(id)?current.filter(x=>x!==id):current.length<3?[...current,id]:current)}/>)}/>
    {filtered.length===0&&<div className="panel"><h3>{favoritesOnly&&!favoriteCount?"Todavía no tenés favoritos":"No encontramos productos con estos filtros."}</h3><p className="muted">{favoritesOnly&&!favoriteCount?"Tocá el corazón de un producto para guardarlo acá.":"Probá otra búsqueda, marca, presentación o proveedor."}</p><button className="button secondary" onClick={clearFilters}>Limpiar filtros</button></div>}</>}
-   {(selectedCategories.includes("Transporte y entrega")||(favoritesOnly&&!selectedCategories.length&&favoriteTransportCount>0))&&<TransportCatalog embedded favoritesOnly={favoritesOnly}/>}</div></section>{comparison.length>0&&<aside className="retail-compare-tray"><div><strong>{comparison.length} de 3 productos seleccionados</strong><span>{comparison.map(id=>catalogProducts.find(p=>p.id===id)?.name).filter(Boolean).join(" · ")}</span></div><button type="button" className="button secondary" onClick={()=>setComparison([])}>Limpiar</button><button type="button" className="button primary" disabled={comparison.length<2} onClick={()=>setCompareOpen(true)}>Comparar</button></aside>}{compareOpen&&<ProductComparison products={catalogProducts.filter(p=>comparison.includes(p.id))} onClose={()=>setCompareOpen(false)}/>}</div>;
+</div></section>{comparison.length>0&&<aside className="retail-compare-tray"><div><strong>{comparison.length} de 3 productos seleccionados</strong><span>{comparison.map(id=>catalogProducts.find(p=>p.id===id)?.name).filter(Boolean).join(" · ")}</span></div><button type="button" className="button secondary" onClick={()=>setComparison([])}>Limpiar</button><button type="button" className="button primary" disabled={comparison.length<2} onClick={()=>setCompareOpen(true)}>Comparar</button></aside>}{compareOpen&&<ProductComparison products={catalogProducts.filter(p=>comparison.includes(p.id))} onClose={()=>setCompareOpen(false)}/>}</div>;
 }
 
 const supplierProducts=getSupplierProducts;

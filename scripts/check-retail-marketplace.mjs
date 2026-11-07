@@ -1,7 +1,7 @@
 import fs from 'node:fs';import vm from 'node:vm';import ts from 'typescript';import assert from 'node:assert/strict';
 function load(file,deps={},context={}){const exports={};vm.runInNewContext(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,{exports,require:n=>deps[n]??(n==="./shared-demo"?{queueShared(){}}:{}),URL,...context});return exports;}
 const departments=load('components/catalog-departments.ts',{'./excluded-retail-products.json':{default:JSON.parse(fs.readFileSync('components/excluded-retail-products.json'))}});
-const data=load('components/marketplace-data.ts',{'./catalog-departments':departments,'./marketplace-products.json':{default:JSON.parse(fs.readFileSync('components/marketplace-products.json'))},'./catalog-product-details.json':{default:JSON.parse(fs.readFileSync('components/catalog-product-details.json'))}});
+const data=load('components/marketplace-data.ts',{'../lib/order-delivery':load('lib/order-delivery.ts'),'./catalog-departments':departments,'./marketplace-products.json':{default:JSON.parse(fs.readFileSync('components/marketplace-products.json'))},'./catalog-product-details.json':{default:JSON.parse(fs.readFileSync('components/catalog-product-details.json'))}});
 const links=load('components/catalog-links.ts',{}, {URLSearchParams});const filters={...links.defaultMarketFilters,department:'iluminacion',minPrice:'1000',maxPrice:'9999999'};
 assert.equal(departments.catalogDepartments.length,9);assert.equal(new Set(departments.catalogDepartments.map(d=>d.id)).size,9);
 assert.ok(data.completeMarketplaceCatalog.every(p=>departments.productDepartment(p)), 'Every existing offer maps to a department');
@@ -19,3 +19,10 @@ await store.publishSupplierOffers(parsed);assert.equal(store.readSupplierOffers(
 const merged=store.applySupplierOffers(data.completeMarketplaceCatalog,store.readSupplierOffers());assert.equal(merged.length,213);assert.equal(merged.find(p=>p.id===parsed[0].id).supplier.slug,supplier.slug);
 const override={...data.completeMarketplaceCatalog[0],price:9999};const replaced=store.applySupplierOffers(data.completeMarketplaceCatalog,[override]);assert.equal(replaced.length,212);assert.equal(replaced[0].price,9999);
 console.log('PASS: 9 construction departments, classification, price and URL filters, supplier identity, validated bulk import, remote/local images and persistent offer updates.');
+
+const market=load('components/marketplace-model.ts');
+assert.ok(market.deliveryRank('Hoy · 10:20')<market.deliveryRank('Hoy · 12:30'));
+assert.ok(market.deliveryRank('Hoy · 12:30')<market.deliveryRank('Mañana · 08:00–12:00'));
+assert.ok(market.deliveryRank('Mañana · 08:00')<market.deliveryRank('En 3 días'));
+assert.deepEqual(Array.from(links.readMarketFilters(new URL('https://example.com/?categoria=Transporte+y+entrega&categoria=Corral%C3%B3n').searchParams).categories),['Corralón']);
+console.log('PASS: delivery ordering uses day and time; retired freight category cannot reopen through saved URLs.');

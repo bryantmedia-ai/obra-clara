@@ -2,7 +2,8 @@
 
 import {CSSProperties,ReactNode,useId,useRef,useState} from "react";
 
-const PAGE_SIZE=9;
+// Divisible by every supported desktop column count: 1, 3 and 5.
+const PAGE_SIZE=15;
 
 export function CatalogGrid({items,resetKey="",noun="productos"}:{items:ReactNode[];resetKey?:string;noun?:string}){
  const [columns,setColumns]=useState(3);

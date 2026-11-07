@@ -1,0 +1,85 @@
+/* Product cards flow with their content. No child is assigned to a fixed-height slot. */
+.cement-card{--market-photo-height:235px;container-type:inline-size}
+.catalog-browser .cement-card{display:flex;flex-direction:column;min-width:0;height:100%;overflow:hidden}
+.catalog-product-grid{align-items:stretch;grid-auto-rows:1fr}
+.catalog-browser .cement-card .cement-photo{display:flex;height:var(--market-photo-height);min-height:var(--market-photo-height);max-height:none;padding:42px 24px 44px;flex:none}
+.catalog-browser .cement-card .product-body,.retail-detail-purchase .cement-card .product-body{display:flex;flex-direction:column;gap:12px;padding:18px;min-width:0;flex:1}
+.catalog-browser .cement-card .product-body>*{min-width:0;max-width:100%;flex-shrink:0}
+.catalog-browser .cement-card .cement-seller{display:block;line-height:1.5;font-size:12px;font-weight:550;white-space:normal;overflow-wrap:anywhere}
+.catalog-browser .cement-card .product-body h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;min-height:4.2em;max-height:4.2em;height:auto;overflow:hidden;font-size:16px;line-height:1.4;margin:0}
+.catalog-browser .cement-card .product-body h3 a{color:var(--ink);text-decoration:none}
+.catalog-browser .cement-card .product-body>.product-specifications{display:grid;grid-template-rows:none;gap:3px;height:auto;min-height:0;max-height:none;margin:0;line-height:1.5;font-size:12px}
+.catalog-browser .cement-card .product-specifications>span{line-height:1.5}
+.catalog-browser .cement-card .product-body>small{display:block;height:auto;min-height:0;font-size:12px;line-height:1.5;color:var(--muted);overflow-wrap:anywhere;min-height:3em}
+.catalog-browser .cement-card .product-rating{display:flex;align-items:baseline;flex-wrap:wrap;gap:5px 10px;height:auto;margin:0;line-height:1.5}
+.catalog-browser .cement-card .product-rating>span{font-size:13px;flex:none}
+.catalog-browser .cement-card .product-rating>small{font-size:11px;line-height:1.5;min-width:0;color:var(--muted)}
+.cement-card .product-offer-block{display:grid;gap:12px;min-width:0}
+.cement-card .product-price-mode{display:grid;gap:6px;min-height:0;align-content:start}
+.cement-card .product-price-mode .price-status{justify-self:start;font-size:11px;padding:5px 8px;line-height:1.5}
+.cement-card .product-price-mode>small{font-size:11px;line-height:1.55;color:var(--muted);text-transform:none;letter-spacing:0;white-space:normal;overflow-wrap:anywhere}
+.cement-card .product-price{display:grid;gap:4px;min-width:0}
+.cement-card .product-price>strong{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:5px;row-gap:3px;height:auto;min-height:0;margin:0;line-height:1.2;font-size:clamp(16px,11cqi,28px);font-weight:700;letter-spacing:-.5px;overflow-wrap:anywhere}
+.cement-card .product-price-value{font-variant-numeric:tabular-nums;line-height:1.25}
+.cement-card .product-price-currency{font-size:.68em;font-weight:650;letter-spacing:0}
+.cement-card .product-price .offer-from{flex-basis:100%;font-size:11px;font-weight:400;color:var(--muted);letter-spacing:0;margin:0;line-height:1.4}
+.cement-card .cement-unit-price{display:block;height:auto;font-size:11px;line-height:1.5;color:var(--muted)}
+.catalog-browser .cement-card .product-body>.badge{align-self:flex-start;max-width:100%;height:auto;min-height:0;max-height:none;padding:6px 9px;line-height:1.5;font-size:11px;white-space:normal}
+.catalog-browser .cement-card .product-purchase{display:grid;grid-template-rows:none;gap:8px;height:auto;min-height:0;margin-top:auto;padding-top:4px}
+.catalog-browser .cement-card .product-purchase>label{font-size:12px;line-height:1.5;margin:0}
+:is(.catalog-browser,.retail-detail-purchase) .cement-card .product-purchase-controls{display:grid;grid-template-columns:minmax(0,1fr) 48px;grid-template-rows:none;gap:8px;min-width:0;align-items:start}
+:is(.catalog-browser,.retail-detail-purchase) .cement-card .quantity-stepper{display:grid;grid-template-columns:32px minmax(4ch,1fr) 32px;height:46px;min-width:0;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+:is(.catalog-browser,.retail-detail-purchase) .cement-card .quantity-stepper button{width:32px;min-width:0;min-height:44px;height:44px;font-size:22px;padding:0}
+.page-content .cement-card .quantity-stepper input:not([type=checkbox]):not([type=radio]):not([type=file]){border:0;border-inline:1px solid var(--line);border-radius:0;outline-offset:-3px;box-shadow:none;width:100%;min-width:0;min-height:44px;height:44px;padding:0 3px;text-align:center;font-size:14px;line-height:1.5;appearance:textfield;font-variant-numeric:tabular-nums}
+.page-content .cement-card .product-add-cart{width:48px;height:46px;min-width:0;min-height:46px;display:flex;align-items:center;justify-content:center;gap:7px;padding:0;border-radius:9px;line-height:1.4}
+.cement-card .product-add-feedback{height:auto;min-height:2.8em;max-height:none;font-size:11px;line-height:1.5;overflow:visible;overflow-wrap:anywhere}
+.cement-card .product-quote-action{margin:0;min-height:42px;white-space:normal;line-height:1.5;font-size:12px}
+.cement-card .quote-only .product-purchase-controls{grid-template-columns:minmax(0,1fr)}
+.cement-card .quote-only .product-add-cart{display:none!important}
+.catalog-browser .cement-card .product-vendor-count{top:calc(var(--market-photo-height) - 36px);left:12px;max-width:calc(100% - 24px);font-size:10px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:5px 8px}
+.catalog-browser.columns-5 .cement-card{--market-photo-height:180px}
+.catalog-browser.columns-5 .cement-card .product-body{padding:12px;gap:10px}
+.catalog-browser.columns-5 .cement-card .product-body h3{font-size:14px}
+.catalog-browser.columns-5 .cement-card .cement-seller{font-size:11px}
+.catalog-browser.columns-1 .cement-card{display:grid;grid-template-columns:minmax(200px,32%) minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr)}
+.catalog-browser.columns-1 .cement-card .cement-photo{grid-column:1;grid-row:1/4;min-height:300px;height:100%;border-right:1px solid var(--line);border-bottom:0}
+.catalog-browser.columns-1 .cement-card .product-sale-format{grid-column:2;grid-row:1}
+.catalog-browser.columns-1 .cement-card .product-shipping{grid-column:2;grid-row:2}
+.catalog-browser.columns-1 .cement-card .product-body{grid-column:2;grid-row:3}
+.catalog-browser.columns-1 .cement-card .product-body h3{min-height:0;max-height:none}
+.catalog-browser.columns-1 .cement-card .product-purchase{max-width:340px;width:100%}
+.catalog-browser.columns-1 .cement-card .product-vendor-count{top:246px;max-width:calc(32% - 24px)}
+@container (max-width:220px){
+ :is(.catalog-browser,.retail-detail-purchase) .cement-card .product-purchase-controls{grid-template-columns:minmax(0,1fr)}
+ .page-content .cement-card .product-add-cart{width:100%}
+ .cement-card .product-add-cart .mobile-add-label{display:inline}
+ .cement-card .product-price-mode .price-status{font-size:10px}
+}
+@media(max-width:760px){
+ .catalog-browser .cement-card{--market-photo-height:240px}
+ .catalog-browser.columns-1 .cement-card{display:flex}
+ .catalog-browser.columns-1 .cement-card .cement-photo{height:240px;min-height:240px;border-right:0;border-bottom:1px solid var(--line)}
+ .catalog-browser.columns-1 .cement-card .product-vendor-count{top:204px;max-width:calc(100% - 24px)}
+ .catalog-browser .cement-card .product-body,.catalog-browser.columns-5 .cement-card .product-body{padding:18px;gap:12px}
+ .catalog-browser .cement-card .product-body h3{min-height:0;max-height:none;display:block;font-size:18px;line-height:1.4}
+ .catalog-browser .cement-card .product-body>small{display:block}
+ :is(.catalog-browser,.retail-detail-purchase) .cement-card .quantity-stepper{grid-template-columns:44px minmax(3ch,1fr) 44px;height:48px}
+ :is(.catalog-browser,.retail-detail-purchase) .cement-card .quantity-stepper button{width:44px;height:46px;min-height:46px}
+ .page-content .cement-card .quantity-stepper input:not([type=checkbox]):not([type=radio]):not([type=file]){height:46px;min-height:46px;font-size:16px!important}
+ :is(.catalog-browser,.retail-detail-purchase) .cement-card .product-purchase-controls{grid-template-columns:minmax(0,1fr) minmax(100px,.75fr)}
+ .page-content .catalog-browser .cement-card .product-add-cart,.retail-detail-purchase .cement-card .product-add-cart{width:100%;height:48px;min-height:48px;padding:8px;gap:6px}
+ .cement-card .product-price>strong{font-size:28px}
+ .cement-card .product-add-cart .mobile-add-label{display:inline}
+}
+
+/* A scrollable comparison must not impose its intrinsic width on the whole page. */
+.retail-product-detail{grid-template-columns:minmax(0,1fr);width:100%;min-width:0}
+.retail-product-detail>*{min-width:0;max-width:100%}
+.retail-detail-main,.retail-detail-offer,.retail-detail-purchase,.retail-product-information,.similar-products-scroll{min-width:0;max-width:100%}
+.retail-product-detail .project-shopping-selector select{min-width:0;max-width:100%;width:100%}
+.retail-product-detail .retail-breadcrumbs{flex-wrap:wrap;overflow-wrap:anywhere}
+.retail-product-detail .similar-products-scroll{overflow-x:auto}
+:is(.catalog-browser,.retail-detail-purchase) .cement-card .quote-only .product-purchase-controls{grid-template-columns:minmax(0,1fr)}
+@media(max-width:760px){.catalog-product-grid{grid-auto-rows:auto}.catalog-browser .cement-card .product-purchase{margin-top:4px}.retail-detail-main{grid-template-columns:minmax(0,1fr)}.retail-product-detail .retail-product-sellers>article{min-width:0;flex-wrap:wrap}.retail-product-detail .retail-specifications{grid-template-columns:minmax(0,1fr)}.retail-product-detail .retail-specifications dd{overflow-wrap:anywhere}}
+/* Connection feedback must not cover the comparison action. */
+.app-shell:has(.shared-error) .retail-compare-tray{bottom:100px}
