@@ -5,12 +5,13 @@ import type {SharedOrder} from "../lib/demo-model";
 
 export type ReceptionEvidence = {name: string; quantity: number; signature: string};
 
-export function EscrowReception({order, onConfirm, ready, connect, autoOpen}: {
+export function EscrowReception({order, onConfirm, ready, connect, autoOpen, walletNotice}: {
   order: SharedOrder;
   onConfirm: (evidence: ReceptionEvidence) => void;
   ready: boolean;
   autoOpen?: boolean;
-  connect: () => void;
+  connect?: () => void;
+  walletNotice?: string;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -72,8 +73,9 @@ export function EscrowReception({order, onConfirm, ready, connect, autoOpen}: {
           onPointerCancel={() => {drawing.current = false;}}
         />
         <button type="button" className="button secondary" onClick={() => {canvas.current?.getContext("2d")?.clearRect(0, 0, 480, 144); setSigned(false);}}>Borrar firma</button></div>
+        {walletNotice && <p className="oc-escrow-balance" role="status">{walletNotice}</p>}
         <footer className="oc-escrow-actions"><button type="button" className="button secondary" onClick={() => dialog.current?.close()}>Cerrar</button>
-        {!ready && <button type="button" className="button secondary" onClick={connect}>Conectar Core</button>}
+        {connect && <button type="button" className="button secondary" onClick={connect}>Conectar Core</button>}
         <button className="button primary" disabled={!ready || !signed || name.trim().split(/\s+/).length < 2 || quantity === "" || !Number.isInteger(units) || units < 0 || units > ordered}>Confirmar en Core</button></footer>
       </form>
     </dialog>

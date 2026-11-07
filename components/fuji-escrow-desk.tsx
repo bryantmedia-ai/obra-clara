@@ -229,6 +229,21 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
   const reserved = escrow.phase === "reservada";
   const dispatched = !!escrow.dispatchedAt;
   const settled = escrow.phase === "liquidada";
+  const rightWallet = !!account && account.toLowerCase() === escrow.delegate.toLowerCase();
+  const rightNetwork = chain === expectedChain(asset);
+  const walletNotice = !escrow.delegate ? "Autorizá la wallet receptora desde el seguimiento de la orden."
+    : account && !rightWallet ? "Seleccioná la wallet receptora autorizada en Core."
+    : account && !rightNetwork ? "Seleccioná Avalanche C-Chain en Core."
+    : undefined;
+  async function connectWallet() {
+    const provider = core();
+    if (!provider) throw new Error("Abrí Chrome con Core.");
+    const accounts = await provider.request({method: "eth_accounts"});
+    if (!Array.isArray(accounts) || !accounts.length) await provider.request({method: "eth_requestAccounts"});
+    const connected = await provider.request({method: "eth_accounts"});
+    setAccount(Array.isArray(connected) ? String(connected[0] || "") : "");
+    setChain(String(await provider.request({method: "eth_chainId"})).toLowerCase());
+  }
   return <article className="oc-escrow-order">
     <header className="oc-escrow-order-head">
       <div><span className="fn-eyebrow">{order.project.name}</span>
@@ -258,24 +273,16 @@ function FujiOrderCard({order, role, receptionPage}: {order: SharedOrder; role: 
         submit("authorize", await send(contract, encodeAuthorize(escrow.orderId, escrow.buyer))))}>Autorizar mi wallet para recibir</button>}
       {reserved && dispatched && !receptionPage && <Link className="button secondary" href={"/recepcion/" + order.id}>Abrir recepción</Link>}
       {receptionPage && order.status === "Despachada" && escrow.phase === "reservada" && Date.now() < Number(escrow.deadline) * 1000 &&
-        <EscrowReception order={order} autoOpen={!!escrow.delegate} ready={!busy && official && !!escrow.delegate && account.toLowerCase() === escrow.delegate.toLowerCase() && chain === expectedChain(asset)}
-          connect={() => void run(async () => {
-            if (!escrow.delegate) throw new Error("Primero autorizá la wallet de recepción.");
-            const provider = core();
-            if (!provider) throw new Error("Abrí Chrome con Core.");
-            await provider.request({method: "eth_requestAccounts"});
-          })}
+        <EscrowReception order={order} autoOpen={!!escrow.delegate} ready={!busy && official && rightWallet && rightNetwork}
+          walletNotice={walletNotice}
+          connect={!account && escrow.delegate ? () => void run(connectWallet) : undefined}
           onConfirm={evidence => void run(async () => {
             const tx = await send(contract, encodeSettle(escrow.orderId, BigInt(evidence.quantity)));
             return submit("settle", tx, evidence);
           })}/>}
       {escrow.mode === "expiry" && <button className="button secondary" disabled={busy || !official || escrow.phase !== "reservada"} onClick={() => void run(async () => submit("refund", await send(contract, encodeRefund(escrow.orderId))))}>Reembolsar total vencido</button>}
     </>}
-    {role === "Compras" && !account && <button className="button secondary" onClick={() => void run(async () => {
-      const provider = core();
-      if (!provider) throw new Error("Abrí Chrome con Core.");
-      await provider.request({method: "eth_requestAccounts"});
-    })}>Conectar Core</button>}
+    {role === "Compras" && !account && <button className="button secondary" onClick={() => void run(connectWallet)}>Conectar Core</button>}
     {hash && <button className="button secondary" disabled={busy || !/^0x[a-fA-F0-9]{64}$/.test(hash)} onClick={() => void run(() => verify(pendingAction?.hash === hash ? pendingAction.kind : escrow.attempts.find(attempt => attempt.hash === hash)?.kind ?? (reserved && !escrow.delegate ? "authorize" : "fund"), hash, pendingAction?.hash === hash ? pendingAction.reception : undefined))}>Actualizar confirmación</button>}
     </div>
     <details className="oc-escrow-details"><summary>Detalles de la orden</summary>
