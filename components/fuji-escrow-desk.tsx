@@ -37,8 +37,9 @@ export function FujiEscrowBoard({role, focus}: {role: "Compras" | "Ventas"; focu
     return () => { active = false; };
   }, []);
   const argt = asset?.symbol === "ARGt";
+  const railLive = argt && !!asset?.enabled && !asset.simulation;
   return <section className="fuji-wallet panel" aria-label={argt ? "Compra de cemento en ARGt" : "Compra de cemento en Fuji"}>
-    <p className="escrow-sim-banner">{argt ? "SIMULACIÓN · no es producción · mainnet bloqueado hasta configuración real" : asset?.simulation ? "SIMULACIÓN · riel Fuji · no es producción" : "Riel separado. Nada de esta pantalla es un saldo hasta un recibo."}</p>
+    <p className="escrow-sim-banner">{railLive ? "Riel ARGt habilitado. No hay contrato desplegado ni wallet Core en esta pantalla. Nada se firma ni se reserva solo." : argt ? "SIMULACIÓN · no es producción · mainnet bloqueado hasta configuración real" : asset?.simulation ? "SIMULACIÓN · riel Fuji · no es producción" : "Riel separado. Nada de esta pantalla es un saldo hasta un recibo."}</p>
     <BuyerIdentity/>
     <span className="fn-eyebrow">{argt ? "ARGt · TOKEN DE PESOS · NO ES USD" : "USDT EN FUJI · NO ES EL REGISTRO ARGt"}</span>
     <h2>Compra de 100 bolsas</h2>
@@ -60,6 +61,7 @@ export function EscrowPurchaseNote() {
     }).catch(() => undefined);
     return () => { active = false; };
   }, []);
+  if (asset?.symbol === "ARGt" && asset.enabled && !asset.simulation) return <p className="escrow-sim-banner">Riel ARGt habilitado. 100 bolsas son 5 ARGt, token de pesos, no USD ni USDT. 80 recibidas pagan 4 ARGt y devuelven 1 ARGt. Agregar al carrito no reserva: faltan el contrato y una firma de Core.</p>;
   if (asset?.symbol === "ARGt") return <p className="escrow-sim-banner">SIMULACIÓN. 100 bolsas bloquean 5 ARGt, token de pesos, no USD ni USDT. 80 recibidas pagan 4 ARGt y devuelven 1 ARGt. El polvo de la wallet no se suma. Agregar al carrito no reserva.</p>;
   return <p>100 bolsas de Cemento Portland Loma Negra, Corralón Norte. El precio de catálogo es una demostración. El riel Fuji, si aparece, no es esta compra en ARGt y no queda reservado al agregar al carrito.</p>;
 }
@@ -245,8 +247,9 @@ function FujiDeploy() {
   }
   return <div>
     <h3>Despliegue del escrow</h3>
-    <p>El botón arma la transacción de creación y la firma Core. Esta pantalla no tiene una clave, no despliega sola y no agrega el token a la wallet. Mientras el riel no esté habilitado, el botón queda apagado.</p>
-    <button className="button primary" type="button" disabled={busy || !official} onClick={() => {
+    <p>El botón arma la transacción de creación y la firma Core. Esta pantalla no tiene una clave, no despliega sola y no agrega el token a la wallet. El botón queda apagado si el riel no está habilitado o si Core no está vinculado.</p>
+    <p>{account ? `Core vinculado: ${account}. La firma sigue siendo manual.` : "Core: sin vincular en este navegador. El despliegue espera esa wallet. No hay contrato on-chain todavía."}</p>
+    <button className="button primary" type="button" disabled={busy || !official || !account} onClick={() => {
       setBusy(true); setMessage("");
       deploy().then(result => setMessage(result.reason)).catch(error => setMessage(error instanceof Error ? error.message : "No se pudo firmar el despliegue.")).finally(() => setBusy(false));
     }}>Firmar despliegue con Core</button>
