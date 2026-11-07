@@ -110,3 +110,11 @@
  .catalog-browser .catalog-viewbar .catalog-page-label{display:none}
  .catalog-browser .catalog-viewbar>.catalog-pagination select{width:36px;min-width:36px;height:40px;padding:0 4px!important;background-image:none;font-size:13px}
 }
+
+/* Keep filter controls inside their column, including long model options. */
+.retail-marketplace .market-layout>.mobile-filters,.retail-marketplace .market-filters{min-width:0;max-width:100%;width:100%;box-sizing:border-box}
+.retail-marketplace .market-filters>div{min-width:0;grid-template-columns:minmax(0,1fr);box-sizing:border-box}
+.retail-marketplace .market-filters select{display:block;width:100%;min-width:0;max-width:100%;box-sizing:border-box;text-overflow:ellipsis;padding-right:26px}
+.retail-marketplace .market-filters label{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.retail-marketplace .market-filters .retail-price-filter,.retail-marketplace .market-filters .retail-price-filter label{min-width:0}
+.retail-marketplace .market-filters .retail-price-filter input{width:100%;min-width:0;box-sizing:border-box}
