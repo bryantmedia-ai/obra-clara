@@ -72,3 +72,19 @@ El catálogo de ejemplo tiene 170 productos con envío incluido y 42 sin incluir
 Por cada proyecto del carrito se puede ajustar dirección, persona que recibe, teléfono, fecha y franja preferidas e indicaciones. Se guardan como snapshot `order.delivery`, compartido con Ventas, sin modificar el proyecto. El proveedor decide vehículo y logística. Los productos sin envío incluido mantienen ese costo fuera del total hasta acordarlo por separado.
 
 Una fecha preferida no modifica por sí sola el vencimiento financiero del contrato: la programación confirmada sigue gestionándose en las entregas de materiales.
+
+## Avalanche Fuji: compra de cemento
+
+Construido en este tramo, separado del marketplace y del registro ARGt que ya existían. El ARGt sigue siendo administrativo. No es el pago de esta compra y no cumple un track de stablecoin.
+
+La única compra habilitada es 100 bolsas de Cemento Portland Loma Negra de Corralón Norte. El carrito crea una orden compartida entre Compras y Ventas. El objetivo es bloquear 5 USDT de prueba, despachar sin cobrar, y que el empleado autorizado firme 80 recibidas. Una sola liquidación paga 4 al vendedor y devuelve 1 al comprador. No queda un saldo de 20 pendiente. Si el plazo vence sin recepción, el reembolso es total.
+
+Why Avalanche: Fuji C-Chain (43113) da finalidad rápida para cerrar la carrera entre liquidación y vencimiento en el mismo contrato, con el recibo verificable en el explorer. El activo aceptado queda fijo al desplegar el escrow. El cliente no elige otro token.
+
+El contrato `contracts/src/ObraClaraPartialEscrow.sol` usa SafeERC20, lee los decimales del token y rechaza un activo distinto. Las pruebas `forge test` usan `LocalSimulationERC20` (SIM-LOCAL). Eso es una simulación local, no USDT oficial y no una transacción de Fuji.
+
+USDT en Fuji no tiene dirección confirmada por Tether. Las direcciones públicas de USDT y USDT.e son de mainnet (43114) y el código las rechaza. USDC de Circle en Fuji queda disponible solo si se configura de forma explícita; no es el reemplazo automático. Sin esa configuración el backend no confirma reservas y la interfaz no envía transacciones.
+
+No hay dirección de escrow ni enlace de explorer: nadie firmó el despliegue. Core tiene que firmarlo cuando exista el token. El bytecode sale de `forge build`. La migración D1 es aditiva: `cloudflare/migrations/0002_fuji_escrow.sql`. No está aplicada en producción.
+
+Guion de demo, de menos de tres minutos: agregar 100 bolsas, registrar la orden, mostrar la misma orden en Ventas, explicar que el bloqueo espera el USDT de prueba, y mostrar en local el recibo de 80/100. Hasta que el recibo exista, 5, 4 y 1 son el guion, no un saldo.

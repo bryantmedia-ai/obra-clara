@@ -11,6 +11,7 @@ import Link from "next/link";
 import {ProviderApp} from "./provider-app";
 import {RoleSelector,SharedSync,switchApp} from "./shared-demo";
 import {BuyerOverview} from "./buyer-overview";
+import {FujiEscrowBoard} from "./fuji-escrow-desk";
 import {PurchasesWorkspace} from './purchases-workspace';
 import {SharedOrders} from "./shared-orders";
 import {BrickPage,BrickPopupHost} from "./brick-chat";
@@ -175,7 +176,8 @@ function Page({ route }: { route: Route }) {
   if (route === "marketplace") return <CementMarketplace/>;
   if (route === "dashboard") return <BuyerOverview/>;
   if (route === "compras/cotizaciones") return <div className="purchases-workspace"><PurchaseTabs active="quotes"/><ProductQuotes/></div>;
-  if (route === "compras") return <PurchasesWorkspace key="orders"/>;
+  if (route === "compras") return <div className="purchases-workspace"><FujiEscrowBoard role="Compras"/><PurchasesWorkspace key="orders"/></div>;
+  if (route.startsWith("recepcion/")) return <FujiEscrowBoard role="Compras" focus={decodeURIComponent(route.slice("recepcion/".length))}/>;
   if (route === "compras/entregas") return <PurchasesWorkspace key="deliveries" tab="deliveries"/>;
   if (route === "compras/inventario") return <PurchasesWorkspace key="inventory" tab="inventory"/>;
   if (route === "compras/nueva") return <CementMarketplace/>;

@@ -35,7 +35,7 @@ const range = [
 ];
 
 export const cementProducts = cementSuppliers.flatMap((supplier,i) => {
-  const singles = range.map((item,j)=>({...item,...legacyDetails(item),category:"Corralón",id:`${supplier.slug}-${item.key}`,supplier,price:item.base+i*350,stock:120+i*70+j*23,pack:1,shippingIncluded:(i*7+j*3)%5<3}));
+  const singles = range.map((item,j)=>({...item,...legacyDetails(item),category:"Corralón",id:`${supplier.slug}-${item.key}`,supplier,price:item.base+i*350,stock:supplier.slug==="corralon-norte"&&item.key==="loma"?200:120+i*70+j*23,minimumOrder:supplier.slug==="corralon-norte"&&item.key==="loma"?1:undefined,pack:1,shippingIncluded:(i*7+j*3)%5<3}));
   const item = range[i];
   return [...singles,{...item,...legacyDetails(item,true),category:"Corralón",id:`${supplier.slug}-pack`,name:`${item.name} · Pack de obra`,unit:"Pack de 10 bolsas × 50 kg · 500 kg",kg:500,supplier,price:(item.base+i*350)*9.5,stock:12+i*5,pack:10,shippingIncluded:i%2===1}];
 });

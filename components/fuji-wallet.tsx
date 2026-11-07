@@ -166,7 +166,7 @@ export function FujiWallet({role}: {role: "Compras" | "Ventas"}) {
         <div>
           <span className="fn-eyebrow">AVALANCHE FUJI C-CHAIN · TESTNET</span>
           <h2 id="fuji-wallet-title">Billetera de {role}</h2>
-          <p>Saldos de prueba en la red, separados del registro operativo en ARGt.</p>
+          <p>Saldo de USDC de Circle en Fuji. No es USDT y no se convierte. La compra de cemento usa USDT, que sigue sin contrato confirmado.</p>
         </div>
         <span className={`ov-tag ${connected ? "green" : "neutral"}`}>{status}</span>
       </div>
@@ -176,7 +176,7 @@ export function FujiWallet({role}: {role: "Compras" | "Ventas"}) {
         </a>
       )}
       <dl className="fuji-wallet-balances">
-        <div><dt>USDC de prueba</dt><dd>{connected ? wallet?.usdc ?? "—" : "—"}</dd></div>
+        <div><dt>USDC de Circle</dt><dd>{connected ? wallet?.usdc ?? "—" : "—"}</dd></div>
         <div><dt>AVAX para comisiones</dt><dd>{connected ? wallet?.avax ?? "—" : "—"}</dd></div>
       </dl>
       {message && <p className="fuji-wallet-status" role="status">{message}</p>}
