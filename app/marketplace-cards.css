@@ -83,3 +83,13 @@
 @media(max-width:760px){.catalog-product-grid{grid-auto-rows:auto}.catalog-browser .cement-card .product-purchase{margin-top:4px}.retail-detail-main{grid-template-columns:minmax(0,1fr)}.retail-product-detail .retail-product-sellers>article{min-width:0;flex-wrap:wrap}.retail-product-detail .retail-specifications{grid-template-columns:minmax(0,1fr)}.retail-product-detail .retail-specifications dd{overflow-wrap:anywhere}}
 /* Connection feedback must not cover the comparison action. */
 .app-shell:has(.shared-error) .retail-compare-tray{bottom:100px}
+
+/* Compact sorting control: current selection lives in its accessible menu. */
+.product-sort{position:relative;flex:none}
+.results-head .product-sort-trigger{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);cursor:pointer}
+.results-head .product-sort-trigger svg{width:20px;min-width:20px;height:20px;font-size:20px;flex:none}
+.results-head .product-sort-trigger:hover,.results-head .product-sort-trigger[aria-expanded="true"]{color:var(--orange);border-color:var(--orange);background:#fff5ee}
+.product-sort-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:40;width:224px;max-width:calc(100vw - 40px);padding:6px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px #17201b22}
+.results-head .product-sort-menu button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;padding:10px 12px;border:0;border-radius:7px;background:#fff;color:var(--ink);text-align:left;font-size:14px;cursor:pointer}
+.results-head .product-sort-menu button:hover,.results-head .product-sort-menu button:focus-visible,.results-head .product-sort-menu button[aria-checked="true"]{background:#fff1e7;color:var(--orange)}
+.product-sort-menu svg{width:14px;height:14px;flex:none}
