@@ -23,3 +23,12 @@
 .oc-overview .ov-attention .ov-issue.high{background:#fff9f6}
 .oc-overview .ov-attention .ov-issue:hover{background:#fbefea}
 .oc-overview .ov-attention .ov-issue>span>strong,.oc-overview .ov-attention .ov-issue-icon.red,.oc-overview .ov-attention .ov-issue-end>svg{color:#944338}
+
+/* Brick's focus panel shares the chat's orange identity. */
+.oc-overview .ov-brick-insights{background:#fff1e8;border-color:#f5d5c2}
+.oc-overview .ov-brick-insights .ov-panel-head h3,.oc-overview .ov-brick-insights .ov-insight h4{color:#9f431d}
+.oc-overview .ov-brick-insights .ov-panel-head p,.oc-overview .ov-brick-insights .ov-insight p{color:#845e49}
+.oc-overview .ov-brick-insights .ov-insight{border-top-color:#f5d5c2}
+.oc-overview .ov-brick-insights .ov-insight-number,.oc-overview .ov-brick-insights .ov-insight button{color:#c34d16}
+.oc-overview .ov-brick-insights .ov-brick-icon{width:52px;height:52px;border-radius:14px;background:var(--orange);color:#fff}
+.oc-overview .ov-brick-insights .ov-brick-icon svg{width:30px;height:30px}
