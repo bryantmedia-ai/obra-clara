@@ -3,7 +3,7 @@
 import {useEffect, useState} from "react";
 import Link from "next/link";
 import {refreshShared, sharedCommand, useShared, workspaceToken} from "./shared-demo";
-import {escrowListLabel, type FujiEscrowRecord} from "../lib/fuji-escrow";
+import {escrowListLabel, type FujiDeployment, type FujiEscrowRecord} from "../lib/fuji-escrow";
 import {encodeApprove, encodeAuthorize, encodeDeploy, encodeFund, encodeRefund, encodeSettle} from "../lib/fuji-abi";
 import {approveSteps} from "../lib/fuji-escrow";
 import {ARBITRUM_CHAIN_ID, AVALANCHE_ARGT, AVALANCHE_CHAIN_ID, TWIN_ADAPTER, TWIN_ARGT_ARBITRUM, canMoveOfficialFunds, type AssetConfig} from "../lib/fuji-asset";
@@ -24,23 +24,47 @@ function endpoint() {
 function core() {
   return (window as Window & {avalanche?: CoreProvider}).avalanche;
 }
+const DEPLOYMENT_EVENT = "oc-fuji-deployment";
+function pendingDeployKey() {
+  return "oc-fuji-pending-deploy:" + workspaceToken();
+}
+function readPendingDeploy() {
+  try {
+    const value = localStorage.getItem(pendingDeployKey()) || "";
+    return /^0x[a-fA-F0-9]{64}$/.test(value) ? value : "";
+  } catch { return ""; }
+}
+function writePendingDeploy(hash: string) {
+  if (!/^0x[a-fA-F0-9]{64}$/.test(hash)) return;
+  localStorage.setItem(pendingDeployKey(), hash);
+}
+function asDeployment(value: unknown): FujiDeployment | null {
+  if (!value || typeof value !== "object") return null;
+  const item = value as FujiDeployment;
+  return /^0x[a-fA-F0-9]{40}$/.test(item.contract || "") ? item : null;
+}
 
 export function FujiEscrowBoard({role, focus}: {role: "Compras" | "Ventas"; focus?: string}) {
   const {state} = useShared();
   const [asset, setAsset] = useState<AssetResponse>();
+  const [recordedContract, setRecordedContract] = useState("");
   const orders = (state?.orders ?? []).filter(order => order.escrow && (!focus || order.id === focus));
   useEffect(() => {
     let active = true;
-    void fetch(endpoint(), {headers: {Authorization: "Bearer " + workspaceToken()}, cache: "no-store"}).then(async response => {
+    const load = () => fetch(endpoint(), {headers: {Authorization: "Bearer " + workspaceToken()}, cache: "no-store"}).then(async response => {
       const data = await response.json();
-      if (active) setAsset(data.asset);
+      if (!active) return;
+      setAsset(data.asset);
+      setRecordedContract(asDeployment(data.deployment)?.contract || "");
     }).catch(() => undefined);
-    return () => { active = false; };
+    void load();
+    window.addEventListener(DEPLOYMENT_EVENT, load);
+    return () => { active = false; window.removeEventListener(DEPLOYMENT_EVENT, load); };
   }, []);
   const argt = asset?.symbol === "ARGt";
   const railLive = argt && !!asset?.enabled && !asset.simulation;
   return <section className="fuji-wallet panel" aria-label={argt ? "Compra de cemento en ARGt" : "Compra de cemento en Fuji"}>
-    <p className="escrow-sim-banner">{railLive ? "Riel ARGt habilitado. El contrato todavía no existe: lo crea la firma de Core de esta pantalla. El vendedor no hace falta para desplegar. El precio de catálogo no es los 5 ARGt." : argt ? "SIMULACIÓN · no es producción · mainnet bloqueado hasta configuración real" : asset?.simulation ? "SIMULACIÓN · riel Fuji · no es producción" : "Riel separado. Nada de esta pantalla es un saldo hasta un recibo."}</p>
+    <p className="escrow-sim-banner">{railLive ? (recordedContract ? `Riel ARGt habilitado. Escrow verificado: ${recordedContract}. No se firma otro despliegue. El vendedor no hace falta para desplegar. El precio de catálogo no es los 5 ARGt.` : "Riel ARGt habilitado. El contrato todavía no existe: lo crea la firma de Core de esta pantalla. El vendedor no hace falta para desplegar. El precio de catálogo no es los 5 ARGt.") : argt ? "SIMULACIÓN · no es producción · mainnet bloqueado hasta configuración real" : asset?.simulation ? "SIMULACIÓN · riel Fuji · no es producción" : "Riel separado. Nada de esta pantalla es un saldo hasta un recibo."}</p>
     {railLive && <p>La billetera de más arriba, si aparece, es USDC de Fuji y no sirve para este despliegue. Core tiene que quedar en Avalanche C-Chain (43114). No cambies a Fuji.</p>}
     <BuyerIdentity/>
     <span className="fn-eyebrow">{argt ? "ARGt · TOKEN DE PESOS · NO ES USD" : "USDT EN FUJI · NO ES EL REGISTRO ARGt"}</span>
@@ -207,6 +231,8 @@ function FujiOrderCard({order, role}: {order: SharedOrder; role: "Compras" | "Ve
 
 function FujiDeploy() {
   const [asset, setAsset] = useState<AssetResponse>();
+  const [recorded, setRecorded] = useState<FujiDeployment | null>(null);
+  const [sentHash, setSentHash] = useState("");
   const [account, setAccount] = useState("");
   const [chain, setChain] = useState("");
   const [message, setMessage] = useState("");
@@ -221,10 +247,17 @@ function FujiDeploy() {
   }
   useEffect(() => {
     let active = true;
-    void fetch(endpoint(), {headers: {Authorization: "Bearer " + workspaceToken()}, cache: "no-store"}).then(async response => {
+    const saved = readPendingDeploy();
+    if (saved) setSentHash(saved);
+    const load = () => fetch(endpoint(), {headers: {Authorization: "Bearer " + workspaceToken()}, cache: "no-store"}).then(async response => {
       const data = await response.json();
-      if (active) setAsset(data.asset);
+      if (!active) return;
+      setAsset(data.asset);
+      const found = asDeployment(data.deployment);
+      if (found) setRecorded(found);
     }).catch(() => { if (active) setMessage("No se pudo consultar si el activo ya está habilitado."); });
+    void load();
+    window.addEventListener(DEPLOYMENT_EVENT, load);
     const provider = core();
     const sync = async () => {
       if (!provider) { setAccount(""); setChain(""); return; }
@@ -238,10 +271,34 @@ function FujiDeploy() {
     provider?.on?.("chainChanged", sync);
     return () => {
       active = false;
+      window.removeEventListener(DEPLOYMENT_EVENT, load);
       provider?.removeListener?.("accountsChanged", sync);
       provider?.removeListener?.("chainChanged", sync);
     };
   }, []);
+  async function consult(txHash: string) {
+    const hash = txHash.trim();
+    if (!/^0x[a-fA-F0-9]{64}$/.test(hash)) throw new Error("El hash no tiene el formato de una transacción.");
+    writePendingDeploy(hash);
+    setSentHash(hash);
+    const response = await fetch(endpoint(), {method: "POST", headers: {Authorization: "Bearer " + workspaceToken(), "Content-Type": "application/json"}, body: JSON.stringify({action: "verify", txHash: hash, kind: "deployment"})});
+    const body = await response.json();
+    const found = asDeployment(body.deployment);
+    if (found) {
+      setRecorded(found);
+      window.dispatchEvent(new Event(DEPLOYMENT_EVENT));
+    }
+    if (!response.ok) throw new Error(body.error || body.verdict?.reason || "No se pudo consultar el despliegue.");
+    if (body.verdict?.status === "pending") {
+      const reason = body.verdict.reason || "La transacción todavía no está en la red.";
+      return {status: "pending", reason: reason + " El hash quedó guardado en este navegador. Consultar despliegue no vuelve a firmar."};
+    }
+    if (body.verdict?.status !== "confirmed") throw new Error(body.error || body.verdict?.reason || "El despliegue no quedó verificado.");
+    await refreshShared();
+    const contract = found?.contract || "";
+    const network = asset?.symbol === "ARGt" ? "Avalanche C-Chain" : "Fuji";
+    return {status: "confirmed", reason: `Contrato verificado por el backend: ${contract}. En el explorador de ${network} abrí esa dirección y publicá el código con el archivo contracts/VERIFY.md.`};
+  }
   async function connectCore() {
     const provider = core();
     if (!provider) {
@@ -278,6 +335,7 @@ function FujiDeploy() {
     }
   }
   async function deploy() {
+    if (recorded?.contract) throw new Error("Este espacio ya tiene un escrow verificado. No se envía otro despliegue.");
     if (!official || !asset?.address || asset.decimals == null) throw new Error(asset?.blocked || "El activo no está habilitado. No se envía el despliegue.");
     const provider = core();
     if (!provider || !account) throw new Error("Abrí Chrome con Core y conectá la cuenta.");
@@ -285,13 +343,9 @@ function FujiDeploy() {
     const artifact = await import("../lib/fuji-escrow-artifact.json");
     const data = encodeDeploy(artifact.bytecode, asset.address, asset.decimals, BigInt(asset.chainId));
     const tx = await provider.request({method: "eth_sendTransaction", params: [{from: account, data}]}) as string;
-    const response = await fetch(endpoint(), {method: "POST", headers: {Authorization: "Bearer " + workspaceToken(), "Content-Type": "application/json"}, body: JSON.stringify({action: "verify", txHash: tx, kind: "deployment"})});
-    const body = await response.json();
-    if (!response.ok || body.verdict?.status !== "confirmed") throw new Error(body.error || body.verdict?.reason || "El despliegue no quedó verificado.");
-    await refreshShared();
-    const contract = body.deployment?.contract as string;
-    const network = asset.symbol === "ARGt" ? "Avalanche C-Chain" : "Fuji";
-    return {status: "confirmed", reason: `Contrato verificado por el backend: ${contract}. En el explorador de ${network} abrí esa dirección y publicá el código con el archivo contracts/VERIFY.md.`};
+    writePendingDeploy(tx);
+    setSentHash(tx);
+    return consult(tx);
   }
   const onRail = !!asset && chain === expectedChain(asset);
   const sameVerified = account.toLowerCase() === verifiedArgtBalanceWallet.toLowerCase();
@@ -299,9 +353,16 @@ function FujiDeploy() {
     <h3>Despliegue del escrow</h3>
     <p>El constructor solo recibe el token ARGt, 18 decimales y la cadena 43114. No pide vendedor, empleado ni orden. Lo firma la cuenta que elijas en Core. Esta pantalla no tiene una clave y no lo envía sola.</p>
     <p>Los ARGt verificados están en {verifiedArgtBalanceWallet}. Si Core muestra otra cuenta, el contrato nacería ahí y esos ARGt no quedarían en él.</p>
-    <p>{!official ? "El riel no está habilitado. No se arma el despliegue." : !account ? "Core: sin conectar en este navegador. El primer botón solo pide la cuenta y la red. No despliega." : !onRail ? "Core está en otra red. Hace falta Avalanche C-Chain (43114). No se envió el despliegue." : sameVerified ? `Core listo: ${account}. Falta tu firma para crear el contrato.` : `Core conectó ${account}, que no es la cuenta con los ARGt verificados.`}</p>
+    <p>{recorded ? `Escrow verificado: ${recorded.contract}. Hash ${recorded.tx}. Firmar despliegue queda deshabilitado.` : !official ? "El riel no está habilitado. No se arma el despliegue." : !account ? "Core: sin conectar en este navegador. El primer botón solo pide la cuenta y la red. No despliega." : !onRail ? "Core está en otra red. Hace falta Avalanche C-Chain (43114). No se envió el despliegue." : sameVerified ? `Core listo: ${account}. Falta tu firma para crear el contrato.` : `Core conectó ${account}, que no es la cuenta con los ARGt verificados.`}</p>
+    <label>Hash ya enviado
+      <input value={sentHash} onChange={event => { const value = event.target.value.trim(); setSentHash(value); writePendingDeploy(value); }} placeholder="0x…"/>
+    </label>
+    <button className="button secondary" type="button" disabled={busy || !/^0x[a-fA-F0-9]{64}$/.test(sentHash)} onClick={() => {
+      setBusy(true); setMessage("");
+      consult(sentHash).then(result => setMessage(result.reason)).catch(error => setMessage(error instanceof Error ? error.message : "No se pudo consultar el despliegue.")).finally(() => setBusy(false));
+    }}>Consultar despliegue</button>
     {official && (!account || !onRail) && <button className="button secondary" type="button" disabled={busy} onClick={() => void connectCore()}>{account ? "Cambiar Core a Avalanche 43114" : "Conectar Core"}</button>}
-    <button className="button primary" type="button" disabled={busy || !official || !account || !onRail} onClick={() => {
+    <button className="button primary" type="button" disabled={busy || !official || !account || !onRail || Boolean(recorded)} onClick={() => {
       setBusy(true); setMessage("");
       deploy().then(result => setMessage(result.reason)).catch(error => setMessage(error instanceof Error ? error.message : "No se pudo firmar el despliegue.")).finally(() => setBusy(false));
     }}>Firmar despliegue con Core</button>
