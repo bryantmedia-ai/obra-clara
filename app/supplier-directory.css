@@ -11,3 +11,23 @@
 .directory-hero{gap:32px;align-items:center}.directory-hero>div:first-child{flex:1;min-width:0}.store-network-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;flex:1.2;min-width:0}.store-network-stats button{background:#ffffff0a;border:1px solid #ffffff20;border-radius:12px;color:white;text-align:left;min-height:92px;padding:14px 16px;cursor:pointer;transition:background .2s}.store-network-stats button:hover{background:#ffffff18}.store-network-stats strong{display:block;font-size:30px;color:var(--orange);font-variant-numeric:tabular-nums;line-height:1.1;min-width:3ch}.store-network-stats span{display:block;font-size:11px;line-height:1.4;margin-top:7px;color:#ddd}.store-logo{display:grid;place-items:center;position:relative;width:48px;height:48px;flex:0 0 48px;background:#f6f2e9;border:1px solid #e7e1d8;border-radius:13px;color:#333;font-size:17px;font-weight:600;overflow:hidden}.store-logo img{position:absolute;inset:8px;width:32px;height:32px;object-fit:contain;background:white;border-radius:5px}.directory-card-identity>div{min-width:0}.directory-card h4 button{overflow-wrap:anywhere}.store-direct-links{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:12px;margin:15px 0}.store-direct-links>span{color:#707970}.store-direct-links a{border:1px solid #f6c7ad;padding:9px 13px;border-radius:8px;color:var(--orange);background:#fff}.store-map-section{min-width:0}.store-map-section>header{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:15px 0}.store-map-section>header>div{flex:1;min-width:200px}.store-map-section h3{margin:0 0 8px;font-size:18px}.store-map-section p{font-size:12px;color:#6a746d;line-height:1.6}.store-map-canvas{width:100%;height:600px;min-height:400px;border:1px solid #deddd5;border-radius:16px;isolation:isolate;z-index:0}.store-map-pin{width:42px;height:42px;background:#fff;border:3px solid #f06420;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);box-shadow:0 2px 7px #0004;position:relative;display:grid;place-items:center}.store-map-pin>span,.store-map-pin>img{transform:rotate(45deg);font-size:12px;font-weight:700;color:#242a25}.store-map-pin>img{width:28px;height:28px;object-fit:contain;border-radius:50%;position:absolute;background:white}.store-map-pin>b{position:absolute;right:-12px;top:-4px;background:#202a24;color:white;border:2px solid white;border-radius:20px;min-width:21px;height:21px;text-align:center;line-height:17px;transform:rotate(45deg);font-size:10px}.store-map-popup{max-height:320px;overflow:auto;min-width:220px}.store-map-popup>strong{display:block;margin:4px 0 12px}.store-map-entry{display:grid;grid-template-columns:55px 1fr;column-gap:10px;padding:10px 0;border-bottom:1px solid #eee}.store-map-entry>img{width:55px;height:65px;object-fit:contain;grid-row:1/5}.store-map-entry>strong{font-size:13px;color:#202a24}.store-map-entry>p{font-size:11px;margin:5px 0!important;color:#606b64}.store-map-entry>small{font-size:10px;color:#7d867e}.store-map-entry>button{margin-top:8px;justify-self:start;border:0;border-radius:6px;background:#f06420;color:white;padding:7px 12px;font-size:11px;cursor:pointer}.leaflet-container{font-family:inherit!important}.leaflet-popup-content-wrapper{border-radius:13px!important}.store-map-note{font-size:11px!important}.directory-card-details{white-space:nowrap}
 @media(max-width:1100px){.directory-hero{flex-direction:column;align-items:stretch}.store-network-stats{width:100%}.store-map-canvas{height:520px}}
 @media(max-width:600px){.store-network-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.store-network-stats button{padding:12px;min-height:84px}.store-network-stats strong{font-size:26px}.directory-hero{padding:22px 18px;gap:20px}.directory-tabs{flex-wrap:wrap}.store-map-canvas{height:460px}.store-map-section>header>button{flex:1}.store-direct-links{gap:8px}.store-direct-links>span{flex-basis:100%}}
+
+/* Fill the desktop filter row while retaining the standalone map height on mobile. */
+@media (min-width: 801px) {
+  .directory-results:has(> .store-map-section) {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .directory-results > .store-map-section {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+  }
+
+  .store-map-section > .store-map-canvas {
+    flex: 1 0 auto;
+    order: 1;
+  }
+}
