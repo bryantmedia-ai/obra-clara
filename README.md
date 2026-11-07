@@ -72,3 +72,32 @@ El catálogo de ejemplo tiene 170 productos con envío incluido y 42 sin incluir
 Por cada proyecto del carrito se puede ajustar dirección, persona que recibe, teléfono, fecha y franja preferidas e indicaciones. Se guardan como snapshot `order.delivery`, compartido con Ventas, sin modificar el proyecto. El proveedor decide vehículo y logística. Los productos sin envío incluido mantienen ese costo fuera del total hasta acordarlo por separado.
 
 Una fecha preferida no modifica por sí sola el vencimiento financiero del contrato: la programación confirmada sigue gestionándose en las entregas de materiales.
+
+## Compra de cemento: ARGt en Avalanche, Fuji aparte
+
+La única compra habilitada es 100 bolsas de Cemento Portland Loma Negra de Corralón Norte. El carrito crea una orden compartida entre Compras y Ventas. El riel elegido bloquea 5 ARGt (token de pesos, 18 decimales, no dólares): 80 recibidas pagan 4 ARGt y devuelven 1 ARGt. Si el plazo vence sin recepción, el reembolso es el total. El polvo que no entra en esos 5 ARGt queda en la wallet.
+
+```mermaid
+flowchart LR
+  belo[ETH en Arbitrum 42161]
+  belo --> gasEth[ETH reservado para gas]
+  belo --> ruta[ETH a USDt0 a ARGt]
+  ruta --> twin[Bridge Twin]
+  twin --> argt[ARGt en Avalanche 43114]
+  belo --> across[Across a AVAX nativo]
+  across --> gasAvax[AVAX para gas]
+  argt --> escrow[Escrow propio]
+  gasAvax --> escrow
+  escrow --> pago[4 ARGt al vendedor]
+  escrow --> vuelta[1 ARGt al comprador]
+```
+
+El bridge y Across consiguen el token y el gas. No son el recibo del escrow. La cotización 0,001 ETH ≈ 0,262 AVAX con fee 0,08 USD es un snapshot de las 11:30 ART del 7 nov 2026, no una cotización viva. Mainnet no firma hasta `OC_ESCROW_ENABLE=1` y la RPC real. Esto no está desplegado en producción.
+
+Fuji (43113) queda como riel separado. USDT de Fuji sigue sin dirección confirmada. USDT y USDT.e de mainnet, y el USDC de Circle, no se aceptan como ARGt. Una orden guardada con `chainId` 43113 no se reescribe a 43114.
+
+El contrato `contracts/src/ObraClaraPartialEscrow.sol` no tiene la cadena escrita adentro: el constructor exige que el argumento sea `block.chainid`. El bytecode de `lib/fuji-escrow-artifact.json` sirve para Fuji y para ARGt. En mainnet los argumentos son el ARGt, 18 y 43114. En Fuji siguen siendo el token de ese riel, sus decimales y 43113.
+
+`node scripts/check-fuji-escrow.mjs` cubre el riel Fuji en Anvil y el riel ARGt en un fork local de la C-Chain. No toca D1 ni producción. La migración `cloudflare/migrations/0003_argt_no_rewrite.sql` no está aplicada en producción y no reescribe filas.
+
+El botón "Firmar despliegue con Core" queda apagado mientras `OC_ESCROW_ENABLE` no sea 1. Nadie firmó un despliegue de mainnet en este trabajo. La vista previa de Vercel sigue en el Worker anterior. No hay que registrar esta compra contra la base de producción.

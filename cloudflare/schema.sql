@@ -19,6 +19,17 @@ CREATE TABLE IF NOT EXISTS order_files (
   PRIMARY KEY (workspace_id,id)
 );
 CREATE INDEX IF NOT EXISTS order_files_order ON order_files(workspace_id,order_id);
+CREATE TABLE IF NOT EXISTS fuji_escrow_receipts (
+  workspace_id TEXT NOT NULL,
+  order_id TEXT NOT NULL,
+  kind TEXT NOT NULL,
+  tx_hash TEXT NOT NULL,
+  status TEXT NOT NULL,
+  reason TEXT NOT NULL,
+  simulation INTEGER NOT NULL,
+  updated_at TEXT NOT NULL,
+  PRIMARY KEY (workspace_id, tx_hash, kind)
+);
 CREATE TABLE IF NOT EXISTS order_file_chunks (
   workspace_id TEXT NOT NULL,
   file_id TEXT NOT NULL,

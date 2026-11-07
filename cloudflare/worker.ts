@@ -1,6 +1,7 @@
 import {handleOrderFiles,storedAttachments} from "./order-files";
 import {reduceDemoProjects} from '../lib/project-scope-migration';
 import {applyCommand, emptyState, snapshot, type Command, type SharedState} from '../lib/demo-model';
+import {handleFujiEscrow, stampFujiCheckout} from './fuji-route';
 
 // Small structural interfaces keep the Next.js build independent of Wrangler.
 type Statement = {
@@ -8,20 +9,24 @@ type Statement = {
   first<T>(): Promise<T | null>;
   run(): Promise<{meta: {changes: number}}>;
 };
-export type Env = {DB: {prepare(sql: string): Statement}};
+export type Env = {DB: {prepare(sql: string): Statement}; FUJI_RPC_URL?: string; FUJI_ALLOW_LOCAL_CHAIN?: string; FUJI_ASSET_SYMBOL?: string; FUJI_ASSET_ADDRESS?: string; FUJI_ASSET_DECIMALS?: string; FUJI_ASSET_SIMULATION?: string; OC_ESCROW_RAIL?: string; OC_ESCROW_ENABLE?: string; OC_ESCROW_SIMULATION?: string; OC_LOCAL_PREVIEW?: string};
 const origins = new Set([
   'https://obra-clara-comprador.vercel.app',
   'https://obra-clara-proveedor.vercel.app',
   'https://obra-clara-gray.vercel.app',
 ]);
 const maxBytes = 1_500_000;
-function headers(origin: string | null) {
+function allowedOrigin(origin: string, env: Env) {
+  if (origins.has(origin)) return true;
+  return env.OC_LOCAL_PREVIEW === '1' && /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin);
+}
+function headers(origin: string | null, env: Env) {
   return {
     'Cache-Control': 'no-store',
     'Vary': 'Origin',
     'Access-Control-Allow-Headers': 'Authorization, Content-Type, X-OC-New-Workspace',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    ...(origin && origins.has(origin) ? {'Access-Control-Allow-Origin': origin} : {}),
+    ...(origin && allowedOrigin(origin, env) ? {'Access-Control-Allow-Origin': origin} : {}),
   };
 }
 async function body(request: Request) {
@@ -40,15 +45,15 @@ async function body(request: Request) {
   return JSON.parse(new TextDecoder().decode(bytes)) as Command;
 }
 export async function handle(request: Request, env: Env): Promise<Response> {
-  const origin = request.headers.get('origin'); const h = headers(origin);
+  const origin = request.headers.get('origin'); const h = headers(origin, env);
   const json = (data: unknown, status = 200) => Response.json(data, {status, headers: h});
-  if (origin && !origins.has(origin)) return json({error: 'Origen no autorizado.'}, 403);
+  if (origin && !allowedOrigin(origin, env)) return json({error: 'Origen no autorizado.'}, 403);
   if (new URL(request.url).pathname === '/health' && request.method === 'GET') {
     try {await env.DB.prepare('SELECT 1 AS ok').first(); return json({ok: true, storage: 'd1'});}
     catch {return json({ok: false}, 503);}
   }
-  const inbox=new URL(request.url).pathname === '/api/messages';const files=new URL(request.url).pathname.startsWith('/api/order-files');
-  if (!inbox && !files && new URL(request.url).pathname !== '/api/demo') return json({error: 'Ruta no encontrada.'}, 404);
+  const inbox=new URL(request.url).pathname === '/api/messages';const files=new URL(request.url).pathname.startsWith('/api/order-files');const fuji=new URL(request.url).pathname === '/api/fuji-escrow';
+  if (!inbox && !files && !fuji && new URL(request.url).pathname !== '/api/demo') return json({error: 'Ruta no encontrada.'}, 404);
   if (request.method === 'OPTIONS') return new Response(null, {status: 204, headers: h});
   if (!(inbox?['GET']:['GET','POST']).includes(request.method)) return json({error: 'Método no permitido.'}, 405);
   const token = request.headers.get('authorization')?.match(/^Bearer ([a-f0-9]{64})$/)?.[1];
@@ -56,6 +61,7 @@ export async function handle(request: Request, env: Env): Promise<Response> {
   const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
   const id = Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, '0')).join('');
   if(files){try{return await handleOrderFiles(request,env,id,h);}catch(error){return json({error:error instanceof Error?error.message:'No se pudo guardar el archivo.'},400);}}
+  if(fuji){try{return await handleFujiEscrow(request,env,id,h);}catch(error){return json({error:error instanceof Error?error.message:'No se pudo verificar el recibo.'},400);}}
   let command: Command | null = null;
   try {
     if (request.method === 'POST') {
@@ -74,6 +80,7 @@ export async function handle(request: Request, env: Env): Promise<Response> {
       if(inbox)return json({revision:loaded.revision,orderThreads:loaded.orderThreads??[]});
       const state=reduceDemoProjects(loaded);
       if(command?.type==='orderchat.send'){const payload=command.payload as Record<string,unknown>;try{payload.attachments=await storedAttachments(env,id,String(payload.orderId),payload.attachments);}catch(error){return json({error:error instanceof Error?error.message:'Adjuntos inválidos.'},400);}}
+      if(command?.type==='fuji.checkout')command=stampFujiCheckout(command,env);
       let next = state;
       if (command) {
         try {next = applyCommand(state, command);}
