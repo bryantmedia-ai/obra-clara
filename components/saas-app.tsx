@@ -16,7 +16,6 @@ import {PurchasesWorkspace} from './purchases-workspace';
 import {SharedOrders} from "./shared-orders";
 import {BrickPage,BrickPopupHost} from "./brick-chat";
 import {openBrick} from "./brick-store";
-import {TransportCatalog} from "./transport-catalog";
 import {CartPage} from "./cart-page";
 import {CartPopup} from "./cart-popup";
 import {ProductDetail} from "./product-detail";
@@ -84,8 +83,7 @@ const orders = [
 
 const routeTitles: Record<string, [string, string]> = {
   marketplace: ["Marketplace", "Materiales, proveedores y entregas para tu obra"],
-  transporte: ["Transporte y entrega", "Logística de obra"],
-  carrito: ["Carrito", "Compra y transporte"],
+  carrito: ["Carrito", "Compra de materiales"],
   proyectos: ["Proyectos", "Obras y destinos de entrega"],
   "mi-tienda": ["Mi tienda", "Cuenta proveedor"],
   dashboard: ["Resumen", "Operación de Constructora Madero SA"],
@@ -179,7 +177,6 @@ function Page({ route }: { route: Route }) {
   if (route === "mi-tienda") return <ProviderGateway/>;
   if (route.startsWith("productos/")) return <ProductDetail id={route.slice(10)}/>;
   if (route === "proyectos") return <ProjectsPage/>;
-  if (route === "transporte") return <TransportCatalog/>;
   if (route === "carrito") return <CartPage/>;
   if (route === "como-funciona") return <ProtectionLanding/>;
   if (route === "quienes-somos") return <AboutUs/>;

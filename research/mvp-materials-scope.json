@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-06",
+  "scope": "Materials marketplace and payment on delivery; freight marketplace removed",
+  "workerVersion": "d3b9a0c7-abe0-430e-acf8-f95190bd24dd",
+  "checks": {
+    "productionBuild": "passed",
+    "sharedOrders": "passed",
+    "pricingAndQuotes": "passed",
+    "procurementAndInventory": "passed",
+    "cloudflarePersistenceAndAttachments": "passed",
+    "materialOnlyCheckout": "passed"
+  },
+  "retained": [
+    "delivery confirmation",
+    "supplier dispatch",
+    "project destination",
+    "order documentation",
+    "protected payment records"
+  ],
+  "retired": [
+    "freight catalog",
+    "freight providers selection",
+    "cart freight booking",
+    "project freight rates",
+    "seller freight requests",
+    "freight notifications"
+  ],
+  "dataPolicy": "Historical shared records preserved; old cart freight ignored while material lines retained."
+}

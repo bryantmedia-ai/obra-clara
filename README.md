@@ -28,7 +28,7 @@ El proyecto que sirve `/api/demo` utiliza Vercel Blob privado con `BLOB_READ_WRI
 
 ## Funcionalidades
 
-- Marketplace de materiales, equipamiento y transportes, proveedores, filtros, favoritos y carrito mixto por proyecto.
+- Marketplace de materiales y equipamiento, proveedores, filtros, favoritos y carrito mixto por proyecto.
 - Proyectos con datos de recepción, logística, presupuestos, gráficos y gastos por fecha y proveedor.
 - Órdenes, entregas parciales, documentación con QR, inventario y movimientos.
 - Fondos, reservas, anticipos, aprobaciones, conciliación e historial.
@@ -55,8 +55,12 @@ Los dominios de producción se mantienen:
 
 Las variables de rol y el almacenamiento privado se administran en cada proyecto de Vercel; no se copian secretos al repositorio.
 
-## Transporte y entrega
+## Alcance del MVP: materiales y pago contra entrega
 
-El marketplace ofrece transportes como servicios independientes o vinculados a un producto o compra anterior. En el carrito se elige envío incluido del proveedor, transporte contratado en OC o retiro con transportista propio. Reemplazar un envío incluido requiere coordinar el retiro y no modifica automáticamente el precio del producto.
+Se retiró el marketplace de fletes: las rutas `/transporte` y `/transportes` redirigen al marketplace de materiales o a las órdenes de Ventas. No se pueden contratar viajes, cotizar fletes en Proyectos ni enviar nuevos servicios de transporte al backend.
 
-Las solicitudes persisten en el workspace y se gestionan en Transporte → Mis solicitudes, Compras → Entregas y Ventas → Transportes. El transportista cotiza, el comprador confirma y se registra salida y llegada. El flete se contabiliza por separado de los materiales: confirmar una tarifa no ejecuta pagos, no libera reservas y no conforma inventario. Los datos del transportista propio quedan asociados a la compra.
+La compra conserva proveedores, cantidades, proyectos y condiciones de envío incluido/no incluido. La coordinación de entrega o retiro se acuerda con el proveedor, por fuera de la contratación de servicios en OC. El carrito ignora servicios de flete antiguos sin perder sus líneas de materiales y envía `deliveryChoice: arranged`. La compra directa y la aceptación de una cotización ya no quedan pendientes de contratar un flete.
+
+Se mantienen las entregas de materiales dentro de Compras y los despachos en Ventas: recepción, cantidades conformadas, remitos, incidencias y habilitación de pagos contra entrega. Los registros históricos de viajes no se borran de los espacios compartidos.
+
+Validación específica: `node scripts/check-material-only-checkout.mjs`, además de las verificaciones de órdenes, cotizaciones, recepción e integración de Cloudflare.

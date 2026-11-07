@@ -49,12 +49,11 @@ export function ProductCard({product,offerCount=1,compared,compareDisabled,onCom
  const sale=product.saleLabel??`${product.pack} U`;
  const saleUnits=formatSaleUnits(product.pack,sale,product.unit);
  const presentation=product.unit.replace(/\bunidad(?:es)?\b/gi,"U");
- function addToCart(transport=false){
+ function addToCart(){
   if(!selection.valid||needsQuote)return;
   setQuantity(String(selectedQuantity));
-  const count=addCartProduct({id:product.id,priceRevision:product.priceRevision,name:product.name,supplier:product.supplier.name,supplierSlug:product.supplier.slug,minimumOrder,depositPercent:product.depositPercent??0,pickup:`Depósito ${product.supplier.name} · ${product.supplier.address}`,quantity:selectedQuantity,unitPrice:product.price,kg:product.kg,shippingIncluded:product.shippingIncluded,image:product.image,unit:product.unit,saleLabel:sale},{ensure:transport,maxQuantity});
-  if(transport)router.push(`/transporte?producto=${encodeURIComponent(cartProductLineId(product.id))}`);
-  else setAdded(count);
+  const count=addCartProduct({id:product.id,priceRevision:product.priceRevision,name:product.name,supplier:product.supplier.name,supplierSlug:product.supplier.slug,minimumOrder,depositPercent:product.depositPercent??0,pickup:`Depósito ${product.supplier.name} · ${product.supplier.address}`,quantity:selectedQuantity,unitPrice:product.price,kg:product.kg,shippingIncluded:product.shippingIncluded,image:product.image,unit:product.unit,saleLabel:sale},{maxQuantity});
+  setAdded(count);
  }
  return <article className="product-card cement-card">
   {onCompare&&<label className="retail-compare-checkbox"><input type="checkbox" checked={compared} disabled={compareDisabled} aria-label={`Comparar ${product.name}`} onChange={()=>onCompare(product.id)}/>Comparar</label>}
@@ -75,7 +74,7 @@ export function ProductCard({product,offerCount=1,compared,compareDisabled,onCom
    </div><div id={`${quantityId}-feedback`} className={`product-add-feedback${!selection.valid?" quantity-error":""}`} role="status">{!selection.valid?selection.message:added!==null?<>{added>0?`${added} ${added===1?"presentación agregada":"presentaciones agregadas"}`:"Alcanzaste el stock disponible"} · <Link href="/carrito">Ver carrito</Link></>:needsQuote?<>Precio final sujeto a la cotización del proveedor.</>:<>Total por {cartSaleUnits(selectedQuantity,sale,product.unit)}: <strong>{money(selectedQuantity*product.price)}</strong></>}</div></div>
    <button type="button" className={`button ${needsQuote?"primary":"secondary"} full product-quote-action`} disabled={!selection.valid} onClick={()=>setQuoteOpen(true)}>Solicitar cotización</button>
    {quoteOpen&&<QuoteRequest product={product} quantity={selectedQuantity} onClose={()=>setQuoteOpen(false)}/>}
-   {<button disabled={!selection.valid||needsQuote} className="button secondary full product-transport-action" onClick={()=>addToCart(true)}>{product.shippingIncluded?"Elegir otro transporte":"Agregar transporte"}</button>}
+
   </div></article>;
 }
 
@@ -149,7 +148,7 @@ function MarketplaceContent(){
    <div><h3>Pago protegido</h3><p className="muted">Reservá ARGt y pagá según la entrega confirmada.</p><Link href="/fondos" className="text-link">Ver fondos y pagos →</Link></div><div><button className="button secondary" onClick={clearFilters}>Limpiar filtros</button></div></aside></MobileFilters>
    <div className="market-results" id="cement-results">{showProducts&&<><div className="results-head"><div><p className="eyebrow">{favoritesOnly?`Favoritos · ${category}`:catalogDepartments.find(d=>d.id===filters.department)?.name??category} · {supplier?providers.find(s=>s.slug===supplier)?.name:`${sellerCount(filtered)} vendedores`}</p><h2>{listings.length} {listings.length===1?"producto":"productos"}</h2><p className="marketplace-offer-total">{filtered.length} ofertas publicadas por {sellerCount(filtered)} vendedores</p></div><select aria-label="Ordenar productos" value={sort} onChange={e=>setSort(e.target.value)}><option value="arrival">Entrega más rápida</option><option value="price">Menor precio</option><option value="price-desc">Mayor precio</option></select></div>
    <CatalogGrid resetKey={JSON.stringify([filters.purchaseMode,filters.content,filters.dimensions,filters.color,filters.sellerType,filters.companySize,filters.department,filters.minPrice,filters.maxPrice,selectedCategories,query,supplier,brand,size,today,shippingIncludedOnly,sort,favoritesOnly,productType,model,productId,referenceId])} items={listings.map(({offer:p,offers})=><ProductCard key={p.referenceId} product={p} offerCount={offers.length} compared={comparison.includes(p.id)} compareDisabled={comparison.length>=3&&!comparison.includes(p.id)} onCompare={id=>setComparison(current=>current.includes(id)?current.filter(x=>x!==id):current.length<3?[...current,id]:current)}/>)}/>
-   {filtered.length===0&&<div className="panel"><h3>{favoritesOnly&&!favoriteCount?"Todavía no tenés favoritos":"No encontramos productos con estos filtros."}</h3><p className="muted">{favoritesOnly&&!favoriteCount?"Tocá el corazón de un producto o transporte para guardarlo acá.":"Probá otra búsqueda, marca, presentación o proveedor."}</p><button className="button secondary" onClick={clearFilters}>Limpiar filtros</button></div>}</>}
+   {filtered.length===0&&<div className="panel"><h3>{favoritesOnly&&!favoriteCount?"Todavía no tenés favoritos":"No encontramos productos con estos filtros."}</h3><p className="muted">{favoritesOnly&&!favoriteCount?"Tocá el corazón de un producto para guardarlo acá.":"Probá otra búsqueda, marca, presentación o proveedor."}</p><button className="button secondary" onClick={clearFilters}>Limpiar filtros</button></div>}</>}
    {(selectedCategories.includes("Transporte y entrega")||(favoritesOnly&&!selectedCategories.length&&favoriteTransportCount>0))&&<TransportCatalog embedded favoritesOnly={favoritesOnly}/>}</div></section>{comparison.length>0&&<aside className="retail-compare-tray"><div><strong>{comparison.length} de 3 productos seleccionados</strong><span>{comparison.map(id=>catalogProducts.find(p=>p.id===id)?.name).filter(Boolean).join(" · ")}</span></div><button type="button" className="button secondary" onClick={()=>setComparison([])}>Limpiar</button><button type="button" className="button primary" disabled={comparison.length<2} onClick={()=>setCompareOpen(true)}>Comparar</button></aside>}{compareOpen&&<ProductComparison products={catalogProducts.filter(p=>comparison.includes(p.id))} onClose={()=>setCompareOpen(false)}/>}</div>;
 }
 
