@@ -85,6 +85,8 @@ El contrato `contracts/src/ObraClaraPartialEscrow.sol` usa SafeERC20, lee los de
 
 USDT en Fuji no tiene dirección confirmada por Tether. Las direcciones públicas de USDT y USDT.e son de mainnet (43114) y el código las rechaza. USDC de Circle en Fuji queda disponible solo si se configura de forma explícita; no es el reemplazo automático. Sin esa configuración el backend no confirma reservas y la interfaz no envía transacciones.
 
-No hay dirección de escrow ni enlace de explorer: nadie firmó el despliegue. Core tiene que firmarlo cuando exista el token. El bytecode sale de `forge build`. La migración D1 es aditiva: `cloudflare/migrations/0002_fuji_escrow.sql`. No está aplicada en producción.
+No hay dirección de escrow ni enlace de explorer: nadie firmó el despliegue. En Fondos está el botón "Firmar despliegue con Core". Queda apagado hasta que exista el USDT de prueba. El bytecode está en `lib/fuji-escrow-artifact.json`. Cómo publicarlo en el explorador: `contracts/VERIFY.md`. La migración D1 es aditiva: `cloudflare/migrations/0002_fuji_escrow.sql`. No está aplicada en producción.
+
+La vista previa de Vercel sigue hablando con el Worker actual. Registrar la orden ahí no crea la compra nueva hasta desplegar este Worker, y no debe hacerse contra la base de producción antes de revisarlo. Una prueba aislada usa `node scripts/check-fuji-escrow.mjs`, que no toca D1.
 
 Guion de demo, de menos de tres minutos: agregar 100 bolsas, registrar la orden, mostrar la misma orden en Ventas, explicar que el bloqueo espera el USDT de prueba, y mostrar en local el recibo de 80/100. Hasta que el recibo exista, 5, 4 y 1 son el guion, no un saldo.

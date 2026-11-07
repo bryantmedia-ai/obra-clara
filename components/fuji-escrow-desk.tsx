@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import Link from "next/link";
 import {refreshShared, sharedCommand, useShared, workspaceToken} from "./shared-demo";
 import {escrowListLabel, type FujiEscrowRecord} from "../lib/fuji-escrow";
-import {encodeApprove, encodeAuthorize, encodeFund, encodeRefund, encodeSettle} from "../lib/fuji-abi";
+import {encodeApprove, encodeAuthorize, encodeDeploy, encodeFund, encodeRefund, encodeSettle} from "../lib/fuji-abi";
 import {approveSteps} from "../lib/fuji-escrow";
 import {canMoveOfficialFunds, type AssetConfig} from "../lib/fuji-asset";
 import type {SharedOrder} from "../lib/demo-model";
@@ -27,7 +27,8 @@ export function FujiEscrowBoard({role, focus}: {role: "Compras" | "Ventas"; focu
   return <section className="fuji-wallet panel" aria-label="Compra de cemento en Fuji">
     <span className="fn-eyebrow">USDT EN FUJI · NO ES EL REGISTRO ARGt</span>
     <h2>Compra de 100 bolsas</h2>
-    <p>El guion es 5 USDT de prueba, 80 recibidas, 4 para el vendedor y 1 devuelto. Esos números no son un saldo hasta que el backend lea un recibo exitoso. Despachar no libera fondos. Anotar una recepción no liquida.</p>
+    <p>El guion es 100 bolsas de 50 kg, 5 USDT de prueba, 80 recibidas, 4 para el vendedor y 1 devuelto. Esos números no son un saldo hasta que el backend lea un recibo exitoso. Despachar no libera fondos. Anotar una recepción no liquida.</p>
+    <FujiDeploy/>
     {!orders.length && <p>Todavía no hay una orden de cemento en este espacio. Se crea desde el carrito, no desde este panel.</p>}
     {orders.map(order => <FujiOrderCard key={order.id} order={order} role={role}/>)}
   </section>;
@@ -84,7 +85,7 @@ function FujiOrderCard({order, role}: {order: SharedOrder; role: "Compras" | "Ve
   async function verify(kind: "deployment" | "fund" | "authorize" | "settle" | "refund", txHash: string) {
     const response = await fetch(endpoint(), {method: "POST", headers: {Authorization: "Bearer " + workspaceToken(), "Content-Type": "application/json"}, body: JSON.stringify({action: "verify", orderId: order.id, txHash, kind})});
     const data = await response.json();
-    if (!response.ok) throw new Error(data.error || data.verdict?.reason || "La verificación no pasó.");
+    if (!response.ok || data.verdict?.status === "rejected" || data.verdict?.status === "failed") throw new Error(data.error || data.verdict?.reason || "La verificación no pasó.");
     await refreshShared();
     return data.verdict as {status: string; reason: string};
   }
@@ -120,11 +121,13 @@ function FujiOrderCard({order, role}: {order: SharedOrder; role: "Compras" | "Ve
 
   const closed = escrow.phase === "liquidada" || escrow.phase === "reembolsada";
   return <article>
-    <p><strong>{order.id}</strong> · estado logístico compartido: {order.status}</p>
+    <p><strong>{order.id}</strong> · {order.lines[0]?.quantity ?? 100} × {order.lines[0]?.name}</p>
+    <p>Estado logístico compartido: {order.status}</p>
     <p>Estado financiero: {escrowListLabel(escrow, order.status)}</p>
     <p>{asset?.blocked || (official ? "Activo configurado. Las firmas las hace Core." : "Transacciones reales bloqueadas.")} {asset?.simulation ? "Simulación local: no es USDT oficial." : ""}</p>
     <p>Vendedor {escrow.seller || "sin dirección"} · Empleado {escrow.delegate || "sin autorización on-chain"} · Contrato {contract || "sin escrow verificado"}</p>
     <p><Link href={"/recepcion/" + order.id}>Comprobante de la orden</Link>. El enlace no autoriza fondos.</p>
+    <button className="button secondary" type="button" onClick={() => window.print()}>Imprimir comprobante</button>
     {role === "Ventas" && <button className="button primary" disabled={busy || escrow.phase !== "reservada" || order.status === "Despachada"} onClick={() => void run(async () => { await sharedCommand("fuji.dispatch", {orderId: order.id}); setMessage("Despacho registrado. No se liberaron fondos."); })}>Registrar despacho sin cobro</button>}
     {role === "Compras" && !closed && <>
       <label>Wallet del empleado<input value={delegate} onChange={event => setDelegate(event.target.value)} placeholder="0x… la carga el comprador, no se inventa"/></label>
@@ -139,4 +142,57 @@ function FujiOrderCard({order, role}: {order: SharedOrder; role: "Compras" | "Ve
     {!account && <p>Core: sin vincular en este navegador.</p>}
     {account && chain !== fujiChain && <p>Core está en otra red. Hace falta Fuji.</p>}
   </article>;
+}
+
+function FujiDeploy() {
+  const [asset, setAsset] = useState<AssetResponse>();
+  const [account, setAccount] = useState("");
+  const [chain, setChain] = useState("");
+  const [message, setMessage] = useState("");
+  const [busy, setBusy] = useState(false);
+  const official = !!asset && canMoveOfficialFunds(asset);
+  useEffect(() => {
+    let active = true;
+    void fetch(endpoint(), {headers: {Authorization: "Bearer " + workspaceToken()}, cache: "no-store"}).then(async response => {
+      const data = await response.json();
+      if (active) setAsset(data.asset);
+    }).catch(() => { if (active) setMessage("No se pudo consultar si el activo ya está habilitado."); });
+    const provider = core();
+    const sync = async () => {
+      if (!provider) { setAccount(""); setChain(""); return; }
+      try {
+        const [accounts, chainId] = await Promise.all([provider.request({method: "eth_accounts"}), provider.request({method: "eth_chainId"})]);
+        const next = Array.isArray(accounts) ? String(accounts[0] || "") : "";
+        setAccount(/^0x[a-fA-F0-9]{40}$/.test(next) ? next : "");
+        setChain(String(chainId || "").toLowerCase());
+      } catch { setAccount(""); setChain(""); }
+    };
+    void sync();
+    return () => { active = false; };
+  }, []);
+  async function deploy() {
+    if (!official || !asset?.address || asset.decimals == null) throw new Error(asset?.blocked || "USDT de Fuji no está confirmado. No se envía el despliegue.");
+    const provider = core();
+    if (!provider || !account) throw new Error("Abrí Chrome con Core y conectá la cuenta.");
+    if (chain !== fujiChain) throw new Error("Cambiá Core a Avalanche Fuji C-Chain.");
+    const artifact = await import("../lib/fuji-escrow-artifact.json");
+    const data = encodeDeploy(artifact.bytecode, asset.address, asset.decimals, 43113n);
+    const tx = await provider.request({method: "eth_sendTransaction", params: [{from: account, data}]}) as string;
+    const response = await fetch(endpoint(), {method: "POST", headers: {Authorization: "Bearer " + workspaceToken(), "Content-Type": "application/json"}, body: JSON.stringify({action: "verify", txHash: tx, kind: "deployment"})});
+    const body = await response.json();
+    if (!response.ok || body.verdict?.status !== "confirmed") throw new Error(body.error || body.verdict?.reason || "El despliegue no quedó verificado.");
+    await refreshShared();
+    const contract = body.deployment?.contract as string;
+    return {status: "confirmed", reason: `Contrato verificado por el backend: ${contract}. En el explorador de Fuji abrí esa dirección y publicá el código con el archivo contracts/VERIFY.md.`};
+  }
+  return <div>
+    <h3>Despliegue del escrow</h3>
+    <p>El botón arma la transacción de creación y la firma Core. Esta pantalla no tiene una clave y no despliega sola. Mientras falte el USDT de Fuji, el botón queda apagado.</p>
+    <button className="button primary" type="button" disabled={busy || !official} onClick={() => {
+      setBusy(true); setMessage("");
+      deploy().then(result => setMessage(result.reason)).catch(error => setMessage(error instanceof Error ? error.message : "No se pudo firmar el despliegue.")).finally(() => setBusy(false));
+    }}>Firmar despliegue con Core</button>
+    <p>Para verificar en el explorador: compilador 0.8.28, optimizador activo, 200 corridas, archivos ObraClaraPartialEscrow.sol y SafeERC20.sol. Los argumentos son el token configurado, sus decimales y 43113. La guía está en contracts/VERIFY.md.</p>
+    {message && <p role="status">{message}</p>}
+  </div>;
 }

@@ -26,6 +26,7 @@ function load(file) {
   return exports;
 }
 
+const catalog = load("components/marketplace-data.ts");
 const asset = load("lib/fuji-asset.ts");
 const hashing = load("lib/sha256.ts");
 const escrow = load("lib/fuji-escrow.ts");
@@ -62,6 +63,11 @@ assert.equal(asset.readAssetConfig({symbol: "USDT", address: asset.CIRCLE_FUJI_U
 const usdc = asset.readAssetConfig({symbol: "USDC", address: asset.CIRCLE_FUJI_USDC, decimals: "6"});
 assert.equal(usdc.ready, true);
 assert.equal(asset.canMoveOfficialFunds(asset.readAssetConfig({symbol: "USDT", address: "0x1111111111111111111111111111111111111111", decimals: "6", simulation: true})), false);
+const cement = catalog.completeMarketplaceCatalog.find(item => item.id === asset.LIVE_CEMENT_OFFER_ID);
+assert.equal(cement.unit, "Bolsa de 50 kg");
+assert.equal(cement.kg, 50);
+assert.ok(cement.stock >= 100);
+assert.ok((cement.minimumOrder ?? 1) <= 100);
 console.log("PASS asset config blocks mainnet USDT and does not fall back to USDC.");
 
 const database = new DatabaseSync(":memory:");
@@ -135,16 +141,24 @@ assert.equal((await chainRequest(null)).status, 200);
 let verified = await (await chainRequest({action: "verify", txHash: escrowDeploy.transactionHash, kind: "deployment"}, {path: "/api/fuji-escrow"})).json();
 assert.equal(verified.verdict.status, "confirmed", JSON.stringify(verified));
 assert.match(verified.verdict.reason, /Simulación local/);
-const fundedResponse = await chainRequest({id: "cement-funded", type: "fuji.checkout", payload: {mode: "partial", offerId: asset.LIVE_CEMENT_OFFER_ID, quantity: 100, projectId: project.id, seller, deadline: Math.floor(Date.now() / 1000) + 86400, delivery}});
+const fundedResponse = await chainRequest({id: "cement-funded", type: "fuji.checkout", payload: {mode: "partial", offerId: asset.LIVE_CEMENT_OFFER_ID, quantity: 100, projectId: project.id, seller, deadline: Math.floor(Date.now() / 1000) + 86400, delivery, amount: "1", token: asset.CIRCLE_FUJI_USDC, phase: "reservada", simulation: false}});
 assert.equal(fundedResponse.status, 200, await fundedResponse.clone().text());
 const funded = await fundedResponse.json();
 const live = funded.orders.find(item => item.requestId === "cement-funded");
 assert.equal(live.escrow.phase, "sin reserva");
 assert.equal(live.escrow.amount, "5000000");
 assert.equal(live.escrow.simulation, true);
+assert.equal(live.escrow.token, tokenAddress.toLowerCase());
+assert.equal(live.lines[0].quantity, 100);
+assert.match(live.lines[0].name, /Bolsa de 50 kg/);
 const data = abi.encodeFund({orderId: live.escrow.orderId, seller, quantity: 100n, unitPrice: 50_000n, amount: 5_000_000n, deadline: BigInt(live.escrow.deadline), asset: tokenAddress});
 const castData = await cast(["calldata", "fund(bytes32,address,uint256,uint256,uint256,uint64,address)", live.escrow.orderId, seller, "100", "50000", "5000000", live.escrow.deadline, tokenAddress]);
 assert.equal(data.toLowerCase(), castData.toLowerCase());
+const artifact = JSON.parse(fs.readFileSync("lib/fuji-escrow-artifact.json", "utf8"));
+const encodedDeploy = abi.encodeDeploy(artifact.bytecode, tokenAddress, 6, 43113n);
+const deployArgs = await cast(["abi-encode", "constructor(address,uint8,uint256)", tokenAddress, "6", "43113"]);
+assert.equal(encodedDeploy.toLowerCase(), (artifact.bytecode + deployArgs.slice(2)).toLowerCase());
+assert.ok(artifact.bytecode.startsWith("0x"));
 await send(["--from", buyer, tokenAddress, "approve(address,uint256)", escrowAddress, "20000000"]);
 const sellerBefore = units(await cast(["call", tokenAddress, "balanceOf(address)(uint256)", seller]));
 const fundTx = await send(["--from", buyer, escrowAddress, data]);
@@ -155,10 +169,34 @@ const again = await (await chainRequest({action: "verify", orderId: live.id, txH
 assert.equal(again.order.escrow.phase, "reservada");
 const dispatched = await (await chainRequest({id: "dispatch-cement", type: "fuji.dispatch", payload: {orderId: live.id}})).json();
 assert.equal(dispatched.orders.find(item => item.id === live.id).status, "Despachada");
+async function readAs(origin) {
+  const res = await worker.handle(new Request("https://api.example/api/demo", {headers: {Origin: origin, Authorization: "Bearer " + chainToken}}), env);
+  return (await res.json()).orders.find(item => item.id === live.id);
+}
+const buyerOrder = await readAs("https://obra-clara-comprador.vercel.app");
+const sellerOrder = await readAs("https://obra-clara-proveedor.vercel.app");
+assert.equal(buyerOrder.status, "Despachada");
+assert.equal(sellerOrder.status, "Despachada");
+assert.equal(buyerOrder.escrow.phase, sellerOrder.escrow.phase);
+assert.equal(buyerOrder.lines[0].name, sellerOrder.lines[0].name);
+const injected = await chainRequest({action: "verify", orderId: live.id, txHash: fundTx.transactionHash, kind: "fund", phase: "liquidada"}, {path: "/api/fuji-escrow"});
+assert.equal(injected.status, 400);
+const strict = await worker.handle(new Request("https://api.example/api/fuji-escrow", {method: "POST", headers: {Origin: "https://obra-clara-comprador.vercel.app", Authorization: "Bearer " + chainToken, "Content-Type": "application/json"}, body: JSON.stringify({action: "verify", orderId: live.id, txHash: fundTx.transactionHash, kind: "fund"})}), {...env, FUJI_ALLOW_LOCAL_CHAIN: ""});
+const strictBody = await strict.json();
+assert.equal(strictBody.verdict.status, "rejected");
+assert.match(strictBody.verdict.reason, /Fuji/);
+assert.equal((await readAs("https://obra-clara-comprador.vercel.app")).escrow.phase, "reservada");
 assert.equal(units(await cast(["call", tokenAddress, "balanceOf(address)(uint256)", seller])), sellerBefore);
 const authTx = await send(["--from", buyer, escrowAddress, "authorizeDelegate(bytes32,address)", live.escrow.orderId, employee]);
 verified = await (await chainRequest({action: "verify", orderId: live.id, txHash: authTx.transactionHash, kind: "authorize"}, {path: "/api/fuji-escrow"})).json();
 assert.equal(verified.order.escrow.delegate, employee.toLowerCase(), JSON.stringify(verified));
+const badAuth = await cast(["calldata", "authorizeDelegate(bytes32,address)", live.escrow.orderId, seller]);
+const badHash = await cast(["rpc", "--rpc-url", "http://127.0.0.1:8545", "eth_sendTransaction", JSON.stringify({from: buyer, to: escrowAddress, data: badAuth})]);
+const badReceipt = JSON.parse(await cast(["rpc", "--rpc-url", "http://127.0.0.1:8545", "eth_getTransactionReceipt", badHash]));
+assert.equal(badReceipt.status, "0x0");
+const sellerTry = await (await chainRequest({action: "verify", orderId: live.id, txHash: badHash, kind: "authorize"}, {path: "/api/fuji-escrow"})).json();
+assert.notEqual(sellerTry.verdict?.status, "confirmed");
+assert.equal((await readAs("https://obra-clara-proveedor.vercel.app")).escrow.delegate, employee.toLowerCase());
 const settleTx = await send(["--from", employee, escrowAddress, "settle(bytes32,uint256)", live.escrow.orderId, "80"]);
 verified = await (await chainRequest({action: "verify", orderId: live.id, txHash: settleTx.transactionHash, kind: "settle"}, {path: "/api/fuji-escrow"})).json();
 assert.equal(verified.verdict.status, "confirmed", JSON.stringify(verified));
@@ -173,9 +211,15 @@ const replay = await (await chainRequest({action: "verify", orderId: live.id, tx
 assert.equal(replay.order.escrow.sellerAmount, "4000000");
 console.log("PASS local chain receipt: 80 received, 4 paid, 1 refunded, dispatch did not pay, replay did not double.");
 
-const expiryResponse = await chainRequest({id: "cement-expiry", type: "fuji.checkout", payload: {mode: "expiry", offerId: asset.LIVE_CEMENT_OFFER_ID, quantity: 100, projectId: project.id, seller, deadline: Math.floor(Date.now() / 1000) + 90, delivery}});
+const expiryResponse = await chainRequest({id: "cement-expiry", type: "fuji.checkout", payload: {mode: "expiry", offerId: asset.LIVE_CEMENT_OFFER_ID, quantity: 100, projectId: project.id, seller, deadline: Math.floor(Date.now() / 1000) + 90, delivery, amount: "9"}});
 assert.equal(expiryResponse.status, 200, await expiryResponse.clone().text());
 const expiry = (await expiryResponse.json()).orders.find(item => item.requestId === "cement-expiry");
+assert.equal(expiry.lines[0].quantity, 100);
+assert.match(expiry.lines[0].name, /Bolsa de 50 kg/);
+const rebound = await (await chainRequest({action: "verify", orderId: expiry.id, txHash: fundTx.transactionHash, kind: "fund"}, {path: "/api/fuji-escrow"})).json();
+assert.notEqual(rebound.verdict.status, "confirmed");
+assert.equal(rebound.order.escrow.phase, "sin reserva");
+assert.equal(rebound.order.lines[0].quantity, 100);
 const expiryData = abi.encodeFund({orderId: expiry.escrow.orderId, seller, quantity: 100n, unitPrice: 50_000n, amount: 5_000_000n, deadline: BigInt(expiry.escrow.deadline), asset: tokenAddress});
 const expiryFund = await send(["--from", buyer, escrowAddress, expiryData]);
 verified = await (await chainRequest({action: "verify", orderId: expiry.id, txHash: expiryFund.transactionHash, kind: "fund"}, {path: "/api/fuji-escrow"})).json();

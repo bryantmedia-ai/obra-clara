@@ -38,6 +38,11 @@ export function encodeRefund(orderId: string) {
   return "0x" + escrowSelectors.refundExpired + word(orderId);
 }
 
+export function encodeDeploy(bytecode: string, token: string, decimals: number, chainId: bigint) {
+  const prefix = bytecode.startsWith("0x") ? bytecode : "0x" + bytecode;
+  return prefix + word(token) + word(BigInt(decimals)) + word(chainId);
+}
+
 export function encodeApprove(spender: string, amount: bigint) {
   return "0x095ea7b3" + word(spender) + word(amount);
 }

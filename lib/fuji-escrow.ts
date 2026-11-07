@@ -159,7 +159,7 @@ function checkout(s: EscrowState, payload: Record<string, unknown>, commandId: s
   };
   s.orders.unshift({
     id, requestId: commandId, supplierSlug: product.supplier.slug, supplier: product.supplier.name, project, delivery,
-    lines: [{id: product.id, name: product.name, image: product.image, quantity: LIVE_CEMENT_QUANTITY, received: 0, unitPrice: 0, pickup: `Depósito ${product.supplier.name} · ${product.supplier.address}`, depositPercent: 0, shippingIncluded: product.shippingIncluded, deliveryChoice: "arranged"}],
+    lines: [{id: product.id, name: `${product.name} · ${product.unit}`, image: product.image, quantity: LIVE_CEMENT_QUANTITY, received: 0, unitPrice: 0, pickup: `Depósito ${product.supplier.name} · ${product.supplier.address}`, depositPercent: 0, shippingIncluded: product.shippingIncluded, deliveryChoice: "arranged"}],
     status: "Pendiente", createdAt: now, updatedAt: now, transports: [], shippingPending: false, advanceApproved: false, paid: 0, receipts: [], escrow: record,
   });
 }
