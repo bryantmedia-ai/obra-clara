@@ -1,0 +1,10 @@
+/* Anchor the categories panel to the actual header height at every breakpoint. */
+.market-navigation{position:relative;min-width:0}
+.market-storefront .market-department-menu{top:calc(100% + 8px);z-index:60;background:#fff;max-height:min(600px,60dvh)}
+.market-storefront .market-department-content{background:#fff}
+.page-content .market-storefront .market-retail-search input:not([type=checkbox]):not([type=radio]):not([type=file]){border:0;border-radius:0;box-shadow:none;background:transparent;min-height:0}
+.page-content .market-storefront .market-retail-search input:focus-visible{outline:none}
+@media(max-width:760px){
+ .market-navigation{display:grid;gap:12px}
+ .market-storefront .market-department-menu{position:relative;top:auto;left:auto;right:auto;z-index:1;max-height:65dvh}
+}
