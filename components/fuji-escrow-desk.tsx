@@ -49,7 +49,7 @@ export function FujiEscrowBoard({role, focus}: {role: "Compras" | "Ventas"; focu
   const {state} = useShared();
   const [asset, setAsset] = useState<AssetResponse>();
   const [recordedContract, setRecordedContract] = useState("");
-  const orders = (state?.orders ?? []).filter(order => order.escrow && (!focus || order.id === focus));
+  const orders = (state?.orders ?? []).filter(order => order.escrow && (!focus || order.id.toLowerCase() === focus.toLowerCase()));
   useEffect(() => {
     let active = true;
     const load = () => fetch(endpoint(), {headers: {Authorization: "Bearer " + workspaceToken()}, cache: "no-store"}).then(async response => {
