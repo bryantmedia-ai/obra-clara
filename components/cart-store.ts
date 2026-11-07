@@ -1,5 +1,6 @@
 "use client";
 import {hackathonProductName, hackathonProductPrice} from "../lib/demo-product-price";
+import {LIVE_CEMENT_OFFER_ID, LIVE_CEMENT_PROJECT_ID} from "../lib/fuji-asset";
 import type {OrderDelivery} from "../lib/order-delivery";
 import {useEffect,useState} from "react";
 import {readProjects} from "./project-store";
@@ -12,13 +13,13 @@ export type CartTransport={replaceIncluded?:boolean;quoteId?:string;key:string;s
 export type CartState={deliveries?:Record<string,OrderDelivery>;products:CartProduct[];transports:CartTransport[];projectId:string};
 const empty:CartState={products:[],transports:[],projectId:""};
 const key="obra-clara-cart-v1";
-export function readCart():CartState{if(typeof window==="undefined")return empty;try{const s=JSON.parse(localStorage.getItem(key)??"null");return s&&Array.isArray(s.products)&&Array.isArray(s.transports)?{...s,transports:[],products:s.products.map((p:CartProduct)=>({...p,name:hackathonProductName(p.offerId??p.id,p.name),unitPrice:hackathonProductPrice(p.offerId??p.id),deliveryChoice:"arranged",projectId:p.projectId??s.projectId??""}))}:empty;}catch{return empty;}}
+export function readCart():CartState{if(typeof window==="undefined")return empty;try{const s=JSON.parse(localStorage.getItem(key)??"null");return s&&Array.isArray(s.products)&&Array.isArray(s.transports)?{...s,transports:[],products:s.products.map((p:CartProduct)=>({...p,name:hackathonProductName(p.offerId??p.id,p.name),unitPrice:hackathonProductPrice(p.offerId??p.id),deliveryChoice:"arranged",projectId:p.projectId||((p.offerId??p.id)===LIVE_CEMENT_OFFER_ID?LIVE_CEMENT_PROJECT_ID:s.projectId??"")}))}:empty;}catch{return empty;}}
 export function updateCart(change:(s:CartState)=>CartState){const next=change(readCart());localStorage.setItem(key,JSON.stringify(next));window.dispatchEvent(new Event("oc-cart-updated"));}
 export function normalizeQuantity(value:number,max=9999){return Math.max(1,Math.min(max,Number.isFinite(value)?Math.floor(value):1));}
 export function addCartProduct(p:CartProduct,{ensure=false,maxQuantity=9999}:{ensure?:boolean;maxQuantity?:number}={}){
  let added=0;
  updateCart(s=>{
-  const offerId=p.offerId??p.id;const projectId=p.projectId??s.projectId;const current=s.products.find(x=>(x.offerId??x.id)===offerId&&(x.projectId??s.projectId)===projectId);const lineId=s.products.some(x=>x.id===p.id)?offerId+"~"+crypto.randomUUID():p.id;
+  const offerId=p.offerId??p.id;const projectId=p.projectId??(offerId===LIVE_CEMENT_OFFER_ID?LIVE_CEMENT_PROJECT_ID:s.projectId);const current=s.products.find(x=>(x.offerId??x.id)===offerId&&(x.projectId??s.projectId)===projectId);const lineId=s.products.some(x=>x.id===p.id)?offerId+"~"+crypto.randomUUID():p.id;
   const requested=normalizeQuantity(p.quantity,maxQuantity);
   if(requested<(p.minimumOrder??1))return s;
   const quantity=current?Math.max(current.quantity,Math.min(maxQuantity,ensure?Math.max(current.quantity,requested):current.quantity+requested)):requested;

@@ -1,12 +1,19 @@
 "use client";
 import {DateInput} from './date-input';
 import {defaultOrderDelivery,type OrderDelivery} from '../lib/order-delivery';
+import {LIVE_CEMENT_OFFER_ID, LIVE_CEMENT_PROJECT_ID} from "../lib/fuji-asset";
 import {financeTodayFallback} from '../lib/procurement-source';
 import type {Project} from './project-data';
 import {projectCode} from './project-data';
 import {updateCart,type CartState} from './cart-store';
 
-export function checkoutDelivery(cart:CartState,project:Project){return cart.deliveries?.[project.id]??defaultOrderDelivery(project);}
+export function checkoutDelivery(cart:CartState,project:Project){
+ const saved=cart.deliveries?.[project.id];
+ if(saved)return saved;
+ const defaults=defaultOrderDelivery(project);
+ const demo=project.id===LIVE_CEMENT_PROJECT_ID&&cart.products.some(line=>line.projectId===project.id&&(line.offerId??line.id)===LIVE_CEMENT_OFFER_ID);
+ return demo?{...defaults,requestedDate:financeTodayFallback(),notes:project.notes||""}:defaults;
+}
 export function CheckoutDelivery({cart,projects}:{cart:CartState;projects:Project[]}){
  const destinations=projects.filter(p=>cart.products.some(line=>line.projectId===p.id));
  function patch(project:Project,change:Partial<OrderDelivery>){updateCart(s=>({...s,deliveries:{...s.deliveries,[project.id]:{...checkoutDelivery(s,project),...change}}}));}

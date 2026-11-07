@@ -107,4 +107,7 @@ export function canMoveOfficialFunds(asset: AssetConfig) {
 
 export const LIVE_CEMENT_OFFER_ID = "corralon-norte-loma";
 export const LIVE_CEMENT_QUANTITY = 100;
+export const LIVE_CEMENT_STOCK = 1000;
+export const LIVE_CEMENT_PROJECT_ID = "palermo-verificacion";
+export const LIVE_CEMENT_SELLER = "0x62d573cdb905919c5ef8b4159f1d9bb7fcb92eeb";
 export const LIVE_CEMENT_WHOLE_TOKENS = BigInt(5);

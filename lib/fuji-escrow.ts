@@ -1,7 +1,7 @@
 import {completeMarketplaceCatalog, type Product} from "../components/marketplace-data";
 import {projectReady, type Project} from "../components/project-data";
 import {validateOrderDelivery, type OrderDelivery} from "./order-delivery";
-import {AVALANCHE_CHAIN_ID, LIVE_CEMENT_OFFER_ID, LIVE_CEMENT_QUANTITY, LIVE_CEMENT_WHOLE_TOKENS, type AssetConfig, type AssetSymbol} from "./fuji-asset";
+import {AVALANCHE_CHAIN_ID, LIVE_CEMENT_OFFER_ID, LIVE_CEMENT_QUANTITY, LIVE_CEMENT_SELLER, LIVE_CEMENT_WHOLE_TOKENS, type AssetConfig, type AssetSymbol} from "./fuji-asset";
 import {sha256Hex} from "./sha256";
 
 export type FujiPhase = "activo pendiente" | "sin reserva" | "reserva pendiente" | "reservada" | "liquidación pendiente" | "liquidada" | "reembolso pendiente" | "reembolsada";
@@ -33,6 +33,7 @@ export type FujiEscrowRecord = {
   wholeTokens: "5";
   reception?: {name: string; quantity: number; signature: string; txHash: string};
   receiptEmailSentAt?: string;
+  demoAutoDispatch?: boolean;
 };
 export type FujiDeployment = {contract: string; token: string; decimals: string; symbol: AssetSymbol; simulation: boolean; tx: string; chainId?: number};
 
@@ -161,7 +162,9 @@ function checkout(s: EscrowState, payload: Record<string, unknown>, commandId: s
   const project = s.projects.find(item => item.id === payload.projectId);
   if (!product || !project || !projectReady(project)) fail("Elegí un proyecto activo y completo.");
   const delivery = validateOrderDelivery(payload.delivery, today);
+  const demoAutoDispatch = mode === "partial" && asset.symbol === "ARGt" && payload.demoAutoDispatch === true;
   const seller = addressOf(payload.seller, "la vendedora");
+  if (demoAutoDispatch && seller !== LIVE_CEMENT_SELLER) fail("La wallet del vendedor no coincide con Corralón Norte.");
   const nowSec = Math.floor(Date.parse(now) / 1000);
   const deadline = payload.deadline;
   if (typeof deadline !== "number" || !Number.isInteger(deadline)) fail("Definí el vencimiento de la orden.");
@@ -184,6 +187,7 @@ function checkout(s: EscrowState, payload: Record<string, unknown>, commandId: s
     token: readyToken, contract: linked && s.fujiDeployment ? s.fujiDeployment.contract : "", orderId: orderIdFor(id), buyer: "", seller,
     delegate: "", quantity: String(LIVE_CEMENT_QUANTITY), unitPrice: terms ? terms.unitPrice.toString() : "",
     amount: terms ? terms.amount.toString() : "", decimals: terms ? String(asset.decimals) : "", deadline: String(deadline),
+    ...(demoAutoDispatch ? {demoAutoDispatch} : {}),
     received: "", sellerAmount: "", buyerRefund: "", phase: ready ? "sin reserva" : "activo pendiente", dispatchedAt: "", attempts: [], wholeTokens: "5",
   };
   s.orders.unshift({
@@ -249,12 +253,12 @@ export function commitVerified(s: EscrowState, verdict: Verdict, now: string) {
     if (verdict.kind === "fund" && order.escrow.phase === "reserva pendiente") order.escrow.phase = "sin reserva";
     if (verdict.kind === "settle" && order.escrow.phase === "liquidación pendiente") order.escrow.phase = order.status === "Despachada" ? "reservada" : "reservada";
     if (verdict.kind === "refund" && order.escrow.phase === "reembolso pendiente") order.escrow.phase = "reservada";
-  } else applyConfirmed(s, order, verdict);
+  } else applyConfirmed(s, order, verdict, now);
   order.updatedAt = now;
   return s;
 }
 
-function applyConfirmed(s: EscrowState, order: EscrowOrder, verdict: Verdict) {
+function applyConfirmed(s: EscrowState, order: EscrowOrder, verdict: Verdict, now: string) {
   const escrow = order.escrow!;
   if (verdict.kind === "fund") {
     if (escrow.phase === "reservada" || escrow.phase === "liquidada" || escrow.phase === "reembolsada") fail("La orden ya tiene una reserva confirmada.");
@@ -262,6 +266,7 @@ function applyConfirmed(s: EscrowState, order: EscrowOrder, verdict: Verdict) {
     escrow.phase = "reservada";
     escrow.buyer = verdict.buyer || "";
     escrow.contract = verdict.contract || escrow.contract;
+    if (escrow.demoAutoDispatch) dispatch(s, {orderId: order.id}, now);
     return;
   }
   if (verdict.kind === "authorize") {

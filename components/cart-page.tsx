@@ -7,9 +7,9 @@ import {directPriceIssue} from "../lib/pricing-model";
 import {QuoteRequest} from "./quote-request";
 import type {Product} from "./marketplace-data";
 import {priceDate} from "./pricing-ui";
-import {sharedCommand,useShared} from "./shared-demo";
-import {LIVE_CEMENT_OFFER_ID} from "../lib/fuji-asset";
-import {EscrowPurchaseNote} from "./fuji-escrow-desk";
+import {sharedCommand} from "./shared-demo";
+import {LIVE_CEMENT_OFFER_ID,LIVE_CEMENT_QUANTITY,LIVE_CEMENT_SELLER} from "../lib/fuji-asset";
+import {useRouter} from "next/navigation";
 import {BuyerIdentity} from "./buyer-identity";
 import {groupVendorOrders} from "./vendor-orders";
 import {shortSaleLabel} from "./sale-units";
@@ -25,9 +25,10 @@ const money=(n:number)=>`${n.toLocaleString("es-AR")} ARGt`;
 
 
 export function CartPage(){
- const [submitting,setSubmitting]=useState(false);const [seller,setSeller]=useState("");const attempt=useRef({fingerprint:"",id:""});
+ const [submitting,setSubmitting]=useState(false);const attempt=useRef({fingerprint:"",id:""});
+ const router=useRouter();
  const catalog=useSupplierOffers();const [quoteProduct,setQuoteProduct]=useState<{product:Product;quantity:number}|null>(null);
- const cart=useCart();const {state}=useShared();const existingOrders=(state?.orders??[]).filter(o=>o.status!=="Cancelada");const projects=useProjects();const [notice,setNotice]=useState("");
+ const cart=useCart();const projects=useProjects();const [notice,setNotice]=useState("");
  const projectOptions=projects.map(p=><option key={p.id} value={p.id}>{projectCode(p)} · {p.name}{!projectReady(p)?" · Completar datos":""}</option>);
  function assignProject(productId:string,projectId:string){
   const project=projects.find(p=>p.id===projectId);setNotice("");
@@ -38,6 +39,25 @@ export function CartPage(){
  const pricingIssues=cart.products.flatMap(p=>{const offer=catalog.find(o=>o.id===(p.offerId??p.id));if(!offer)return [`${p.name}: producto no disponible.`];const issue=directPriceIssue(offer);return issue?[`${p.name}: ${issue}`]:offer.price!==p.unitPrice||(p.priceRevision??0)!==(offer.priceRevision??0)?[`${p.name}: revisá y confirmá el precio vigente.`]:[];});
  const deliveryIssues=projects.filter(project=>cart.products.some(p=>p.projectId===project.id)).flatMap(project=>{try{validateOrderDelivery(checkoutDelivery(cart,project),financeTodayFallback());return [];}catch(error){return [project.name+": "+(error instanceof Error?error.message:"Revisá la entrega.")];}});
  const issues=[...cartProjectIssues(cart,projects),...deliveryIssues];
+ const demoLine=cart.products.length===1&&(cart.products[0].offerId??cart.products[0].id)===LIVE_CEMENT_OFFER_ID?cart.products[0]:undefined;
+ const demoOffer=catalog.find(offer=>offer.id===LIVE_CEMENT_OFFER_ID);
+ const demoProject=projects.find(project=>project.id===demoLine?.projectId);
+ const canReserve=!!demoLine&&demoLine.quantity===LIVE_CEMENT_QUANTITY&&!!demoOffer&&demoOffer.stock>=LIVE_CEMENT_QUANTITY&&!issues.length&&!pricingIssues.length;
+ async function reserve(mode:"partial"|"expiry"){
+  if(submitting||!canReserve||!demoProject||!demoLine)return;
+  setSubmitting(true);
+  setNotice("");
+  try{
+   const delivery=checkoutDelivery(cart,demoProject);
+   const fingerprint=JSON.stringify({mode,projectId:demoProject.id,delivery});
+   if(attempt.current.fingerprint!==fingerprint)attempt.current={fingerprint,id:crypto.randomUUID()};
+   const deadline=Math.floor(Date.now()/1000)+(mode==="partial"?7*86400:180);
+   await sharedCommand("fuji.checkout",{mode,offerId:LIVE_CEMENT_OFFER_ID,quantity:LIVE_CEMENT_QUANTITY,projectId:demoProject.id,seller:LIVE_CEMENT_SELLER,deadline,delivery,demoAutoDispatch:mode==="partial"},attempt.current.id);
+   updateCart(state=>({...state,products:state.products.filter(product=>product.id!==demoLine.id)}));
+   router.push("/compras");
+  }catch(error){setNotice(error instanceof Error?error.message:"No se pudo preparar la reserva.");}
+  finally{setSubmitting(false);}
+ }
  const bulkProjectId=cart.products.length&&cart.products.every(p=>p.projectId===cart.products[0].projectId)?cart.products[0].projectId??"":"";const selectedProject=projects.find(p=>p.id===bulkProjectId);
  return <div className="cart-layout" data-product-count={cart.products.length}>{quoteProduct&&<QuoteRequest product={quoteProduct.product} quantity={quoteProduct.quantity} onClose={()=>setQuoteProduct(null)}/>}<div className="cart-items"><section className="panel"><div className="section-head"><h2>Tu compra de materiales</h2><Link href="/marketplace">Seguir comprando →</Link></div>
   <label className="cart-field cart-bulk-project">Asignar todos los productos a un proyecto<select value={bulkProjectId} onChange={e=>assignProject("",e.target.value)}><option value="" disabled>{new Set(cart.products.map(p=>p.projectId).filter(Boolean)).size>1?"Carrito mixto · destinos individuales":"Elegí un proyecto para asignar a todos"}</option>{projectOptions}</select></label>
@@ -56,13 +76,13 @@ export function CartPage(){
   <button className="cart-split-project" onClick={()=>{updateCart(s=>({...s,products:[...s.products,{...p,id:(p.offerId??p.id)+"~"+crypto.randomUUID(),offerId:p.offerId??p.id,quantity:p.minimumOrder??1,projectId:""}]}));setNotice("Producto agregado en otra línea. Asignale el proyecto y la cantidad de destino.");}}>Agregar este producto para otro proyecto</button><button className="cart-remove" onClick={()=>{setNotice("");updateCart(s=>({...s,products:s.products.filter(x=>x.id!==p.id),transports:s.transports.map(t=>t.productId===p.id?{...t,productId:"",pickup:"",quoteId:undefined}:t)}));}}>Quitar producto</button></div></article>;})}
  {!cart.products.length&&!cart.transports.length&&<section className="panel cart-empty"><h2>Tu carrito está vacío</h2><p>Agregá los materiales que necesita tu obra.</p><Link className="button primary" href="/marketplace">Buscar productos</Link></section>}
  </div><aside className="panel cart-summary"><h2>Resumen</h2><div className="row"><span>Órdenes por vendedor</span><strong>{vendorOrders.length}</strong></div><div className="row"><span>Productos</span><strong>{cart.products.length}</strong></div><div className="row"><span>Proyectos de destino</span><strong>{new Set([...cart.products,...cart.transports].map(p=>p.projectId).filter(Boolean)).size}</strong></div><div className="row total"><span>Total de materiales</span><strong>{money(total)}</strong></div>
- <BuyerIdentity/>
- <EscrowPurchaseNote/>
- <p>La bolsa de cemento (Demo) cuesta 0,05 ARGt. Con 100 bolsas, el total del carrito y la reserva del escrow son 5 ARGt. La dirección del vendedor la escribís vos; el despliegue del contrato no la usa. El empleado se carga después y tampoco se inventa.</p>
- <label>Dirección del vendedor<input value={seller} onChange={event=>setSeller(event.target.value)} placeholder="0x… la carga el comprador, no se inventa"/></label>
- {issues.length>0&&<div className="project-required">Revisá el proyecto y los datos de entrega para continuar. <Link href="/proyectos">Completar proyectos →</Link></div>}
+ <BuyerIdentity compact/>
+ {demoLine&&<><div className="row"><span>Vendedor</span><strong>{demoLine.supplier}</strong></div><p className="cart-address" title={LIVE_CEMENT_SELLER}>Wallet del vendedor: {LIVE_CEMENT_SELLER.slice(0,10)}…{LIVE_CEMENT_SELLER.slice(-6)}</p></>}
+ {issues.length>0&&<p className="project-required">Revisá los datos de entrega para continuar.</p>}
  {pricingIssues.length>0&&<div className="pricing-error" role="status">{pricingIssues.map(issue=><p key={issue}>{issue}</p>)}</div>}
- <button className="button primary full" disabled={submitting||cart.products.length!==1||(cart.products[0].offerId??cart.products[0].id)!==LIVE_CEMENT_OFFER_ID||cart.products[0].quantity!==100||issues.length>0||!/^0x[a-fA-F0-9]{40}$/.test(seller)} onClick={async()=>{const line=cart.products[0];const projectId=line.projectId??cart.projectId;const errors=[...cartProjectIssues(cart,projects),...deliveryIssues];if(errors.length||line.quantity!==100){setNotice(errors.join(" ")||"La compra habilitada es exactamente 100 bolsas.");return;}setSubmitting(true);try{const fingerprint=JSON.stringify({line,seller});if(attempt.current.fingerprint!==fingerprint)attempt.current={fingerprint,id:crypto.randomUUID()};const deadline=Math.floor(Date.now()/1000)+7*86400;await sharedCommand("fuji.checkout",{mode:"partial",offerId:LIVE_CEMENT_OFFER_ID,quantity:100,projectId,seller,deadline,delivery:checkoutDelivery(cart,projects.find(project=>project.id===projectId)!)},attempt.current.id);attempt.current={fingerprint:"",id:""};updateCart(s=>({...s,products:[],transports:[],deliveries:{}}));setNotice("Orden registrada. El escrow de esta prueba reserva 5 ARGt. No se bloqueó nada: la reserva se firma después con Core, sobre el contrato desplegado.");}catch(e){setNotice(e instanceof Error?e.message:"No se pudo registrar la orden.");}finally{setSubmitting(false);}}}>{submitting?"Registrando…":"Registrar 100 bolsas"}</button>
- <button className="button secondary full" disabled={submitting||cart.products.length!==1||(cart.products[0].offerId??cart.products[0].id)!==LIVE_CEMENT_OFFER_ID||issues.length>0||!/^0x[a-fA-F0-9]{40}$/.test(seller)} onClick={async()=>{const line=cart.products[0];const projectId=line.projectId??cart.projectId;setSubmitting(true);try{await sharedCommand("fuji.checkout",{mode:"expiry",offerId:LIVE_CEMENT_OFFER_ID,quantity:100,projectId,seller,deadline:Math.floor(Date.now()/1000)+180,delivery:checkoutDelivery(cart,projects.find(project=>project.id===projectId)!)},crypto.randomUUID());setNotice("Orden de vencimiento corto registrada. Sin recepción, el reembolso es total y solo después del plazo, con recibo.");}catch(e){setNotice(e instanceof Error?e.message:"No se pudo registrar el vencimiento.");}finally{setSubmitting(false);}}}>Registrar vencimiento corto</button>
+ {demoLine&&demoLine.quantity!==LIVE_CEMENT_QUANTITY&&<p>Elegí 100 bolsas para reservar 5 ARGt.</p>}
+ {demoLine&&demoOffer&&demoOffer.stock<LIVE_CEMENT_QUANTITY&&<p>No hay 100 bolsas disponibles.</p>}
+ <button className="button primary full" disabled={submitting||!canReserve} onClick={()=>void reserve("partial")}>{submitting?"Preparando…":"Reservar"}</button>
+ {demoLine&&<details><summary>Opciones de prueba</summary><button className="button secondary full" disabled={submitting||!canReserve} onClick={()=>void reserve("expiry")}>Probar vencimiento corto</button></details>}
  <Link className="button secondary full" href="/proyectos">Gestionar proyectos</Link>{notice&&<div className="cart-notice" role="status">{notice}</div>}</aside></div>;
 }
