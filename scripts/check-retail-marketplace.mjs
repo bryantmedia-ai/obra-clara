@@ -26,3 +26,11 @@ assert.ok(market.deliveryRank('Hoy · 12:30')<market.deliveryRank('Mañana · 08
 assert.ok(market.deliveryRank('Mañana · 08:00')<market.deliveryRank('En 3 días'));
 assert.deepEqual(Array.from(links.readMarketFilters(new URL('https://example.com/?categoria=Transporte+y+entrega&categoria=Corral%C3%B3n').searchParams).categories),['Corralón']);
 console.log('PASS: delivery ordering uses day and time; retired freight category cannot reopen through saved URLs.');
+
+assert.equal(market.productCount(data.completeMarketplaceCatalog),186);
+assert.equal(data.completeMarketplaceCatalog.length,212);
+const duplicated=[{id:'offer-a',referenceId:'cement-25'},{id:'offer-b',referenceId:'cement-25'},{id:'offer-c',referenceId:'cement-50'}];
+assert.equal(market.productCount(duplicated),2,'Two vendor listings of the same product count as one product');
+assert.equal(market.productCount([{id:'custom-a'},{id:'custom-b'}]),2,'Products without a shared reference must remain distinct');
+assert.equal(market.productCount([]),0);
+console.log('PASS: product counts deduplicate supplier listings consistently and preserve custom products without references.');

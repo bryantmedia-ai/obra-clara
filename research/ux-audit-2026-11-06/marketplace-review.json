@@ -46,5 +46,14 @@
     "last_buyer_production_commit": "17688adda5f3f69a861cbafc3e64a3ee8dd5384f",
     "no_plan_purchased": true
   },
-  "local_preview": "http://localhost:3100/marketplace"
+  "local_preview": "http://localhost:3100/marketplace",
+  "count_followup": {
+    "unique_products": 186,
+    "internal_supplier_listings": 212,
+    "visible_result_count": "unique products only",
+    "categories_and_favorites": "deduplicated by shared reference",
+    "department_menu": "unique products",
+    "vendor_comparison": "per product, not a second catalog total",
+    "regression": "Two listings of one reference count as one product; distinct custom IDs without a reference remain distinct."
+  }
 }
