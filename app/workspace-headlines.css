@@ -1,0 +1,11 @@
+/* Page titles and primary workspace headlines share one responsive size. */
+:root{--workspace-headline-size:30px}
+.topbar .page-heading h1,.provider-header .page-heading h1,
+.page-content :is(.workspace-heading,.pc-head,.fn-toolbar,.pj-toolbar,.pj-head,.pricing-intro,.retail-account-intro,.seller-publish-entry,.market-introduction,.projects-intro)>h2,
+.page-content :is(.workspace-heading,.pc-head,.fn-toolbar,.pj-toolbar,.pj-head)>div>h2,
+.page-content .oc-overview .ov-heading-weather>h2,
+.page-content .directory-hero h2{
+ font-size:var(--workspace-headline-size);line-height:1.2;letter-spacing:-.7px;
+}
+@media(max-width:760px){:root{--workspace-headline-size:24px}}
+@media(max-width:374px){:root{--workspace-headline-size:20px}}
